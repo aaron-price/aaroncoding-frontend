@@ -7,6 +7,7 @@ import Hovers from "./6-hovers/Hovers"
 import Menus from "./7-menus/Menus"
 import MineSweeper from "./4-minesweeper/Minesweeper"
 import Zipper from "./5-zipper/Zipper"
+import UserAuth from "./11-userAuth/UserAuth"
 
 // Tags
 let preTags = {}
@@ -91,6 +92,13 @@ let contents = fromJS([
         title: "Api",
         day: 10,
         component: Api,
+        tags: applyTags(["ajax","api"]),
+    },
+
+    {
+        title: "User Authentication",
+        day: 11,
+        component: UserAuth,
         tags: applyTags(["ajax","api"]),
     },
 ])
