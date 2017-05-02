@@ -1,8 +1,9 @@
 {
-  "name": "Crucible",
+  "name": "AaronCodingFrontend",
   "version": "2.0.0",
   "private": true,
   "dependencies": {
+    "dotenv": "2.0.0",
     "gsap": "^1.19.1",
     "immutable": "^3.8.1",
     "react": "^15.5.4",
@@ -28,7 +29,6 @@
     "cross-spawn": "4.0.2",
     "css-loader": "0.26.1",
     "detect-port": "1.1.0",
-    "dotenv": "2.0.0",
     "enzyme": "^2.8.2",
     "eslint": "3.16.1",
     "eslint-config-react-app": "^0.6.2",
