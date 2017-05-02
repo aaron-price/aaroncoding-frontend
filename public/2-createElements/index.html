@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>My title</title>
+    <style>
+        body {
+            background-color: teal;
+            color: white;
+        }
+        .title {
+            cursor: pointer;
+        }
+        .body {
+            display: none;
+        }
+        input {
+            display: block;
+            margin: 1em;
+        }
+    </style>
+  </head>
+
+  <body>
+    <h1>sugar-free js form</h1>
+    <p>Goal: Take a js array and turn it into form fields</p>
+    <p>
+    Challenge: <br/>I may NOT use any React or any other framework/library/or syntactic sugar. Just plain ol' vanilla javascript creating elements
+    </p>
+    <form class="form">
+    </form>
+    
+    <script type="text/javascript">
+        // The array to render.
+        let fieldsArray = ["name", "password"];
+        
+        // js createElement works but injecting new elements into an existing container element. So I need to define that first.
+        let containerParent = document.getElementsByClassName("form")[0]
+        
+        // Map the array elements into DOM elements
+        fieldsArray.map(field => {
+            let formEl = document.createElement("INPUT");
+            formEl.setAttribute("name", field)
+            formEl.setAttribute("placeholder", field)
+            formEl.setAttribute("class", "form__" + field)    
+            containerParent.insertBefore(formEl, null )
+        })
+
+        // The submit button
+        let submit = document.createElement("INPUT");
+        submit.setAttribute("type", "submit");
+        submit.setAttribute("value", "Submit");
+        containerParent.insertBefore(submit, null)
+
+    </script>
+  
+  </body>
+</html>

@@ -1,0 +1,85 @@
+
+@mixin hovers() {
+  cursor: pointer;
+  margin: 1em;
+  background-color: #44AABB;
+  color: #FFF;
+  padding: 1em;
+  border-radius: 0.5em;
+  -webkit-border-radius:0.5em;
+  -moz-border-radius:0.5em;
+  border-radius:0.5em;
+  border-color: #448899;
+}
+
+.hovers__shadow1 {
+  @include hovers;
+    box-shadow: .1em .2em 0.5em #222222;
+    &:hover {
+      box-shadow: none;
+    }
+}
+
+.hovers__shadow2 {
+  @include hovers;
+  box-shadow: .1em .2em 0.5em #222222;
+  &:hover {
+    box-shadow: .3em .6em 0.5em #222222;
+  }
+}
+.hovers__shadow3 {
+  @include hovers;
+  box-shadow: .1em .2em 0.5em #222222;
+  &:hover {
+    box-shadow: .3em .6em 0.5em #222222 inset;
+  }
+}
+
+@mixin slide($originX, $originY, $scaleType, $scaleSize, $underline: false) {
+  @include hovers;
+  position: relative;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border-style: none;
+  z-index: 1;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @if($underline == false) {top: 0;}
+    @if($underline == true) {height: 4px;}
+    background: #FF0000;
+    transform: if($scaleType == "X", scaleX(0), scaleY(0));
+    transform-origin: $originX $originY;
+    transition-property: transform;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
+  }
+  &:hover {
+    &::before {
+      transform: if($scaleType == "X", scaleX($scaleSize), scaleY($scaleSize));
+      transform-origin: $originX $originY;
+      transition-property: transform;
+      transition-duration: .2s;
+      transition-timing-function: ease-out;
+    }
+  }
+}
+
+.hovers__colour1 { @include slide(0, 50%, "X", 1); }
+.hovers__colour2 { @include slide(0, 50%, "Y", 1); }
+.hovers__colour3 { @include slide(50%, 50%, "X", 1); }
+.hovers__colour4 { @include slide(100%, 100%, "X", 1); }
+.hovers__colour5 { @include slide(100%, 100%, "Y", 1); }
+.hovers__colour6 { @include slide(0, 0, "Y", 1); }
+
+.hovers__underline1 { @include slide(0, 50%, "X", 1, true); }
+.hovers__underline2 { @include slide(0, 50%, "Y", 1, true); }
+.hovers__underline3 { @include slide(50%, 50%, "X", 1, true); }
+.hovers__underline4 { @include slide(100%, 100%, "X", 1, true); }
+.hovers__underline5 { @include slide(100%, 100%, "Y", 1, true); }
+.hovers__underline6 { @include slide(0, 0, "Y", 1, true); }

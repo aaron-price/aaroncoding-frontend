@@ -1,0 +1,10 @@
+body {
+    background-color: teal;
+    color: white;
+}
+.title {
+    cursor: pointer;
+}
+.body {
+    display: none;
+}

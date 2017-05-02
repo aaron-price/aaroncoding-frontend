@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <title>My title</title>
+    <style>
+        body {
+            background-color: teal;
+            color: white;
+        }
+        .ball {
+            
+        }
+    </style>
+  </head>
+
+  <body>
+    <h1>Jezzball!</h1>
+        <p>Jezzball is a game from the early 90s (I think) in which at least one ball bounces around a screen. You click to create a vertical or horizontal wall wherever you clicked, right clicking to change direction. </p>
+    <p>
+   Challenge: only use vim. Only vanilla javascript, with perhaps gsap for animation. No jquery or react, or illustrator. Try to keep it under an hour. 
+    </p>
+    <h2 class="points">Points: 0</h2>    
+    <h2 class="clickDir">Currently Vertical (click to change)</h2>
+    <br />
+    
+
+    <svg class="container" x="0" y="0" width="500" height="500" viewbox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <rect class="leftWall" x="10" y="0" width="10" height="500"/>
+      <rect class="rightWall" x="490" y="0" width="10" height="500"/>
+      <rect class="topWall" x="10" y="0" width="500" height="10"/>
+      <rect class="bottomWall" x="10" y="490" width="500" height="10"/>
+      <circle class="ball" r="20" /> 
+    </svg>    
+    <script type="text/javascript">
+        const framerate = 25;
+        const mvSpeed = 5; 
+        let ball = document.getElementsByClassName("ball")[0];
+        let container = document.getElementsByClassName("container")[0];
+        let ballR = 20;
+        let dirText = document.getElementsByClassName("clickDir")[0];
+        let rightWall = document.getElementsByClassName("rightWall")[0];
+        let leftWall = document.getElementsByClassName("leftWall")[0];
+        let topWall = document.getElementsByClassName("topWall")[0];
+        let bottomWall = document.getElementsByClassName("bottomWall")[0];
+        let rightWallPos = 490;
+        let leftWallPos = 10 + 10;
+        let topWallPos = 0 + 10;
+        let bottomWallPos = 490;
+        let points = 0;
+        let pointsText = document.getElementsByClassName("points")[0];
+        let xDir = mvSpeed;
+        let yDir = mvSpeed;
+        let xCurr = 400;
+        let yCurr = 150;
+        let gameStatus = "running"
+        // Update current position of ball
+        function setPos() {
+          xCurr += xDir;
+          yCurr += yDir;
+          ball.style.cx = xCurr;
+          ball.style.cy = yCurr;
+        }
+        setPos();
+
+
+        // collision handling
+        function bounce() {
+          let bouncing = false  
+            if(xCurr + ballR >= rightWallPos || xCurr - ballR <= leftWallPos){
+                // reverse x
+                xDir *= -1;
+                xCurr += xDir * 2;
+                bouncing = true;
+            }
+            if(yCurr + ballR >= bottomWallPos || yCurr - ballR <= topWallPos){
+                // reverse y
+                yDir *= -1;
+                yCurr += yDir * 2;
+                bouncing = true;
+            }
+            bouncing && setPos();
+        }
+
+        let pt = container.createSVGPoint();
+        let clickDir = "Vertical";
+         
+            function changeClickDir() {
+                clickDir = clickDir === "Vertical" ? "Horizontal" : "Vertical";
+                dirText.innerHTML = clickDir;
+            }
+        dirText.addEventListener("click", changeClickDir, false);
+
+        function getClickPosition(e) {
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            return pt.matrixTransform(container.getScreenCTM().inverse());
+        }
+        function createWall(e) {
+            const pt = getClickPosition(e);
+
+            if(clickDir === "Vertical") {
+                if(pt.x > xCurr + ballR) {
+                    rightWall.style.x = pt.x
+                    rightWallPos = pt.x
+                    points += 1;
+                } else if(pt.x < xCurr - ballR) {
+                    points += 1;
+                    leftWall.style.x = pt.x
+                    leftWallPos = pt.x
+                } else {
+                    gameStatus = "over"
+                    clearInterval(animation);
+                }
+            } 
+            
+            if(clickDir === "Horizontal") {
+                if(pt.y > yCurr + ballR) {
+                    points += 1;
+                    bottomWall.style.y = pt.y
+                    bottomWallPos = pt.y
+                } else if(pt.y < yCurr - ballR) {
+                    points += 1;
+                    topWall.style.y = pt.y
+                    topWallPos = pt.y
+                } else {
+                    gameStatus = "over"
+                    clearInterval(animation);
+                }
+            }
+            pointsText.innerHTML = gameStatus !== "over" ? `Points: ${points}` : `Points: ${points}. GAME OVER!` 
+        }
+
+        container.addEventListener("click", createWall, false);
+        
+        // The animation loop
+        let animation = setInterval(()=>{
+          setPos();
+          bounce();
+
+        }, framerate)
+
+
+
+    </script>
+  
+  </body>
+</html>
