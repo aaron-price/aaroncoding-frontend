@@ -2,6 +2,11 @@
   "name": "AaronCodingFrontend",
   "version": "2.0.0",
   "private": true,
+  "engines": {
+    "node": "7.8.0",
+    "npm": "4.2.0",
+    "yarn": "0.21.3"
+  },
   "dependencies": {
     "dotenv": "2.0.0",
     "gsap": "^1.19.1",
@@ -65,9 +70,10 @@
     "whatwg-fetch": "2.0.2"
   },
   "scripts": {
-    "start:dev": "node scripts/start.js",
-    "start": "npm run build && node_modules/serve/bin/serve.js -s build",
+    "start": "node scripts/start.js",
+    "start:prod": "node_modules/serve/bin/serve.js -s build",
     "build": "node scripts/build.js",
+    "postinstall": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "lint": "eslint src/* --fix"
   },
