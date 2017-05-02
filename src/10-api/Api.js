@@ -7,10 +7,24 @@ class Api extends Component {
         this.clickHandler = this.clickHandler.bind(this)
     }
 
+    handleErrors(response) {
+        if (!response.ok) {
+            this.setState({text: [{id: -1, body: "Hmm, I can't connect right now."}]})
+            throw Error(response.statusText)
+        }
+        return response
+    }
+
     clickHandler() {
+        this.setState({text: [{id: -1, body: "Calling server"}]})
+
         fetch("/demo")
+            .then(this.handleErrors)
             .then(res => res.json())
             .then(text => this.setState({ text }))
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {
