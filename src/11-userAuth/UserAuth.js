@@ -1,34 +1,58 @@
 import React, { Component } from "react"
 import RaisedButton from "material-ui/RaisedButton"
+import $ from "jquery"
 
 class Api extends Component {
     constructor(props) {
         super(props)
-        this.state = {text: []}
-        this.clickHandler = this.clickHandler.bind(this)
+        this.state = {
+            users: ["waiting...."],
+            status: "Ready",
+        }
+        this.createUser = this.createUser.bind(this)
+        this.displayUsers = this.displayUsers.bind(this)
     }
 
     handleErrors(response) {
         if (!response.ok) {
-            this.setState({text: [{id: -1, body: "Hmm, I can't connect right now."}]})
+            this.setState({text: [{id: -1, body: `Error: ${response.statusText}`}]})
             throw Error(response.statusText)
         }
         return response
     }
 
-    clickHandler() {
-        this.setState({text: [{id: -1, body: "Calling server"}]})
-        const prod = "https://aaroncoding-backend.herokuapp.com/api/demo"
-        const local = "http://localhost:3001/api/demo"
 
-        fetch(prod)
-            .then(this.handleErrors)
-            .then(res => res.json())
-            .then(text => this.setState({ text }))
-            .catch(err => {
-                console.log(err)
-            })
+    createUser(e) {
+        e.preventDefault()
+        const prod = "https://aaroncoding-backend.herokuapp.com/api/users/new"
+        const local = "http://localhost:3001/api/users/new"
+        const username = this.refs.username.value
+        const password = this.refs.password.value
+
+        $.ajax({
+            url: local,
+            method: "POST",
+            data: {username, password},
+        }).done((res) => {
+            let msg = res.message
+            msg ? this.setState({users: msg})
+                : console.log("AJAX error: ", res)
+        })
     }
+
+    displayUsers() {
+        const prod = "https://aaroncoding-backend.herokuapp.com/api/users/new"
+        const local = "http://localhost:3001/api/users/new"
+        $.ajax(local, {
+            url: local,
+            method: "GET",
+        }).done((res) => {
+            let msg = res.message
+            msg ? this.setState({users: msg})
+                : console.log("AJAX error: ", res)
+        })
+    }
+
 
     render() {
         return (
@@ -37,11 +61,11 @@ class Api extends Component {
                 <form>
                     <div>
                         <label>Username: </label>
-                        <input ref="name" type="text" name="name"/>
+                        <input ref="username" type="text" name="username"/>
                     </div>
                     <div>
                         <label>Password: </label>
-                        <input ref="pass" type="password" name="pass"/>
+                        <input ref="password" type="password" name="password"/>
                     </div>
                     <div>
                         <RaisedButton
@@ -50,6 +74,22 @@ class Api extends Component {
                         />
                     </div>
                 </form>
+                <br />
+                <h4>Existing users</h4>
+                <ul>{this.displayUsers()}</ul>
+                <h4>Users:</h4>
+                <ul>
+                    {this.state.users.map((user, key) => {
+                        return <li key={key}>
+                            <p>id:{user._id}, username: {user.username}, password: {user.password}</p>
+                            <RaisedButton
+                                label="delete"
+                                onClick={(e) => this.deleteUser(e, user._id)}
+                            />
+                        </li>
+                    })}
+                </ul>
+
             </div>
         )
     }
