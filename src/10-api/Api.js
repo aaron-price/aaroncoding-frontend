@@ -7,10 +7,26 @@ class Api extends Component {
         this.clickHandler = this.clickHandler.bind(this)
     }
 
+    handleErrors(response) {
+        if (!response.ok) {
+            this.setState({text: [{id: -1, body: "Hmm, I can't connect right now."}]})
+            throw Error(response.statusText)
+        }
+        return response
+    }
+
     clickHandler() {
-        fetch("/demo")
+        this.setState({text: [{id: -1, body: "Calling server"}]})
+        const prod = "https://aaroncoding-backend.herokuapp.com/api/demo"
+        const local = "http://localhost:3001/api/demo"
+
+        fetch(prod)
+            .then(this.handleErrors)
             .then(res => res.json())
             .then(text => this.setState({ text }))
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {
@@ -18,7 +34,8 @@ class Api extends Component {
             <div className="App">
                 <h1>API</h1>
                 <div className="api__frontend">
-                    This text is in your browser. Let's grab something from a separate server:<br />
+                    Today I deployed 2 apps to Heroku. You are looking at one of them. The other is strictly a backend api server. Let's say hi to it!<br />
+                    <br />
                     <button onClick={() => this.clickHandler()}>Make API GET request</button>
                 </div>
                 <hr />

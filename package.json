@@ -1,18 +1,13 @@
 {
-  "name": "Crucible",
+  "name": "AaronCodingFrontend",
   "version": "2.0.0",
   "private": true,
-  "dependencies": {
-    "gsap": "^1.19.1",
-    "immutable": "^3.8.1",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-redux": "^5.0.4",
-    "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1",
-    "redux": "^3.6.0"
+  "engines": {
+    "node": "7.8.0",
+    "npm": "4.2.0",
+    "yarn": "0.21.3"
   },
-  "devDependencies": {
+  "dependencies": {
     "autoprefixer": "6.7.2",
     "babel-core": "6.22.1",
     "babel-eslint": "7.1.1",
@@ -21,9 +16,9 @@
     "babel-preset-react-app": "^2.2.0",
     "babel-runtime": "^6.20.0",
     "case-sensitive-paths-webpack-plugin": "1.1.4",
-    "chalk": "1.1.3",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "chalk": "1.1.3",
     "connect-history-api-fallback": "1.3.0",
     "cross-spawn": "4.0.2",
     "css-loader": "0.26.1",
@@ -40,21 +35,33 @@
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.10.0",
     "fs-extra": "0.30.0",
+    "gsap": "^1.19.1",
     "html-webpack-plugin": "2.24.0",
     "http-proxy-middleware": "0.17.3",
+    "immutable": "^3.8.1",
     "jest": "18.1.0",
+    "jquery": "^3.2.1",
     "jsdom": "^10.0.0",
     "json-loader": "0.5.4",
+    "material-ui": "^0.18.0",
     "mocha": "^3.3.0",
     "node-sass": "^4.5.2",
     "object-assign": "4.1.1",
     "postcss-loader": "1.2.2",
     "promise": "7.1.1",
+    "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
     "react-dev-utils": "^0.5.2",
+    "react-dom": "^15.5.4",
     "react-immutable-proptypes": "^2.1.0",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-tap-event-plugin": "^2.0.1",
     "react-test-renderer": "^15.5.4",
+    "redux": "^3.6.0",
     "sass-loader": "^6.0.3",
+    "serve": "^5.1.4",
     "sinon": "^2.1.0",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
@@ -63,13 +70,16 @@
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.2"
   },
+  "devDependencies": {},
   "scripts": {
     "start": "node scripts/start.js",
+    "start:prod": "node_modules/serve/bin/serve.js -s build",
     "build": "node scripts/build.js",
+    "postinstall": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "lint": "eslint src/* --fix"
   },
-  "proxy": "https://aaroncoding-backend.herokuapp.com",
+  "proxy": "http://localhost:3001",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"

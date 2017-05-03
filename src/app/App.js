@@ -4,7 +4,6 @@ import { BrowserRouter as Router } from "react-router-dom"
 import { Provider } from "react-redux"
 import Menu from "./Menu"
 import Body from "./Body"
-import ImmutablePropTypes from "react-immutable-proptypes"
 import PropTypes from "prop-types"
 
 
