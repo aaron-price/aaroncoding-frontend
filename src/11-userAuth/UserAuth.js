@@ -1,6 +1,9 @@
 import React, { Component } from "react"
 import RaisedButton from "material-ui/RaisedButton"
 import $ from "jquery"
+const prod = "https://aaroncoding-backend.herokuapp.com/api/users/new"
+const local = "http://localhost:3001/api/users/new"
+const URI = prod
 
 class Api extends Component {
     constructor(props) {
@@ -24,13 +27,11 @@ class Api extends Component {
 
     createUser(e) {
         e.preventDefault()
-        const prod = "https://aaroncoding-backend.herokuapp.com/api/users/new"
-        const local = "http://localhost:3001/api/users/new"
         const username = this.refs.username.value
         const password = this.refs.password.value
 
         $.ajax({
-            url: local,
+            url: URI,
             method: "POST",
             data: {username, password},
         }).done((res) => {
@@ -41,10 +42,9 @@ class Api extends Component {
     }
 
     displayUsers() {
-        const prod = "https://aaroncoding-backend.herokuapp.com/api/users/new"
-        const local = "http://localhost:3001/api/users/new"
-        $.ajax(local, {
-            url: local,
+
+        $.ajax(URI, {
+            url: URI,
             method: "GET",
         }).done((res) => {
             let msg = res.message
