@@ -3,7 +3,7 @@ import RaisedButton from "material-ui/RaisedButton"
 import $ from "jquery"
 const prod = "https://aaroncoding-backend.herokuapp.com/api/users/new"
 const local = "http://localhost:3001/api/users/new"
-const URI = prod
+const URI = local
 
 class Api extends Component {
     constructor(props) {

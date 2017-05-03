@@ -1,4 +1,8 @@
 import React, { Component } from "react"
+const prod = "https://aaroncoding-backend.herokuapp.com/api/demo"
+const local = "http://localhost:3001/api/demo"
+const uri = prod
+
 
 class Api extends Component {
     constructor(props) {
@@ -17,10 +21,9 @@ class Api extends Component {
 
     clickHandler() {
         this.setState({text: [{id: -1, body: "Calling server"}]})
-        const prod = "https://aaroncoding-backend.herokuapp.com/api/demo"
-        const local = "http://localhost:3001/api/demo"
 
-        fetch(prod)
+
+        fetch(uri)
             .then(this.handleErrors)
             .then(res => res.json())
             .then(text => this.setState({ text }))
