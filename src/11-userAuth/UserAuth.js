@@ -86,7 +86,7 @@ class Api extends Component {
                                 label="delete"
                                 onClick={(e) => this.deleteUser(e, user._id)}
                             />
-                        </li>g
+                        </li>
                     })}
                 </ul>
 
