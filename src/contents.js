@@ -7,7 +7,9 @@ import Hovers from "./6-hovers/Hovers"
 import Menus from "./7-menus/Menus"
 import MineSweeper from "./4-minesweeper/Minesweeper"
 import Zipper from "./5-zipper/Zipper"
-import UserAuth from "./11-userAuth/UserAuth"
+import UserAuth from "./13-userAuth/UserAuth"
+import LoadingDoors from "./12-loadingDoors/LoadingDoors"
+import PaperDemo from "./11-Paper/Paper"
 
 // Tags
 let preTags = {}
@@ -20,6 +22,7 @@ buildTagsObj("api","RESTful APIs")
 buildTagsObj("buttons","Buttons")
 buildTagsObj("game","Game")
 buildTagsObj("hover","Hover Effect")
+buildTagsObj("material","Material UI")
 buildTagsObj("react","React")
 buildTagsObj("redux","Redux")
 buildTagsObj("sass","SASS / SCSS")
@@ -94,10 +97,21 @@ let contents = fromJS([
         component: Api,
         tags: applyTags(["ajax","api"]),
     },
-
+    {
+        title: "Paper Demo",
+        day: 11,
+        component: PaperDemo,
+        tags: applyTags(["animation", "react", "material"]),
+    },
+    {
+        title: "Loading doors",
+        day: 12,
+        component: LoadingDoors,
+        tags: applyTags(["animation", "react", "svg"]),
+    },
     {
         title: "User Authentication",
-        day: 11,
+        day: 13,
         component: UserAuth,
         tags: applyTags(["ajax","api"]),
     },
