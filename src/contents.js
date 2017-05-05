@@ -7,8 +7,7 @@ import Hovers from "./6-hovers/Hovers"
 import Menus from "./7-menus/Menus"
 import MineSweeper from "./4-minesweeper/Minesweeper"
 import Zipper from "./5-zipper/Zipper"
-import UserAuth from "./13-userAuth/UserAuth"
-import LoadingDoors from "./12-loadingDoors/LoadingDoors"
+import Container from "./12-loadingBar/LoadingBar"
 import PaperDemo from "./11-Paper/Paper"
 
 // Tags
@@ -22,6 +21,7 @@ buildTagsObj("api","RESTful APIs")
 buildTagsObj("buttons","Buttons")
 buildTagsObj("game","Game")
 buildTagsObj("hover","Hover Effect")
+buildTagsObj("jquery","JQuery")
 buildTagsObj("material","Material UI")
 buildTagsObj("react","React")
 buildTagsObj("redux","Redux")
@@ -104,16 +104,10 @@ let contents = fromJS([
         tags: applyTags(["animation", "react", "material"]),
     },
     {
-        title: "Loading doors",
+        title: "Loading Bar",
         day: 12,
-        component: LoadingDoors,
-        tags: applyTags(["animation", "react", "svg"]),
-    },
-    {
-        title: "User Authentication",
-        day: 13,
-        component: UserAuth,
-        tags: applyTags(["ajax","api"]),
+        component: Container,
+        tags: applyTags(["animation", "react", "jquery"]),
     },
 ])
 
