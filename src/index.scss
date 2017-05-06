@@ -1,9 +1,10 @@
+@import './app/App.scss';
+@import './4-minesweeper/minesweeper.scss';
 @import './6-hovers/hovers.scss';
 @import './9-filterSettings/filterSettings.scss';
 @import './11-Paper/paperdemo.scss';
 @import './12-loadingBar/loadingbar.scss';
-@import './4-minesweeper/minesweeper.scss';
-@import './app/App.scss';
+@import './13-memory/memory.scss';
 
 body {
   margin: 1em;
