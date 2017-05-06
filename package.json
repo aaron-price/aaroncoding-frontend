@@ -76,7 +76,7 @@
     "start": "node scripts/start.js",
     "start:prod": "node_modules/serve/bin/serve.js -s build",
     "build": "npm rebuild node-sass && node scripts/build.js",
-    "postinstall": "node scripts/build.js",
+    "postinstall": "npm rebuild node-sass && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "lint": "eslint src/* --fix"
   },
