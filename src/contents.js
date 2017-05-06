@@ -1,14 +1,16 @@
 import { fromJS } from "immutable"
 // Components
-import Api from "./10-api/Api"
-import FilterSettings from "./9-filterSettings/FilterSettings"
-import Gears from "./8-gears/Gears"
-import Hovers from "./6-hovers/Hovers"
-import Menus from "./7-menus/Menus"
 import MineSweeper from "./4-minesweeper/Minesweeper"
 import Zipper from "./5-zipper/Zipper"
-import Container from "./12-loadingBar/LoadingBar"
+import Hovers from "./6-hovers/Hovers"
+import Menus from "./7-menus/Menus"
+import Gears from "./8-gears/Gears"
+import FilterSettings from "./9-filterSettings/FilterSettings"
+import Api from "./10-api/Api"
 import PaperDemo from "./11-Paper/Paper"
+import Container from "./12-loadingBar/LoadingBar"
+import Memory from "./13-memory/Memory"
+
 
 // Tags
 let preTags = {}
@@ -108,6 +110,12 @@ let contents = fromJS([
         day: 12,
         component: Container,
         tags: applyTags(["animation", "react", "jquery"]),
+    },
+    {
+        title: "Memory Game",
+        day: 13,
+        component: Memory,
+        tags: applyTags(["game", "react"]),
     },
 ])
 
