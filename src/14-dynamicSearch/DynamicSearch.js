@@ -17,15 +17,13 @@ class DynamicSearchContainer extends React.Component {
         const text = e.target.value
         const newData = fromJS(data).filter(d =>
             (new RegExp(text,"ig")).test(d.get("first_name")) ||
-            (new RegExp(text,"ig")).test(d.get("last_name"))  ||
-            (new RegExp(text,"ig")).test(d.get("Location"))
+            (new RegExp(text,"ig")).test(d.get("last_name"))
         )
         this.setState({data: newData})
     }
     render() {
         return (
             <div>
-                <p>With mock data courtesy of mockaroo.com, I give you 1001 random names and locations. I can even pronounce some of them!</p>
                 <SearchBar typeHandler={this.typeHandler} />
                 <Results data={this.state.data} />
             </div>
@@ -37,7 +35,7 @@ const SearchBar = props => {
     return (
         <div>
             <h1>Search</h1>
-            <p>Go ahead and type something to start filtering the list.</p>
+            <p>Go ahead and type something to start filtering the list by either first or last name.</p>
             <TextField
                 hintText="Begin typing a name"
                 floatingLabelText="Search"
@@ -51,14 +49,6 @@ SearchBar.propTypes = {
     typeHandler: PropTypes.func.isRequired,
 }
 
-const paperStyle = {
-    height: 100,
-    width: 350,
-    margin: "20 auto 20 auto",
-    textAlign: "center",
-    display: "block",
-}
-
 const Results = props => {
     return (
         <div>
@@ -66,9 +56,8 @@ const Results = props => {
             <ul>{props.data.map((d, key) =>
                 <li key={key}>
                     <Paper zDepth={1} className="dynamicSearch__paper">
-                        <Avatar src={d.get("avatar")} alt={d.get("first_name")}/><br />
-                        {d.get("first_name")} {d.get("last_name")}<br />
-                        from {d.get("Location")}
+                        <Avatar src={d.get("Avatar")} alt={d.get("first_name")}/><br />
+                        {d.get("first_name")} {d.get("last_name")}
                     </Paper>
                 </li>
             )}</ul>
