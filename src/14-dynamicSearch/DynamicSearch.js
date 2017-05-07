@@ -4,6 +4,8 @@ import data from "./MOCK_DATA.json"
 import PropTypes from "prop-types"
 import ImmutablePropTypes from "react-immutable-proptypes"
 import TextField from "material-ui/TextField"
+import Avatar from "material-ui/Avatar"
+import Paper from "material-ui/Paper"
 
 class DynamicSearchContainer extends React.Component {
     constructor(props) {
@@ -49,17 +51,25 @@ SearchBar.propTypes = {
     typeHandler: PropTypes.func.isRequired,
 }
 
+const paperStyle = {
+    height: 100,
+    width: 350,
+    margin: "20 auto 20 auto",
+    textAlign: "center",
+    display: "block",
+}
 
 const Results = props => {
     return (
         <div>
-            <h1>{props.data.size} Results</h1>
+            <h1 className="centered-text">{props.data.size} Results</h1>
             <ul>{props.data.map((d, key) =>
                 <li key={key}>
-                    <img src={d.get("avatar")} alt={d.get("first_name")}/><br />
-                    {d.get("first_name")} {d.get("last_name")}<br />
-                    from {d.get("Location")}
-                    <hr />
+                    <Paper zDepth={1} className="dynamicSearch__paper">
+                        <Avatar src={d.get("avatar")} alt={d.get("first_name")}/><br />
+                        {d.get("first_name")} {d.get("last_name")}<br />
+                        from {d.get("Location")}
+                    </Paper>
                 </li>
             )}</ul>
         </div>
