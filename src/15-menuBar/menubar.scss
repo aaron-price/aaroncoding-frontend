@@ -1,0 +1,25 @@
+.menu-bar__container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #00BCD4;
+  padding: 0.5em;
+}
+
+.menu-bar__drawer {
+  background-color: #00BCD4;
+}
+
+.menu-bar__items > div > div {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.menu-bar__close > div > div {
+  text-align: left;
+  color: #FFF59D;
+}
+.menu-bar__items-row {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}

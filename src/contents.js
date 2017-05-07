@@ -11,6 +11,7 @@ import PaperDemo from "./11-Paper/Paper"
 import Container from "./12-loadingBar/LoadingBar"
 import Memory from "./13-memory/Memory"
 import DynamicSearchContainer from "./14-dynamicSearch/DynamicSearch"
+import MenuBar from "./15-menuBar/MenuBar"
 
 
 // Tags
@@ -24,6 +25,7 @@ buildTagsObj("api","RESTful APIs")
 buildTagsObj("buttons","Buttons")
 buildTagsObj("game","Game")
 buildTagsObj("hover","Hover Effect")
+buildTagsObj("immutable","ImmutableJS")
 buildTagsObj("jquery","JQuery")
 buildTagsObj("material","Material UI")
 buildTagsObj("react","React")
@@ -122,6 +124,12 @@ let contents = fromJS([
         title: "Dynamic Search",
         day: 14,
         component: DynamicSearchContainer,
+        tags: applyTags(["ui", "react", "immutable"]),
+    },
+    {
+        title: "Menu bar",
+        day: 15,
+        component: MenuBar,
         tags: applyTags(["ui", "react"]),
     },
 ])
