@@ -10,6 +10,7 @@ import Api from "./10-api/Api"
 import PaperDemo from "./11-Paper/Paper"
 import Container from "./12-loadingBar/LoadingBar"
 import Memory from "./13-memory/Memory"
+import DynamicSearchContainer from "./14-dynamicSearch/DynamicSearch"
 
 
 // Tags
@@ -116,6 +117,12 @@ let contents = fromJS([
         day: 13,
         component: Memory,
         tags: applyTags(["game", "react"]),
+    },
+    {
+        title: "Dynamic Search",
+        day: 14,
+        component: DynamicSearchContainer,
+        tags: applyTags(["ui", "react"]),
     },
 ])
 
