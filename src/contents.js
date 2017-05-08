@@ -94,7 +94,7 @@ let contents = fromJS([
         title: "Filter Settings",
         day: 9,
         component: FilterSettings,
-        tags: applyTags(["react","redux"]),
+        tags: applyTags(["react","redux", "immutable"]),
     },
     {
         title: "Api",

@@ -9,10 +9,16 @@
 @import './15-menuBar/menubar.scss';
 
 body {
-  margin: 1em;
+  margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
+
+// Everything below the menubar
+.body {
+  margin: 1em;
+}
+
 
 ul {
   list-style-type: none;
@@ -22,4 +28,8 @@ ul {
 
 .centered-text {
   text-align: center;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
 }
