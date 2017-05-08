@@ -49,12 +49,12 @@ let contentsPrebuild = [
     {
         title: "Form demo",
         component: FormContainer,
-        tags: applyTags(["ui", "react"]),
+        tags: applyTags(["ui", "react", "material"]),
     },
     {
         title: "Menu bar",
         component: MenuBar,
-        tags: applyTags(["ui", "react"]),
+        tags: applyTags(["ui", "react", "material"]),
     },
     {
         title: "Dynamic Search",
