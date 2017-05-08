@@ -13,12 +13,12 @@ function linkFactory(stateContent, contents) {
         if (show) {
             // If it has a React component, link to that
             return content.get("component") !== undefined
-                ? <li key={key}><Link to={`/${content.get("title").toLowerCase()}`}
-            >day {content.get("day")} {content.get("title")}</Link> </li>
+                ? <li key={key}><Link to={`/${content.get("path")}`}
+            >day {content.get("day")} {content.get("title")}</Link></li>
 
                 // If no React component, just load the html
                 : <li key={key}><a href={`/../${content.get("day")}-${content.get("title").toLowerCase()}/index.html`}
-            >day {content.get("day")} {content.get("title")}</a> </li>
+            >day {content.get("day")} {content.get("title")}</a></li>
         } else {
             return <span key={key}></span>
         }

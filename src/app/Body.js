@@ -9,7 +9,7 @@ import Settings from "./Settings"
 function routeFactory() {
     return contents.map((content, key) => {
         return content.get("component") !== undefined
-            && <Route key={key} path={`/${content.get("title")}`} component={content.get("component")}/>
+            && <Route key={key} path={`/${content.get("path")}`} component={content.get("component")}/>
     })
 }
 const Body = props => {

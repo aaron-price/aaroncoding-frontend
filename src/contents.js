@@ -44,94 +44,91 @@ function applyTags(arr) {
     return arr.map(str => tags.get(str))
 }
 
-let contents = fromJS([
+let contentsPrebuild = [
+
     {
-        title: "Accordion",
-        day: 1,
-        tags: applyTags(["tdd", "ui", "vanilla", "vim"]),
+        title: "Menu bar",
+        component: MenuBar,
+        tags: applyTags(["ui", "react"]),
     },
-    {
-        title: "CreateElements",
-        day: 2,
-        tags: applyTags(["tdd", "vanilla", "vim"]),
-    },
-    {
-        title: "Jezzball",
-        day: 3,
-        tags: applyTags(["animation", "game", "svg", "tdd", "vanilla", "vim"]),
-    },
-    {
-        title: "Minesweeper",
-        day: 4,
-        component: MineSweeper,
-        tags: applyTags(["game","react","svg","tdd"]),
-    },
-    {
-        title: "Zipper",
-        day: 5,
-        component: Zipper,
-        tags: applyTags(["animation","react","svg"]),
-    },
-    {
-        title: "Hovers",
-        day: 6,
-        component: Hovers,
-        tags: applyTags(["animation","buttons","hover","react","sass","ui"]),
-    },
-    {
-        title: "Menu colour settings",
-        day: 7,
-        component: Menus,
-        tags: applyTags(["react","redux"]),
-    },
-    {
-        title: "Gears",
-        day: 8,
-        component: Gears,
-        tags: applyTags(["animation","react","svg"]),
-    },
-    {
-        title: "Filter Settings",
-        day: 9,
-        component: FilterSettings,
-        tags: applyTags(["react","redux", "immutable"]),
-    },
-    {
-        title: "Api",
-        day: 10,
-        component: Api,
-        tags: applyTags(["ajax","api"]),
-    },
-    {
-        title: "Paper Demo",
-        day: 11,
-        component: PaperDemo,
-        tags: applyTags(["animation", "react", "material"]),
-    },
-    {
-        title: "Loading Bar",
-        day: 12,
-        component: Container,
-        tags: applyTags(["animation", "react", "jquery"]),
-    },
-    {
-        title: "Memory Game",
-        day: 13,
-        component: Memory,
-        tags: applyTags(["game", "react"]),
-    },
+
     {
         title: "Dynamic Search",
-        day: 14,
         component: DynamicSearchContainer,
         tags: applyTags(["ui", "react", "immutable"]),
     },
     {
-        title: "Menu bar",
-        day: 15,
-        component: MenuBar,
-        tags: applyTags(["ui", "react"]),
+        title: "Memory Game",
+        component: Memory,
+        tags: applyTags(["game", "react"]),
     },
-])
+    {
+        title: "Loading Bar",
+        component: Container,
+        tags: applyTags(["animation", "react", "jquery"]),
+    },
+    {
+        title: "Paper Demo",
+        component: PaperDemo,
+        tags: applyTags(["animation", "react", "material"]),
+    },
+    {
+        title: "Api",
+        component: Api,
+        tags: applyTags(["ajax","api"]),
+    },
+    {
+        title: "Filter Settings",
+        component: FilterSettings,
+        tags: applyTags(["react","redux", "immutable"]),
+    },
+    {
+        title: "Gears",
+        component: Gears,
+        tags: applyTags(["animation","react","svg"]),
+    },
+    {
+        title: "Menu colour settings",
+        component: Menus,
+        tags: applyTags(["react","redux"]),
+    },
+    {
+        title: "Hovers",
+        component: Hovers,
+        tags: applyTags(["animation","buttons","hover","react","sass","ui"]),
+    },
+    {
+        title: "Zipper",
+        component: Zipper,
+        tags: applyTags(["animation","react","svg"]),
+    },
+    {
+        title: "Minesweeper",
+        component: MineSweeper,
+        tags: applyTags(["game","react","svg","tdd"]),
+    },
+    {
+        title: "Jezzball",
+        tags: applyTags(["animation", "game", "svg", "tdd", "vanilla", "vim"]),
+    },
+    {
+        title: "CreateElements",
+        tags: applyTags(["tdd", "vanilla", "vim"]),
+    },
+    {
+        title: "Accordion",
+        tags: applyTags(["tdd", "ui", "vanilla", "vim"]),
+    },
+]
+
+// Automagically add a path and some formatting, before returning an immutable List of immutable Maps.
+const contents = fromJS(contentsPrebuild.map((content, i) => {
+    let newContent = content
+    newContent.path = content.title
+                             .replace(/\s/g, "_")
+                             .toLowerCase()
+    newContent.day = contentsPrebuild.length - i
+    return newContent
+}))
 
 export default contents

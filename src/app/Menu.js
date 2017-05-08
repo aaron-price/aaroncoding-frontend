@@ -14,7 +14,7 @@ function linkFactory(stateContent, contents) {
         if (show) {
                 // If it has a React component, link to that
             return content.get("component") !== undefined
-                ? <li key={key}><Link to={`/${content.get("title").toLowerCase()}`}
+                ? <li key={key}><Link to={`/${content.get("path").toLowerCase()}`}
             >day {content.get("day")} {content.get("title")}</Link> </li>
 
                 // If no React component, just load the html
