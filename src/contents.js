@@ -125,9 +125,9 @@ let contentsPrebuild = [
 const contents = fromJS(contentsPrebuild.map((content, i) => {
     let newContent = content
     newContent.path = content.title
-                             .replace(/\s/g, "_")
-                             .toLowerCase()
-    newContent.day = contentsPrebuild.length - i
+                             .replace(/\s/g, "_")   // Convert spaces to underscores
+                             .toLowerCase()         // Keep it all lowercase
+    newContent.day = contentsPrebuild.length - i    // Number: how many consecutive days at this point.
     return newContent
 }))
 
