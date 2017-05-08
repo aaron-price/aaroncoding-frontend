@@ -12,6 +12,7 @@ import Container from "./12-loadingBar/LoadingBar"
 import Memory from "./13-memory/Memory"
 import DynamicSearchContainer from "./14-dynamicSearch/DynamicSearch"
 import MenuBar from "./15-menuBar/MenuBar"
+import FormContainer from "./16-form/Form"
 
 
 // Tags
@@ -45,13 +46,16 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
-
+    {
+        title: "Form demo",
+        component: FormContainer,
+        tags: applyTags(["ui", "react"]),
+    },
     {
         title: "Menu bar",
         component: MenuBar,
         tags: applyTags(["ui", "react"]),
     },
-
     {
         title: "Dynamic Search",
         component: DynamicSearchContainer,
