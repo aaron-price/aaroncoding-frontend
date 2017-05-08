@@ -5,6 +5,7 @@ import contents from "../contents"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import ImmutablePropTypes from "react-immutable-proptypes"
+import MenuBar from "../15-menuBar/MenuBar"
 
 function linkFactory(stateContent, contents) {
     return contents.map((content, key) => {
@@ -28,11 +29,7 @@ function linkFactory(stateContent, contents) {
 const Menu = props => {
     return (
         <div className={`header header--${props.headerColor}`}>
-            <ul>
-                <li><Link to="/settings">Settings</Link></li>
-                <li><Link to="/">Home</Link></li>
-                {linkFactory(props.stateContent, contents)}
-            </ul>
+            <MenuBar />
         </div>
     )
 }

@@ -4,8 +4,12 @@ import MenuItem from "material-ui/MenuItem"
 import RaisedButton from "material-ui/RaisedButton"
 import checkMobile from "../helpers/checkMobile"
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
 
-const menuItems = ["Home", "Settings", "Browse", "Prev", "Next"]
+const menuItems = [
+    {title: "Browse", path: "/"},
+    {title:"Settings", path: "/settings"},
+]
 
 class MenuBar extends React.Component {
     constructor(props) {
@@ -14,7 +18,7 @@ class MenuBar extends React.Component {
         this.state = {
             open: false,
             smallScreen: checkMobile().smallScreen,
-            items: menuItems,
+            items: this.props.menuItems || menuItems,
         }
         this.handleResize = this.handleResize.bind(this)
     }
@@ -45,6 +49,7 @@ class MenuBar extends React.Component {
                     docked={false}
                     width={200}
                     open={this.state.open}
+                    className="ElloGovnor"
                     onRequestChange={(open) => this.setState({open})} >
                         <PullOut items={this.state.items} handleClose={this.handleClose.bind(this)} />
                 </Drawer>
@@ -52,13 +57,18 @@ class MenuBar extends React.Component {
         )
     }
 }
+MenuBar.propTypes = {
+    menuItems: PropTypes.array,
+}
 
 
 const DesktopMenu = props => {
     return (
         <div className="menu-bar__items-row">
             {props.items.map((item, key) =>
-                <RaisedButton key={key} label={item} />
+                <Link to={`${item.path}`} key={key} >
+                    <RaisedButton label={item.title} />
+                </Link>
             )}
         </div>
     )
@@ -83,9 +93,12 @@ const PullOut = props => {
     return (
         <div className="menu-bar__drawer">
             <MenuItem onTouchTap={props.handleClose} className="menu-bar__close">x CLOSE</MenuItem>
-
             {props.items.map((item, key) =>
-            <MenuItem key={key} onTouchTap={props.handleClose} className="menu-bar__items">{item}</MenuItem>
+                <Link to={item.path} key={key}>
+                    <MenuItem className="menu-bar__items">
+                        {item.title}
+                    </MenuItem>
+                </Link>
             )}
         </div>
     )
@@ -94,5 +107,6 @@ PullOut.propTypes = {
     handleClose: PropTypes.func.isRequired,
     items: PropTypes.array.isRequired,
 }
+
 
 export default MenuBar

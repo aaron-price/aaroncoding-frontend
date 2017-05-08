@@ -12,7 +12,6 @@ const App = (props) => (
         <Provider store={props.store}>
             <div>
                 <Menu />
-                <hr/>
                 <Body />
             </div>
         </Provider>
