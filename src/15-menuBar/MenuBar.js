@@ -49,7 +49,6 @@ class MenuBar extends React.Component {
                     docked={false}
                     width={200}
                     open={this.state.open}
-                    className="ElloGovnor"
                     onRequestChange={(open) => this.setState({open})} >
                         <PullOut items={this.state.items} handleClose={this.handleClose.bind(this)} />
                 </Drawer>
