@@ -17,33 +17,10 @@ const newContent = content.map(content => {
 })
 
 const DEFAULT_STATE = fromJS({
-    headerColor: "green",
+    headerColor: "blue",
     tags: newTags,
     content: newContent,
     requiredFilters: 0,
 })
-
-/* For example
-state = MAP({
-    headerColor: "green",
-    tags: [
-        ...,
-        {
-            title: "tdd",
-            filter: "disallowed",
-        },
-    ],
-    content: [
-        ...,
-        {
-            title: "Zipper",
-            show: true,
-            tags: ["animation", "tdd"]
-        },
-    ],
-})
- */
-
-
 
 export default DEFAULT_STATE

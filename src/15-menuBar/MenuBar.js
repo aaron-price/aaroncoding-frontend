@@ -38,7 +38,7 @@ class MenuBar extends React.Component {
 
     render() {
         return (
-            <div className="menu-bar__container">
+            <div className="menu-bar__container" style={{backgroundColor: this.props.bgColor}}>
                 {
                     (!this.state.smallScreen)
                         ? <DesktopMenu items={this.state.items} />
@@ -50,7 +50,11 @@ class MenuBar extends React.Component {
                     width={200}
                     open={this.state.open}
                     onRequestChange={(open) => this.setState({open})} >
-                        <PullOut items={this.state.items} handleClose={this.handleClose.bind(this)} />
+                        <PullOut
+                            items={this.state.items}
+                            handleClose={this.handleClose.bind(this)}
+                            bgColor={this.props.bgColor}
+                        />
                 </Drawer>
             </div>
         )
@@ -58,6 +62,7 @@ class MenuBar extends React.Component {
 }
 MenuBar.propTypes = {
     menuItems: PropTypes.array,
+    bgColor: PropTypes.string.isRequired,
 }
 
 
@@ -90,7 +95,7 @@ MobileMenu.propTypes = {
 
 const PullOut = props => {
     return (
-        <div className="menu-bar__drawer">
+        <div style={{backgroundColor: props.bgColor}}>
             <MenuItem onTouchTap={props.handleClose} className="menu-bar__close">x CLOSE</MenuItem>
             {props.items.map((item, key) =>
                 <Link to={item.path} key={key}>
@@ -103,6 +108,7 @@ const PullOut = props => {
     )
 }
 PullOut.propTypes = {
+    bgColor: PropTypes.string.isRequired,
     handleClose: PropTypes.func.isRequired,
     items: PropTypes.array.isRequired,
 }
