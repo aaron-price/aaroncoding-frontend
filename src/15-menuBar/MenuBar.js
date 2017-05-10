@@ -9,6 +9,7 @@ import { Link } from "react-router-dom"
 const menuItems = [
     {title: "Browse", path: "/"},
     {title:"Settings", path: "/settings"},
+    {title: "login", path: "/login"},
 ]
 
 class MenuBar extends React.Component {
