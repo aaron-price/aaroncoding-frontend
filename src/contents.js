@@ -13,6 +13,7 @@ import Memory from "./13-memory/Memory"
 import DynamicSearchContainer from "./14-dynamicSearch/DynamicSearch"
 import MenuBar from "./15-menuBar/MenuBar"
 import FormContainer from "./16-form/Form"
+import CharacterGen from "./17-characterGen/CharacterGen"
 
 
 // Tags
@@ -46,6 +47,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Random Story Generator",
+        component: CharacterGen,
+        tags: applyTags(["ui", "react", "material"]),
+    },
     {
         title: "Form demo",
         component: FormContainer,
