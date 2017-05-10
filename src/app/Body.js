@@ -4,6 +4,7 @@ import { Route } from "react-router-dom"
 import contents from "../contents"
 import Home from "./Home"
 import Settings from "./Settings"
+import AuthContainer from "./auth/AuthContainer"
 
 function routeFactory() {
     return contents.map((content, key) => {
@@ -15,6 +16,7 @@ const Body = props => {
     return (
         <div className="body">
             <Route exact path="/" component={Home}/>
+            <Route exact path="/login" component={AuthContainer}/>
             <Route exact path="/settings" component={Settings}/>
             {routeFactory()}
         </div>
