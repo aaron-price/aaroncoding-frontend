@@ -8,7 +8,7 @@ import PropTypes from "prop-types"
 import $ from "jquery"
 const prod = "https://aaroncoding-backend.herokuapp.com/api/signup"
 const local = "http://localhost:3001/api/signup"
-const uri = local
+const uri = prod
 
 
 export default class SignupForm extends React.Component {
