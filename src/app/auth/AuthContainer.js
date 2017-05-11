@@ -1,12 +1,10 @@
 import React from "react"
 import SignupForm from "./Signup"
-import ListUsers from "./ListUsers"
-import HiddenArea from "./HiddenArea"
 import RaisedButton from "material-ui/RaisedButton"
 import Login from "./Login"
 import $ from "jquery"
 import { connect } from "react-redux"
-import { updateJwtToken } from "../../redux/actions/actionCreators"
+import { updateJwtToken, updateUser } from "../../redux/actions/actionCreators"
 import { fromJS } from "immutable"
 import PropTypes from "prop-types"
 
@@ -16,9 +14,13 @@ class AuthContainer extends React.Component {
         super(props)
         this.state = { action: "login" }
         this.updateToken = this.updateToken.bind(this)
+        this.updateUser = this.updateUser.bind(this)
     }
     updateToken(tkn) {
         this.props.dispatchUpdateJwtToken(fromJS({newToken: tkn}))
+    }
+    updateUser(u) {
+        this.props.dispatchUpdateUser(fromJS({user: {username: u}}))
     }
 
     revealer() {
@@ -32,14 +34,20 @@ class AuthContainer extends React.Component {
             msg ? this.setState({res: msg})
                 : this.setState({res: "ERROR: " + msg})
         })
-
     }
 
     render() {
         return (
             <div>
+                {this.props.user.get("username") !== ""
+                    ? <p>Welcome back, {this.props.user.get("username")}!</p>
+                    : <p>You need to login</p>
+                }
                 {this.props.jwtToken === "" ?
-                    <Login updateToken={this.updateToken}/>
+                    <Login
+                        updateToken={this.updateToken}
+                        updateUser={this.updateUser}
+                    />
                 :
                 <RaisedButton
                     label="Logout"
@@ -65,11 +73,14 @@ class AuthContainer extends React.Component {
 AuthContainer.propTypes = {
     jwtToken: PropTypes.string.isRequired,
     dispatchUpdateJwtToken: PropTypes.func.isRequired,
+    dispatchUpdateUser: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = (state) => {
     return {
         jwtToken: state.get("jwtToken"),
+        user: state.get("user"),
     }
 }
 
@@ -77,6 +88,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         dispatchUpdateJwtToken(config) {
             dispatch(updateJwtToken(config))
+        },
+        dispatchUpdateUser(config) {
+            dispatch(updateUser(config))
         },
     }
 }

@@ -22,6 +22,9 @@ const DEFAULT_STATE = fromJS({
     content: newContent,
     requiredFilters: 0,
     jwtToken: "",
+    user: {
+        username: "",
+    },
 })
 
 export default DEFAULT_STATE
