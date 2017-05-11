@@ -21,6 +21,7 @@ const DEFAULT_STATE = fromJS({
     tags: newTags,
     content: newContent,
     requiredFilters: 0,
+    jwtToken: "",
 })
 
 export default DEFAULT_STATE
