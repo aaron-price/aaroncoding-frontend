@@ -7,25 +7,27 @@ import PropTypes from "prop-types"
 
 import $ from "jquery"
 const prod = "https://aaroncoding-backend.herokuapp.com/api/auth/signup"
-const local = "http://localhost:3001/api/auth/signup"
-const uList = "http://localhost:3001/api/auth/list"
-const back2 = "http://localhost:3001/api/signup"
+const local = "http://localhost:3001/api/auth/login"
+const uList = "http://localhost:3001/api/auth/login"
+const back2 = "http://localhost:3001/api/signin"
 const uri = back2
 
 
-export default class SignupForm extends React.Component {
+export default class LoginForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             fields: {
                 username: "",
-                email: "",
                 password: "",
             },
-            res: "",
+            loggedIn: false,
         }
         this.changeHandler = this.changeHandler.bind(this)
         this.submitHandler = this.submitHandler.bind(this)
+    }
+    componentDidMount() {
+        // this.authenticate()
     }
 
     changeHandler(e, field, val) {
@@ -33,6 +35,14 @@ export default class SignupForm extends React.Component {
         let newFields = Object.assign({}, this.state.fields)
         newFields[field] = value
         this.setState({ fields: newFields })
+    }
+    authenticate() {
+        $.ajax({
+            url: "http://localhost:3001/api/auth/authenticated",
+            method: "GET",
+        }).done(res => {
+            this.setState({loggedIn: res.success ? "Yes" : "No"})
+        })
     }
 
     submitHandler(e) {
@@ -48,34 +58,16 @@ export default class SignupForm extends React.Component {
             method: "POST",
             data: payload,
         }).done((res) => {
-            this.setState({res: `${res.success} - ${res.msg}`})
+            console.log(res)
+            this.setState({loggedIn: res.success ? "Yes" : "No"})
+            res.success && this.props.updateToken(res.token)
         })
-        // ///////////////
-        // fetch(uri, {
-        //     method: "POST",
-        //     body: data,
-        // })
-        //     .then(this.handleErrors)
-        //     .then(res => res.json())
-        //     .then(res => {
-        //         console.log(res)
-        //         this.setState({ res: res[0].message }
-        //     )})
-
-    }
-
-    handleErrors(response) {
-        if (!response.ok) {
-            this.setState({text: [{id: -1, body: "Sorry, there was a problem :-("}]})
-            throw Error(response.statusText)
-        }
-        return response
     }
 
     render() {
         return (
             <div>
-                <h4>Response: {this.state.res}</h4>
+                <h4>Logged In: {this.state.loggedIn ? "Yes" : "No"}</h4>
                 <Form
                     changeHandler={this.changeHandler}
                     fields={this.state.fields}
@@ -84,15 +76,15 @@ export default class SignupForm extends React.Component {
         )
     }
 }
+LoginForm.propTypes = {
+    updateToken: PropTypes.func.isRequired,
+}
 
 const Form = props => {
     const style = { marginLeft: 20 }
     return (
         <Paper zDepth={2}>
-            <TextField hintText="Username" style={style} underlineShow={false} onChange={e => props.changeHandler(e, "username")}/>
-            <Divider />
-
-            <TextField hintText="Email address" style={style} underlineShow={false} onChange={e => props.changeHandler(e, "email")} />
+            <TextField hintText="username" style={style} underlineShow={false} onChange={e => props.changeHandler(e, "username")}/>
             <Divider />
 
             <TextField hintText="Password" style={style} type="password" underlineShow={false} onChange={e => props.changeHandler(e, "password")} />
@@ -100,7 +92,7 @@ const Form = props => {
 
             <div style={{display: "flex", justifyContent: "center"}}>
                 <RaisedButton
-                    label="Submit"
+                    label="Login"
                     secondary={true}
                     style={{margin: "1em"}}
                     onClick={(e) => props.submitHandler(e)} />
