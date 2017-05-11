@@ -4,12 +4,11 @@ import Divider from "material-ui/Divider"
 import Paper from "material-ui/Paper"
 import TextField from "material-ui/TextField"
 import PropTypes from "prop-types"
+import Alert from "../../helpers/Alert"
 
 import $ from "jquery"
 const prod = "https://aaroncoding-backend.herokuapp.com/api/signin"
-const local = "http://localhost:3001/api/auth/login"
-const uList = "http://localhost:3001/api/auth/login"
-const back2 = "http://localhost:3001/api/signin"
+const local = "http://localhost:3001/api/signin"
 const uri = prod
 
 
@@ -22,12 +21,11 @@ export default class LoginForm extends React.Component {
                 password: "",
             },
             loggedIn: false,
+            msg: "",
+            status: "",
         }
         this.changeHandler = this.changeHandler.bind(this)
         this.submitHandler = this.submitHandler.bind(this)
-    }
-    componentDidMount() {
-        // this.authenticate()
     }
 
     changeHandler(e, field, val) {
@@ -50,9 +48,11 @@ export default class LoginForm extends React.Component {
             method: "POST",
             data: payload,
         }).done((res) => {
-            console.log(res)
-            this.setState({loggedIn: res.success ? "Yes" : "No"})
-            res.success && this.props.updateToken(res.token)
+            this.setState({msg: res.msg, status: res.success ? "Success" : "Error"})
+            if (res.success) {
+                this.props.updateToken(res.token)
+                this.props.updateUser(res.username)
+            }
         })
     }
 
@@ -63,19 +63,25 @@ export default class LoginForm extends React.Component {
                 <Form
                     changeHandler={this.changeHandler}
                     fields={this.state.fields}
-                    submitHandler={this.submitHandler} />
+                    submitHandler={this.submitHandler}
+                    msg={this.state.msg}
+                    status={this.state.status} />
             </div>
         )
     }
 }
 LoginForm.propTypes = {
     updateToken: PropTypes.func.isRequired,
+    updateUser: PropTypes.func.isRequired,
 }
 
 const Form = props => {
     const style = { marginLeft: 20 }
     return (
         <Paper zDepth={2}>
+            {props.status === "Error" && <Alert status={props.status} text={props.msg} />}
+            {props.status === "Pending" && <Alert status={"Warning"} text={"Creating account, please wait..."} />}
+
             <TextField hintText="username" style={style} underlineShow={false} onChange={e => props.changeHandler(e, "username")}/>
             <Divider />
 
@@ -96,4 +102,6 @@ Form.propTypes = {
     changeHandler: PropTypes.func.isRequired,
     fields: PropTypes.object.isRequired,
     submitHandler: PropTypes.func.isRequired,
+    msg: PropTypes.string,
+    status: PropTypes.string.isRequired,
 }

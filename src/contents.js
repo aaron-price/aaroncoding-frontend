@@ -14,6 +14,7 @@ import DynamicSearchContainer from "./14-dynamicSearch/DynamicSearch"
 import MenuBar from "./15-menuBar/MenuBar"
 import FormContainer from "./16-form/Form"
 import CharacterGen from "./17-characterGen/CharacterGen"
+import UserAuth from "./app/auth/AuthContainer"
 
 
 // Tags
@@ -47,6 +48,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "User authentication",
+        component: UserAuth,
+        tags: applyTags(["ui", "react", "material", "redux", "api", "immutable", "ajax"]),
+    },
     {
         title: "Random Story Generator",
         component: CharacterGen,

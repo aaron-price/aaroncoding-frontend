@@ -2,8 +2,6 @@ import React from "react"
 
 import $ from "jquery"
 const prod = "https://aaroncoding-backend.herokuapp.com/api/book"
-const local = "http://localhost:3001/api/auth/signup"
-const uList = "http://localhost:3001/api/book"
 const uri = prod
 
 
