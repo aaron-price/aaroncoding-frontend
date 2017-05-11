@@ -14,19 +14,16 @@ import PropTypes from "prop-types"
 class AuthContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = { action: "login" }
         this.updateToken = this.updateToken.bind(this)
     }
     updateToken(tkn) {
         this.props.dispatchUpdateJwtToken(fromJS({newToken: tkn}))
     }
-    logout(e) {
-        console.log(this.props.jwtToken)
-    }
 
     revealer() {
         $.ajax({
-            url: "http://localhost:3001/api/book",
+            url: "https://aaroncoding-backend.herokuapp.com/api/book",
             method: "GET",
             headers: { "Authorization": this.props.jwtToken },
         }).done(res => {
@@ -48,7 +45,7 @@ class AuthContainer extends React.Component {
                     label="Logout"
                     secondary={true}
                     style={{margin: "1em"}}
-                    onClick={(e) => this.logout(e)}/>
+                    onClick={(e) => this.updateToken("")}/>
                 }
                 <hr />
 
@@ -61,11 +58,6 @@ class AuthContainer extends React.Component {
                     style={{margin: "1em"}}
                     onClick={(e) => this.revealer(e)} />
                 <hr />
-
-                {/* <ListUsers />
-                <hr /> */}
-
-                <p>Logout</p>
             </div>
         )
     }

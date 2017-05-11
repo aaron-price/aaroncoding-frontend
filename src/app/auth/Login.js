@@ -6,11 +6,11 @@ import TextField from "material-ui/TextField"
 import PropTypes from "prop-types"
 
 import $ from "jquery"
-const prod = "https://aaroncoding-backend.herokuapp.com/api/auth/signup"
+const prod = "https://aaroncoding-backend.herokuapp.com/api/signin"
 const local = "http://localhost:3001/api/auth/login"
 const uList = "http://localhost:3001/api/auth/login"
 const back2 = "http://localhost:3001/api/signin"
-const uri = back2
+const uri = prod
 
 
 export default class LoginForm extends React.Component {
@@ -36,14 +36,6 @@ export default class LoginForm extends React.Component {
         newFields[field] = value
         this.setState({ fields: newFields })
     }
-    authenticate() {
-        $.ajax({
-            url: "http://localhost:3001/api/auth/authenticated",
-            method: "GET",
-        }).done(res => {
-            this.setState({loggedIn: res.success ? "Yes" : "No"})
-        })
-    }
 
     submitHandler(e) {
         e.preventDefault()
@@ -67,7 +59,7 @@ export default class LoginForm extends React.Component {
     render() {
         return (
             <div>
-                <h4>Logged In: {this.state.loggedIn ? "Yes" : "No"}</h4>
+                <h4>Log in:</h4>
                 <Form
                     changeHandler={this.changeHandler}
                     fields={this.state.fields}
