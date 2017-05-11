@@ -59,7 +59,7 @@ export default class LoginForm extends React.Component {
     render() {
         return (
             <div>
-                <h4>Log in:</h4>
+                <h2>Log in:</h2>
                 <Form
                     changeHandler={this.changeHandler}
                     fields={this.state.fields}
@@ -82,7 +82,7 @@ const Form = props => {
             {props.status === "Error" && <Alert status={props.status} text={props.msg} />}
             {props.status === "Pending" && <Alert status={"Warning"} text={"Creating account, please wait..."} />}
 
-            <TextField hintText="username" style={style} underlineShow={false} onChange={e => props.changeHandler(e, "username")}/>
+            <TextField hintText="Username" style={style} underlineShow={false} onChange={e => props.changeHandler(e, "username")}/>
             <Divider />
 
             <TextField hintText="Password" style={style} type="password" underlineShow={false} onChange={e => props.changeHandler(e, "password")} />

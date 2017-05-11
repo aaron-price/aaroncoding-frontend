@@ -23,6 +23,7 @@ class AuthContainer extends React.Component {
         this.props.dispatchUpdateUser(fromJS({user: {username: u}}))
     }
 
+    // Not needed atm, but leaving because it's a great example of how to access user only stuff using headers.
     revealer() {
         $.ajax({
             url: "https://aaroncoding-backend.herokuapp.com/api/book",
@@ -40,8 +41,7 @@ class AuthContainer extends React.Component {
         return (
             <div>
                 {this.props.user.get("username") !== ""
-                    ? <p>Welcome back, {this.props.user.get("username")}!</p>
-                    : <p>You need to login</p>
+                    && <p>Welcome back, {this.props.user.get("username")}!</p>
                 }
                 {this.props.jwtToken === "" ?
                     <Login
@@ -53,19 +53,25 @@ class AuthContainer extends React.Component {
                     label="Logout"
                     secondary={true}
                     style={{margin: "1em"}}
-                    onClick={(e) => this.updateToken("")}/>
+                    onClick={(e) => {
+                        this.updateToken("")
+                        this.updateUser("")
+                    }}/>
                 }
+                <br />
                 <hr />
 
-                <SignupForm />
-                <hr />
+                {this.props.jwtToken === "" && <SignupForm /> }
 
+                {/*
+                <hr />
                 <RaisedButton
                     label="See something hidden"
                     secondary={true}
                     style={{margin: "1em"}}
                     onClick={(e) => this.revealer(e)} />
                 <hr />
+                */}
             </div>
         )
     }

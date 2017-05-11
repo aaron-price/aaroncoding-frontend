@@ -56,7 +56,7 @@ export default class SignupForm extends React.Component {
     render() {
         return (
             <div>
-                <h4>Create New Account</h4>
+                <h2>Create New Account</h2>
                 <Form
                     changeHandler={this.changeHandler}
                     fields={this.state.fields}
@@ -74,7 +74,7 @@ export default class SignupForm extends React.Component {
 const Form = props => {
     const style = { marginLeft: 20 }
     return (
-        <Paper style={style} zDepth={2}>
+        <Paper zDepth={2}>
             {props.status !== "" && <Alert status={props.status} text={props.msg} />}
             {props.status === "Pending" && <Alert status={"Warning"} text={"Creating account, please wait..."} />}
             <Divider />
