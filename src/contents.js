@@ -16,6 +16,7 @@ import FormContainer from "./16-form/Form"
 import CharacterGen from "./17-characterGen/CharacterGen"
 import UserAuth from "./app/auth/AuthContainer"
 import Chat from "./19-chat/Chat"
+import Stats from "./20-stats/Stats"
 
 // Tags
 let preTags = {}
@@ -49,6 +50,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Animated statistics",
+        component: Stats,
+        tags: applyTags(["react", "svg", "animation"]),
+    },
     {
         title: "Chat app",
         component: Chat,
