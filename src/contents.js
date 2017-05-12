@@ -15,7 +15,7 @@ import MenuBar from "./15-menuBar/MenuBar"
 import FormContainer from "./16-form/Form"
 import CharacterGen from "./17-characterGen/CharacterGen"
 import UserAuth from "./app/auth/AuthContainer"
-
+import Chat from "./19-chat/Chat"
 
 // Tags
 let preTags = {}
@@ -31,6 +31,7 @@ buildTagsObj("hover","Hover Effect")
 buildTagsObj("immutable","ImmutableJS")
 buildTagsObj("jquery","JQuery")
 buildTagsObj("material","Material UI")
+buildTagsObj("mockup","Mockup Design")
 buildTagsObj("react","React")
 buildTagsObj("redux","Redux")
 buildTagsObj("sass","SASS / SCSS")
@@ -48,6 +49,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Chat app",
+        component: Chat,
+        tags: applyTags(["ui", "react", "material", "mockup"]),
+    },
     {
         title: "User authentication",
         component: UserAuth,
