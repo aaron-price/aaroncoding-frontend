@@ -53,7 +53,7 @@ let contentsPrebuild = [
     {
         title: "Animated statistics",
         component: Stats,
-        tags: applyTags(["react", "svg"]),
+        tags: applyTags(["react", "svg", "animation"]),
     },
     {
         title: "Chat app",
