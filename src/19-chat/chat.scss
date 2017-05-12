@@ -4,7 +4,7 @@
 }
 $textSize: 3vmin;
 .chat__message-container-user {
-  background-color: #FFFDE7;
+  background-color: #B2EBF2 !important;
   justify-content: flex-end;
   @include container();
   .chat__message-avatar{ order: 1; }
@@ -16,7 +16,7 @@ $textSize: 3vmin;
 }
 
 .chat__message-container-other {
-  background-color: #E7DFFF;
+  background-color: #B2DFDB !important;
   justify-content: start;
   @include container();
   .chat__message-avatar{ order: -1; }
