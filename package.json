@@ -80,7 +80,6 @@
     "test": "node scripts/test.js --env=jsdom",
     "lint": "eslint src/* --fix"
   },
-  "proxy": "http://localhost:3001",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
