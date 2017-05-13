@@ -90,14 +90,22 @@ class CharacterGen extends React.Component {
         return (
             <div>
                 <p>This is an app for writers to get the creative juices flowing.
-                    It gives you the start of a character, you have to write a backstory for the characters</p>
-                <h3>Atmosphere</h3>
+                    It gives you the start of a story, you get to fill in the blanks.</p>
+
+                <h3>Include 1 To 3 Of The Following</h3>
+                <ul>
+                    <li>{d.setting.setting1}</li>
+                    <li>{d.setting.setting2}</li>
+                    <li>{d.setting.setting3}</li>
+                </ul>
+
+                <h3>Suggested Atmosphere</h3>
                 <ul>
                     <li>Time: {d.atmosphere.time}</li>
                     <li>Weather: {d.atmosphere.weather}</li>
                 </ul>
 
-                <h3>Include 1 to 3 of these Characters</h3>
+                <h3>Include 1 To 3 Of These Characters</h3>
                 <ul>
                     <li><strong>Name:</strong> {d.char1.name}</li>
                     <li><strong>Personality:</strong> {d.char1.personality.pos}, {d.char1.personality.neut}, and {d.char1.personality.neg}</li>
@@ -110,13 +118,7 @@ class CharacterGen extends React.Component {
                     <hr />
                 </ul>
 
-                <h3>Include 1 to 3 of the following</h3>
-                <ul>
-                    <li>{d.setting.setting1}</li>
-                    <li>{d.setting.setting2}</li>
-                    <li>{d.setting.setting3}</li>
-                </ul>
-                <br />
+
                 <RaisedButton label="retry" onClick={(e) => this.reRoll()} secondary={true}/>
 
             </div>

@@ -29,7 +29,7 @@ class Gears extends Component {
         return (
             <div className="minesweeper">
                 <h1>Gears</h1>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="520.977px" height="316.32px" viewBox="-75 -106.223 520.977 316.32" style={{enableBackground: "new -75 -106.223 520.977 316.32"}}>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100%" height="100%" viewBox="-100 -100 600 600" style={{enableBackground: "new -75 -106.223 520.977 316.32"}}>
                     <g id="gear4" ref="gear4">
                         <polygon style={{fill: "#9E9E9E", stroke: "#000000", strokeMiterlimit: 10}} points="51.987,-29.985 59.254,-70.768 69.932,-70.899
         		78.188,-30.307 99.031,-25.411 122.559,-57.225 133.824,-53.25 122.379,-13.45 138.574,0.631 174.105,-16.542 182.245,-7.756

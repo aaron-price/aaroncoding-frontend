@@ -28,13 +28,14 @@ const FilterSettings = props => {
                 <div>{tags.valueSeq().map((tag, key) => {
                     return (
                         <p key={key}>
+                            {tag.get("title")}<br />
                             <select value={tag.get("filter")}
                                     onChange={(e) => props.dispatchUpdateFilters(tag.get("title"), e.target.value)}
                             >
                                 <option value="allowed">allowed</option>
                                 <option value="disallowed">disallowed</option>
                                 <option value="required">required</option>
-                        </select>&nbsp;{tag.get("title")}</p>
+                        </select></p>
                     )
                 })}</div>
             </div>

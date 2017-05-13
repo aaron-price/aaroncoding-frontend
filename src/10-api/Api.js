@@ -2,7 +2,7 @@ import React, { Component } from "react"
 const prod = "https://aaroncoding-backend.herokuapp.com/api/demo"
 const local = "http://localhost:3001/api/demo"
 const uri = prod
-
+import RaisedButton from "material-ui/RaisedButton"
 
 class Api extends Component {
     constructor(props) {
@@ -39,7 +39,9 @@ class Api extends Component {
                 <div className="api__frontend">
                     Today I deployed 2 apps to Heroku. You are looking at one of them. The other is strictly a backend api server. Let's say hi to it!<br />
                     <br />
-                    <button onClick={() => this.clickHandler()}>Make API GET request</button>
+                    <h4>Click the button to make an ajax request to my API server</h4>
+                    <RaisedButton label="Click me"
+                                  onClick={() => this.clickHandler()}/>
                 </div>
                 <hr />
                 <div className="api__backend">
