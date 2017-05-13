@@ -7,13 +7,15 @@ import { fromJS } from "immutable"
 const Menus = props => {
     return (
             <div className="webpackOptions">
+                Menu Background Colour<br />
                 <select
                     value={props.headerColor}
                     onChange={(e) => props.dispatchUpdateHeader(fromJS({headerColor: e.target.value}))}>
                     <option value="red">Red</option>
                     <option value="green">Green</option>
                     <option value="blue">Blue</option>
-                </select>&nbsp; Menu Background Colour
+                </select>
+                <hr />
             </div>
     )
 }

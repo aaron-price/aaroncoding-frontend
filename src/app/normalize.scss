@@ -445,3 +445,10 @@ template {
 [hidden] {
   display: none;
 }
+
+/**
+ * Custon one, because select fields looks wrong in certain mobile devices
+ */
+select {
+  background-color: #FAFAFA;
+}

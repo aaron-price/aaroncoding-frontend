@@ -56,10 +56,10 @@ class Zipper extends Component {
 
     render() {
         return (
-            <svg className="container" x="0" y="0"
-                 width="700"
-                 height="500"
-                 viewBox="-200 0 700 700"
+            <svg className="container"
+                 x="0px" y="0px"
+                 width="100%" height="100%"
+                 viewBox="-100 -100 800 800"
                  xmlns="http://www.w3.org/2000/svg">
                 {this.renderLines()}
                 <defs>
