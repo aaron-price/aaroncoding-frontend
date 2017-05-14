@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Hammer from "hammerjs"
 
 function linkBuilder(name) {
     return `https://s3-us-west-2.amazonaws.com/aaroncoding/images/${name}.jpg`
@@ -35,8 +36,15 @@ export default class LightboxContainer extends React.Component {
     }
     keyHandler(e) {
         let adjuster
+
+        // Arrow keys
         if (e.keyCode === 39 && this.state.current !== this.state.images.length - 1) { adjuster = 1 }
         else if (e.keyCode === 37 && this.state.current !== 0) { adjuster = -1 }
+
+        // Swipes
+        if (e === "swipeleft" && this.state.current !== this.state.images.length - 1) { adjuster = 1 }
+        else if (e === "swiperight" && this.state.current !== 0) { adjuster = -1 }
+
         else { return }
         this.setState((prevState) => {
             return { current: prevState.current + adjuster }
@@ -44,13 +52,18 @@ export default class LightboxContainer extends React.Component {
     }
     componentDidMount() {
         window.addEventListener("keydown", this.keyHandler, false)
+
+        let myElement = document.getElementsByClassName("lightbox__container")[0]
+        const mc = new Hammer(myElement)
+        let kh = this.keyHandler
+        mc.on("swipeleft swiperight", e => kh(e.type))
     }
 
     render() {
         return (
-            <div>
+            <div className="lightbox__container">
                 <h4>My first crack at building a lightbox. You know the drill, click things, and magic happens.</h4>
-                <p>Arrow keys are another way to navigate here.</p>
+                <p>Arrow keys and swiping are also valid ways to navigate here.</p>
 
                 <Thumbs
                     images={this.state.images}
