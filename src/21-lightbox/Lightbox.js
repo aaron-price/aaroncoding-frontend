@@ -36,13 +36,14 @@ export default class LightboxContainer extends React.Component {
     }
     keyHandler(e) {
         let adjuster
+        console.log(e)
 
         // Arrow keys
         if (e.keyCode === 39 && this.state.current !== this.state.images.length - 1) { adjuster = 1 }
         else if (e.keyCode === 37 && this.state.current !== 0) { adjuster = -1 }
 
         // Swipes
-        if (e === "swipeleft" && this.state.current !== this.state.images.length - 1) { adjuster = 1 }
+        else if (e === "swipeleft" && this.state.current !== this.state.images.length - 1) { adjuster = 1 }
         else if (e === "swiperight" && this.state.current !== 0) { adjuster = -1 }
 
         else { return }
