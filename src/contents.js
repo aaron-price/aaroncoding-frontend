@@ -17,6 +17,7 @@ import CharacterGen from "./17-characterGen/CharacterGen"
 import UserAuth from "./app/auth/AuthContainer"
 import Chat from "./19-chat/Chat"
 import Stats from "./20-stats/Stats"
+import Lightbox from "./21-lightbox/Lightbox"
 
 // Tags
 let preTags = {}
@@ -26,6 +27,7 @@ function buildTagsObj(title, text) {
 buildTagsObj("ajax","AJAX")
 buildTagsObj("animation", "Animation")
 buildTagsObj("api","RESTful APIs")
+buildTagsObj("aws","Amazon Web Services (AWS)")
 buildTagsObj("buttons","Buttons")
 buildTagsObj("game","Game")
 buildTagsObj("hover","Hover Effect")
@@ -50,6 +52,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Lightbox",
+        component: Lightbox,
+        tags: applyTags(["react", "ui", "aws"]),
+    },
     {
         title: "Animated statistics",
         component: Stats,
