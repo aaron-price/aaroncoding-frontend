@@ -18,6 +18,7 @@ import UserAuth from "./app/auth/AuthContainer"
 import Chat from "./19-chat/Chat"
 import Stats from "./20-stats/Stats"
 import Lightbox from "./21-lightbox/Lightbox"
+import Stats2 from "./22-stats2/StatsPt2"
 
 // Tags
 let preTags = {}
@@ -25,6 +26,7 @@ function buildTagsObj(title, text) {
     preTags[title] = {filter: "allowed", title, text}
 }
 buildTagsObj("ajax","AJAX")
+buildTagsObj("algorithms","Algorithms")
 buildTagsObj("animation", "Animation")
 buildTagsObj("api","RESTful APIs")
 buildTagsObj("aws","Amazon Web Services (AWS)")
@@ -53,12 +55,17 @@ function applyTags(arr) {
 
 let contentsPrebuild = [
     {
+        title: "Animated Line Graph",
+        component: Stats2,
+        tags: applyTags(["react", "svg", "animation", "algorithms"]),
+    },
+    {
         title: "Lightbox",
         component: Lightbox,
         tags: applyTags(["react", "ui", "aws"]),
     },
     {
-        title: "Animated statistics",
+        title: "Animated bar graph",
         component: Stats,
         tags: applyTags(["react", "svg", "animation"]),
     },
