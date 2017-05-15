@@ -48,14 +48,14 @@ export default class Stats extends React.Component {
                             <rect
                                 key={key}
                                 ref={`fig${key}`}
-                                x="25" y={40 + (key * 15)}
+                                x="1" y={40 + (key * 15)}
                                 width={0}
                                 fill={`#${point.bg}`}
                                 height={10} />
                         )}
                     </g>
                     <g id="axis">
-                        <polyline style={{fill: "none", stroke: "#000000", strokeWidth: 2}} points="25,32 25,133 25,133 225,133" />
+                        <polyline style={{fill: "none", stroke: "#000000", strokeWidth: 2}} points="1,32 1,133 25,133 225,133" />
                     </g>
                 </svg>
             </div>
