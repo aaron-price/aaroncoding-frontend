@@ -13,6 +13,7 @@ class VideoPlayer extends React.Component {
     render() {
         return (
             <div style={parentStyles}>
+                <p>This is a work in progress while I had a spare 30 minutes. Publishing now in case I don't get a chance to improve it later</p>
                 <ul>
                     <li>
                 <video
