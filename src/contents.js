@@ -19,6 +19,7 @@ import Chat from "./19-chat/Chat"
 import Stats from "./20-stats/Stats"
 import Lightbox from "./21-lightbox/Lightbox"
 import Stats2 from "./22-stats2/StatsPt2"
+import VideoPlayer from "./23-vidPlayer/VideoPlayer"
 
 // Tags
 let preTags = {}
@@ -54,6 +55,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Video Player",
+        component: VideoPlayer,
+        tags: applyTags(["react", "ui"]),
+    },
     {
         title: "Animated Line Graph",
         component: Stats2,
