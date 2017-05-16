@@ -1,6 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+/* Usage
+ import Alert from "../../helpers/Alert"
+ <Alert status={"Success" || "Warning" || "Error"} text={"This text will flash"} />
+ */
 class Alert extends React.Component {
     constructor(props) {
         super(props)
