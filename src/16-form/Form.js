@@ -86,14 +86,26 @@ const Form = props => {
     const style = { marginLeft: 20 }
     return (
         <Paper zDepth={2}>
-            <TextField hintText="Name" style={style} underlineShow={false} onChange={e => props.changeHandler(e, "name")}/>
+            <TextField
+                hintText="Name"
+                floatingLabelText="Name"
+                floatingLabelFixed={true}
+                style={style}
+                onChange={e => props.changeHandler(e, "name")}/>
             <Divider />
 
-            <TextField hintText="Email address" style={style} underlineShow={false} onChange={e => props.changeHandler(e, "email")} />
+            <TextField
+                hintText="aaronfan84@gmail.com"
+                floatingLabelText="Email"
+                floatingLabelFixed={true}
+                style={style}
+                onChange={e => props.changeHandler(e, "email")} />
             <Divider />
 
             <TextField
                 hintText="Description"
+                floatingLabelText="Description"
+                floatingLabelFixed={true}
                 multiLine={true}
                 rows={4}
                 rowsMax={12}

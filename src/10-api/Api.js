@@ -20,16 +20,18 @@ class Api extends Component {
     }
 
     clickHandler() {
-        this.setState({text: [{id: -1, body: "Calling server"}]})
-
-
-        fetch(uri)
-            .then(this.handleErrors)
-            .then(res => res.json())
-            .then(text => this.setState({ text }))
-            .catch(err => {
-                console.log(err)
-            })
+        this.setState({text: [{id: -1, body: "Waking up and calling the server..."}]})
+        let xhr = new XMLHttpRequest()
+        xhr.open("GET", uri)
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const res = JSON.parse(xhr.response)
+                this.setState({ text: res })
+            } else {
+                console.log(xhr.status)
+            }
+        }
+        xhr.send()
     }
 
     render() {

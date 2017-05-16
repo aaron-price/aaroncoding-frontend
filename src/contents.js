@@ -20,6 +20,7 @@ import Stats from "./20-stats/Stats"
 import Lightbox from "./21-lightbox/Lightbox"
 import Stats2 from "./22-stats2/StatsPt2"
 import VideoPlayer from "./23-vidPlayer/VideoPlayer"
+import Mail from "./24-mail/Mail"
 
 // Tags
 let preTags = {}
@@ -55,6 +56,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Email integration",
+        component: Mail,
+        tags: applyTags(["react", "ui", "api"]),
+    },
     {
         title: "Video Player",
         component: VideoPlayer,
