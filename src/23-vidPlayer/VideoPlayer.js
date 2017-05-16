@@ -1,6 +1,7 @@
 import React from "react"
 import RaisedButton from "material-ui/RaisedButton"
 import Slider from "material-ui/Slider"
+import ReactPlayer from "react-player"
 
 const parentStyles = {
     display: "flex",
@@ -10,31 +11,104 @@ const parentStyles = {
 }
 
 class VideoPlayer extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            url: null,
+            playing: false,
+            volume: 0.8,
+            played: 0,
+            loaded: 0,
+            duration: 0,
+            playbackRate: 1.0,
+            pos: 0,
+        }
+        this.progress = this.progress.bind(this)
+        this.seek = this.seek.bind(this)
+        this.adjustVolume = this.adjustVolume.bind(this)
+        this.adjustRate = this.adjustRate.bind(this)
+    }
+    load(url) {
+        this.setState({
+            url,
+            played: 0,
+            loaded: 0,
+        })
+    }
+    play() {
+        this.setState((prevState) => (
+            {playing: !prevState.playing}
+        ))
+    }
+    progress(t) {
+        console.log(t)
+        // Sometimes at the beginning, it's NaN. This fixes it.
+        const secs = t.playedSeconds ? Math.floor(t.playedSeconds) : 0
+        this.setState({pos: t.played, duration: secs})
+    }
+    seek(t) { this.setState({pos: this.refs.player.seekTo(t)}) }
+    adjustVolume(volume) { this.setState({volume})}
+    adjustRate(rate) {
+        this.setState({playbackRate: rate})
+    }
+
     render() {
         return (
-            <div style={parentStyles}>
-                <p>This is a work in progress while I had a spare 30 minutes. Publishing now in case I don't get a chance to improve it later</p>
+            <div>
+                <p>Just playing with the HTML video API, and the existing
+                    <a href="https://github.com/CookPete/react-player"> react-player </a>
+                    library by Pete Cook.</p>
                 <ul>
-                    <li>
-                <video
-                    ref="player"
-                    src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/small.mp4"
-                    width="320"
-                    height="240">
-                </video>
+                    <li style={parentStyles}>
+                        {/* Player */}
+                        <ReactPlayer
+                            ref="player"
+                            className="videoplayer__video"
+                            url="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/Sample+Videos+(52)+-+Copy.mp4.mp4"
+                            playing={this.state.playing}
+                            onClick={() => this.play()}
+                            onProgress={(e) => this.progress(e)}
+                            volume={this.state.volume}
+                            playbackRate={this.state.playbackRate}
+                        />
+
+                        {/* Volume */}
+                        <Slider
+                            style={{height: 100, display: "inline-block", marginLeft: 20}}
+                            defaultValue={this.state.volume}
+                            axis="y"
+                            min={0} max={1}
+                            name="volume"
+                            step={0.01}
+                            onChange={(e, val) => this.adjustVolume(val)}
+                        /> Volume
                     </li>
 
-                <li><RaisedButton label="Play" onClick={(e) => this.refs.player.play()}/>&nbsp;
-                <RaisedButton label="Pause" onClick={(e) => this.refs.player.pause()}/></li>
-                <li><br />Volume <br /><Slider
-                    style={{width: 100, display: "inline-block", marginLeft: 20}}
-                    defaultValue={1}
-                    min={0} max={1}
-                    name="volume"
-                    step={0.01}
-                    onChange={(e, val) => this.refs.player.volume = 0.5}
-                /></li>
+                    {/* Progress */}
+                    <li><br />Time: {this.state.duration}<Slider
+                        style={{width: "100%", display: "inline-block", marginLeft: 20}}
+                        value={this.state.pos}
+                        min={0} max={1}
+                        name="progress"
+                        step={0.01}
+                        onChange={(e, val) => this.seek(val)}
+                    /></li>
+
+                    {/* Rate */}
+                    <li><br />Speed: {this.state.playbackRate}X<Slider
+                        style={{width: "100%", display: "inline-block", marginLeft: 20}}
+                        value={this.state.playbackRate}
+                        min={0.1} max={10}
+                        name="progress"
+                        step={0.01}
+                        onChange={(e, val) => this.adjustRate(val)}
+                    /></li>
+
+
+
+
                 </ul>
+
             </div>
         )
     }
