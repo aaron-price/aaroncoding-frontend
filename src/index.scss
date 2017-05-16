@@ -1,4 +1,5 @@
 @import 'app/normalize';
+// @import './fa/font-awesome.scss';
 
 @import './app/App.scss';
 @import './4-minesweeper/minesweeper.scss';
@@ -11,6 +12,7 @@
 @import './15-menuBar/menubar.scss';
 @import './19-chat/chat.scss';
 @import './21-lightbox/lightbox.scss';
+@import './23-vidPlayer/videoplayer.scss';
 
 body {
   margin: 0;
