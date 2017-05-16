@@ -19,11 +19,13 @@ class Mail extends Component {
                 from: "",
                 subject: "",
                 body: "",
+                company: "",
             },
             errors: {
                 from: "",
                 subject: "",
                 body: "",
+                company: "",
             },
         }
         this.changeHandler = this.changeHandler.bind(this)
@@ -108,6 +110,7 @@ class Mail extends Component {
                 email: fields.from,
                 subject: fields.subject,
                 body: fields.body,
+                company: fields.company,
             }))
         }
     }
@@ -122,6 +125,7 @@ class Mail extends Component {
                     After you fill out the form, your browser makes an ajax request to my
                     other app (the backend api server) which sends a request to the sendgrid SMPT server,
                         which finally delivers an email to me with this data.</p>
+                    <p>I also do some validation and spam prevention</p>
 
 
                     <Paper zDepth={2}>
@@ -132,6 +136,14 @@ class Mail extends Component {
                             floatingLabelFixed={true}
                             style={style}
                             onChange={e => this.changeHandler(e, "subject")}/>
+                        <Divider />
+
+                        <TextField
+                            hintText="Google"
+                            floatingLabelText="company"
+                            floatingLabelFixed={true}
+                            style={{display: "none"}}
+                            onChange={e => this.changeHandler(e, "company")}/>
                         <Divider />
 
                         <TextField
