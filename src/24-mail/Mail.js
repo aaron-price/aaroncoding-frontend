@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 const prod = "https://aaroncoding-backend.herokuapp.com/mail"
 const local = "http://localhost:3001/mail"
-const uri = local
+const uri = prod
 import Alert from "../helpers/Alert"
 
 import Paper from "material-ui/Paper"
