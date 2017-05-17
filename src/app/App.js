@@ -5,15 +5,17 @@ import { Provider } from "react-redux"
 import Menu from "./Menu"
 import Body from "./Body"
 import PropTypes from "prop-types"
-
+import HttpsRedirect from "react-https-redirect"
 
 const App = (props) => (
     <Router>
         <Provider store={props.store}>
-            <div>
-                <Menu />
-                <Body />
-            </div>
+            <HttpsRedirect>
+                <div>
+                    <Menu />
+                    <Body />
+                </div>
+            </HttpsRedirect>
         </Provider>
     </Router>
 )
