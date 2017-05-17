@@ -18,6 +18,7 @@ class AuthContainer extends React.Component {
     }
     updateToken(tkn) {
         this.props.dispatchUpdateJwtToken(fromJS({newToken: tkn}))
+        window.localStorage.setItem("aaroncodingToken", tkn)
     }
     updateUser(u) {
         this.props.dispatchUpdateUser(fromJS({user: {username: u}}))
@@ -28,7 +29,8 @@ class AuthContainer extends React.Component {
         $.ajax({
             url: "https://aaroncoding-backend.herokuapp.com/api/book",
             method: "GET",
-            headers: { "Authorization": this.props.jwtToken },
+            // headers: { "Authorization": this.props.jwtToken }, // For redux storage. Interesting, but not as useful.
+            headers: { "Authorization": window.localStorage.getItem("aaroncodingToken")},
         }).done(res => {
             console.log(res)
             let msg = res.message
