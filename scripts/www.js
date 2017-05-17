@@ -8,7 +8,7 @@ var app = express()
 const path = require('path')
 const publicPath = path.join(__dirname + "/../build")
 const anyPath = /^\/(.*)/
-app.get(anyPath, function (req, res) {
+app.get(anyPath, function (req, res, next) {
     if(req.headers['x-forwarded-proto']!='https')
         res.redirect('https://aaroncoding.com'+req.url)
     else
