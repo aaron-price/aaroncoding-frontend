@@ -63,12 +63,12 @@ let contentsPrebuild = [
     {
         title: "HTTPS, and custom domain",
         component: HTTPS,
-        tags: applyTags(["node", "api", "security"]),
+        tags: applyTags(["animation", "api", "node", "security"]),
     },
     {
         title: "Email integration",
         component: Mail,
-        tags: applyTags(["react", "ui", "api"]),
+        tags: applyTags(["react", "ui", "api", "node"]),
     },
     {
         title: "Video Player",
@@ -98,7 +98,7 @@ let contentsPrebuild = [
     {
         title: "User authentication",
         component: UserAuth,
-        tags: applyTags(["ui", "react", "material", "redux", "api", "immutable", "ajax"]),
+        tags: applyTags(["ui", "react", "material", "redux", "node", "api", "immutable", "ajax"]),
     },
     {
         title: "Random Story Generator",
@@ -138,7 +138,7 @@ let contentsPrebuild = [
     {
         title: "Api",
         component: Api,
-        tags: applyTags(["ajax","api"]),
+        tags: applyTags(["ajax","api", "node"]),
     },
     {
         title: "Filter Settings",
