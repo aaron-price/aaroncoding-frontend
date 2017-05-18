@@ -49,6 +49,7 @@
     "material-ui": "^0.18.0",
     "mocha": "^3.3.0",
     "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
     "object-assign": "4.1.1",
     "postcss-loader": "1.2.2",
     "promise": "7.1.1",
