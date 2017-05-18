@@ -49,6 +49,7 @@
     "material-ui": "^0.18.0",
     "mocha": "^3.3.0",
     "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
     "object-assign": "4.1.1",
     "postcss-loader": "1.2.2",
     "promise": "7.1.1",
@@ -78,7 +79,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node scripts/start.js",
-    "start:prod": "node scripts/www.js",
+    "start:prod": "node_modules/nodemon/bin/nodemon.js scripts/www.js",
     "build": "npm rebuild node-sass && node scripts/build.js",
     "postinstall": "npm rebuild node-sass && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
