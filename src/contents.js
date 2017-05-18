@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { fromJS } from "immutable"
 // Components
 import MineSweeper from "./4-minesweeper/Minesweeper"
@@ -21,6 +22,7 @@ import Lightbox from "./21-lightbox/Lightbox"
 import Stats2 from "./22-stats2/StatsPt2"
 import VideoPlayer from "./23-vidPlayer/VideoPlayer"
 import Mail from "./24-mail/Mail"
+import HTTPS from "./25-HTTPS/HTTPS"
 
 // Tags
 let preTags = {}
@@ -41,7 +43,9 @@ buildTagsObj("material","Material UI")
 buildTagsObj("mockup","Mockup Design")
 buildTagsObj("react","React")
 buildTagsObj("redux","Redux")
+buildTagsObj("node", "Node JS")
 buildTagsObj("sass","SASS / SCSS")
+buildTagsObj("security","Security")
 buildTagsObj("svg","SVG")
 buildTagsObj("tdd","TDD / BDD")
 buildTagsObj("ui","UI / UX / Design")
@@ -56,6 +60,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "HTTPS, and custom domain",
+        component: HTTPS,
+        tags: applyTags(["node", "api", "security"]),
+    },
     {
         title: "Email integration",
         component: Mail,
@@ -179,6 +188,7 @@ let contentsPrebuild = [
 const contents = fromJS(contentsPrebuild.map((content, i) => {
     let newContent = content
     newContent.path = content.title
+                             .replace(/(and\s)|(a\s)|[,\(\)\[\]\{\}]/g, "") // Remove "and", "a", and various punctuation.
                              .replace(/\s/g, "_")   // Convert spaces to underscores
                              .toLowerCase()         // Keep it all lowercase
     newContent.day = contentsPrebuild.length - i    // Number: how many consecutive days at this point.

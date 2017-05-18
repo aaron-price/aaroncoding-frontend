@@ -1,0 +1,24 @@
+.https__paper {
+  width: 250px;
+  height: 250px;
+}
+
+.https__bar--closed {
+  transition-duration: 4s;
+  transform: translate(0, 12px);
+  transition-timing-function: ease-in-out;
+}
+
+.https__bar--open {
+  transition-duration: 0s;
+  transform: translate(0, 0);
+}
+
+.https__base--closed {
+  fill: #C6FF00;
+  transition: fill 4s ease;
+}
+
+.https__base--open {
+  fill: #D32F2F;
+}
