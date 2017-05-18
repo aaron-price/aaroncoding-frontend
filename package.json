@@ -78,7 +78,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node scripts/start.js",
-    "start:prod": "node scripts/www.js",
+    "start:prod": "node_modules/nodemon/bin/nodemon.js scripts/www.js",
     "build": "npm rebuild node-sass && node scripts/build.js",
     "postinstall": "npm rebuild node-sass && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
