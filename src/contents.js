@@ -23,6 +23,7 @@ import Stats2 from "./22-stats2/StatsPt2"
 import VideoPlayer from "./23-vidPlayer/VideoPlayer"
 import Mail from "./24-mail/Mail"
 import HTTPS from "./25-HTTPS/HTTPS"
+import VidBG from "./26-vidBg/VidBG"
 
 // Tags
 let preTags = {}
@@ -60,6 +61,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Video background",
+        component: VidBG,
+        tags: applyTags(["react", "ui", "aws"]),
+    },
     {
         title: "HTTPS, and custom domain",
         component: HTTPS,

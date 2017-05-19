@@ -33,3 +33,22 @@
 .header--red { @include header(rgba(#994444, .5), rgba(#CC4444, .5)); }
 .header--green { @include header(rgba(#449944, .5), rgba(#44CC44, .5)); }
 .header--blue { @include header(rgba(#444499, .5), rgba(#4444CC, .5)); }
+
+.home__text-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.home__text {
+  padding: 2em;
+  margin-bottom: 2em;
+}
+
+.home__list-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.home__list {
+  padding: 2em;
+  font-family: "Impact, Charcoal, sans-serif", Impact, sans-serif;
+  font-size: x-large;
+}

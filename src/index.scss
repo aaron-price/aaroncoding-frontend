@@ -14,11 +14,13 @@
 @import './21-lightbox/lightbox.scss';
 @import './23-vidPlayer/videoplayer.scss';
 @import './25-HTTPS/https.scss';
+@import './26-vidBg/VidBg.scss';
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #B2EBF2;
 }
 
 // Everything below the menubar
@@ -35,6 +37,13 @@ ul {
 
 .centered-text {
   text-align: center;
+}
+
+// Generically centers things in a jiffy
+.centering-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a:-webkit-any-link {
