@@ -57,6 +57,7 @@
     "react-addons-test-utils": "^15.5.1",
     "react-dev-utils": "^0.5.2",
     "react-dom": "^15.5.4",
+    "react-ga": "^2.2.0",
     "react-https-redirect": "^1.0.9",
     "react-immutable-proptypes": "^2.1.0",
     "react-player": "^0.18.0",
