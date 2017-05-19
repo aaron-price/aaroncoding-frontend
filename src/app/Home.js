@@ -33,7 +33,7 @@ const VidBG  = props => {
                 className="VidBG__video"
                 src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.3gp"
                 autoPlay={true}
-                loop
+                loop={true}
             />
         </div>
     )
