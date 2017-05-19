@@ -5,10 +5,21 @@ import { Provider } from "react-redux"
 import Menu from "./Menu"
 import Body from "./Body"
 import PropTypes from "prop-types"
+import ReactGA from "react-ga"
 import HttpsRedirect from "react-https-redirect"
 
+// Google analytics
+ReactGA.initialize("UA-99298519-1", {
+    debug: true,
+})
+function logPageView() {
+    ReactGA.set({ page: window.location.pathname + window.location.search })
+    ReactGA.pageview(window.location.pathname + window.location.search)
+}
+
+
 const App = (props) => (
-    <Router>
+    <Router onUpdate={logPageView}>
         <Provider store={props.store}>
             <HttpsRedirect>
                 <div>
