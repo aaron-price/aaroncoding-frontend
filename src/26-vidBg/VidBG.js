@@ -12,9 +12,13 @@ const VidBG  = props => {
             <div className="VidBG__overlay"></div>
             <video
                 className="VidBG__video"
-                src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.3gp"
                 autoPlay={true}
-            />
+            >
+                <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.3gp" type="video/3gp"/>
+                <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.mp4" type="video/mp4"/>
+                <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.ogv" type="video/ogg"/>
+                <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.webm" type="video/webm"/>
+            </video>
         </div>
     )
 }
