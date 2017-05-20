@@ -25,30 +25,24 @@ function linkFactory(stateContent, contents) {
     })
 }
 
-class VidBG extends React.Component {
-    componentDidMount() {
-        let player = this.refs.player
-        setTimeout(() => player.play(), 300)
-    }
-    render() {
-        return (
-            <div>
-                <div className="VidBG__overlay"></div>
-                <video
-                    ref="player"
-                    className="VidBG__video"
-                    autoPlay={true}
-                    loop={true}
-                    muted={true}
-                >
-                    <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.3gp"/>
-                    <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.mp4" type="video/mp4"/>
-                    <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.ogv" type="video/ogg"/>
-                    <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.webm" type="video/webm"/>
-                </video>
-            </div>
-        )
-    }
+const VidBG = props => {
+    return (
+        <div>
+            <div className="VidBG__overlay"></div>
+            <video
+                ref="player"
+                className="VidBG__video"
+                autoPlay={true}
+                loop={true}
+                muted={true}
+            >
+                <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.3gp"/>
+                <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.mp4" type="video/mp4"/>
+                <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.ogv" type="video/ogg"/>
+                <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.webm" type="video/webm"/>
+            </video>
+        </div>
+    )
 }
 
 const Home = props => {
