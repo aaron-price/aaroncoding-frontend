@@ -24,6 +24,7 @@ import VideoPlayer from "./23-vidPlayer/VideoPlayer"
 import Mail from "./24-mail/Mail"
 import HTTPS from "./25-HTTPS/HTTPS"
 import VidBG from "./26-vidBg/VidBG"
+import SlideList from "./27-slideList/SlideList"
 
 // Tags
 let preTags = {}
@@ -61,6 +62,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Sliding List",
+        component: SlideList,
+        tags: applyTags(["react", "ui", "animation"]),
+    },
     {
         title: "Video background",
         component: VidBG,
