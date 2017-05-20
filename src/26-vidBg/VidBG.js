@@ -4,7 +4,9 @@ import Paper from "material-ui/Paper"
 class VidBG extends React.Component {
     componentDidMount() {
         let player = this.refs.player
-        setTimeout(() => player.play(), 300)
+        console.log(player)
+        player.pause()
+        setTimeout(() => player.play(), 3000)
     }
     render() {
         return (
@@ -19,6 +21,8 @@ class VidBG extends React.Component {
                     ref="player"
                     className="VidBG__video"
                     autoPlay={true}
+                    muted={true}
+                    loop={true}
                 >
                     <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.3gp"/>
                     <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.mp4" type="video/mp4"/>

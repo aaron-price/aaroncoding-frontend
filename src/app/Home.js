@@ -38,6 +38,8 @@ class VidBG extends React.Component {
                     ref="player"
                     className="VidBG__video"
                     autoPlay={true}
+                    loop={true}
+                    muted={true}
                 >
                     <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.3gp"/>
                     <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.mp4" type="video/mp4"/>
