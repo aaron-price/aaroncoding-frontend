@@ -52,3 +52,18 @@
   font-family: "Impact, Charcoal, sans-serif", Impact, sans-serif;
   font-size: x-large;
 }
+
+.home-slidelist__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.home-slidelist__ul {
+  width: 100%;
+}
+
+.home-slidelist__item {
+  padding: 1em;
+  margin-bottom: 0.5em;
+  color: inherit !important;
+}
