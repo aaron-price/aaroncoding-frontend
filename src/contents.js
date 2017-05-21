@@ -25,6 +25,7 @@ import Mail from "./24-mail/Mail"
 import HTTPS from "./25-HTTPS/HTTPS"
 import VidBG from "./26-vidBg/VidBG"
 import SlideList from "./27-slideList/SlideList"
+import Stranger from "./28-stranger/Stranger"
 
 // Tags
 let preTags = {}
@@ -62,6 +63,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Stranger Logos",
+        component: Stranger,
+        tags: applyTags(["react", "ui", "animation"]),
+    },
     {
         title: "Sliding List",
         component: SlideList,
