@@ -26,6 +26,7 @@ import HTTPS from "./25-HTTPS/HTTPS"
 import VidBG from "./26-vidBg/VidBG"
 import SlideList from "./27-slideList/SlideList"
 import Stranger from "./28-stranger/Stranger"
+import Parallax from "./29-parallax/Parallax"
 
 // Tags
 let preTags = {}
@@ -63,6 +64,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Parallax",
+        component: Parallax,
+        tags: applyTags(["react", "ui", "animation"]),
+    },
     {
         title: "Stranger Logos",
         component: Stranger,
