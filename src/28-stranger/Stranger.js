@@ -10,7 +10,6 @@ const wid = (100 / (inLn)) * 1.5 + "vw"
 
 const text = input.split("")
 console.log(isMobile.any)
-// console.log(isMobile(req.headers["user-agent"]).any)
 let textStyle = isMobile.any
     ? {
         textShadow: "0 0 7px #F00",
