@@ -26,7 +26,7 @@ class Stranger extends React.Component {
                     className="stranger__chars"
                     style={{
                         color: "#000",
-                        textShadow: "0 0 8px #F00",
+                        textShadow: "0 0 0.5vmin #F00",
                         fontWeight: 100,
                     }}>
                     {t === " " ? <span>&nbsp;</span> : t}
