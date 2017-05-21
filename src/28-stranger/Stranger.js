@@ -14,7 +14,7 @@ class Stranger extends React.Component {
         const tl = TweenMax
         const chars = text.map((t, key) => this.refs[`char${key}`])
         chars.forEach(c => {
-            tl.from(c, 20, {x: between(-200, 200), y: between(-200, 200)})
+            tl.from(c, 10, {x: between(-200, 200), y: between(-200, 200)})
         })
     }
     render() {
