@@ -31,7 +31,6 @@ class Home extends React.Component {
         super(props)
         let pendingState = {}
         contents.toJS().forEach((content, i) => pendingState[`paperLink${i}`] = 2)
-        console.log(contents.toJS())
         this.state = pendingState
 
         this.hoverHandler = this.hoverHandler.bind(this)

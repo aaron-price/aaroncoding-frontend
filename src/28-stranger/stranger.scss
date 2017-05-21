@@ -1,6 +1,7 @@
 @font-face {
   font-family: Benguiat;
-  src: url("https://s3-us-west-2.amazonaws.com/aaroncoding/fonts/BenguiatEF-BookCondensed.ttf");
+  src: local("Benguiat Bold"),
+  url(Benguiat.ttf);
 }
 
 .stranger__chars {
