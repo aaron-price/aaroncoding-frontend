@@ -1,0 +1,19 @@
+@font-face {
+  font-family: Benguiat;
+  src: url("https://s3-us-west-2.amazonaws.com/aaroncoding/fonts/BenguiatEF-BookCondensed.ttf");
+}
+
+.stranger__chars {
+  font-size: 600%;
+  color: red;
+  font-family: Benguiat
+}
+
+.stranger__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  height: 100vh;
+  padding: 2em;
+}
