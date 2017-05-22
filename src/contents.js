@@ -27,6 +27,7 @@ import VidBG from "./26-vidBg/VidBG"
 import SlideList from "./27-slideList/SlideList"
 import Stranger from "./28-stranger/Stranger"
 import Parallax from "./29-parallax/Parallax"
+import Walkthrough from "./30-walkthrough/Walkthrough"
 
 // Tags
 let preTags = {}
@@ -64,6 +65,11 @@ function applyTags(arr) {
 }
 
 let contentsPrebuild = [
+    {
+        title: "Walkthrough tutorial",
+        component: Walkthrough,
+        tags: applyTags(["react", "ui"]),
+    },
     {
         title: "Parallax",
         component: Parallax,

@@ -9,7 +9,6 @@ const inLn = input.length
 const wid = (100 / (inLn)) * 1.5 + "vw"
 
 const text = input.split("")
-console.log(isMobile.any)
 let textStyle = isMobile.any
     ? {
         textShadow: "0 0 7px #F00",

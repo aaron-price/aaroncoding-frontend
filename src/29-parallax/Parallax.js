@@ -23,6 +23,9 @@ class Parallax extends React.Component {
     componentDidMount() {
         this.animate()
     }
+    componentWillUnmount() {
+        clearInterval(this.interval)
+    }
     animate() {
         this.interval = setInterval(() => {
             let newBubbles = this.state.bubbles.map(bubble => {
