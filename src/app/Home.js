@@ -66,9 +66,10 @@ class Home extends React.Component {
                         <p>By Aaron Price</p>
                         <p>I'm attempting to get a job as a front end web developer. But I'm not great at talking about
                             myself. So I've decided to let my skills speak for themselves</p>
-                        <p>To that end, on April 24th, 2017, I started building a small project, every day.</p>
+                        <p>To that end, on April 24th, 2017, I started building a small project, every day, for 30 days.</p>
+                        <p>You can find the source code here <a href="https://github.com/aaron-price/aaroncoding-frontend">https://github.com/aaron-price/aaroncoding-frontend</a></p>
                         <br />
-                        <p>I haven't missed a day yet.</p>
+                        <p>But now I'm stopping to work on a few bigger projects.</p>
                     </Paper>
                 </div>
                 <div className="home__list-wrapper">
