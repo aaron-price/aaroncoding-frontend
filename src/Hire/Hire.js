@@ -6,7 +6,7 @@ const Hire = props => {
         <div>
             <h1>Hire me</h1>
             <p>I make websites come alive with user interfaces.</p>
-            <h3>HTML/CSS/Javascript</h3>
+            <h3>HTML/CSS/Javascript/React</h3>
             <p>...And so much more</p>
             <ContactForm />
         </div>
