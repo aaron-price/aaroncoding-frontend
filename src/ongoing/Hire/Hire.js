@@ -1,5 +1,5 @@
 import React from "react"
-import ContactForm from "../shareComponents/ContactForm.js"
+import ContactForm from "../../shareComponents/ContactForm.js"
 
 const Hire = props => {
     return (

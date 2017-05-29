@@ -1,17 +1,20 @@
 import React from "react"
 import { TweenMax, Bounce, Sine, Elastic, Expo } from "gsap"
+import PropTypes from "prop-types"
+const intro = () => <p>An animated bar graph. I call this work: "Oh beloved sleep, how shall I enumerate the ways I miss thee".</p>
 
 export default class Stats extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            points: [
+            points: this.props.points || [
                 {y: 50, bg: "D32F2F"},
                 {y: 50, bg: "1976D2"},
                 {y: 50, bg: "388E3C"},
                 {y: 50, bg: "F9A825"},
                 {y: 50, bg: "7B1FA2"},
             ],
+            intro: this.props.intro || intro,
         }
         this.animate = this.animate.bind(this)
     }
@@ -61,4 +64,8 @@ export default class Stats extends React.Component {
             </div>
         )
     }
+}
+Stats.propTypes = {
+    points: PropTypes.array,
+    intro: PropTypes.node,
 }
