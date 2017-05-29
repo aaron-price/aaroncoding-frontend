@@ -5,7 +5,8 @@ import contents from "../contents"
 import Home from "./Home"
 import Settings from "./Settings"
 import AuthContainer from "./auth/AuthContainer"
-import Hire from "../Hire/Hire.js"
+import Hire from "../ongoing/Hire/Hire.js"
+import SupplyDemand from "../ongoing/supplyDemand/SupplyDemand.js"
 
 function routeFactory() {
     return contents.map((content, key) => {
@@ -20,6 +21,7 @@ const Body = props => {
             <Route exact path="/login" component={AuthContainer}/>
             <Route exact path="/settings" component={Settings}/>
             <Route exact path="/hire" component={Hire}/>
+            <Route exact path="/supply_and_demand" component={SupplyDemand}/>
             {routeFactory()}
         </div>
     )
