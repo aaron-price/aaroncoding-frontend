@@ -167,6 +167,11 @@ let languages = [
         jobs: 14,
         seekers: 15,
     },
+    {
+        name: "NoSql",
+        jobs: 40,
+        seekers: 5,
+    },
 ]
 
 let jobs = languages.map(ln => ln.jobs)
