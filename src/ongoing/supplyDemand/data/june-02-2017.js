@@ -5,11 +5,6 @@ const data = [
         seekers: 42,
     },
     {
-        name: "Ruby",
-        jobs: 46,
-        seekers: 14,
-    },
-    {
         name: "rails",
         jobs: 38,
         seekers: 35,
