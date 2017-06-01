@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { fromJS } from "immutable"
 // Components
+import Accordion from "./1-accordion/Accordion"
 import MineSweeper from "./4-minesweeper/Minesweeper"
 import Zipper from "./5-zipper/Zipper"
 import Hovers from "./6-hovers/Hovers"
@@ -210,6 +211,7 @@ let contentsPrebuild = [
     },
     {
         title: "Accordion",
+        component: Accordion,
         tags: applyTags(["tdd", "ui", "vanilla", "vim"]),
     },
 ]
