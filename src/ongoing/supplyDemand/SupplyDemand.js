@@ -12,11 +12,13 @@ import ApplyFilters from "./ApplyFilters"
 import CompareKeywords from "./CompareKeywords"
 import DisplayItems from "./DisplayItems"
 import IntroText from "./IntroText"
+import processedSamples from "./data/dataProcessor"
 
 class SupplyDemand extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            currentSample: 0,
             minJSTD: 0.001,
             maxSStd: 100,
             jobs: 1,
@@ -33,15 +35,13 @@ class SupplyDemand extends React.Component {
                 {text: "Candidates", field: "seekers"},
                 {text: "Jobs : Candidates ratio", field: "JtoS"},
             ],
-            points: may28.map(d => {
-                return {y: 50, bg: `${between(0,255)},${between(0,255)},${between(0,255)}`}
-            }),
         }
         this.changeHandler = this.changeHandler.bind(this)
         this.disAllower = this.disAllower.bind(this)
         this.reAllow = this.reAllow.bind(this)
         this.updateComparison1 = this.updateComparison1.bind(this)
         this.updateComparison2 = this.updateComparison2.bind(this)
+        this.updateSample = this.updateSample.bind(this)
     }
     reAllow(val) {
         let newState = this.state.disallowed
@@ -63,12 +63,13 @@ class SupplyDemand extends React.Component {
         newState.push(val)
         this.setState(prevState => ({disallowed: newState}))
     }
+    updateSample(e, index) { this.setState({currentSample: index}) }
     updateComparison1(e, index) { this.setState({comparison1: index}) }
     updateComparison2(e, index) { this.setState({comparison2: index}) }
 
     render() {
-        const graphHeight = may28.length * 18
-        const data = may28.filter(d => {
+        const graphHeight = processedSamples[this.state.currentSample].data.length * 18
+        const data = processedSamples[this.state.currentSample].data.filter(d => {
             return !(
                 d.JobStd < this.state.minJSTD ||
                 d.SeekerStd > this.state.maxSStd ||
@@ -101,6 +102,17 @@ class SupplyDemand extends React.Component {
                     comp2={comp2}
                     data={data}
                 />
+                <Paper className="supply-demand-padded-paper">
+                    <SelectField
+                        onChange={this.updateSample}
+                        maxHeight={200}
+                        value={this.state.currentSample}
+                    >
+                        {processedSamples.map((d, key) => {
+                            return <MenuItem key={key} value={key} primaryText={d.title} />
+                        })}
+                  </SelectField>
+              </Paper>
                 <DisplayItems
                     columns={this.state.columns}
                     data={data}

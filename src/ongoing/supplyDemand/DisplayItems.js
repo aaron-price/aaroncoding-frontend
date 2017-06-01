@@ -6,7 +6,6 @@ const DisplayItems = props => {
     return (
         <div>
             <Paper className="supply-demand-padded-paper">
-                <h4>May 28th, 2017</h4>
                 <div className="supply-demand-table">
                     {/* Generate Columns */}
                     {props.columns.map((col, key) => {
