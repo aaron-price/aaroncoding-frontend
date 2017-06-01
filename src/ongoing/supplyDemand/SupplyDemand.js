@@ -4,6 +4,13 @@ import Slider from "material-ui/Slider"
 import Paper from "material-ui/Paper"
 import may28 from "./data/may-28-2017"
 import { between } from "../../helpers/Random"
+const _ = require("lodash")
+import SelectField from "material-ui/SelectField"
+import MenuItem from "material-ui/MenuItem"
+
+function bigName(name) {
+    return <span><strong>{name.toUpperCase()}</strong></span>
+}
 
 class SupplyDemand extends React.Component {
     constructor(props) {
@@ -17,6 +24,8 @@ class SupplyDemand extends React.Component {
             sortBy: "handicappedJtoS",
             dirAsc: false,
             disallowed: [],
+            comparison1: 0,
+            comparison2: 1,
             columns: [
                 {text: "Name", field: "name"},
                 {text: "Jobs", field: "jobs"},
@@ -30,6 +39,8 @@ class SupplyDemand extends React.Component {
         this.changeHandler = this.changeHandler.bind(this)
         this.disAllower = this.disAllower.bind(this)
         this.reAllow = this.reAllow.bind(this)
+        this.updateComparison1 = this.updateComparison1.bind(this)
+        this.updateComparison2 = this.updateComparison2.bind(this)
     }
     reAllow(val) {
         let newState = this.state.disallowed
@@ -37,7 +48,6 @@ class SupplyDemand extends React.Component {
         this.setState({disallowed: newState.splice(index, 1)})
     }
     changeHandler(e, field, val) {
-        console.log(field)
         let newState = Object.assign({}, this.state)
         newState[field] = val
         // if you're sorting, and already sorted that col, change direction
@@ -52,6 +62,8 @@ class SupplyDemand extends React.Component {
         newState.push(val)
         this.setState(prevState => ({disallowed: newState}))
     }
+    updateComparison1(e, index) { this.setState({comparison1: index}) }
+    updateComparison2(e, index) { this.setState({comparison2: index}) }
 
     render() {
         const graphHeight = may28.length * 18
@@ -72,6 +84,8 @@ class SupplyDemand extends React.Component {
             if (a[field] > b[field]) { return asc ? 1 : -1 }
             return 0
         })
+        const comp1 = data[this.state.comparison1]
+        const comp2 = data[this.state.comparison2]
         return (
             <div>
                 <Paper className="supply-demand-padded-paper">This is the Job/supply data, collected from indeed.com. Note that it's not the data they give
@@ -83,6 +97,7 @@ class SupplyDemand extends React.Component {
 
                 <form>
                     <Paper className="supply-demand-padded-paper">
+                        <h3>Apply Filters</h3>
                         <div>
                             <div>Minimum Job Count ({this.state.jobs})</div>
                             <Slider
@@ -141,6 +156,47 @@ class SupplyDemand extends React.Component {
 
                     </Paper>
                 </form>
+
+                <Paper  className="supply-demand-padded-paper">
+                    <h3>Compare two keywords</h3>
+                    <SelectField
+                        value={this.state.comparison1}
+                        onChange={this.updateComparison1}
+                        maxHeight={200}
+                      >
+                        {data.map((d, key) => {
+                            return <MenuItem key={key} value={key} primaryText={d.name} />
+                        })}
+                      </SelectField>
+
+                    <SelectField
+                        value={this.state.comparison2}
+                        onChange={this.updateComparison2}
+                        maxHeight={200}
+                      >
+                        {data.map((d, key) => {
+                            return <MenuItem key={key} value={key} primaryText={d.name} />
+                        })}
+                      </SelectField>
+                        /*
+                            if the one with higher jobs ALSO has higher cand, then "but"
+                        */
+                    {
+                        comp1.jobs < comp2.jobs
+                        ? <p>{bigName(comp2.name)} has {bigName(_.round(comp2.jobs / comp1.jobs, 2).toString())} times more job posts than {bigName(comp1.name)}</p>
+                        : <p>{bigName(comp1.name)} has {bigName(_.round(comp1.jobs / comp2.jobs, 2).toString())} times more job posts than {bigName(comp2.name)}</p>
+                    }{
+                        comp1.seekers < comp2.seekers
+                        ? <p>{comp2.jobs > comp1.jobs && "but "}{bigName(comp2.name)} has {bigName(_.round(comp2.seekers / comp1.seekers, 2).toString())} times more competition than {bigName(comp1.name)}</p>
+                        : <p>{comp1.jobs > comp2.jobs && "but "}{bigName(comp1.name)} has {bigName(_.round(comp1.seekers / comp2.seekers, 2).toString())} times more competition than {bigName(comp2.name)}</p>
+                    }
+                        <p>All else equal,&nbsp;
+                    {
+                        comp1.JtoS < comp2.JtoS
+                        ? <span>{bigName(comp2.name)} has {bigName(_.round(comp2.JtoS / comp1.JtoS, 2).toString())} times better job prospects than {bigName(comp1.name)}</span>
+                        : <span>{bigName(comp1.name)} has {bigName(_.round(comp1.JtoS / comp2.JtoS, 2).toString())} times better job prospects than {bigName(comp2.name)}</span>
+                    }   </p>
+                </Paper>
 
                 <Paper className="supply-demand-padded-paper">
                     <h4>May 28th, 2017</h4>
