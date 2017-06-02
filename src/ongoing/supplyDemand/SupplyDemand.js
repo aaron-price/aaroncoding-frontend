@@ -22,7 +22,7 @@ class SupplyDemand extends React.Component {
             minJSTD: 0.001,
             maxSStd: 100,
             jobs: 1,
-            seekers: 1000,
+            seekers: 1500,
             JtoS: 0,
             sortBy: "handicappedJtoS",
             dirAsc: false,
@@ -138,8 +138,5 @@ class SupplyDemand extends React.Component {
         )
     }
 }
-
-
-
 
 export default SupplyDemand

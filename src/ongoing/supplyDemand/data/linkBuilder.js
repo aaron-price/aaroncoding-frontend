@@ -7,17 +7,11 @@ function monthBuilder(q) {
 }
 
 const words = [
-    "postgresql postgres",
-    "mongodb mongo",
-    "couchdb",
-    "sql",
-    "nosql",
-    "ruby rails",
-    "node nodejs node.js",
-    "javascript js",
-    "angular angularjs angular.js",
-    "php",
-    "wordpress",
+    "javascript react react.js reactjs nosql node nodejs node.js mongo mongodb mongo.db",
+    "php apache wordpress mysql sql javascript",
+    "ruby rails postgress sql javascript",
+    "javascript angular angular.js angularjs nosql node nodejs node.js mongo mongodb mongo.db",
+    "python django sql mysql javascript",
 ]
 
 words.forEach(word => monthBuilder(word))
