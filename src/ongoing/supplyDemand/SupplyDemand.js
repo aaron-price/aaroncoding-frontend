@@ -29,6 +29,7 @@ class SupplyDemand extends React.Component {
             disallowed: [],
             comparison1: 0,
             comparison2: 1,
+            hovered: -1,
             columns: [
                 {text: "Name", field: "name"},
                 {text: "Jobs", field: "jobs"},
@@ -42,6 +43,8 @@ class SupplyDemand extends React.Component {
         this.updateComparison1 = this.updateComparison1.bind(this)
         this.updateComparison2 = this.updateComparison2.bind(this)
         this.updateSample = this.updateSample.bind(this)
+        this.hoverHandler = this.hoverHandler.bind(this)
+        this.unHoverHandler = this.unHoverHandler.bind(this)
     }
     reAllow(val) {
         let newState = this.state.disallowed
@@ -57,6 +60,12 @@ class SupplyDemand extends React.Component {
         }
 
         this.setState(newState)
+    }
+    hoverHandler(key) {
+        this.setState({hovered: key})
+    }
+    unHoverHandler() {
+        this.setState({hovered: -1})
     }
     disAllower(val) {
         let newState = this.state.disallowed
@@ -88,12 +97,13 @@ class SupplyDemand extends React.Component {
         })
         const comp1 = data[this.state.comparison1]
         const comp2 = data[this.state.comparison2]
+        const comparisons_exist = (comp1 !== undefined) && (comp2 !== undefined)
 
         return (
             <div>
                 <IntroText />
                 <ApplyFilters state={this.state} changeHandler={this.changeHandler}/>
-                <CompareKeywords
+                {comparisons_exist && <CompareKeywords
                     comparison1={this.state.comparison1}
                     comparison2={this.state.comparison2}
                     updateComparison1={this.updateComparison1}
@@ -101,7 +111,7 @@ class SupplyDemand extends React.Component {
                     comp1={comp1}
                     comp2={comp2}
                     data={data}
-                />
+                />}
                 <Paper className="supply-demand-padded-paper">
                     <SelectField
                         onChange={this.updateSample}
@@ -120,6 +130,9 @@ class SupplyDemand extends React.Component {
                     disAllower={this.disAllower}
                     disallowed={this.state.disallowed}
                     reAllow={this.reAllow}
+                    hovered={this.state.hovered}
+                    hoverHandler={this.hoverHandler}
+                    unHoverHandler={this.unHoverHandler}
                 />
             </div>
         )
