@@ -23,8 +23,8 @@ const ApplyFilters = props => {
                     <div>Maximum Seeker Count ({props.state.seekers})</div>
                     <Slider
                         style={{width: "90%", display: "inline-block", marginLeft: 20}}
-                        defaultValue={100}
-                        min={1} max={100}
+                        defaultValue={1000}
+                        min={1} max={1000}
                         step={1}
                         onChange={(e, val) => props.changeHandler(e, "seekers", val)}
                     />
@@ -56,8 +56,8 @@ const ApplyFilters = props => {
                     <div>Max Standard Deviation of Job Seekers ({props.state.maxSStd})</div>
                     <Slider
                         style={{width: "90%", display: "inline-block", marginLeft: 20}}
-                        defaultValue={5}
-                        min={0.01} max={5}
+                        defaultValue={100}
+                        min={0.01} max={100}
                         step={0.01}
                         onChange={(e, val) => props.changeHandler(e, "maxSStd", val)}
                     />

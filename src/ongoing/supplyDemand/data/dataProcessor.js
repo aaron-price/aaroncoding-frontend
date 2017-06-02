@@ -1,6 +1,7 @@
 const _ = require("lodash")
 const math = require("mathjs")
 const titles = [
+    "May-To-June-2017",
     "June-02-2017",
     "May-28-2017",
 ]
