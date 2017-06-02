@@ -23,8 +23,8 @@ const ApplyFilters = props => {
                     <div>Maximum Seeker Count ({props.state.seekers})</div>
                     <Slider
                         style={{width: "90%", display: "inline-block", marginLeft: 20}}
-                        defaultValue={1000}
-                        min={1} max={1000}
+                        defaultValue={1500}
+                        min={1} max={1500}
                         step={1}
                         onChange={(e, val) => props.changeHandler(e, "seekers", val)}
                     />
