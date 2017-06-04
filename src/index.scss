@@ -19,6 +19,7 @@
 @import './30-walkthrough/walkthrough.scss';
 
 @import './ongoing/supplyDemand/supplyDemand.scss';
+@import './ongoing/quiz/quiz.scss';
 
 body {
   margin: 0;
@@ -51,4 +52,12 @@ ul {
 
 a:-webkit-any-link {
   text-decoration: none;
+}
+
+.padded-paper {
+  padding: 1em;
+}
+
+.clickable {
+  cursor: pointer;
 }
