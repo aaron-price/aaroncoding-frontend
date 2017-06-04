@@ -1,0 +1,12 @@
+.quiz-paper-clickable {
+  cursor: pointer;
+  margin: 1em;
+}
+.quiz-correct {
+  background-color: #4CAF50;
+}
+
+.quiz-incorrect {
+  background-color: #F44336;
+  color: #FFF;
+}
