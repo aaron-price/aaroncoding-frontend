@@ -10,7 +10,7 @@ export default function checkMobile() {
     const isMobile = /iPad|iPhone|iPod|Android/.test(navigator.userAgent) && !window.MSStream
     const screenWidth = (isMobile) ? screen.width : window.innerWidth
     const screenHeight = (isMobile) ? screen.height : window.innerHeight
-    const smallScreen = isMobile || screenWidth < 550
+    const smallScreen = isMobile || screenWidth < 640
     return {
         isMobile,
         screenWidth,

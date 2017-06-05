@@ -118,7 +118,7 @@ class ContactForm extends Component {
     render() {
         const style = { marginLeft: 20 }
         return (
-            <div>
+            <div className="contact-form">
                 <div>
                     <Paper zDepth={2}>
                         <TextField

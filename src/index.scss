@@ -20,6 +20,9 @@
 
 @import './ongoing/supplyDemand/supplyDemand.scss';
 @import './ongoing/quiz/quiz.scss';
+@import './ongoing/Hire/hire.scss';
+@import './ongoing/Tools/tools.scss';
+@import './ongoing/mockups/contentdj/contentdj.scss';
 
 body {
   margin: 0;
@@ -61,3 +64,10 @@ a:-webkit-any-link {
 .clickable {
   cursor: pointer;
 }
+
+.flex-parent { display: flex; }
+.flex-container { display: flex; }
+.flex-centered-hor { justify-content: center; }
+.flex-space-around { justify-content: space-around; }
+.flex-space-between { justify-content: space-between; }
+.flex-centered-vert { align-item: center; }

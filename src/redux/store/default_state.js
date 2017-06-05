@@ -25,6 +25,8 @@ const DEFAULT_STATE = fromJS({
     user: {
         username: "",
     },
+    menuVisible: true,
+    smallScreen: true,
 })
 
 export default DEFAULT_STATE

@@ -67,3 +67,37 @@
   margin-bottom: 0.5em;
   color: inherit !important;
 }
+.home-featurebox-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
+  cursor: pointer;
+  margin: 1em;
+  min-width: 40vmin;
+  min-height: 40vmin;
+}
+.home-featurebox-container-hover {
+  background-color: red;
+}
+
+.home-featurebox-inner-container {
+  margin: auto;
+}
+.home-featurebox-title {
+  color: #616161;
+}
+.home-featurebox-description {
+  color: #3E2723;
+}
+.home-all-featureboxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.home-featurebox-image {
+  width: 25vmin;
+  height: 25vmin;
+}
