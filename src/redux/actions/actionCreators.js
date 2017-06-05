@@ -1,4 +1,4 @@
-import { UPDATE_HEADER, UPDATE_FILTERS, UPDATE_JWTTOKEN, UPDATE_USER } from "./actions"
+import { UPDATE_HEADER, UPDATE_FILTERS, UPDATE_JWTTOKEN, UPDATE_USER, MENU_VISIBILITY, SMALL_SCREEN } from "./actions"
 
 export function updateHeader(config) {
     return { type: UPDATE_HEADER, config}
@@ -14,4 +14,12 @@ export function updateJwtToken(config) {
 
 export function updateUser(config) {
     return { type: UPDATE_USER, config}
+}
+
+export function updateMenuVisibility(config) {
+    return { type: MENU_VISIBILITY, config}
+}
+
+export function updateSmallScreen(config) {
+    return { type: SMALL_SCREEN, config}
 }

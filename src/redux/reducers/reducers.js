@@ -1,4 +1,4 @@
-import { UPDATE_HEADER, UPDATE_FILTERS, UPDATE_JWTTOKEN, UPDATE_USER } from "../actions/actions"
+import { UPDATE_HEADER, UPDATE_FILTERS, UPDATE_JWTTOKEN, UPDATE_USER, MENU_VISIBILITY, SMALL_SCREEN } from "../actions/actions"
 import DEFAULT_STATE from "../store/default_state"
 import { mergeDee, fromJS } from "immutable"
 
@@ -6,11 +6,14 @@ const rootReducer = (state = DEFAULT_STATE, action) => {
     switch (action.type) {
     case UPDATE_HEADER:
         return state.set("headerColor", action.config.get("headerColor"))
+    case MENU_VISIBILITY:
+        return state.set("menuVisible", action.config.get("menuVisible"))
     case UPDATE_JWTTOKEN:
         return state.set("jwtToken", action.config.get("newToken"))
     case UPDATE_USER:
         return state.setIn(["user", "username"], action.config.getIn(["user", "username"]))
-
+    case SMALL_SCREEN:
+        return state.set("smallScreen", action.config.get("smallScreen"))
     case UPDATE_FILTERS:
         // PHASE1 = Get the state and payload
         const phase1 = state

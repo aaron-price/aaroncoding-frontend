@@ -7,7 +7,10 @@ import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
 const menuItems = [
-    {title: "Browse", path: "/"},
+    {title: "Home", path: "/"},
+    {title: "30 Days", path: "/30days"},
+    {title: "Mockups", path: "/mockups"},
+    {title: "Tools", path: "/tools"},
     {title:"Hire Aaron", path: "/hire"},
 ]
 
@@ -17,30 +20,19 @@ class MenuBar extends React.Component {
 
         this.state = {
             open: false,
-            smallScreen: checkMobile().smallScreen,
             items: this.props.menuItems || menuItems,
         }
-        this.handleResize = this.handleResize.bind(this)
-    }
-
-    // This also handles orientation changes between landscape/portrait.
-    handleResize() {
-        this.setState({smallScreen: checkMobile().smallScreen})
     }
 
     handleToggle = () => this.setState({open: !this.state.open})
 
     handleClose = () => this.setState({open: false})
 
-    componentDidMount() {
-        window.addEventListener("resize", this.handleResize, false)
-    }
-
     render() {
         return (
             <div className="menu-bar__container" style={{backgroundColor: this.props.bgColor}}>
                 {
-                    (!this.state.smallScreen)
+                    (!this.props.smallScreen)
                         ? <DesktopMenu items={this.state.items} />
                         : <MobileMenu open={this.state.open} handleToggle={this.handleToggle.bind(this)} />
                 }
@@ -63,6 +55,7 @@ class MenuBar extends React.Component {
 MenuBar.propTypes = {
     menuItems: PropTypes.array,
     bgColor: PropTypes.string.isRequired,
+    smallScreen: PropTypes.bool.isRequired,
 }
 
 
@@ -98,7 +91,7 @@ const PullOut = props => {
         <div style={{backgroundColor: props.bgColor}}>
             <MenuItem onTouchTap={props.handleClose} className="menu-bar__close">x CLOSE</MenuItem>
             {props.items.map((item, key) =>
-                <Link to={item.path} key={key}>
+                <Link to={item.path} key={key} onTouchTap={props.handleClose}>
                     <MenuItem className="menu-bar__items">
                         {item.title}
                     </MenuItem>

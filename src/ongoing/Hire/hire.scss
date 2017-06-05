@@ -1,0 +1,38 @@
+/* Map of /hire page
+
+.hire-wrapper
+    .hire-header-wrapper
+        .hire-header-image-wrapper
+            .hire-header-image
+        .hire-header-text-wrapper
+            .hire-header-text
+    .hire-form-wrapper
+
+*/
+
+.hire-wrapper {}
+
+.hire-header-wrapper { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.hire-header-image-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.hire-header-image {
+  max-width: 50vmin;
+  max-height: 50vmin;
+}
+
+
+.hire-header-text-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.hire-header-text {}
+
+.hire-form-wrapper {}
