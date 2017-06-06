@@ -11,6 +11,6 @@ function hexToRgba(hex, alpha) {
 
     var num = parseInt(hex, 16)
 
-    return `rgba(${num >> 16}, ${num >> 8 & 255}, ${num & 255}, ${alpha.toString()})`
+    return `rgba(${num >> 16}, ${(num >> 8) & 255}, ${num & 255}, ${alpha.toString()})`
 }
 export default hexToRgba
