@@ -3,52 +3,62 @@ import MenuToggler from "../MenuToggler"
 import RaisedButton from "material-ui/RaisedButton"
 import checkMobile from "../../../helpers/checkMobile"
 import PropTypes from "prop-types"
-import { connect } from "react-redux"
 import Paper from "material-ui/Paper"
+import { connect } from "react-redux"
+import VerticalDrawerMenu from "../../../helpers/Menus/VerticalDrawer/MenuContainer"
+import Jumbotron from "../../../helpers/Jumbotron/Jumbotron"
+import HoverPaper from "../../../helpers/Papers/HoverPaper"
 import { ContentDJMenuMobile, ContentDJMenu} from "./Menus"
+
 const name = "ContentDJ"
 const nameLow = name.toLowerCase()
 
 class ContentDJ extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            open: false,
-            smallScreen: true || checkMobile().smallScreen,
-        }
-        this.handleResize = this.handleResize.bind(this)
-        this.handleToggle = this.handleToggle.bind(this)
-    }
-
-    // This also handles orientation changes between landscape/portrait.
-    handleResize() {
-        this.setState({smallScreen: checkMobile().smallScreen})
-    }
-
-    handleToggle = () => this.setState({open: !this.state.open})
-
-    handleClose = () => this.setState({open: false})
-
-    componentDidMount() {
-        window.addEventListener("resize", this.handleResize, false)
-    }
     render() {
-        const menuItems = ["Learn More", "Login", "Free Trial"]
+        const menuItems = [
+            {title: "Learn More", uri: "/mockups/contentdj/learn"},
+            {title: "Login", uri: "/mockups/contentdj/login"},
+            {title: "Free Trial", uri: "/mockups/contentdj/trial"},
+        ]
         return (
             <div>
                 <MenuToggler on={false} />
-                {
-                    this.props.smallScreen
-                    ? <ContentDJMenuMobile name={nameLow} items={menuItems} open={this.state.open} handleToggle={this.handleToggle}/>
-                    : <ContentDJMenu name={nameLow} items={menuItems} />
-                }
-                {/* Main CTA */}
-                {/* How it works */}
-                {/* Social proof */}
-                {/* Social proof */}
+                <Jumbotron
+                    image="https://s3-us-west-2.amazonaws.com/aaroncoding/images/generic/red_circuits.jpg"
+                    component={<CTA />}
+                    bgAlpha={0.9}
+                    bgColor="E0F7FA"
+                />
+                {/* This works great, but it shouldn't be visible on a CTA page
+                    <VerticalDrawerMenu items={menuItems} />
+                */}
+
             </div>
         )
     }
+}
+
+let ctaContents = [
+    {title: "FREE TRIAL", uri: "/mockups/contentdj/trial"},
+    {title: "LEARN MORE", uri: "/mockups/contentdj/learn"},
+]
+ctaContents = ctaContents.map(i => {
+    return {
+        ...i,
+        commonStyles: { width: "80vw" },
+        hoverBg: "#DDDDDD",
+        unhoverBg: "#FFFFFF",
+    }
+})
+
+const CTA = props => {
+    return (
+        <div>
+            <HoverPaper
+                contents={ctaContents}
+            />
+        </div>
+    )
 }
 
 ContentDJ.propTypes = {

@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
+import { Link } from "react-router-dom"
 
 const ContentDJMenuMobile = props => {
     const name = props.name
@@ -13,12 +14,12 @@ const ContentDJMenuMobile = props => {
             <ul className="contentdj-menu-ul-mobile">
                 {props.items.map((item, key) => {
                     return (
-                        <li key={key}><RaisedButton
+                        <li key={key}><Link to={item.uri}><RaisedButton
                             className="contentdj-menu-item-mobile"
                             backgroundColor="#43A047"
                             labelColor="#FFF"
-                            label={item}
-                        /></li>
+                            label={item.title}
+                        /></Link></li>
                     )
                 })}
                 <li><RaisedButton
@@ -50,11 +51,11 @@ const ContentDJMenu = props => {
             </div>
             <div className={`${name}-buttons-wrapper`}>
                 {props.items.map((item, key) => {
-                    return <RaisedButton
+                    return <Link to={item.uri}><RaisedButton
                         key={key}
                         backgroundColor="#43A047"
                         labelColor="#FFF"
-                        label={item} />
+                        label={item.title} /></Link>
                 })}
             </div>
         </div>

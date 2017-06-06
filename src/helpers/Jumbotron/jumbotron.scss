@@ -1,0 +1,16 @@
+.jumbotron-helper {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jumbotron-helper-inner {}
+
+.jumbotron-image {
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}

@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { updateHeader } from "../redux/actions/actionCreators"
+import { updateHeader } from "../../../redux/actions/actionCreators"
 import PropTypes from "prop-types"
 import { fromJS } from "immutable"
 

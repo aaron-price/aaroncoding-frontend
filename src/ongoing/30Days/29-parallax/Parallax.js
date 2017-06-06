@@ -1,5 +1,5 @@
 import React from "react"
-import { between } from "../helpers/Random"
+import { between } from "../../../helpers/Random"
 
 let bubbleArray = []
 const count = 10

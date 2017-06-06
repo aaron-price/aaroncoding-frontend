@@ -2,7 +2,7 @@ import React from "react"
 import Drawer from "material-ui/Drawer"
 import MenuItem from "material-ui/MenuItem"
 import RaisedButton from "material-ui/RaisedButton"
-import checkMobile from "../helpers/checkMobile"
+import checkMobile from "../../../helpers/checkMobile"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 

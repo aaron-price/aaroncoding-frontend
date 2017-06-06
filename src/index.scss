@@ -1,28 +1,34 @@
 @import 'app/normalize';
-
 @import './app/App.scss';
-@import './4-minesweeper/minesweeper.scss';
-@import './6-hovers/hovers.scss';
-@import './9-filterSettings/filterSettings.scss';
-@import './11-Paper/paperdemo.scss';
-@import './12-loadingBar/loadingbar.scss';
-@import './13-memory/memory.scss';
-@import './14-dynamicSearch/dynamicSearch.scss';
-@import './15-menuBar/menubar.scss';
-@import './19-chat/chat.scss';
-@import './21-lightbox/lightbox.scss';
-@import './23-vidPlayer/videoplayer.scss';
-@import './25-HTTPS/https.scss';
-@import './26-vidBg/vidBg.scss';
-@import './27-slideList/slideList.scss';
-@import './28-stranger/stranger.scss';
-@import './30-walkthrough/walkthrough.scss';
-
 @import './ongoing/supplyDemand/supplyDemand.scss';
 @import './ongoing/quiz/quiz.scss';
-@import './ongoing/Hire/hire.scss';
+@import './app/Hire/hire.scss';
 @import './ongoing/Tools/tools.scss';
 @import './ongoing/mockups/contentdj/contentdj.scss';
+
+// 30 Days
+@import './ongoing/30Days/4-minesweeper/minesweeper.scss';
+@import './ongoing/30Days/6-hovers/hovers.scss';
+@import './ongoing/30Days/9-filterSettings/filterSettings.scss';
+@import './ongoing/30Days/11-Paper/paperdemo.scss';
+@import './ongoing/30Days/12-loadingBar/loadingbar.scss';
+@import './ongoing/30Days/13-memory/memory.scss';
+@import './ongoing/30Days/14-dynamicSearch/dynamicSearch.scss';
+@import './ongoing/30Days/15-menuBar/menubar.scss';
+@import './ongoing/30Days/19-chat/chat.scss';
+@import './ongoing/30Days/21-lightbox/lightbox.scss';
+@import './ongoing/30Days/23-vidPlayer/videoplayer.scss';
+@import './ongoing/30Days/25-HTTPS/https.scss';
+@import './ongoing/30Days/26-vidBg/vidBg.scss';
+@import './ongoing/30Days/27-slideList/slideList.scss';
+@import './ongoing/30Days/28-stranger/stranger.scss';
+@import './ongoing/30Days/30-walkthrough/walkthrough.scss';
+
+// Helpers
+@import './helpers/Papers/hoverpaper.scss';
+@import './helpers/Menus/VerticalDrawer/verticalDrawerMenu.scss';
+@import './helpers/Jumbotron/jumbotron.scss';
+
 
 body {
   margin: 0;
