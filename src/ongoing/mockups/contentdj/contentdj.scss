@@ -55,3 +55,11 @@ $menu-bg: #607D8B; // Material-ui blueGrey500
 .contentdj-drawer-list-item {
   margin: 0.5em;
 }
+
+.contentdj-cta-wrapper {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

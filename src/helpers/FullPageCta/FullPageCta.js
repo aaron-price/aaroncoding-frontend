@@ -4,9 +4,8 @@ import hexToRgba from "../hexToRgba"
 /*
 Usage:
 
-<Jumbotron
+<FullPageCta
     component={<SomeComponent />}
-    jumboInner="foo-class"
     image="/link-to-image.jpg"
     bgColor="#00796B"
     bgAlpha=0.5
@@ -15,37 +14,36 @@ Usage:
 
 
 
-const Jumbotron = props => {
+const FullPageCta = props => {
     const image = props.image || false
     return (
         <div
-            className="jumbotron-helper"
+            className="fullpagecta-helper"
             style={{
                 backgroundColor: hexToRgba(props.bgColor || "#00796B", props.bgAlpha || 0.5),
                 color: props.color || "#FFFFFF"}}>
             {
                 image
                 ? <img
-                    className={props.jumboImageClass || "jumbotron-image"}
+                    className={props.fullpagectaInnerClass || "fullpagecta-image"}
                     src={props.image}
-                    alt="jumbotron-background"/>
+                    alt="fullpagecta-background"/>
                 : null
             }
-            <div className={props.jumboInnerClass || "jumbotron-helper-inner"}>
+            <div className={props.fullpagectaImageClass || "fullpagecta-helper-inner"}>
                 {props.component}
             </div>
         </div>
     )
 }
-Jumbotron.propTypes = {
+FullPageCta.propTypes = {
     component: PropTypes.object.isRequired,
-    jumboInnerClass: PropTypes.string,
+    fullpagectaInnerClass: PropTypes.string,
     image: PropTypes.string,
-    jumboImageClass: PropTypes.string,
+    fullpagectaImageClass: PropTypes.string,
     bgColor: PropTypes.string,
     color: PropTypes.string,
-    image: PropTypes.string,
     bgAlpha: PropTypes.number,
 }
 
-export default Jumbotron
+export default FullPageCta
