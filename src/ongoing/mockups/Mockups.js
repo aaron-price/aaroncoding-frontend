@@ -4,7 +4,7 @@ const Mockups = props => {
     return (
         <div>
             <h1>Mockups - Coming soon</h1>
-            <a href="/mockups/contentdj">Content DJ</a>
+            {/* <a href="/mockups/contentdj">Content DJ</a> */}
         </div>
     )
 }
