@@ -1,6 +1,6 @@
 import React from "react"
 import { TimelineLite, Bounce, Sine, Elastic, Expo, DrawSVGPlugin } from "gsap"
-import { between } from "../helpers/Random"
+import { between } from "../../../helpers/Random"
 
 export default class Stats extends React.Component {
     constructor(props) {

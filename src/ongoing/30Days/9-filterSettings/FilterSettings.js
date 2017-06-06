@@ -1,7 +1,7 @@
 import React from "react"
-import { tags } from "../contents"
+import { tags } from "../../../contents"
 import { connect } from "react-redux"
-import { updateFilters } from "../redux/actions/actionCreators"
+import { updateFilters } from "../../../redux/actions/actionCreators"
 import PropTypes from "prop-types"
 import ImmutablePropTypes from "react-immutable-proptypes"
 

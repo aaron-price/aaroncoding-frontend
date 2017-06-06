@@ -1,7 +1,7 @@
 import React from "react"
 import { TweenMax } from "gsap"
 import Paper from "material-ui/Paper"
-import { between } from "../helpers/Random"
+import { between } from "../../../helpers/Random"
 import isMobile from "ismobilejs"
 
 const input = "Aaron Coding"

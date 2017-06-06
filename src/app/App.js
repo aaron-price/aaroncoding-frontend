@@ -3,7 +3,7 @@ import "./App.scss"
 import { BrowserRouter as Router } from "react-router-dom"
 import { Provider } from "react-redux"
 import Menu from "./Menu"
-import Body from "./Body"
+import RouteFactory from "./RouteFactory"
 import PropTypes from "prop-types"
 import ReactGA from "react-ga"
 import HttpsRedirect from "react-https-redirect"
@@ -24,7 +24,7 @@ const App = (props) => (
             <HttpsRedirect>
                 <div>
                     <Menu />
-                    <Body />
+                    <RouteFactory />
                 </div>
             </HttpsRedirect>
         </Provider>

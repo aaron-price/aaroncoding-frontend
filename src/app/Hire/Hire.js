@@ -1,5 +1,5 @@
 import React from "react"
-import ContactForm from "../../shareComponents/ContactForm.js"
+import ContactForm from "../../helpers/ContactForm.js"
 import Paper from "material-ui/Paper"
 
 const Hire = props => {

@@ -12,12 +12,12 @@ const featureBoxes = [
     {
         title: "30 Days Of Coding",
         description: "I made a thing a day for a month",
-        image: "https://s3-us-west-2.amazonaws.com/aaroncoding/images/calendar1.png",
+        image: "https://s3-us-west-2.amazonaws.com/aaroncoding/images/calendar2.png",
         uri: "/30days",
     },{
         title: "Mockups",
         description: "Demo web pages",
-        image: "https://s3-us-west-2.amazonaws.com/aaroncoding/images/website1.png",
+        image: "https://s3-us-west-2.amazonaws.com/aaroncoding/images/website2.png",
         uri: "/mockups",
     },{
         title: "Hire Me",
@@ -67,8 +67,8 @@ class Home extends React.Component {
 
 const FeatureBox = props => {
     const hovered = props.id === props.hoveredId
-    const hoveredStyle = {backgroundColor: "#FFFDE7", order: props.id}
-    const unhoveredStyle = {backgroundColor: "#FFF8E1", order: props.id}
+    const unhoveredStyle = {backgroundColor: "#FAFAFA", order: props.id}
+    const hoveredStyle = {backgroundColor: "#F5F5F5", order: props.id}
     return (
         <Paper className="home-featurebox-container padded-paper"
             onMouseOver={e => props.hoverHandler(props.id)}
