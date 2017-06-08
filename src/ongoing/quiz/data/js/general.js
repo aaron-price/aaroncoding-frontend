@@ -28,6 +28,17 @@ metadata: {
     tags: ["frontend", "styles"],
 },
 },
+{
+title: "Cookies",
+question: `How do you check whether the user's cookes are enabled?`, 
+answers: [`navigator.Cookie`,`application.cookieEnabled`,`navigator.cookieEnabled`,`application.cookie`],
+correct: 2,
+resources: "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/cookieEnabled",
+metadata: {
+    language: ["js"],
+    tags: ["frontend", "sessions"],
+},
+},
 ]
 
 export default data
@@ -40,8 +51,8 @@ answers: [``,``,``,``],
 correct: 0,
 resources: "",
 metadata: {
-    language: ["css"],
-    tags: ["frontend", "styles"],
+    language: ["js"],
+    tags: ["frontend"],
 },
 },
 */
