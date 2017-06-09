@@ -18,7 +18,7 @@ answers: [
 correct: 0,
 resources: "https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push?v=control",
 metadata: {
-    language: ["Javascript"],
+    language: ["js"],
     tags: ["array", "mutation"],
 },
 },
@@ -41,8 +41,35 @@ answers: [
 correct: 0,
 resources: "https://ruby-doc.org/core-2.4.1/Array.html#method-i-pop",
 metadata: {
-    language: ["Javascript"],
+    language: ["js"],
     tags: ["array", "mutation"],
+},
+},
+{
+title: "Javascript array concatenation",
+question: `What's the output of the following:
+
+var a = [1,2]
+var b = [3,4]
+var c = a + b
+
+console.log(c)
+`, 
+answers: [
+`// The + operator is not defined for arrays, so it coerces them into strings first
+"1,23,4"`,
+`// The + operator is not defined for arrays, so it coerces them into numbers and adds them
+10`,
+`// The + operator is not defined for arrays, so it coerces them into strings first
+"[1,2][3,4]"`,
+`// The + operator is not defined for arrays, so the compiler make an assumption about what you want
+[1,2,3,4]`
+],
+correct: 0,
+resources: "https://stackoverflow.com/questions/7124884/why-is-1-2-3-4-1-23-4-in-javascript",
+metadata: {
+    language: ["js"],
+    tags: ["array"],
 },
 },
 ]
@@ -57,8 +84,8 @@ answers: [``,``,``,``],
 correct: 0,
 resources: "",
 metadata: {
-    language: ["css"],
-    tags: ["frontend", "styles"],
+    language: ["js"],
+    tags: ["array"],
 },
 },
 */
