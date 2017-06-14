@@ -29,26 +29,41 @@ class BottomDetector extends React.Component {
         })
     }
     render() {
-        const Callback = this.props.callback
         return (
             <div>
-                <BlockBottom />
-                <FloatingBottom />
-                <Callback lower={this.state.lower}/>
+                <BlockBottom callback={this.props.callback} show={this.state.lower === "block"} />
+                <FloatingBottom callback={this.props.callback} show={this.state.lower === "floating"} />
             </div>
         )
     }
 }
+
+const BlockBottom = props => {
+    const Callback = props.callback
+    return (
+        <div className="bottomdetector-block" style={{marginTop: "4em"}}>
+            {props.show && <Callback />}
+        </div>
+    )
+}
+const FloatingBottom = props => {
+    const Callback = props.callback
+    return (
+        <div className="bottomdetector-floating" style={{position: "fixed", bottom: "0"}}>
+            {props.show && <Callback />}
+        </div>
+    )
+}
 BottomDetector.propTypes = {
     callback: PropTypes.func.isRequired,
 }
-
-const BlockBottom = props => {
-    return <div className="bottomdetector-block" style={{marginTop: "4em"}}></div>
+BlockBottom.propTypes = {
+    callback: PropTypes.func.isRequired,
+    show: PropTypes.bool.isRequired,
 }
-const FloatingBottom = props => {
-    return <div className="bottomdetector-floating" style={{position: "fixed", bottom: "0"}}></div>
+FloatingBottom.propTypes = {
+    callback: PropTypes.func.isRequired,
+    show: PropTypes.bool.isRequired,
 }
-
 
 export default BottomDetector
