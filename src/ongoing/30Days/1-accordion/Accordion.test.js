@@ -4,23 +4,28 @@ import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 
 describe("30 days - accordion", () => {
-    const component = shallow(<Accordion />)
+    let component
 
-    test("contains the Intro text", () => {
-        expect(component.text()).toContain("Accordion")
+    beforeEach(() => {
+        component = shallow(<Accordion />)
     })
 
-    test("contains the outer divs", () => {
-        expect(component.find(".accordion-item").length).toEqual(10)
-        expect(component.find(".accordion-item-0").length).toEqual(1)
-    })
-
-    test("contains no inner divs if they're all hidden", () => {
-        expect(component.find(".accordion-inner").length).toEqual(0)
-    })
+    // Iterate over each item
+    for(let i = 0; i < 10; i++) {
+        test("contains the outer div: " + i, () => {
+            expect(component.find(`.accordion-item-${i}`).exists()).toBe(true)
+        })
+    }
 
     test("contains an inner div if it's visible", () => {
-        component.find(".accordion-outer-0").simulate("click")
-        expect(component.find(".accordion-inner").length).toEqual(1)
+        for(let i = 0; i < 10; i++) {
+            // inner div starts out hidden
+            expect(component.find(`.accordion-inner-${i}`).exists()).toBe(false)
+            // Then we open it
+            component.find(`.accordion-outer-${i}`).simulate("click")
+            // And now it's visible
+            expect(component.find(`.accordion-inner-${i}`).exists()).toBe(true)
+            expect(component.find(".accordion-inner").length).toEqual(i + 1)
+        }
     })
 })

@@ -1,65 +1,91 @@
 $menu-bg: #607D8B; // Material-ui blueGrey500
-
-.contentdj-menu-wrapper-mobile {
-  position: fixed;
-  background-color: $menu-bg !important;
-  min-height: 2em;
-  min-width: 100vw;
-  display: flex;
-  justify-content: center;
+.contentDJ-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  // overflow: hidden;
 }
-.contentdj-menu-item-mobile {
-  text-align: center;
-  width: 80vw;
-  margin: 0.5em;
-}
-.contentdj-menu-ul-mobile {
-  margin: 0;
+.contentDJ-header {
+  background-color: #F00;
 }
 
-.contentdj-menu-wrapper {
-  display: flex;
-  background-color: $menu-bg;
-  min-height: 2em;
-  padding: 1em;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-.contentdj-buttons-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex: 1.5;
-}
-
-.contentdj-single-button-wrapper {
-  flex: 1;
-}
-
-.contentdj-logo-wrapper {
-  flex: 1;
-}
-
-.contentdj-drawer {
-  position: fixed;
-  top: 0;
-
-  min-width: 100vw;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  background-color: #000;
-  color: #FFF;
-}
-
-.contentdj-drawer-list-item {
-  margin: 0.5em;
-}
-
-.contentdj-cta-wrapper {
-  height: 80vh;
+// BODY
+.contentDJ-body-wrapper {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+.contentDJ-body-wrapper > div {
+  // flex: 0 0 auto;
+}
+.contentDJ-top-buttons {
+  margin: 0.5em;
+  width: 100%;
+}
+
+.contentDJ-body {
+  height: 50%;
+  justify-content: center;
+}
+.contentDJ-body--mobile {
+  // display: flex;
+  // flex-direction: column;
+}
+.contentDJ-body--desktop {
+  // display: flex;
+  // flex-direction: row;
+}
+
+// BODY VIDEO
+.contentDJ-body-video {
+  border-style: #004;
+  width: 100%;
+  flex: 5;
+  display: flex;
   align-items: center;
   justify-content: center;
+}
+.contentDJ-body-video--mobile {
+  width: 100%;
+}
+.contentDJ-body-video--desktop {
+  width: 66%;
+  margin: auto;
+}
+
+// BODY TEXT
+.contentDJ-body-text {
+  width: 100%;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.contentDJ-body-text-item {
+    margin: 0.5em;
+    // padding: 1em;
+    max-width: 100%;
+    text-align: center;
+}
+.contentDJ-body-text-inner-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contentDJ-body-text--mobile {
+  
+}
+.contentDJ-body-text--desktop {
+  
+}
+.contentDJ-cta-button {
+  width: 100%;
+  margin: 0.5em;
+}
+
+.contentDJ-footer-wrapper {
+  width: 100vw;
+  height: 4em;
+  text-align: center;
 }

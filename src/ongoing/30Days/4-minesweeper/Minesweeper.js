@@ -1,10 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-
-const cellSize = 20
-const gridWidth = 16
-const gridHeight = 16
-const mineFrequency = 0.01
+import { cellSize, gridWidth, gridHeight, mineFrequency } from "./data"
 let mineCount = 0
 // Creates an array of random numbers. After page load, the numbers are immutable, but still random.
 let boolRandArr = []
@@ -161,7 +157,7 @@ export const Cell = props => {
     return (
         <g
             onClick={() => props.revealer(props.id, mine)}
-            className={`minesweeper__cell--${props.value}`}
+            className={`minesweeper__cell--${props.value} minesweeper__cell-${props.x}x-${props.y}y`}
         >
             <rect
                 className={`cell cell--${props.value}`}
