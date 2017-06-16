@@ -30,7 +30,7 @@ class BottomDetector extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div style={{width: "100%"}}>
                 <BlockBottom callback={this.props.callback} show={this.state.lower === "block"} />
                 <FloatingBottom callback={this.props.callback} show={this.state.lower === "floating"} />
             </div>
@@ -41,7 +41,7 @@ class BottomDetector extends React.Component {
 const BlockBottom = props => {
     const Callback = props.callback
     return (
-        <div className="bottomdetector-block" style={{marginTop: "4em"}}>
+        <div className="bottomdetector-block" style={{marginTop: "4em", width: "100%", overflowX: "hidden"}}>
             {props.show && <Callback />}
         </div>
     )
@@ -49,7 +49,7 @@ const BlockBottom = props => {
 const FloatingBottom = props => {
     const Callback = props.callback
     return (
-        <div className="bottomdetector-floating" style={{position: "fixed", bottom: "0"}}>
+        <div className="bottomdetector-floating" style={{position: "fixed", bottom: "0", width: "100%", overflowX: "hidden"}}>
             {props.show && <Callback />}
         </div>
     )

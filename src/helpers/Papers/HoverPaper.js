@@ -3,12 +3,16 @@ import PropTypes from "prop-types"
 import Paper from "material-ui/Paper"
 import { Link } from "react-router-dom"
 
-/* USAGE:
+/*
+////////////////////
+DEPRECATED!! Use ClickPaper instead. It's superior in every way.
+////////////////////
+
+USAGE:
 Call it anywhere, either by itself or with an array of objects as the "contents" props
 <HoverPaper />
 or
 
-////////////////////
 let ctaContents = [
     {title: "FREE TRIAL", uri: "/mockups/contentdj/trial"},
     {title: "LEARN MORE", uri: "/mockups/contentdj/learn"},

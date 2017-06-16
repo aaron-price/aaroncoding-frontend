@@ -1,6 +1,4 @@
 import React from "react"
-import RaisedButton from "material-ui/RaisedButton"
-import PropTypes from "prop-types"
 import Paper from "material-ui/Paper"
 
 const CTAFooter = props => {
