@@ -67,13 +67,13 @@ class Home extends React.Component {
 
 const FeatureBox = props => {
     const hovered = props.id === props.hoveredId
-    const unhoveredStyle = {backgroundColor: "#FAFAFA", order: props.id}
-    const hoveredStyle = {backgroundColor: "#F5F5F5", order: props.id}
+    const unhoveredStyle = {backgroundColor: "#F5F5F5", order: props.id}
+    const hoveredStyle = {backgroundColor: "#FAFAFA", order: props.id}
     return (
         <Paper className="home-featurebox-container padded-paper"
             onMouseOver={e => props.hoverHandler(props.id)}
             onMouseOut={e => props.hoverHandler()}
-            zDepth={hovered ? 1 : 2}
+            zDepth={hovered ? 2 : 1}
             style={hovered ? hoveredStyle : unhoveredStyle}
         >
             <Link to={props.uri}>

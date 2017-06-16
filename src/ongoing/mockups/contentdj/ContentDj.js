@@ -1,7 +1,6 @@
 import React from "react"
 import MenuToggler from "../MenuToggler"
 import RaisedButton from "material-ui/RaisedButton"
-import checkMobile from "../../../helpers/checkMobile"
 import PropTypes from "prop-types"
 import Paper from "material-ui/Paper"
 import { connect } from "react-redux"
