@@ -5,81 +5,80 @@ import { connect } from "react-redux"
 import Paper from "material-ui/Paper"
 import { Link } from "react-router-dom"
 
+const defaultItems = ["title 1", "title 2", "title 3"]
+
+const DefaultMenu = props => {
+    const device = props.smallScreen ? "mobile" : "desktop"
+    return (
+        <div className={`default-menu-div-${device}`}>
+            <ul className={`default-menu-ul-${device}`}>
+                {props.items.map((item, key) => {
+                    return (
+                        <li className={`default-menu-li-${device}`} key={key}>
+                            <RaisedButton
+                                className={`default-menu-button-${device}`}
+                                primary={true}
+                                label={item} />
+                        </li>
+                    )
+                })}
+                { /* The open/close button */
+                    props.smallScreen && (
+                        <li className="default-menu-li">
+                            <RaisedButton
+                                className="default-menu-toggle"
+                                secondary={true}
+                                onClick={() => {props.handleToggle()}}
+                                label={props.open.toString()} />
+                        </li>
+                    )
+                }
+            </ul>
+        </div>
+    )
+}
+
 // This is the wrapper that holds it all together, but doesn't provide any actual styling itself.
-class VertDrawer extends React.Component {
+class MenuContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             open: false,
-            smallScreen: this.props.smallScreen,
         }
         this.handleToggle = this.handleToggle.bind(this)
     }
     handleToggle = () => this.setState({open: !this.state.open})
     handleClose = () => this.setState({open: false})
     render() {
+        const Menu = this.props.Menu || DefaultMenu
+        const items = this.props.items || defaultItems
         return (
             <div>
-                {
-                    this.props.smallScreen
-                    ? <MobileWrapper smallScreen={true} open={this.state.open} handleToggle={this.handleToggle} />
-                    : <DesktopWrapper smallScreen={false} />
-                }
+                <Menu
+                    items={items}
+                    smallScreen={this.props.smallScreen}
+                    open={this.state.open}
+                    handleToggle={this.handleToggle}
+                />
             </div>
         )
     }
 }
 
-// This is the wrapper for mobile stuff, but needs a mobile callback prop to work.
-// A default one is supplied below.
-const MobileWrapper = props => {
-    return (
-        <div>
-            <MenuItems smallScreen={props.smallScreen} />
-            <RaisedButton secondary={true} label="MENU"/>
-        </div>
-    )
+MenuContainer.propTypes = {
+    smallScreen: PropTypes.bool.isRequired,
+    Menu: PropTypes.func,
+    items: PropTypes.array,
 }
-
-// This is the wrapper for desktop stuff, but needs a mobile callback prop to work.
-// A default one is supplied below.
-const DesktopWrapper = props => {
-    return (
-        <div>
-            <MenuItems smallScreen={props.smallScreen} />
-        </div>
-    )
+DefaultMenu.propTypes = {
+    smallScreen: PropTypes.bool.isRequired,
+    open: PropTypes.bool.isRequired,
+    items: PropTypes.array.isRequired,
+    handleToggle: PropTypes.func.isRequired,
 }
-
-const MenuItems = props => {
-    return props.smallScreen ? (
-        <div>
-            <div>Mobile</div>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-        </div>
-    ) : (
-        <div>
-            <div>Desktop menu</div>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-        </div>
-    )
-}
-
-VertDrawer.propTypes = { smallScreen: PropTypes.bool.isRequired }
-MobileWrapper.propTypes = { smallScreen: PropTypes.bool.isRequired }
-DesktopWrapper.propTypes = { smallScreen: PropTypes.bool.isRequired }
-MenuItems.propTypes = { smallScreen: PropTypes.bool.isRequired }
 
 const mapStateToProps = (state) => {
     return { smallScreen: state.get("smallScreen") }
 }
 
-export default connect(mapStateToProps)(VertDrawer)
+export default connect(mapStateToProps)(MenuContainer)

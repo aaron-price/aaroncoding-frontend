@@ -1,0 +1,61 @@
+// DIV
+@mixin default-menu-div() {
+  background-color: #607D8B;
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.default-menu-div-mobile {
+  @include default-menu-div();
+  
+}
+.default-menu-div-desktop { @include default-menu-div(); }
+
+///////////////////
+
+// UL
+@mixin default-menu-ul() {
+  margin: 0;
+  width: 80%;
+  text-align: center;
+}
+.default-menu-ul-mobile { @include default-menu-ul(); }
+.default-menu-ul-desktop { 
+  @include default-menu-ul();
+  display: flex;
+  justify-content: space-between;
+}
+
+///////////////////
+
+// LI
+@mixin default-menu-li() {
+  
+}
+.default-menu-li-mobile {
+  @include default-menu-li();
+  margin: 0.25em;
+}
+.default-menu-li-desktop { @include default-menu-li(); }
+
+///////////////////
+
+// BUTTON
+@mixin default-menu-button() {
+  
+}
+.default-menu-button-mobile {
+  @include default-menu-button();
+  width: 100%;
+}
+.default-menu-button-desktop { @include default-menu-button(); }
+
+///////////////////
+
+// TOGGLE
+.default-menu-toggle {
+  width: 100%;
+}
+
+///////////////////
