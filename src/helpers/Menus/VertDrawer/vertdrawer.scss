@@ -8,7 +8,6 @@
 }
 .default-menu-div-mobile {
   @include default-menu-div();
-  
 }
 .default-menu-div-desktop { @include default-menu-div(); }
 
@@ -35,7 +34,7 @@
 }
 .default-menu-li-mobile {
   @include default-menu-li();
-  margin: 0.25em;
+  margin: 0.5em;
 }
 .default-menu-li-desktop { @include default-menu-li(); }
 
@@ -56,6 +55,7 @@
 // TOGGLE
 .default-menu-toggle {
   width: 100%;
+  margin: 10px 0 10px 0;
 }
 
 ///////////////////
