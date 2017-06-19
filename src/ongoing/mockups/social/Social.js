@@ -17,7 +17,7 @@ export class Social extends React.Component {
             <div className="contentDJ-wrapper">
                 <MenuToggler on={false} />
                 <VertDrawer items={[{title: "home", uri: "/"},{title: "about", uri: "/"},{title: "login", uri: "/"}]}/>
-
+                <h1></h1>
                 <BottomDetector callback={SocialFooter}/>
             </div>
         )

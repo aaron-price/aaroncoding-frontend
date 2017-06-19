@@ -12,7 +12,7 @@ import PropTypes from "prop-types"
 class BottomDetector extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { lower: "block"}
+        this.state = { lower: "floating"}
         this.calculateBottoms = this.calculateBottoms.bind(this)
     }
     componentDidMount() {
@@ -25,7 +25,7 @@ class BottomDetector extends React.Component {
         const floating = document.getElementsByClassName("bottomdetector-floating")[0].getBoundingClientRect().bottom
 
         this.setState({
-            lower: block > floating ? "block" : "floating",
+            lower: floating >= block ? "floating" : "block",
         })
     }
     render() {
