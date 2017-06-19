@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 import Paper from "material-ui/Paper"
 import { Link } from "react-router-dom"
 
-const defaultItems = ["title 1", "title 2", "title 3", "title 3", "title 3", "title 3"]
+const defaultItems = [{title: "title", uri: "/"},{title: "title", uri: "/"},{title: "title", uri: "/"}]
 
 const DefaultMenu = props => {
     const device = props.smallScreen ? "mobile" : "desktop"
@@ -23,10 +23,12 @@ const DefaultMenu = props => {
                 {props.items.map((item, key) => {
                     return (
                         <li className={`default-menu-li-${device}`} key={key}>
+                            <Link to={item.uri}>
                             <RaisedButton
                                 className={`default-menu-button-${device}`}
                                 primary={true}
-                                label={item} />
+                                label={item.title} />
+                            </Link>
                         </li>
                     )
                 })}
