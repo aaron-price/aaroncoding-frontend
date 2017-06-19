@@ -8,7 +8,7 @@ class MenuToggler extends React.Component {
     componentWillMount() {
         this.props.dispatchUpdateMenuVisibility(fromJS({menuVisible: this.props.on}))
     }
-    componentWillUnMount() {
+    componentWillUnmount() {
         this.props.dispatchUpdateMenuVisibility(fromJS({menuVisible: !this.props.on}))
     }
     componentDidMount() {
