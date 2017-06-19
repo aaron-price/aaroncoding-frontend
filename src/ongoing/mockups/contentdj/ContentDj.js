@@ -4,7 +4,6 @@ import RaisedButton from "material-ui/RaisedButton"
 import PropTypes from "prop-types"
 import Paper from "material-ui/Paper"
 import { connect } from "react-redux"
-import VerticalDrawerMenu from "../../../helpers/Menus/VerticalDrawer/MenuContainer"
 import FullPageCta from "../../../helpers/FullPageCta/FullPageCta"
 import HoverPaper from "../../../helpers/Papers/HoverPaper"
 import BottomDetector from "../../../helpers/BottomDetector"
@@ -20,13 +19,16 @@ const vidImg = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/mockups/vi
 export class ContentDJ extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { docBottom: -1, bodyBottom: -1 }
+        this.state = { docBottom: -1, bodyBottom: -1, toggler: false }
         this.calculateBottoms = this.calculateBottoms.bind(this)
     }
     componentDidMount() {
         const hAndB = document.getElementsByClassName("contentDJ-head-and-body")[0]
         new ElementQueries.ResizeSensor(hAndB, this.calculateBottoms)
         this.calculateBottoms()
+    }
+    componentWillUnmount() {
+        this.setState({toggler: true})
     }
     calculateBottoms() {
         const hAndB = document.getElementsByClassName("contentDJ-head-and-body")[0]
@@ -39,7 +41,7 @@ export class ContentDJ extends React.Component {
     render() {
         return (
             <div className="contentDJ-wrapper">
-                <MenuToggler on={false} />
+                <MenuToggler on={this.state.toggler} />
                 {/* This works great, but it shouldn't be visible on a CTA page
 
                     <VerticalDrawerMenu items={menuItems} />

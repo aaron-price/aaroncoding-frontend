@@ -67,7 +67,7 @@ class Home extends React.Component {
 
 const FeatureBox = props => {
     const hovered = props.id === props.hoveredId
-    const unhoveredStyle = {backgroundColor: "#F5F5F5", order: props.id}
+    const unhoveredStyle = {backgroundColor: "#FFFFFF", order: props.id}
     const hoveredStyle = {backgroundColor: "#FAFAFA", order: props.id}
     return (
         <Paper className="home-featurebox-container padded-paper"
