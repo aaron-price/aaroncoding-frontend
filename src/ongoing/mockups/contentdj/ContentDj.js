@@ -40,16 +40,18 @@ export class ContentDJ extends React.Component {
     }
     render() {
         return (
-            <div className="contentDJ-wrapper">
-                <MenuToggler on={this.state.toggler} />
-                {/* This works great, but it shouldn't be visible on a CTA page
+            <div>
+                <div className="contentDJ-wrapper">
+                    <MenuToggler on={this.state.toggler} />
+                    {/* This works great, but it shouldn't be visible on a CTA page
 
-                    <VerticalDrawerMenu items={menuItems} />
+                        <VerticalDrawerMenu items={menuItems} />
 
-                */}
-                <div className="contentDJ-head-and-body">
-                    <CTAHeader smallScreen={this.props.smallScreen} />
-                    <CTABody   smallScreen={this.props.smallScreen} />
+                    */}
+                    <div className="contentDJ-head-and-body">
+                        <CTAHeader smallScreen={this.props.smallScreen} />
+                        <CTABody   smallScreen={this.props.smallScreen} />
+                    </div>
                 </div>
                 <BottomDetector callback={CTAFooter}/>
             </div>
