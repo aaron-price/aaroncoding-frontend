@@ -1,6 +1,7 @@
 import React from "react"
 import ElementQueries from "css-element-queries"
 import PropTypes from "prop-types"
+import { connect } from "react-redux"
 
 /* USAGE
     <BottomDetector callback={CTAFooter}/>
@@ -23,14 +24,16 @@ class BottomDetector extends React.Component {
     calculateBottoms() {
         const block = document.getElementsByClassName("bottomdetector-block")[0].getBoundingClientRect().bottom
         const floating = document.getElementsByClassName("bottomdetector-floating")[0].getBoundingClientRect().bottom
+        console.log("block: " + block)
+        console.log("floating: " + floating)
 
         this.setState({
-            lower: floating >= block ? "floating" : "block",
+            lower: (floating + 50) >= block ? "floating" : "block",
         })
     }
     render() {
         return (
-            <div style={{width: "100%"}}>
+            <div className="BottomDetector" style={{width: "100%"}}>
                 <BlockBottom callback={this.props.callback} show={this.state.lower === "block"} />
                 <FloatingBottom callback={this.props.callback} show={this.state.lower === "floating"} />
             </div>
@@ -41,7 +44,7 @@ class BottomDetector extends React.Component {
 const BlockBottom = props => {
     const Callback = props.callback
     return (
-        <div className="bottomdetector-block" style={{marginTop: "4em", width: "100%", overflowX: "hidden"}}>
+        <div className="bottomdetector-block" style={{marginTop: "4em", overflowX: "hidden"}}>
             {props.show && <Callback />}
         </div>
     )
@@ -56,6 +59,7 @@ const FloatingBottom = props => {
 }
 BottomDetector.propTypes = {
     callback: PropTypes.func.isRequired,
+    smallScreen: PropTypes.bool.isRequired,
 }
 BlockBottom.propTypes = {
     callback: PropTypes.func.isRequired,
@@ -66,4 +70,9 @@ FloatingBottom.propTypes = {
     show: PropTypes.bool.isRequired,
 }
 
-export default BottomDetector
+const mapStateToProps = (state) => {
+    return {
+        smallScreen: state.get("smallScreen"),
+    }
+}
+export default connect(mapStateToProps)(BottomDetector)

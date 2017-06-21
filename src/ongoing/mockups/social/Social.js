@@ -14,10 +14,12 @@ export class Social extends React.Component {
     render() {
         const menuItems = []
         return (
-            <div className="contentDJ-wrapper">
-                <MenuToggler on={false} />
-                <VertDrawer items={[{title: "home", uri: "/"},{title: "about", uri: "/"},{title: "login", uri: "/"}]}/>
-                <h1></h1>
+            <div>
+                <div className="contentDJ-wrapper">
+                    <MenuToggler on={false} />
+                    <VertDrawer items={[{title: "home", uri: "/"},{title: "about", uri: "/"},{title: "login", uri: "/"}]}/>
+                    <div style={{backgroundColor: "#F3A3A3", height: "30vh", width: "100vw"}}></div>
+                </div>
                 <BottomDetector callback={SocialFooter}/>
             </div>
         )

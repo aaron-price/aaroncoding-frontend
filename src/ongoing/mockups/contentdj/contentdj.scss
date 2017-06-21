@@ -1,11 +1,14 @@
 $menu-bg: #607D8B; // Material-ui blueGrey500
+@mixin fullHeight() { min-height: 100%; }
+
 .contentDJ-wrapper {
-  min-height: 100vh;
+  min-height: 100%;
   width: 100vw;
   // overflow: hidden;
 }
 .contentDJ-header {
   background-color: #F00;
+  @include fullHeight();
 }
 
 // BODY
@@ -19,6 +22,7 @@ $menu-bg: #607D8B; // Material-ui blueGrey500
 }
 .contentDJ-top-buttons {
   margin: 0.5em;
+  @include fullHeight();
   width: 100%;
 }
 
@@ -37,6 +41,7 @@ $menu-bg: #607D8B; // Material-ui blueGrey500
 
 // BODY VIDEO
 .contentDJ-body-video {
+  @include fullHeight();
   border-style: #004;
   width: 100%;
   flex: 5;
@@ -45,15 +50,18 @@ $menu-bg: #607D8B; // Material-ui blueGrey500
   justify-content: center;
 }
 .contentDJ-body-video--mobile {
+  @include fullHeight();
   width: 100%;
 }
 .contentDJ-body-video--desktop {
+  @include fullHeight();
   width: 66%;
   margin: auto;
 }
 
 // BODY TEXT
 .contentDJ-body-text {
+  @include fullHeight();
   width: 100%;
   flex: 3;
   display: flex;
@@ -61,10 +69,11 @@ $menu-bg: #607D8B; // Material-ui blueGrey500
   align-items: stretch;
 }
 .contentDJ-body-text-item {
-    margin: 0.5em;
-    // padding: 1em;
-    max-width: 100%;
-    text-align: center;
+  @include fullHeight();
+  margin: 0.5em;
+  // padding: 1em;
+  max-width: 100%;
+  text-align: center;
 }
 .contentDJ-body-text-inner-wrapper {
   flex: 1;
