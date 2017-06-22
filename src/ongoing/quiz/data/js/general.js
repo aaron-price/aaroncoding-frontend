@@ -39,6 +39,50 @@ metadata: {
     tags: ["frontend", "sessions"],
 },
 },
+{
+title: "JS Variable Definitions",
+question: `
+Suppose this is your entire script:
+
+___________________
+1 var a
+2 var b = "hello"
+3
+4 console.log(a)
+5 console.log(b)
+6 console.log(c)
+___________________
+
+What will be the output?
+`, 
+answers: [
+`
+undefined
+"hello"
+Uncaught ReferenceError: c is not defined
+`,
+`
+Uncaught ReferenceError: c is not defined
+"hello"
+undefined
+`,`
+undefined
+"hello"
+undefined
+`,`
+undefined
+"hello"
+`,`
+"hello"
+undefined
+`],
+correct: 0,
+resources: "https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+metadata: {
+    language: ["js"],
+    tags: ["frontend", "bad parts"],
+},
+},
 ]
 
 export default data
