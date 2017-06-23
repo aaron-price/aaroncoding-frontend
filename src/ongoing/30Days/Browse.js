@@ -72,6 +72,13 @@ class Browse extends React.Component {
                         <p>You can find the source code here <a href="https://github.com/aaron-price/aaroncoding-frontend">https://github.com/aaron-price/aaroncoding-frontend</a></p>
                         <br />
                         <p>But now I'm stopping to work on a few bigger projects.</p>
+                        <h4>Personal favourites</h4>
+                        <ul>
+                            <li><Link to={"/minesweeper"}>Minesweeper</Link></li>
+                            <li><Link to={"/random_story_generator"}>Random Story Generator</Link></li>
+                            <li><Link to={"/form_demo"}>Interactive Forms</Link></li>
+                            <li><Link to={"/animated_line_graph"}>Random Story Generator</Link></li>
+                        </ul>
                     </Paper>
                 </div>
                 <div className="home__list-wrapper">
