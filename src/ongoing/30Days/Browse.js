@@ -77,7 +77,7 @@ class Browse extends React.Component {
                             <li><Link to={"/minesweeper"}>Minesweeper</Link></li>
                             <li><Link to={"/random_story_generator"}>Random Story Generator</Link></li>
                             <li><Link to={"/form_demo"}>Interactive Forms</Link></li>
-                            <li><Link to={"/animated_line_graph"}>Random Story Generator</Link></li>
+                            <li><Link to={"/animated_line_graph"}>Simple animation engine</Link></li>
                         </ul>
                     </Paper>
                 </div>
