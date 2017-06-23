@@ -74,6 +74,31 @@ const data = [
         jobs: 215,
         seekers: 210,
     },
+    {
+        name: "Machine learning",
+        jobs: 76,
+        seekers: 393,
+    },
+    {
+        name: "Javascript OR js",
+        jobs: 528,
+        seekers: 432,
+    },
+    {
+        name: "ruby OR rails",
+        jobs: 220,
+        seekers: 229,
+    },
+    {
+        name: "python OR django",
+        jobs: 358,
+        seekers: 312,
+    },
+    {
+        name: "sql OR mysql",
+        jobs: 368,
+        seekers: 671,
+    },
 ]
 
 export default data
