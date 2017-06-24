@@ -95,9 +95,24 @@ const data = [
         seekers: 312,
     },
     {
-        name: "sql OR mysql",
-        jobs: 368,
-        seekers: 671,
+        name: "sql",
+        jobs: 526,
+        seekers: 564,
+    },
+    {
+        name: "oracle",
+        jobs: 263,
+        seekers: 379,
+    },
+    {
+        name: "mysql",
+        jobs: 130,
+        seekers: 270,
+    },
+    {
+        name: "postgresql OR postgres",
+        jobs: 81,
+        seekers: 56,
     },
 ]
 
