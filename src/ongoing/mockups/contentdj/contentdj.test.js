@@ -2,8 +2,8 @@ import React from "react"
 import { ContentDJ } from "./ContentDJ"
 import { CTAHeader } from "./CTAHeader"
 import { CTABody } from "./CTABody"
-import renderer from 'react-test-renderer';
-import {shallow, mount} from 'enzyme';
+import renderer from "react-test-renderer"
+import {shallow, mount} from "enzyme"
 
 describe("Mockups - ContentDJ", () => {
     let Main   = shallow(<ContentDJ smallScreen={true} />)

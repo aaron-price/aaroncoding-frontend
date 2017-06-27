@@ -18,6 +18,11 @@ const items = [
         description: "I take a data driven approach to make myself as useful as possible to potential employers. Here's the developer supply:demand data I've collected.",
         uri: "/supply_and_demand",
         image: "https://s3-us-west-2.amazonaws.com/aaroncoding/images/supply_demand.png",
+    },{
+        title: "Stock validation",
+        description: "I examine various stocks using criteria from Benjamin Graham, Warren Buffet, and check the piotroski f-score",
+        uri: "/stocks",
+        image: "https://s3-us-west-2.amazonaws.com/aaroncoding/images/stocks.jpg",
     },
 ]
 
