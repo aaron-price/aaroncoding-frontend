@@ -9,8 +9,10 @@ import Hire from "./Hire/Hire.js"
 import SupplyDemand from "../ongoing/supplyDemand/SupplyDemand.js"
 import QuizRunner from "../ongoing/quiz/QuizRunner.js"
 import Days30 from "../ongoing/30Days/Browse.js"
+import Stocks from "../ongoing/stocks/Stocks.js"
 import Tools from "../ongoing/Tools/Tools.js"
 import mockupRoutes from "../ongoing/mockups/mockupRoutes.js"
+
 
 // Automagically generates routes for the 30 thing-a-day projects
 function routeFactory() {
@@ -29,7 +31,7 @@ const RouteFactory = props => {
             <Route exact path="/supply_and_demand" component={SupplyDemand}/>
             <Route exact path="/quiz" component={QuizRunner}/>
             <Route exact path="/30days" component={Days30}/>
-            <Route exact path="/open_source" component={Days30}/>
+            <Route exact path="/stocks" component={Stocks}/>
             {mockupRoutes()}
             <Route exact path="/tools" component={Tools}/>
             {routeFactory()}
