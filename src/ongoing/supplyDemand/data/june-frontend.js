@@ -114,6 +114,11 @@ const data = [
         jobs: 81,
         seekers: 56,
     },
+    {
+        name: "Scala",
+        jobs: 19,
+        seekers: 10,
+    },
 ]
 
 export default data
