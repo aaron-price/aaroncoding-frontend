@@ -1,18 +1,63 @@
 import React from "react"
 import data from "./data"
 import Paper from "material-ui/Paper"
+import RaisedButton from "material-ui/RaisedButton"
+
+const prod = "https://aaroncoding-backend.herokuapp.com/tradier"
+const local = "http://localhost:3001/tradier"
+const uri = local
 
 class Stocks extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             minF: 0,
+            text: [],
         }
+        this.clickHandler = this.clickHandler.bind(this)
+    }
+    handleErrors(response) {
+        if (!response.ok) {
+            this.setState({text: [{id: -1, body: "Hmm, I can't connect right now."}]})
+            throw Error(response.statusText)
+        }
+        return response
+    }
+
+    clickHandler() {
+        this.setState({text: [{id: -1, body: "Waking up and calling the server..."}]})
+        let xhr = new XMLHttpRequest()
+        xhr.open("GET", uri)
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const res = JSON.parse(xhr.response)
+                this.setState({ text: res })
+            } else {
+                console.log(xhr.status)
+            }
+        }
+        xhr.send()
     }
     render() {
         return (
             <div>
                 <h3>Introduction</h3>
+
+                <h1>API</h1>
+                <div className="api__frontend">
+                    Today I deployed 2 apps to Heroku. You are looking at one of them. The other is strictly a backend api server. Let's say hi to it!<br />
+                    <br />
+                    <h4>Click the button to make an ajax request to my API server</h4>
+                    <RaisedButton label="Click me"
+                                  onClick={() => this.clickHandler()}/>
+                </div>
+                <hr />
+                <div className="api__backend">
+                    {this.state.text.map(text =>
+                        <div key={text.id}>{text.body}</div>
+                    )}
+                </div>
+
                 <p>Today I got fed up with the existing stock screeners out there</p>
                 <p>Basically, none of them do ALL the things I want them to do. I'm more of an old school value investor, which means I want to dive into the financial health of a company, and find a strong company at a good price... then buy and hold for as long as possible.</p>
                 <p>So I decided to make my own stock screener. Originally I was building a webcrawler to automatically take information from existing sites.</p>
