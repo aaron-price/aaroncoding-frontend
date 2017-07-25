@@ -19,10 +19,10 @@ class SupplyDemand extends React.Component {
         super(props)
         this.state = {
             currentSample: 0,
-            minJSTD: 0.001,
-            maxSStd: 100,
+            minJSTD: 0.0001,
+            maxSStd: 1000,
             jobs: 1,
-            seekers: 1500,
+            seekers: 150000,
             JtoS: 0,
             sortBy: "handicappedJtoS",
             dirAsc: false,
