@@ -16,30 +16,35 @@ const Hire = props => {
                 </div>
                 <div className="padded-paper hire-header-text-wrapper">
                     <div className="hire-header-text">
-                        <h1>Hire Aaron Price</h1>
-                        <h3>Frontend UX/UI Developer</h3>
-                        <p>I make web apps come alive. My top skills are:</p>
+                        <h1>Aaron Price - Full Stack Web Developer</h1>
+
+                        <br/>
+                        <h3>Education</h3>
+                        <p>2010 - Certificate in web design and animation from UFV</p>
+
+                        <h3>Frontend UI/UX</h3>
                         <ul>
-                            <li>Functional Programming - 70% expertise</li>
-                            <li>Object Oriented Programming - 70% expertise (prototypal preferred)</li>
-                            {/*
-                                <li>Cryptography - 30% expertise</li>
-                                <li>Algorithms - 30% expertise</li>
-                                <li>Machine Learning - 0% expertise</li>
-                            */}
-                            <li><hr/></li>
-                            <li>Javascript - 90% expertise</li>
-                            <li>React/redux - 90% expertise</li>
-                            <li>NodeJS/express - 60% expertise</li>
-                            <li><hr/></li>
-                            <li>CSS and HTML 85% expertise</li>
-                            <li>SCSS and postCSS 60% expertise</li>
-                            <li><hr/></li>
-                            <li>Ruby 60% expertise</li>
-                            <li>Rails 60% expertise</li>
-                            <li><hr/></li>
-                            <li>MySQL 50% expertise</li>
-                            <li>MongoDB 50% expertise</li>
+                            <li>- Over a year of experience with Javascript and ReactJS</li>
+                            <li>- Created <a href="https://www.npmjs.com/package/sweet-render">my own templating engine</a> which can replace react's 'jsx' syntax.</li>
+                            <li>- This whole portfolio is built on React, including <a href="/30days">these 30 projects</a>.</li>
+                            <li>- Comfortable with html, css, sass, less, postCSS, and more</li>
+                        </ul>
+
+                        <h3>Backend's, APIs and Beyond</h3>
+                        <p>This summer, I wanted to learn Python, so I published <a href="https://github.com/aaron-price/reactjo">a scaffolding engine</a> which interactively generates microservice apps with:</p>
+                        <ul>
+                            <li>- A Django API server.</li>
+                            <li>- A NodeJS server to consume the API.</li>
+                            <li>- User authentication by default.</li>
+                            <li>- Custom database models with frontend CRUD operations.</li>
+                            <li>- All with a shiny ReactJS frontend, utilizing bootstrap and material-ui</li>
+                        </ul>
+
+                        <h3>Pro Troubleshooter</h3>
+                        <ul>
+                            <li>- 4.5 years experience working in technical support.</li>
+                            <li>- Over 120,000 cases under my belt. Not exaggerating.</li>
+                            <li>- Trained countless others in tech support, and designed the process they follow.</li>
                         </ul>
                     </div>
                 </div>
