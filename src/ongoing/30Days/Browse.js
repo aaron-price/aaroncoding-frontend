@@ -46,7 +46,7 @@ class Browse extends React.Component {
     }
 
     componentDidMount() {
-        this.animate()
+        // this.animate()
     }
     animate() {
         const ulBox = document.getElementsByClassName("home-slidelist__ul")[0]
