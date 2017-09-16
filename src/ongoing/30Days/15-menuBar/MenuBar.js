@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 const menuItems = [
     {title: "Home", path: "/"},
     {title: "30 Days", path: "/30days"},
-    {title: "Mockups", path: "/mockups"},
+    // {title: "Mockups", path: "/mockups"},
     {title: "Tools", path: "/tools"},
     {title:"Hire Aaron", path: "/hire"},
 ]
