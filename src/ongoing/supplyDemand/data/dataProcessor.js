@@ -1,11 +1,8 @@
 const _ = require("lodash")
 const math = require("mathjs")
 const titles = [
-    "august_etc",
-    "august_frameworks",
-    "august_languages",
-    "july-upwork",
-    "june-frontend",
+    "July-upwork",
+    "June-frontend",
     "May-To-June-2017",
     "June-02-2017",
     "May-28-2017",
