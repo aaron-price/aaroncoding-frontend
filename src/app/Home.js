@@ -14,12 +14,14 @@ const featureBoxes = [
         description: "I made a thing a day for a month",
         image: "https://s3-us-west-2.amazonaws.com/aaroncoding/images/calendar2.png",
         uri: "/30days",
-    },{
+    },
+    /* {
         title: "Mockups",
         description: "Demo web pages",
         image: "https://s3-us-west-2.amazonaws.com/aaroncoding/images/website2.png",
         uri: "/mockups",
-    },{
+    }, */
+    {
         title: "Hire Me",
         description: "Front end developer, seeking new challenges",
         image: "https://s3-us-west-2.amazonaws.com/aaroncoding/images/me1.png",
