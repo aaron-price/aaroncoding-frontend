@@ -8,6 +8,7 @@ import withRedux from 'next-redux-wrapper'
 import { CodeBlock, GreenText as Grn} from '../components/CodeBlocks'
 import Header from '../components/Head'
 import HoverPaper from '../components/HoverPaper'
+import Logo from '../components/Logo'
 import Head from '../components/Head.js'
 import Education from '../components/images/Education.js'
 import Octocat from '../components/images/Octocat.js'
@@ -18,12 +19,16 @@ import { return_current_user } from '../services/current_user.js'
 
 const Text = (props) => (
 		<div>
-
-				<h1 className='center_text about_main_title--desktop'>Aaron Price - Web Developer</h1>
-				<h1 className='center_text about_main_title--mobile'>Aaron Price,<br/>Web Developer</h1>
+				<div className='center_text about_main_title--desktop'>
+					<Logo width={50} />
+				</div>
+				<div className='center_text about_main_title--mobile'>
+					<Logo width={100} />
+				</div>
+				
 				<hr />
 				<div>
-						<Paper className='about_row'>
+						<HoverPaper classes='about_row'>
 								<div className='about_img'>
 										<Education />
 								</div>
@@ -32,11 +37,11 @@ const Text = (props) => (
 										<p>2010 - Certificate in web design and animation from <a href='https://www.ufv.ca/'>UFV</a>.</p>
 										<p>But most of my programming skills are self-taught.</p>
 								</div>
-						</Paper><br/>
+						</HoverPaper><br/>
 				</div>
 
 				<div>
-						<Paper className='about_row'>
+						<HoverPaper classes='about_row'>
 								<div className='about_img'>
 										<Octocat />
 								</div>
@@ -49,11 +54,11 @@ const Text = (props) => (
 												<li>[<a href='https://www.npmjs.com/package/sweet-render'>NPM</a> | <a href="https://github.com/aaron-price/sweet-render">GitHub</a>] <strong>Sweet-Render</strong>: A templating engine which can replace React's 'JSX' syntax.</li>
 										</ul>
 								</div>
-						</Paper><br/>
+						</HoverPaper><br/>
 				</div>
 
 				<div>
-						<Paper className='about_row'>
+						<HoverPaper classes='about_row'>
 								<div className='about_img'>
 										<Bug />
 								</div>
@@ -65,11 +70,11 @@ const Text = (props) => (
 										<p>Although I am no longer interested in support roles, the skills I gained have been transferrable, and invaluable.</p>
 										<hr />
 								</div>
-						</Paper><br/>
+						</HoverPaper><br/>
 				</div>
 
 				<div>
-						<Paper className='about_row'>
+						<HoverPaper classes='about_row'>
 								<div className='about_img'>
 										<Js />
 								</div>
@@ -105,7 +110,7 @@ const Text = (props) => (
 												<li>Browserstack for cross-platform testing</li>
 										</ul>
 								</div>
-						</Paper><br/>
+						</HoverPaper><br/>
 				</div>
 
 		</div>
