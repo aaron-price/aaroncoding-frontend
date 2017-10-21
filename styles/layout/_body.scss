@@ -1,0 +1,49 @@
+body {
+  background-color: $cyan400;
+  color: $grey700;
+}
+p, li, h1, h2, h3, h4 {
+  color: $grey700;
+}
+
+// Mobile
+@media (max-width: $breakpoint - 1px) {
+  .body_middle {
+    min-height: 50vh;
+    margin: 1em;
+    padding: 1em;
+  }
+}
+
+// Desktop
+@media (min-width: $breakpoint) {
+  .body_middle {
+    margin: 2em;
+    padding: 2em;
+    min-height: 50vh;
+  }
+}
+
+
+.center_text {
+  text-align: center;
+}
+.invisible {
+  // visibility: hidden;
+  position: absolute;
+  left: -999em;
+}
+.stealth_link {
+  color: inherit;
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  &:active {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+.unstyled_list {
+  list-style: none;
+}

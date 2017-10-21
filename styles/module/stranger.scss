@@ -1,0 +1,19 @@
+@font-face {
+  font-family: Benguiat;
+  src: local("Benguiat Bold"),
+  url(Benguiat.ttf);
+}
+
+.stranger__chars {
+  color: red;
+  font-family: Benguiat;
+}
+
+.stranger__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  height: 50vh;
+  padding: 2em;
+}
