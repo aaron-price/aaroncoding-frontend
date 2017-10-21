@@ -1,0 +1,54 @@
+.quote_text {
+    font-style: italic;
+    color: $grey500;
+    font-family: fantasy;
+}
+.about_header {
+  color: $blueGrey800;
+}
+.about_text {
+  color: $grey700
+}
+
+// Mobile
+@media (max-width: $breakpoint - 1px) {
+  .about_main_title--desktop {
+    display: none;
+  }
+  .about_row {
+    display: block;
+  }
+  .about_img {
+    width: 100%;
+    max-width: 20em;
+    margin: auto;
+    padding: 1em;
+  }
+  .about_textdiv {
+    width: 100%;
+    max-width: 20em;
+    padding: 1em;
+    margin: auto;
+    h4 {
+      text-align: center;
+    }
+  }
+}
+
+// Desktop
+@media (min-width: $breakpoint) {
+  .about_main_title--mobile {
+    display: none;
+  }
+  .about_row {
+    display: flex;
+  }
+  .about_img {
+    width: 10vw;
+    margin: 1em;
+  }
+  .about_textdiv {
+    width: 80vw;
+    padding: 1em;
+  }
+}

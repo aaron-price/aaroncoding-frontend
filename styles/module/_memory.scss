@@ -1,0 +1,12 @@
+.memory_wrapper {
+  display:flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap
+}
+
+.memory_card {
+  min-height: 10vmin;
+  min-width: 10vmin;
+  margin: 1vmin;
+}
