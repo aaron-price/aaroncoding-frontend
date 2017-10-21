@@ -16,6 +16,7 @@ import Bug from '../components/images/Bug.js'
 import Js from '../components/images/JS.js'
 
 import { return_current_user } from '../services/current_user.js'
+let smile = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/smile-01+(1).png"
 
 const Text = (props) => (
 		<div>
@@ -26,6 +27,20 @@ const Text = (props) => (
 					<Logo width={100} />
 				</div>
 				
+				<hr />
+				<div>
+						<HoverPaper classes='about_row'>
+							<div className='about_img'>
+									<img src={smile} className='about_img__me' />
+							</div>
+							<div className='about_textdiv'>
+									<h4>Hire Me</h4>
+									<p>Email: coding.aaronp@gmail.com <br/>
+									Phone: 604-996-8835</p>
+							</div>
+						</HoverPaper><br/>
+				</div>
+
 				<hr />
 				<div>
 						<HoverPaper classes='about_row'>

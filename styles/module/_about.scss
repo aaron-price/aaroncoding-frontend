@@ -12,6 +12,10 @@
 
 // Mobile
 @media (max-width: $breakpoint - 1px) {
+  .about_img__me {
+    width: 100%;
+    border-radius: 100%;
+  }
   .about_main_title--desktop {
     display: none;
   }
@@ -58,5 +62,9 @@
   .about_textdiv {
     width: 80vw;
     padding: 1em;
+  }
+  .about_img__me {
+    width: 10vw;
+    border-radius: 100%;
   }
 }
