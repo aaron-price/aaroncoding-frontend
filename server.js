@@ -1,6 +1,8 @@
 require('dotenv').config()
 const cookieParser = require('cookie-parser')
 const express = require('express')
+const favicon = require('serve-favicon')
+var path = require('path')
 const next = require('next')
 const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 3000
@@ -32,6 +34,7 @@ app.prepare().then(() => {
 		server.use(expressValidator())
 		server.use(set_uri)
 		server.use(current_user)
+		server.use(favicon(path.join(__dirname, 'favicon', 'favicon.ico')))
 
 		const content_types = [
 				'user',

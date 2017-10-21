@@ -56,6 +56,11 @@
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.6",
     "sendgrid": "^5.2.3",
+    "serve-favicon": "^2.4.5",
     "styled-jsx": "^1.0.10"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-plugin-react": "^7.4.0"
   }
 }

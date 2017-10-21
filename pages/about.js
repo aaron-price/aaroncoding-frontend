@@ -100,6 +100,7 @@ const Text = (props) => (
 
 												<li><strong>Misc</strong></li>
 												<li>Amazon S2 file storage and CDN</li>
+												<li>Sendgrid SMTP Email server</li>
 												<li>Heroku for hosting and infrastructure</li>
 												<li>Browserstack for cross-platform testing</li>
 										</ul>

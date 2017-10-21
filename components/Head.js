@@ -16,6 +16,8 @@ export default (props) => (
                 <title>Aaron Price, Web Developer</title>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossOrigin="anonymous"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel='shortcut icon' type='image/x-icon' href='/favicon/favicon.ico' />
+
             </Head>
             <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
 
