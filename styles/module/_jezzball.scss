@@ -1,0 +1,19 @@
+.jezzball_box {
+  border-style: solid;
+  border-width: 5px;
+  height: 80vmin;
+  width: 80vmin;
+  cursor: crosshair;
+  position: relative;
+}
+.jezzball_ball {
+  border-radius: 100%;
+  background-color: $grey700;
+  width: 5vmin;
+  height: 5vmin;
+  position: absolute;
+}
+.jezzball_wall {
+  background-color: #444444;
+  position: absolute;
+}
