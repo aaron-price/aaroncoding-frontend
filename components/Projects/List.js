@@ -3,7 +3,8 @@ import FlatButton from 'material-ui/FlatButton'
 import Scroll from 'react-scroll'
 import {scroller} from 'react-scroll'
 let scroll = Scroll.animateScroll
-import HoverPaper from '../../components/HoverPaper'
+import HoverPaper from '../HoverPaper'
+import Logo from '../Logo.js'
 
 const Filter = (props) => (
     <div className="project_filter_item">{props.tag.title}:<br />
@@ -71,6 +72,12 @@ const Item = (props) => {
 }
 export default (props) => (
     <div className="full_screen__content" id='filters'>
+        <div className='center_text about_main_title--desktop'>
+            <Logo width={50} />
+        </div>
+        <div className='center_text about_main_title--mobile'>
+            <Logo width={100} />
+        </div>
         <h1>Projects</h1>
         <p className='about_text'>Currently showing {
             props.big_projects.length + props.micro_projects.length

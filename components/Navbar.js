@@ -291,17 +291,6 @@ const MobileMenubar = (props) => {
                   onClick={props.toggle}
                   label='Close (X)'
                   secondary={true} />
-              <MenuItem
-                  href='/'
-                  className="menubar_logo--mobile"
-                  innerDivStyle={{
-                      marginLeft: 'auto',
-                      marginRight: 'auto',
-                      width: '50%',
-                      paddingTop: '1em'
-                  }}>
-                  <Logo width={7} unit="em"/>
-              </MenuItem>
               <LogoutLinkMobile authenticated={props.authenticated} logout={props.logout}/>
               <UserLinkMobile authenticated={props.authenticated} current_user={props.current_user}/>
               <AboutMobile />
@@ -317,9 +306,6 @@ const DesktopMenubar = (props) => {
         <div className='menubar--desktop'>
             <Navbar toggleable>
                 <Nav className='ml-auto' navbar>
-                    <NavItem className='menubar_logo--desktop'>
-                        <a href='/'><Logo width={7} unit="em"/></a>
-                    </NavItem>
                     <NavItem>
                         <LogoutLinkDesktop authenticated={props.authenticated} logout={props.logout}/>
                     </NavItem>

@@ -6,7 +6,7 @@ const exampleInitialState = {
   lastUpdate: 0,
   light: false,
   count: 0,
-  menu_color: '#E57373',
+  menu_color: '#2196F3',
 }
 
 export const actionTypes = {

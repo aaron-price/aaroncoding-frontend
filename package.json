@@ -46,6 +46,7 @@
     "react-addons-transition-group": "^15.6.0",
     "react-cursor-position": "^2.2.2",
     "react-dom": "^15.6.1",
+    "react-motion": "^0.5.2",
     "react-player": "^0.25.2",
     "react-redux": "^5.0.6",
     "react-scroll": "^1.6.1",
