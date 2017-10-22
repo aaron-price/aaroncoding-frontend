@@ -38,10 +38,10 @@ const Text = (props) => (
 									<p>Email: coding.aaronp@gmail.com <br/>
 									Phone: 604-996-8835</p>
 							</div>
-						</HoverPaper><br/>
-				</div>
+						</HoverPaper>
+				</div><br/>
 
-				<hr />
+
 				<div>
 						<HoverPaper classes='about_row'>
 								<div className='about_img'>
@@ -83,7 +83,6 @@ const Text = (props) => (
 										<p>I solved <strong>over 120,000 tech support cases</strong> across a 4.5 year timespan. That's not a typo, I was like a machine at that job.
 										<br/><br/>I was also heavily involved in writing the tech support guidelines, and training other staff.</p>
 										<p>Although I am no longer interested in support roles, the skills I gained have been transferrable, and invaluable.</p>
-										<hr />
 								</div>
 						</HoverPaper><br/>
 				</div>
