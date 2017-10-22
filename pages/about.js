@@ -16,7 +16,7 @@ import Bug from '../components/images/Bug.js'
 import Js from '../components/images/JS.js'
 
 import { return_current_user } from '../services/current_user.js'
-let smile = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/smile-01+(1).png"
+let smile = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/me_square.jpg"
 
 const Text = (props) => (
 		<div>
