@@ -3,9 +3,11 @@
   width: 100%;
   justify-content: space-around;
   margin-top: 10vh;
+  height: 69vmin;
 }
 .choice_box__item {
-  width: 40vw;
+  width: 40vmin;
+  height: 40vmin;
   &:hover {
     cursor: pointer;
   }
@@ -17,7 +19,7 @@
   width: 100%;
 }
 .choice_box__text {
-  font-size: 3vw;
+  font-size: 3vmin;
   font-family: "Roboto", sans-serif;
   color: $cyan400;
 }

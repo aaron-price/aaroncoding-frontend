@@ -18,8 +18,6 @@ let smile = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/smile-01+(1).
 let logo = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/logo/logo3-01+(1).png"
 let reactjo1 = 'https://s3-us-west-2.amazonaws.com/aaroncoding/images/jslogo.png'
 let reactjo2 = 'https://s3-us-west-2.amazonaws.com/aaroncoding/images/buttons/React.png'
-// let reactjo1 = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/buttons/projects2-01.png"
-// let reactjo2 = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/buttons/projects-01.png"
 
 const ImageComponent = (props) => (
 		<img
@@ -50,8 +48,7 @@ class index extends Component {
 								<div className="full_screen light_cyan">
 										<div className="full_screen__inner_wrapper">
 												<Paper className="full_screen__header">
-														{/*<ImageComponent visible={''} classes="full_screen__logo_img" src={logo} />*/}
-														<Logo />
+														<Logo unit='vmin'/>
 												</Paper>
 												<div className="choice_box" style={this.state.visible ? {} : {display: 'none'}}>
 														<Motion defaultStyle={{margin: 100}} style={{margin: spring(0, {stiffness:100, damping: 50})}}>
