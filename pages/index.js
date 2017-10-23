@@ -16,8 +16,8 @@ import { TweenMax, Bounce, Sine, Elastic, Expo } from "gsap"
 let surprise = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/surprise-01+(1).png"
 let smile = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/smile-01+(1).png"
 let logo = "https://s3-us-west-2.amazonaws.com/aaroncoding/images/logo/logo3-01+(1).png"
-let reactjo1 = 'https://s3-us-west-2.amazonaws.com/aaroncoding/images/jslogo.png'
-let reactjo2 = 'https://s3-us-west-2.amazonaws.com/aaroncoding/images/buttons/React.png'
+let reactjo1 = 'https://s3-us-west-2.amazonaws.com/aaroncoding/images/buttons/react1.png'
+let reactjo2 = 'https://s3-us-west-2.amazonaws.com/aaroncoding/images/buttons/react2.png'
 
 const ImageComponent = (props) => (
 		<img
