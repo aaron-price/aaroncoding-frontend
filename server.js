@@ -77,7 +77,6 @@ app.prepare().then(() => {
 
 		server.get('/30days', (req, res) => {
 			const actualPage = '/projects'
-			// const queryParams = { id: req.params.id }
 			app.render(req, res, actualPage)
 		})
 
