@@ -4,7 +4,7 @@ import TextField from "material-ui/TextField"
 const field_styles = { marginLeft: 20 }
 
 export default (props) => (
-    <form method="POST">
+    <form method="POST" onSubmit={props.submit_form}>
         <TextField
             floatingLabelText="Name"
             floatingLabelFixed={true}

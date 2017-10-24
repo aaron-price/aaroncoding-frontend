@@ -5,7 +5,7 @@ function logout_service(req, res, app) {
     res.clearCookie('is_staff')
     res.clearCookie('is_superuser')
     res.clearCookie('is_active')
-    app.render(req, res, '/')
+    app.render(req, res, '/30days/user_auth')
 }
 
 module.exports = { logout_service }

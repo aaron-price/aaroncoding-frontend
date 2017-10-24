@@ -13,3 +13,4 @@ export function list_user_permission(user, obj = null) { return superuser(user, 
 export function details_user_permission(user, obj = null) { return owner(user, obj) }
 export function update_user_permission(user, obj = null) { return owner(user, obj) }
 export function delete_user_permission(user, obj = null) { return owner(user, obj) }
+export function anonymous_permission(user, obj = null) { return anonymous(user, obj) }
