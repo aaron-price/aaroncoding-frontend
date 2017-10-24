@@ -31,7 +31,7 @@ const login_service = (req, res, next, app) => {
                 is_superuser: data.is_superuser,
                 is_active: data.is_active,
             }
-            res.json({ data: {message: ['success']}, status: 200 })
+            res.json({ data: {message: ['success'], uid: data.id}, status: 200 })
         } else {
             res.json({
                 data: {message: ['Your name and/or password was incorrect.']},
