@@ -31,6 +31,8 @@ class ContactForm extends Component {
         }
         this.changeHandler = this.changeHandler.bind(this)
         this.clickHandler = this.clickHandler.bind(this)
+        this.validateEmail = this.validateEmail.bind(this)
+        this.validateText = this.validateText.bind(this)
     }
     changeHandler(e, field, val) {
         let value = e.target.value
@@ -75,22 +77,72 @@ class ContactForm extends Component {
     }
 
     clickHandler() {
-        fetch(uri, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state.fields)
-        })
+        console.log(this.validateEmail(this.state.fields.from))
+        console.log(this.validateText(this.state.fields.body))
+        let validates = (
+            this.validateEmail(this.state.fields.from) &&
+            this.validateText(this.state.fields.body)
+        )
+        if (validates) {
+            fetch(uri, {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this.state.fields)
+            })
+            .then(blob => blob.json())
+            .then(data => {
+                this.setState((prevState) => {
+                    let res = prevState.res
+                    res.push({id: res.length, body: data.data.message})
+                    return {
+                        res,
+                        status: '200'
+                    }
+                })
+            })
+            .catch(e => {
+                this.setState((prevState) => {
+                    let res = prevState.res
+                    res.push({id: res.length, body: 'Sorry, there was an issue sending the email. Please try again later, or manually write to coding.aaronp@gmail.com'})
+                    return {
+                        res,
+                        status: '500'
+                    }
+                })
+            })
+        } else {
+            // Validation failed
+            this.setState((prevState) => {
+                let res = prevState.res
+                res.push({id: res.length, body: 'Please check the form'})
+                return {
+                    res,
+                }
+            })
+        }
     }
 
     render() {
         const style = { marginLeft: 20 }
+        const cl = this.props.className ? `contact-form ${this.props.className}` : 'contact-form'
         return (
-            <div className="contact-form">
-                <div>
+            <div className={cl}>
+                    <div className="Mail__backend">
+                        {this.state.res.map(text =>
+                                <div>
+                                    <Alert
+                                        key={text.id}
+                                        status={String(this.state.status).charAt(0) === "2" ? "Success" : "Error"}
+                                        text={text.body}
+                                    />
+                                </div>
+                            )}
+                        </div>
+                    <div>
                     <Paper zDepth={2}>
                         <TextField
                             hintText="Can I hire you?"
@@ -140,20 +192,6 @@ class ContactForm extends Component {
 
 
                 </div>
-                <hr />
-                <div className="Mail__backend">
-
-                    {this.state.res.map(text =>
-                        <Alert
-                            key={text.id}
-                            status={String(this.state.status).charAt(0) === "2" ? "Success" : "Error"}
-                            text={text.body}
-                        />
-                    )}
-                </div>
-
-
-
             </div>
         )
     }

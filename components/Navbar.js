@@ -9,7 +9,7 @@ import MenuItem from 'material-ui/MenuItem'
 import { Navbar, Nav, NavItem } from 'reactstrap'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
-import Logo from './LogoCompact.js'
+import Logo from './Logo.js'
 
 import {
     create_user_permission,

@@ -10,6 +10,7 @@ import Header from '../components/Head'
 import HoverPaper from '../components/HoverPaper'
 import Logo from '../components/Logo'
 import Head from '../components/Head.js'
+import ContactForm from '../components/ContactForm.js'
 import Education from '../components/images/Education.js'
 import Octocat from '../components/images/Octocat.js'
 import Bug from '../components/images/Bug.js'
@@ -37,6 +38,8 @@ const Text = (props) => (
 									<h4>Hire Me</h4>
 									<p>Email: coding.aaronp@gmail.com <br/>
 									Phone: 604-996-8835</p>
+									<p>Or fill out this form</p>
+									<ContactForm className='about_contactform'/>
 							</div>
 						</HoverPaper>
 				</div><br/>
@@ -79,10 +82,11 @@ const Text = (props) => (
 								</div>
 								<div className='about_textdiv'>
 										<h4>Problem Solving</h4>
-										<p><strong>TLDR</strong>: I can troubleshoot almost any bug.</p>
-										<p>I solved <strong>over 120,000 tech support cases</strong> across a 4.5 year timespan. That's not a typo, I was like a machine at that job.
-										<br/><br/>I was also heavily involved in writing the tech support guidelines, and training other staff.</p>
-										<p>Although I am no longer interested in support roles, the skills I gained have been transferrable, and invaluable.</p>
+										<p>I used to do customer service - mostly tech support.</p>
+										<p>During that 4.5 year period, I solved <strong>over 120,000</strong> cases.</p>
+										<p>I was heavily involved in writing the tech support guidelines, and training other staff.</p>
+										<p>Although I am no longer interested in support roles, the skills I gained have been transferrable, 
+											and invaluable when it comes to troubleshooting and fixing bugs.</p>
 								</div>
 						</HoverPaper><br/>
 				</div>
@@ -126,6 +130,7 @@ const Text = (props) => (
 								</div>
 						</HoverPaper><br/>
 				</div>
+
 
 		</div>
 )
