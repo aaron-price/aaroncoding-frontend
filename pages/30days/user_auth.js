@@ -9,6 +9,7 @@ import Head from '../../components/Head.js'
 import { initStore } from '../../redux/store'
 import withRedux from 'next-redux-wrapper'
 import { return_current_user } from '../../services/current_user.js'
+import { anonymous_permission } from '../../services/permissions.js'
 
 class About extends Component {
 		constructor(props) {
@@ -19,10 +20,10 @@ class About extends Component {
 				return (
 						<Head current_user={this.props.current_user}>
 								<h1>User Authentication</h1>
-								<p className="about_text">The original project was an extremely
+								<p className="about_text">At first, my thing-a-day project was an extremely
 										minimalistic user auth system, which barely worked, and didn't maintain sessions.
 
-										<br/><br/>I have since rebuilt the portfolio from the ground up using my
+										<br/><br/>I have since rebuilt this portfolio from the ground up using my
 										scaffolding engine, ReactJo, which provides user auth. It took me much longer
 										than 1 day to build that functionality into ReactJo, although
 										it only takes a few minutes as the end user to use it. Call it even?
@@ -42,8 +43,12 @@ class About extends Component {
 										<li>User list and details pages</li>
 										<li>Protection again CSRF attacks, SQL Injection attacks, and some XSS attacks</li>
 								</ul>
-								<RaisedButton href='/signup' label='Sign up'/><br /><hr/>
-								<RaisedButton href='/login' label='Log in'/>
+								{anonymous_permission(this.props.current_user) && (
+									<div>
+										<RaisedButton href='/signup' label='Sign up'/><br /><hr/>
+										<RaisedButton href='/login' label='Log in'/>
+									</div>
+								)}
 						</Head>
 				)
 		}

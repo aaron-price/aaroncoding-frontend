@@ -55,10 +55,7 @@ class LoginPage extends React.Component {
         .then(data => {
             if (data.status === 200) {
                 // If login successful, redirect to index page
-                Router.push(
-                    `/user?id=${data.data.uid}`,
-                    `/user/${data.data.uid}`
-                )
+                Router.push('/30days/user_auth','/30days/user_auth')
             }
             else if (data.status === 422) {
               // Otherwise, send the errors to the necessary fields.
