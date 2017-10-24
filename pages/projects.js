@@ -60,11 +60,11 @@ const micro_projects = [
             tags.day, tags.front, tags.html, tags.js
         ],
     },{
-        title: 'Day 2: CreateElements',
-        description: 'DOM elements created using raw js.',
-        href: '/30days/create_elements',
+        title: 'Day 2: Drag and Drop',
+        description: 'Literal pixel pushing.',
+        href: '/30days/drag_drop',
         tags: [
-            tags.day, tags.front, tags.html, tags.js
+            tags.day, tags.front, tags.html, tags.js, tags.react
         ],
     },{
         title: 'Day 3: Collision',

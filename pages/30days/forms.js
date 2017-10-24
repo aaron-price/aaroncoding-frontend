@@ -66,10 +66,11 @@ class FormContainer extends Component {
 				return (
 						<Head current_user={this.props.current_user}>
 								<div>
-										<Form changeHandler={this.changeHandler} fields={this.state.fields} />
-
-										<br /><br /><hr /><br /><br />
-										<Preview fields={this.state.fields} />
+										
+                                    <Preview fields={this.state.fields} />
+                                    <br /><hr /><br />
+                                    <Form changeHandler={this.changeHandler} fields={this.state.fields} />
+										
 								</div>
 						</Head>
 				)
@@ -91,7 +92,7 @@ const Form = props => {
     return (
         <Paper zDepth={2} className='form_wrapper'>
             <h1>Interactive Forms</h1>
-            <p>Go ahead, play with it.</p>
+            <p>Go ahead, play with it. Watch as the preview above changes.</p>
             <TextField
                 hintText="Name"
                 floatingLabelText="Name"
@@ -173,27 +174,3 @@ const Preview = props => {
         </Card>
     )
 }
-/*
-
-
-const Progress = props => {
-    return <LinearProgress mode="determinate" value={props.completed} />
-}
-Progress.propTypes = {
-    completed: PropTypes.number.isRequired,
-}
-
-
-
-
-
-
-Form.propTypes = {
-    changeHandler: PropTypes.func.isRequired,
-    fields: PropTypes.object.isRequired,
-}
-
-
-
-
-*/

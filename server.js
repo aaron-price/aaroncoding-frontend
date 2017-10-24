@@ -72,7 +72,13 @@ app.prepare().then(() => {
 		})
 
 		server.post('/ping', (req, res) => {
-				ping_service(req, res)
+			ping_service(req, res)
+		})
+
+		server.get('/30days', (req, res) => {
+			const actualPage = '/projects'
+			// const queryParams = { id: req.params.id }
+			app.render(req, res, actualPage)
 		})
 
 		server.post('/email', (req, res) => {

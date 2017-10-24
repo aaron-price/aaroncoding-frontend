@@ -16,7 +16,6 @@ import data from "../../components/Projects/MOCK_DATA.json"
 const SearchBar = props => {
     return (
         <div>
-            <h1>Search</h1>
             <p>Go ahead and type something to start filtering the list by either first or last name.</p>
 						<p>Random data thanks to mockaroo.com</p>
             <TextField

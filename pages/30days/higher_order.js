@@ -38,7 +38,18 @@ class PaperDemo extends React.Component {
 									so I'm keeping today super simple.
 
 									<br/>Here I made a couple Higher-Order Components out of the
-									Paper component from the material-ui package</p>
+                                    Paper component from the material-ui package
+                                    
+                                    <br/>One of the big advantages to using a framework like React, is the way it uses components. Write code once, use
+                                    it in many places later.
+                                    <br/>The Material-UI 'Paper' component, for example, can be found all over this website. It makes up the nav bar, and the main content areas.
+                                    <br/>
+                                    <br/>So what is a 'Higher-Order' Component? According to the React Docs:</p>
+                                    <p className='quote_text'>A higher-order component is a function that takes a component and returns a new component.</p>
+                                    <p>
+                                    <br/>Below I show a regular Paper component, then HOC's I made; one with padding around it, One with hover functionality, and one with hover and click functionality.
+
+                                    </p>
 								<br/><br/><br/>
 								<div className="paperdemo_wrapper">
 										<Paper className="paperdemo">Regular Paper</Paper><br/>

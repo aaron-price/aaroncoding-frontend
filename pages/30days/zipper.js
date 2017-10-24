@@ -18,11 +18,13 @@ function between(min, max) {
 class Zipper extends Component {
     constructor() {
         super()
-        this.state = {}
+        this.state = { display: false }
         this.animate = this.animate.bind(this)
     }
     componentDidMount() {
+        this.setState({ display: true })
         this.animate()
+
     }
 
     renderLines() {
@@ -66,25 +68,27 @@ class Zipper extends Component {
 
     render() {
         return (
-						<Head current_user={this.props.current_user}>
+			<Head current_user={this.props.current_user}>
                 <h1>Zipper</h1>
                 <p>This was going to be a barcode, but random colours were too much fun.</p>
-		            <svg className="container"
-		                 x="0px" y="0px"
-		                 width="100%" height="100%"
-		                 viewBox="-100 -100 800 800"
-		                 xmlns="http://www.w3.org/2000/svg">
-		                {this.renderLines()}
-		                <defs>
-		                    <linearGradient id="Grad" x1="0" x2="0" y1="0" y2="1">
-		                        <stop offset="0%" stopColor="#DDD"/>
-		                        <stop offset="50%" stopColor="black" stopOpacity="1"/>
-		                        <stop offset="100%" stopColor="#DDD"/>
-		                    </linearGradient>
-		                </defs>
-		                <circle className="zipper__ball" ref="ball" cx="550" cy="150" r="30" fill="url(#Grad)"/>
-		            </svg>
-						</Head>
+                <div style={!this.state.display ? {display: 'none'} : {}}>
+                    <svg className="container"
+                            x="0px" y="0px"
+                            width="100%" height="100%"
+                            viewBox="-100 -100 800 800"
+                            xmlns="http://www.w3.org/2000/svg">
+                        {this.renderLines()}
+                        <defs>
+                            <linearGradient id="Grad" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="0%" stopColor="#DDD"/>
+                                <stop offset="50%" stopColor="black" stopOpacity="1"/>
+                                <stop offset="100%" stopColor="#DDD"/>
+                            </linearGradient>
+                        </defs>
+                        <circle className="zipper__ball" ref="ball" cx="550" cy="150" r="30" fill="url(#Grad)"/>
+                    </svg>
+                </div>
+			</Head>
         )
     }
 }

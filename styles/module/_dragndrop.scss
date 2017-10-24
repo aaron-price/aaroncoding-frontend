@@ -1,0 +1,21 @@
+@mixin dd_container() {
+    height: 3em;
+    width: 3em;
+    margin: 1em;
+}
+.dd_container1 {
+    @include dd_container();
+}
+.dd_container2 {
+    @include dd_container();
+}
+.dd_obj {
+    height: 3em;
+    width: 3em;
+    cursor: grab;
+}
+.dd_root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
