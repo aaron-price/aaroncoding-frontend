@@ -8,6 +8,7 @@ import Header from '../components/Head'
 import HoverPaper from '../components/HoverPaper'
 import FocusedHead from '../components/FocusedHead.js'
 import Logo from '../components/Logo.js'
+import ReactLogo from '../components/images/ReactLogo.js'
 import { initStore } from '../redux/store'
 import withRedux from 'next-redux-wrapper'
 import { return_current_user } from '../services/current_user.js'
@@ -68,13 +69,21 @@ class index extends Component {
 														<Motion defaultStyle={{margin: 100}} style={{margin: spring(0, {stiffness:100, damping: 50})}}>
 															{value => (
 																<HoverPaper style={{marginRight: `-${value.margin}vw`}} classes="choice_box__item" href="/projects">
-																	<div
-																			onMouseOver={() => this.update_state('hover_prj', true)}
-																			onMouseOut={() => this.update_state('hover_prj', false)}>
-																			<h1 className="center_text choice_box__text">Explore My Projects</h1>
-																			<ImageComponent visible={!this.state.hover_prj && 'invisible'} src={reactjo1} classes="choice_box__img smile"/>
-																			<ImageComponent visible={this.state.hover_prj && 'invisible'} src={reactjo2} classes="choice_box__img smile"/>
+																	{/*
+																	<div>
+																		<h1 className="center_text choice_box__text">Explore My Projects</h1>
+																		<ReactLogo />
 																	</div>
+																	*/}
+																	
+																	<div
+																		onMouseOver={() => this.update_state('hover_prj', true)}
+																		onMouseOut={() => this.update_state('hover_prj', false)}>
+																		<h1 className="center_text choice_box__text">Explore My Projects</h1>
+																		<ImageComponent visible={!this.state.hover_prj && 'invisible'} src={reactjo1} classes="choice_box__img smile"/>
+																		<ImageComponent visible={this.state.hover_prj && 'invisible'} src={reactjo2} classes="choice_box__img smile"/>
+																	</div>
+
 																</HoverPaper>
 															)}
 														</Motion>
