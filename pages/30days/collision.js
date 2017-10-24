@@ -118,30 +118,31 @@ class Collision extends Component {
 
 		}
 		render() {
+				let spacer = 200
 				return (
 						<Head current_user={this.props.current_user}>
 								<h1>Collision</h1>
 								<p>"Boing!"</p>
-								<div style={{width: '1vmin'}} ref={(el) => this.update_unit(el)}></div>
+								<div style={{width: '1vmin', height: spacer * 2}} ref={(el) => this.update_unit(el)}></div>
 								{this.state.discovered && (
 										<div>
 												<div className='collision_element' style={{
 														left: this.state.el1.left * this.state.unit,
-														top: this.state.el1.top * this.state.unit,
+														top: this.state.el1.top * this.state.unit + spacer,
 														width: this.state.el1.width * this.state.unit,
 														height: this.state.el1.height * this.state.unit,
 														borderRadius: '100%',
 												}}></div>
 												<div className='collision_element' style={{
 														left: this.state.el2.left * this.state.unit,
-														top: this.state.el2.top * this.state.unit,
+														top: this.state.el2.top * this.state.unit + spacer,
 														width: this.state.el2.width * this.state.unit,
 														height: this.state.el2.height * this.state.unit,
 														backgroundColor: '#000000'
 												}}></div>
 												<div className='collision_element' style={{
 														left: this.state.el3.left * this.state.unit,
-														top: this.state.el3.top * this.state.unit,
+														top: this.state.el3.top * this.state.unit + spacer,
 														width: this.state.el3.width * this.state.unit,
 														height: this.state.el3.height * this.state.unit,
 														backgroundColor: '#000000'
