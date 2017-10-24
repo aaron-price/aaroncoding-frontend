@@ -15,11 +15,13 @@ class API extends Component {
 		constructor(props) {
 				super(props)
 				this.state = {
-						responses: []
+						responses: [],
+						waiting: false,
 				}
 		}
 		ping() {
 				let start = new Date()
+				this.setState({ waiting: true })
 				fetch('/ping', {
 						method: 'POST',
 						credentials: 'include',
@@ -31,6 +33,7 @@ class API extends Component {
 				.then(blob => blob.json())
 				.then(data => {
 						let finish = new Date()
+						this.setState({ waiting: false })
 						this.setState((prevState) => {
 								if(typeof data.message === 'string') {
 										let res = Object.assign({}, data, { time: finish - start })
@@ -73,6 +76,9 @@ class API extends Component {
 																- message: {res.message}&nbsp;
 																- {res.time}ms</p>)
 												})}
+												{this.state.waiting && (
+													<p>Waiting for the other server. If you have time to read this, it's probably just waking up...</p>
+												)}
 										</CodeBlock>
 								</div>
 						</Head>
