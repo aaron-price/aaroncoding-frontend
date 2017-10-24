@@ -60,9 +60,9 @@ var _RaisedButton = require('material-ui/RaisedButton');
 
 var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-var _LogoCompact = require('./LogoCompact.js');
+var _Logo = require('./Logo.js');
 
-var _LogoCompact2 = _interopRequireDefault(_LogoCompact);
+var _Logo2 = _interopRequireDefault(_Logo);
 
 var _permissions = require('../services/permissions.js');
 
