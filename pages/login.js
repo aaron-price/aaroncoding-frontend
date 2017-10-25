@@ -54,7 +54,7 @@ class LoginPage extends React.Component {
         .then(blob => blob.json())
         .then(data => {
             if (data.status === 200) {
-                // If login successful, redirect to index page
+                // If login successful, redirect to user_auth demo page
                 Router.push('/30days/user_auth','/30days/user_auth')
             }
             else if (data.status === 422) {
