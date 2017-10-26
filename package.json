@@ -14,7 +14,7 @@
     "heroku-postbuild": "next build",
     "start": "node server.js -p $PORT",
     "test": "jest",
-    "lint": "./node_modules/.bin/eslint ."
+    "lint": "./node_modules/.bin/eslint . --fix"
   },
   "keywords": [],
   "author": "",
