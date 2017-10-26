@@ -20,7 +20,7 @@ export default (props) => {
                             current_user={props.current_user}
                             user={user}
                             key={key} />
-                )})}
+                    )})}
             </MuiList>
         )
     }

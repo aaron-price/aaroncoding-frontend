@@ -10,15 +10,15 @@ const ping_service = (req, res, next, app) => {
         method: 'GET',
         headers: get_headers({ res }),
     })
-    .then(blob => blob.json())
-    .then(data => {
-        res.json({ status: 200, message: data.message })
-    })
-    .catch(err => {
-        console.error(err)
-        res.json({ status: 500, message: err })
-        res.end()
-    })
+        .then(blob => blob.json())
+        .then(data => {
+            res.json({ status: 200, message: data.message })
+        })
+        .catch(err => {
+            console.error(err)
+            res.json({ status: 500, message: err })
+            res.end()
+        })
 }
 
 module.exports = { ping_service }

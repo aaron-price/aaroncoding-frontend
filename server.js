@@ -25,74 +25,74 @@ const { delete_content_service } = require('./services/content_delete.js')
 const { update_content_service } = require('./services/content_update.js')
 
 app.prepare().then(() => {
-		const server = express()
-		server.use(cookieParser('4454Fa4B78bE5bcEAE624A8C3dfEDe44'))
-		server.use(helmet())
+    const server = express()
+    server.use(cookieParser('4454Fa4B78bE5bcEAE624A8C3dfEDe44'))
+    server.use(helmet())
 
-		server.use(bodyParser.json())
-		server.use(bodyParser.urlencoded({ extended: false }))
-		server.use(expressValidator())
-		server.use(set_uri)
-		server.use(current_user)
-		server.use(favicon(path.join(__dirname, 'favicon', 'favicon.ico')))
+    server.use(bodyParser.json())
+    server.use(bodyParser.urlencoded({ extended: false }))
+    server.use(expressValidator())
+    server.use(set_uri)
+    server.use(current_user)
+    server.use(favicon(path.join(__dirname, 'favicon', 'favicon.ico')))
 
-		const content_types = [
-				'user',
-		]
-		content_types.map(type => {
-				// Details page
-				server.get(`/${type}/:id`, (req, res) => {
-						const actualPage = `/${type}`
-						const queryParams = { id: req.params.id }
-						app.render(req, res, actualPage, queryParams)
-				})
-				// Create new
-				server.post(`/${type}/`, (req, res) => {
-						create_content_service(req, res, app, type)
-				})
-				// Delete
-				server.delete(`/${type}/`, (req, res) => {
-						delete_content_service(req, res, app, type)
-				})
-				// Update
-				server.patch(`/${type}/`, (req, res) => {
-						update_content_service(req, res, app, type)
-				})
-		})
+    const content_types = [
+        'user',
+    ]
+    content_types.map(type => {
+        // Details page
+        server.get(`/${type}/:id`, (req, res) => {
+            const actualPage = `/${type}`
+            const queryParams = { id: req.params.id }
+            app.render(req, res, actualPage, queryParams)
+        })
+        // Create new
+        server.post(`/${type}/`, (req, res) => {
+            create_content_service(req, res, app, type)
+        })
+        // Delete
+        server.delete(`/${type}/`, (req, res) => {
+            delete_content_service(req, res, app, type)
+        })
+        // Update
+        server.patch(`/${type}/`, (req, res) => {
+            update_content_service(req, res, app, type)
+        })
+    })
 
-		server.post('/login', (req, res, next) => {
-				login_service(req, res, next, app)
-		})
-		server.post('/signup', (req, res) => {
-				signup_service(req, res, next, app)
-		})
+    server.post('/login', (req, res, next) => {
+        login_service(req, res, next, app)
+    })
+    server.post('/signup', (req, res) => {
+        signup_service(req, res, next, app)
+    })
 
-		server.post('/logout', (req, res) => {
-				logout_service(req, res, app)
-		})
+    server.post('/logout', (req, res) => {
+        logout_service(req, res, app)
+    })
 
-		server.post('/ping', (req, res) => {
-			ping_service(req, res)
-		})
+    server.post('/ping', (req, res) => {
+        ping_service(req, res)
+    })
 
-		server.get('/30days', (req, res) => {
-			const actualPage = '/projects'
-			app.render(req, res, actualPage)
-		})
+    server.get('/30days', (req, res) => {
+        const actualPage = '/projects'
+        app.render(req, res, actualPage)
+    })
 
-		server.post('/email', (req, res) => {
-				send_email(req, res)
-		})
+    server.post('/email', (req, res) => {
+        send_email(req, res)
+    })
 
-		server.get('*', (req, res) => {
-				return handle(req, res)
-		})
-		server.listen(port, (err) => {
-				if (err) throw err
-				console.log(`> Ready on http://localhost:${port}`)
-		})
+    server.get('*', (req, res) => {
+        return handle(req, res)
+    })
+    server.listen(port, (err) => {
+        if (err) throw err
+        console.log(`> Ready on http://localhost:${port}`)
+    })
 })
-.catch((ex) => {
-		console.log(ex.stack)
-		process.exit(1)
-})
+    .catch((ex) => {
+        console.log(ex.stack)
+        process.exit(1)
+    })

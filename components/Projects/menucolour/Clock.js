@@ -1,8 +1,8 @@
 export default ({ lastUpdate, light }) => {
-  return (
-    <div className={light ? 'light' : ''}>
-      {format(new Date(lastUpdate))}
-      <style jsx>{`
+    return (
+        <div className={light ? 'light' : ''}>
+            {format(new Date(lastUpdate))}
+            <style jsx>{`
         div {
           padding: 15px;
           display: inline-block;
@@ -14,8 +14,8 @@ export default ({ lastUpdate, light }) => {
           background-color: #999;
         }
       `}</style>
-    </div>
-  )
+        </div>
+    )
 }
 
 const format = t => `${pad(t.getUTCHours())}:${pad(t.getUTCMinutes())}:${pad(t.getUTCSeconds())}`

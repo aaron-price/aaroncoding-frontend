@@ -1,6 +1,6 @@
 import RaisedButton from 'material-ui/RaisedButton'
-import Divider from "material-ui/Divider"
-import TextField from "material-ui/TextField"
+import Divider from 'material-ui/Divider'
+import TextField from 'material-ui/TextField'
 const field_styles = { marginLeft: 20 }
 
 export default (props) => (

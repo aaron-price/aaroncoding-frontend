@@ -61,10 +61,10 @@ class User extends React.Component {
                 id: this.props.profile.id,
             })
         })
-        .then(data => {
-            Router.push('/')
-        })
-        .catch(e => console.error(e))
+            .then(data => {
+                Router.push('/')
+            })
+            .catch(e => console.error(e))
     }
     show_hide_form() {
         this.setState(prevState => {
@@ -92,27 +92,27 @@ class User extends React.Component {
             },
             body: JSON.stringify(body_fields)
         })
-        .then(blob => blob.json())
-        .then(data => {
-            console.log('DATA', data)
-            if (data.status === 200){
-                window.location.reload(true)
+            .then(blob => blob.json())
+            .then(data => {
+                console.log('DATA', data)
+                if (data.status === 200){
+                    window.location.reload(true)
                 // Router.push(
                 //     `/user?id=${data.data.id}`,
                 //     `/user/${data.data.id}`
                 // )
-            } else {
-                let field_errors = {}
-                console.log('DATA: ', data)
-                Object.keys(data.data).forEach(field => {
-                    field_errors[field] = data.data[field].join('. ')
-                })
-                let errors = Object.assign({}, this.state.errors, field_errors)
-                this.setState({ errors })
-            }
+                } else {
+                    let field_errors = {}
+                    console.log('DATA: ', data)
+                    Object.keys(data.data).forEach(field => {
+                        field_errors[field] = data.data[field].join('. ')
+                    })
+                    let errors = Object.assign({}, this.state.errors, field_errors)
+                    this.setState({ errors })
+                }
 
-        })
-        .catch(e => console.error(e))
+            })
+            .catch(e => console.error(e))
     }
 
     render() {
@@ -186,8 +186,8 @@ User.getInitialProps = async function(context) {
         console.log('NOT ALLOWED!!!')
         if (context.res) {
             context.res.writeHead(301, {
-            Location: '/users'
-        })
+                Location: '/users'
+            })
             context.res.end()
             context.res.finish2ed = true
         } else {

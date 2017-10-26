@@ -11,11 +11,11 @@ class HoverPaper extends Component {
         this.setState({ hover: value })
     }
     click() {
-       // @TODO
+        // @TODO
     }
     render() {
-        let max_z = !!this.props.max ? this.props.max : 5
-        let classes = !!this.props.classes ? this.props.classes : ""
+        let max_z = this.props.max ? this.props.max : 5
+        let classes = this.props.classes ? this.props.classes : ''
         let href = this.props.href
         let style = this.props.style || {}
         return (
@@ -26,14 +26,14 @@ class HoverPaper extends Component {
                 className={classes}
                 style={style}
                 zDepth={this.state.hover ? max_z : 1}>
-                    {href ? (
-                            <a href={href} className="stealth_link">
-                                {this.props.children}
-                            </a>
-                        ) : (
-                            this.props.children
-                        )
-                    }
+                {href ? (
+                    <a href={href} className="stealth_link">
+                        {this.props.children}
+                    </a>
+                ) : (
+                    this.props.children
+                )
+                }
 
             </Paper>
         )

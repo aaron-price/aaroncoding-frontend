@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Head from '../../components/Head.js'
 import { initStore } from '../../redux/store'
 import withRedux from 'next-redux-wrapper'
@@ -35,7 +35,7 @@ class Minesweeper extends Component {
 
     revealer(id, mine) {
         // Don't allow clicking on already revealed mines
-        if (this.state.grid[id].value === "hidden") {
+        if (this.state.grid[id].value === 'hidden') {
 
             // If player clicked a mine
             if (mine && !this.state.gameOver) {
@@ -43,7 +43,7 @@ class Minesweeper extends Component {
                 const newGrid = Object.assign(
                     {},
                     newState,
-                    {...newState.grid[id].value = "revealed", gameOver: true}
+                    {...newState.grid[id].value = 'revealed', gameOver: true}
                 )
                 this.setState(newGrid)
             } else if (!this.state.gameOver) {
@@ -66,7 +66,7 @@ class Minesweeper extends Component {
                     {},
                     newState,
                     {
-                        ...newState.grid[id].value = "revealed",
+                        ...newState.grid[id].value = 'revealed',
                         points: newState.points + 1,
                     },
                     victoryObj
@@ -81,13 +81,13 @@ class Minesweeper extends Component {
         let cellArray = [] // <-- Insert celery pun here
         for (let row = 0; row < gridWidth; row++) {
             for (let col = 0; col < gridHeight; col++) {
-                let border = "none"
-                if (col === 0) { border = "top" }
-                if (col === gridHeight - 1) { border = "bottom" }
+                let border = 'none'
+                if (col === 0) { border = 'top' }
+                if (col === gridHeight - 1) { border = 'bottom' }
                 cellArray.push({
                     x: row * cellSize,
                     y: col * cellSize,
-                    value: "hidden",
+                    value: 'hidden',
                     border: border,
                 })
             }
@@ -101,23 +101,23 @@ class Minesweeper extends Component {
                     <h1>Minesweeper</h1>
                     <p>Points:
                         <span> {this.state.points} out of {(gridWidth * gridHeight) - mineCount}</span>
-                        <span className="minesweeper__gameOver"> {this.state.gameOver && "GAME OVER"}</span>
+                        <span className="minesweeper__gameOver"> {this.state.gameOver && 'GAME OVER'}</span>
                     </p>
                     {this.state.victory && <h1 className="minesweeper__victory">You won! Good game!</h1>}
                     <svg className="container" x="0" y="0"
-                         width={cellSize * gridWidth}
-                         height={cellSize * gridHeight}
-                         viewBox={`0 0 ${cellSize * gridWidth} ${cellSize * gridHeight}`}
-                         xmlns="http://www.w3.org/2000/svg">
+                        width={cellSize * gridWidth}
+                        height={cellSize * gridHeight}
+                        viewBox={`0 0 ${cellSize * gridWidth} ${cellSize * gridHeight}`}
+                        xmlns="http://www.w3.org/2000/svg">
                         {this.state.grid.map((cell, key) => {
                             return (
                                 <Cell key={key}
-                                      x={cell.x}
-                                      y={cell.y}
-                                      value={cell.value}
-                                      id={key}
-                                      revealer={this.revealer}
-                                      border={cell.border}
+                                    x={cell.x}
+                                    y={cell.y}
+                                    value={cell.value}
+                                    id={key}
+                                    revealer={this.revealer}
+                                    border={cell.border}
                                 />)
                         })}
                     </svg>
@@ -145,13 +145,13 @@ function countNeighbours(id, border) {
     const right = boolRandArr[id     + rightDir              ]
     const left = boolRandArr[id      + leftDir               ]
     let neighbourArr
-    if (border === "top") {
+    if (border === 'top') {
         neighbourArr = [down, downLeft, downRight, right, left]
     }
-    else if (border === "bottom") {
+    else if (border === 'bottom') {
         neighbourArr = [up, upLeft, upRight, right, left]
     }
-    else if (border === "none") {
+    else if (border === 'none') {
         neighbourArr = [up, upLeft, upRight, down, downLeft, downRight, right, left]
     }
 
@@ -163,12 +163,12 @@ function countNeighbours(id, border) {
 
 export const Cell = props => {
     const mine = boolRandArr[props.id] <= mineFrequency
-    const neighbours = mine ? "X" : countNeighbours(props.id, props.border)
+    const neighbours = mine ? 'X' : countNeighbours(props.id, props.border)
     return (
         <g
             onClick={() => props.revealer(props.id, mine)}
             className={`minesweeper__cell--${props.value} minesweeper__cell-${props.x}x-${props.y}y`}
-						style={props.value === 'hidden' ? {cursor: 'pointer'} : {}}
+            style={props.value === 'hidden' ? {cursor: 'pointer'} : {}}
         >
             <rect
                 className={`cell cell--${props.value}`}
@@ -176,16 +176,16 @@ export const Cell = props => {
                 y={props.y}
                 width="20"
                 height="20"
-                fill={props.value === "hidden" ? "#DDD" : "#AAA"}
+                fill={props.value === 'hidden' ? '#DDD' : '#AAA'}
                 stroke="black"
 
             />
             <text x={props.x + (gridWidth / 2)}
-                  y={props.y + (gridHeight)}
-                  fontFamily="Verdana"
-                  fontSize="15"
-                  fill={!mine ? "green" : "red"}
-            >{props.value !== "hidden" && neighbours}</text>
+                y={props.y + (gridHeight)}
+                fontFamily="Verdana"
+                fontSize="15"
+                fill={!mine ? 'green' : 'red'}
+            >{props.value !== 'hidden' && neighbours}</text>
         </g>)
 }
 Cell.propTypes = {
@@ -198,8 +198,8 @@ Cell.propTypes = {
 
 }
 Minesweeper.getInitialProps = async function(context) {
-		return {
-				current_user: await return_current_user(context),
-		}
+    return {
+        current_user: await return_current_user(context),
+    }
 }
 export default withRedux(initStore, null)(Minesweeper)

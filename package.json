@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "jest": {
+    "setupFiles": [
+      "./shim.js"
+    ]
+  },
   "scripts": {
     "dev": "node server.js -p $PORT",
     "build": "next build",
     "heroku-postbuild": "next build",
-    "start": "node server.js -p $PORT"
+    "start": "node server.js -p $PORT",
+    "test": "jest",
+    "lint": "./node_modules/.bin/eslint . --fix"
   },
   "keywords": [],
   "author": "",
@@ -61,7 +68,13 @@
     "styled-jsx": "^1.0.10"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
+    "enzyme": "^3.1.0",
     "eslint": "^4.9.0",
-    "eslint-plugin-react": "^7.4.0"
+    "eslint-plugin-react": "^7.4.0",
+    "jest": "^21.2.1",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^15.6.0"
   }
 }

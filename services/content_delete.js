@@ -12,17 +12,17 @@ const delete_content_service = (req, res, app, content_type) => {
         method: 'DELETE',
         headers: get_headers({ res })
     })
-    .then(data => {
-        if (content_type === 'user') {
-            logout_service(req, res, app)
-        } else {
-            res.end()
-        }
-    })
-    .catch(err => {
-        console.error(err)
-        app.render(req, res, '/')
-    })
+        .then(data => {
+            if (content_type === 'user') {
+                logout_service(req, res, app)
+            } else {
+                res.end()
+            }
+        })
+        .catch(err => {
+            console.error(err)
+            app.render(req, res, '/')
+        })
 
 }
 

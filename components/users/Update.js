@@ -13,9 +13,9 @@ export default (props) => {
         return (
             <div>
                 <FlatButton
-                   label="Hide Form"
-                   secondary={true}
-                   onClick={() => props.show_hide_form()}/>
+                    label="Hide Form"
+                    secondary={true}
+                    onClick={() => props.show_hide_form()}/>
                 <br /><br />
                 <UpdateForm
                     submit_form={props.submit_form}
@@ -32,9 +32,9 @@ export default (props) => {
         return (
             <div>
                 <FlatButton
-                   label="Update Profile"
-                   primary={true}
-                   onClick={() => props.show_hide_form()}/>
+                    label="Update Profile"
+                    primary={true}
+                    onClick={() => props.show_hide_form()}/>
                 <br /><br />
             </div>
         )

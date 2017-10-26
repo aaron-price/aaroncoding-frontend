@@ -17,18 +17,18 @@ const signup_service = (req, res, next, app) => {
         },
         body: JSON.stringify(body_fields)
     })
-    .then(blob => blob.json())
-    .then(data => {
-        if (!!data.id) {
-            login_service(req, res, next, app)
-        } else {
-            res.json({data, status: 400})
-        }
-    })
-    .catch(err => {
-        console.error(err)
-        res.json({message: err, status: 500})
-    })
+        .then(blob => blob.json())
+        .then(data => {
+            if (data.id) {
+                login_service(req, res, next, app)
+            } else {
+                res.json({data, status: 400})
+            }
+        })
+        .catch(err => {
+            console.error(err)
+            res.json({message: err, status: 500})
+        })
 }
 
 module.exports = { signup_service }

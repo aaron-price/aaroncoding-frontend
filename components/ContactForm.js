@@ -1,32 +1,32 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 import 'isomorphic-fetch'
 // const prod = "https://aaroncoding-backend.herokuapp.com/mail"
 // const local = "http://localhost:3001/mail"
 const uri = '/email'
-import Alert from "./Alert"
+import Alert from './Alert'
 
-import Paper from "material-ui/Paper"
-import RaisedButton from "material-ui/RaisedButton"
-import TextField from "material-ui/TextField"
-import Divider from "material-ui/Divider"
+import Paper from 'material-ui/Paper'
+import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField'
+import Divider from 'material-ui/Divider'
 
 class ContactForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
             res: [],
-            status: "",
+            status: '',
             fields: {
-                from: "",
-                subject: "",
-                body: "",
-                company: "",
+                from: '',
+                subject: '',
+                body: '',
+                company: '',
             },
             errors: {
-                from: "",
-                subject: "",
-                body: "",
-                company: "",
+                from: '',
+                subject: '',
+                body: '',
+                company: '',
             },
         }
         this.changeHandler = this.changeHandler.bind(this)
@@ -44,15 +44,15 @@ class ContactForm extends Component {
         // If errors were fixed, remove the warning
         const fields = this.state.fields
         if (this.validateEmail(fields.from)) {
-            const newErrors = Object.assign(this.state.errors, {from: ""})
+            const newErrors = Object.assign(this.state.errors, {from: ''})
             this.setState({errors: newErrors})
         }
         if (this.validateText(fields.subject)) {
-            const newErrors = Object.assign(this.state.errors, {subject: ""})
+            const newErrors = Object.assign(this.state.errors, {subject: ''})
             this.setState({errors: newErrors})
         }
         if (this.validateText(fields.body)) {
-            const newErrors = Object.assign(this.state.errors, {body: ""})
+            const newErrors = Object.assign(this.state.errors, {body: ''})
             this.setState({errors: newErrors})
         }
 
@@ -60,7 +60,7 @@ class ContactForm extends Component {
 
     handleErrors(response) {
         if (!response.ok) {
-            this.setState({res: [{id: -1, body: "Hmm, I can't connect right now."}]})
+            this.setState({res: [{id: -1, body: 'Hmm, I can\'t connect right now.'}]})
             throw Error(response.statusText)
         }
         return response
@@ -72,7 +72,7 @@ class ContactForm extends Component {
     validateText(text) {
         return (
             text.length > 1 &&          // Too short
-            typeof text === "string"    // Not a string
+            typeof text === 'string'    // Not a string
         )
     }
 
@@ -93,27 +93,27 @@ class ContactForm extends Component {
                 },
                 body: JSON.stringify(this.state.fields)
             })
-            .then(blob => blob.json())
-            .then(data => {
-                this.setState((prevState) => {
-                    let res = prevState.res
-                    res.push({id: res.length, body: data.data.message})
-                    return {
-                        res,
-                        status: '200'
-                    }
+                .then(blob => blob.json())
+                .then(data => {
+                    this.setState((prevState) => {
+                        let res = prevState.res
+                        res.push({id: res.length, body: data.data.message})
+                        return {
+                            res,
+                            status: '200'
+                        }
+                    })
                 })
-            })
-            .catch(e => {
-                this.setState((prevState) => {
-                    let res = prevState.res
-                    res.push({id: res.length, body: 'Sorry, there was an issue sending the email. Please try again later, or manually write to coding.aaronp@gmail.com'})
-                    return {
-                        res,
-                        status: '500'
-                    }
+                .catch(e => {
+                    this.setState((prevState) => {
+                        let res = prevState.res
+                        res.push({id: res.length, body: 'Sorry, there was an issue sending the email. Please try again later, or manually write to coding.aaronp@gmail.com'})
+                        return {
+                            res,
+                            status: '500'
+                        }
+                    })
                 })
-            })
         } else {
             // Validation failed
             this.setState((prevState) => {
@@ -131,18 +131,18 @@ class ContactForm extends Component {
         const cl = this.props.className ? `contact-form ${this.props.className}` : 'contact-form'
         return (
             <div className={cl}>
-                    <div className="Mail__backend">
-                        {this.state.res.map(text =>
-                                <div>
-                                    <Alert
-                                        key={text.id}
-                                        status={String(this.state.status).charAt(0) === "2" ? "Success" : "Error"}
-                                        text={text.body}
-                                    />
-                                </div>
-                            )}
+                <div className="Mail__backend">
+                    {this.state.res.map(text =>
+                        <div>
+                            <Alert
+                                key={text.id}
+                                status={String(this.state.status).charAt(0) === '2' ? 'Success' : 'Error'}
+                                text={text.body}
+                            />
                         </div>
-                    <div>
+                    )}
+                </div>
+                <div>
                     <Paper zDepth={2}>
                         <TextField
                             hintText="Can I hire you?"
@@ -150,15 +150,15 @@ class ContactForm extends Component {
                             errorText={this.state.errors.subject}
                             floatingLabelFixed={true}
                             style={style}
-                            onChange={e => this.changeHandler(e, "subject")}/>
+                            onChange={e => this.changeHandler(e, 'subject')}/>
                         <Divider />
 
                         <TextField
                             hintText="Google"
                             floatingLabelText="company"
                             floatingLabelFixed={true}
-                            style={{display: "none"}}
-                            onChange={e => this.changeHandler(e, "company")}/>
+                            style={{display: 'none'}}
+                            onChange={e => this.changeHandler(e, 'company')}/>
                         <Divider />
 
                         <TextField
@@ -167,7 +167,7 @@ class ContactForm extends Component {
                             floatingLabelFixed={true}
                             errorText={this.state.errors.from}
                             style={style}
-                            onChange={e => this.changeHandler(e, "from")} />
+                            onChange={e => this.changeHandler(e, 'from')} />
                         <Divider />
 
                         <TextField
@@ -179,12 +179,12 @@ class ContactForm extends Component {
                             rows={4}
                             rowsMax={12}
                             style={style}
-                            onChange={e => this.changeHandler(e, "body")}
+                            onChange={e => this.changeHandler(e, 'body')}
                         />
                         <Divider />
                         <RaisedButton label="Email Aaron"
-                                      onClick={() => this.clickHandler()}
-                                      style={{margin: "1em"}}
+                            onClick={() => this.clickHandler()}
+                            style={{margin: '1em'}}
                         />
                         <Divider />
                     </Paper>

@@ -24,9 +24,9 @@ const HomeLinkMobile = (props) => {
 }
 const HomeLinkDesktop = (props) => {
     return <RaisedButton
-                className='homelink--desktop menubar__button--link'
-                label='Home'
-                href='/' />
+        className='homelink--desktop menubar__button--link'
+        label='Home'
+        href='/' />
 }
 
 // User Auth
@@ -42,11 +42,11 @@ const UserLinkMobile = props => {
     if (has_permission && props.authenticated) {
         return (
             <MenuItem href={`/user/${props.current_user.id}`}>
-                    {props.current_user.name}
+                {props.current_user.name}
             </MenuItem>
         )
     } else {
-      return <span></span>
+        return <span></span>
     }
 }
 const UserLinkDesktop = props => {
@@ -66,7 +66,7 @@ const UserLinkDesktop = props => {
                 href={`/user/${props.current_user.id}`}/>
         )
     } else {
-      return <span></span>
+        return <span></span>
     }
 }
 
@@ -74,19 +74,19 @@ const LoginLinkMobile = props => {
     if (!props.authenticated) {
         return <MenuItem href='/login' className='menubar__button--link'>Login</MenuItem>
     } else {
-      return <span></span>
+        return <span></span>
     }
 }
 const LoginLinkDesktop = props => {
     if (!props.authenticated) {
         return (
-				    <RaisedButton
+            <RaisedButton
                 href='/login'
                 label='login'
                 className='menubar__button--link' />
         )
     } else {
-      return <span></span>
+        return <span></span>
     }
 }
 
@@ -94,11 +94,11 @@ const LogoutLinkMobile = props => {
     if (props.authenticated) {
         return (
             <MenuItem
-              onClick={() => props.logout()}
-              className='menubar__button--link'>Logout</MenuItem>
+                onClick={() => props.logout()}
+                className='menubar__button--link'>Logout</MenuItem>
         )
     } else {
-      return <span></span>
+        return <span></span>
     }
 }
 const LogoutLinkDesktop = props => {
@@ -110,7 +110,7 @@ const LogoutLinkDesktop = props => {
                 onClick={() => props.logout()} />
         )
     } else {
-      return <span></span>
+        return <span></span>
     }
 }
 
@@ -121,7 +121,7 @@ const SignupLinkMobile = props => {
             <MenuItem href="/signup" className='menubar__button--link'>Signup</MenuItem>
         )
     } else {
-      return <span></span>
+        return <span></span>
     }
 }
 const SignupLinkDesktop = props => {
@@ -130,7 +130,7 @@ const SignupLinkDesktop = props => {
             <RaisedButton href="/signup" className='menubar__button--link' label='Signup'/>
         )
     } else {
-      return <span></span>
+        return <span></span>
     }
 }
 
@@ -163,46 +163,46 @@ const content_types = [
 const ContentLinksMobile = (props) => (
     <ul className="navbar-nav mr-auto">
         { content_types.map((item, key) => {
-          let has_permission = true
-          if ('permissions' in item) {
-              has_permission = item.permissions(props.current_user)
-          }
-          if (has_permission) {
-              const lower = item.title.toLowerCase()
-                  return (
-                      <li key={key}>
-                          <MenuItem
-                              href={`/${lower}`}
-                              className='menubar__button--link'
-                              >{item.title}</MenuItem>
-                      </li>
-                  )
-          } else {
-            return <span key={key}></span>
-          }
+            let has_permission = true
+            if ('permissions' in item) {
+                has_permission = item.permissions(props.current_user)
+            }
+            if (has_permission) {
+                const lower = item.title.toLowerCase()
+                return (
+                    <li key={key}>
+                        <MenuItem
+                            href={`/${lower}`}
+                            className='menubar__button--link'
+                        >{item.title}</MenuItem>
+                    </li>
+                )
+            } else {
+                return <span key={key}></span>
+            }
         })}
     </ul>
 )
 const ContentLinksDesktop = (props) => (
     <ul className="navbar-nav mr-auto">
         { content_types.map((item, key) => {
-          let has_permission = true
-          if ('permissions' in item) {
-              has_permission = item.permissions(props.current_user)
-          }
-          if (has_permission) {
-              const lower = item.title.toLowerCase()
-              return (
-                  <li key={key}>
-                      <RaisedButton
-                          href={`/${lower}`}
-                          className='menubar__button--link'
-                          label={item.title} />
-                  </li>
-              )
-          } else {
-            return <span key={key}></span>
-          }
+            let has_permission = true
+            if ('permissions' in item) {
+                has_permission = item.permissions(props.current_user)
+            }
+            if (has_permission) {
+                const lower = item.title.toLowerCase()
+                return (
+                    <li key={key}>
+                        <RaisedButton
+                            href={`/${lower}`}
+                            className='menubar__button--link'
+                            label={item.title} />
+                    </li>
+                )
+            } else {
+                return <span key={key}></span>
+            }
         })}
     </ul>
 )
@@ -222,7 +222,7 @@ class NavContainer extends React.Component {
     toggle() {
         this.setState({
             isOpen: !this.state.isOpen
-        });
+        })
     }
     update_user(current_user) {
         this.setState({
@@ -239,35 +239,35 @@ class NavContainer extends React.Component {
                 'Content-Type': 'application/json'
             },
         })
-        .then(data => {
-            this.update_user({
-                id: null,
-                name: null
+            .then(data => {
+                this.update_user({
+                    id: null,
+                    name: null
+                })
+                this.setState({ id: null, name: null })
+                Router.push({pathname: '/', as: '/'})
             })
-            this.setState({ id: null, name: null })
-            Router.push({pathname: '/', as: '/'})
-        })
-        .catch(e => console.error(e))
+            .catch(e => console.error(e))
     }
     render() {
         let authenticated = !!this.state.id && !!this.state.name
 
         return (
-          <Paper style={{
-              backgroundColor: this.props.menu_color,
-              minHeight: '3.5em' }}
-              className='menubar__wrapper'>
-              <MobileMenubar
-                  current_user={this.props.current_user}
-                  toggle={this.toggle}
-                  isOpen={this.state.isOpen}
-                  logout={this.logout}
-                  authenticated={authenticated} />
-              <DesktopMenubar
-                  current_user={this.props.current_user}
-                  authenticated={authenticated}
-                  logout={this.logout} />
-          </Paper>
+            <Paper style={{
+                backgroundColor: this.props.menu_color,
+                minHeight: '3.5em' }}
+            className='menubar__wrapper'>
+                <MobileMenubar
+                    current_user={this.props.current_user}
+                    toggle={this.toggle}
+                    isOpen={this.state.isOpen}
+                    logout={this.logout}
+                    authenticated={authenticated} />
+                <DesktopMenubar
+                    current_user={this.props.current_user}
+                    authenticated={authenticated}
+                    logout={this.logout} />
+            </Paper>
         )
     }
 }
@@ -275,29 +275,29 @@ class NavContainer extends React.Component {
 const MobileMenubar = (props) => {
     let style = props.isOpen ? {} : {display: 'none'}
     return (
-      <div className='menubar--mobile'>
-          <Navbar className='menubar__button--regular' toggleable>
-              <Nav navbar>
-                  <NavItem>
-                      <RaisedButton
-                          label='Menu'
-                          onClick={props.toggle} />
-                  </NavItem>
-              </Nav>
-          </Navbar>
-          <Drawer style={style} open={props.isOpen}>
-              <RaisedButton
-                  className='menubar__button--link menubar__button--close'
-                  onClick={props.toggle}
-                  label='Close (X)'
-                  secondary={true} />
-              <LogoutLinkMobile authenticated={props.authenticated} logout={props.logout}/>
-              <UserLinkMobile authenticated={props.authenticated} current_user={props.current_user}/>
-              <AboutMobile />
-              <ProjectsMobile />
-              <ContentLinksMobile current_user={props.current_user} />
-          </Drawer>
-      </div>
+        <div className='menubar--mobile'>
+            <Navbar className='menubar__button--regular' toggleable>
+                <Nav navbar>
+                    <NavItem>
+                        <RaisedButton
+                            label='Menu'
+                            onClick={props.toggle} />
+                    </NavItem>
+                </Nav>
+            </Navbar>
+            <Drawer style={style} open={props.isOpen}>
+                <RaisedButton
+                    className='menubar__button--link menubar__button--close'
+                    onClick={props.toggle}
+                    label='Close (X)'
+                    secondary={true} />
+                <LogoutLinkMobile authenticated={props.authenticated} logout={props.logout}/>
+                <UserLinkMobile authenticated={props.authenticated} current_user={props.current_user}/>
+                <AboutMobile />
+                <ProjectsMobile />
+                <ContentLinksMobile current_user={props.current_user} />
+            </Drawer>
+        </div>
     )
 }
 
@@ -330,9 +330,9 @@ const DesktopMenubar = (props) => {
 const mapStateToProps = ({ menu_color }) => ({ menu_color })
 
 const mapDispatchToProps = (dispatch) => {
-  return {
+    return {
     // addCount: bindActionCreators(addCount, dispatch)
-  }
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavContainer)
