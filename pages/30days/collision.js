@@ -123,7 +123,7 @@ class Collision extends Component {
             <Head current_user={this.props.current_user}>
                 <h1>Collision</h1>
                 <p>"Boing!"</p>
-                <div style={{width: '1vmin', height: spacer * 2}} ref={(el) => this.update_unit(el)}></div>
+                <div style={{width: '1vmin', height: spacer * 5}} ref={(el) => this.update_unit(el)}></div>
                 {this.state.discovered && (
                     <div>
                         <div className='collision_element' style={{

@@ -1,7 +1,6 @@
 import React from 'react'
-
 /* Usage
- import Alert from "../../helpers/Alert"
+ import Alert from "../components/Alert"
  <Alert status={"Success" || "Warning" || "Error"} text={"This text will flash"} />
  */
 class Alert extends React.Component {
@@ -51,7 +50,7 @@ class Alert extends React.Component {
         if (this.state.visible) {
             return (
                 <div style={containerStyle}>
-                    <div style={childStyle}><strong>{this.props.text}</strong></div>
+                    <div style={childStyle}><strong className='alert_text'>{this.props.text}</strong></div>
                 </div>
             )}
         else {
