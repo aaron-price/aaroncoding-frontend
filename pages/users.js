@@ -29,8 +29,8 @@ Users.getInitialProps = async function(context) {
     if (!has_permission) {
         if (context.res) {
             context.res.writeHead(301, {
-            Location: '/'
-        })
+                Location: '/'
+            })
             context.res.end()
             context.res.finished = true
         } else {

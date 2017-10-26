@@ -291,9 +291,9 @@ const micro_projects = [
 ]
 
 class Projects extends Component {
-		constructor(props) {
-				super(props)
-				this.state = {
+    constructor(props) {
+        super(props)
+        this.state = {
             tags,
             micro_projects,
             big_projects,
@@ -304,13 +304,13 @@ class Projects extends Component {
         this.update_all = this.update_all.bind(this)
         this.update_state = this.update_state.bind(this)
         this.toggle_filters = this.toggle_filters.bind(this)
-		}
-    toggle_filters() {
-      this.setState(prevState => ({show_filters: !prevState.show_filters}))
     }
-		update_state(field, value) {
-				this.setState({ [field]: value })
-		}
+    toggle_filters() {
+        this.setState(prevState => ({show_filters: !prevState.show_filters}))
+    }
+    update_state(field, value) {
+        this.setState({ [field]: value })
+    }
     update_all(value) {
         let new_tags = Object.keys(this.state.tags).map(tag => {
             tag = this.state.tags[tag]
@@ -326,7 +326,7 @@ class Projects extends Component {
         this.setState(new_state)
         this.controller()
     }
-		controller() {
+    controller() {
         let new_big = big_projects.filter(this.filter)
         let new_micro = micro_projects.filter(this.filter)
         this.setState({
@@ -353,7 +353,6 @@ class Projects extends Component {
                 if (!require_tag) {
                     // A required tag is missing. Don't allow.
                     return false
-                    break
                 }
             }
         }
@@ -365,7 +364,6 @@ class Projects extends Component {
             let disallow_tag = prj_tags.indexOf(tag) !== -1
             if (disallow_tag) {
                 return false
-                break
             }
         }
 
@@ -375,12 +373,12 @@ class Projects extends Component {
     componentDidMount() {
         this.controller()
     }
-		render() {
+    render() {
         let project_count = big_projects.length + mockups.length + micro_projects.length
-				return (
-						<Head current_user={this.props.current_user}>
-								<div>
-										<List
+        return (
+            <Head current_user={this.props.current_user}>
+                <div>
+                    <List
                         big_projects={this.state.big_projects}
                         micro_projects={this.state.micro_projects}
                         mockups={this.state.mockups}
@@ -390,14 +388,14 @@ class Projects extends Component {
                         show_filters={this.state.show_filters}
                         toggle_filters={this.toggle_filters}
                         tags={this.state.tags} />
-								</div>
-						</Head>
-				)
-		}
+                </div>
+            </Head>
+        )
+    }
 }
 Projects.getInitialProps = async function(context) {
-		return {
-				current_user: await return_current_user(context),
-		}
+    return {
+        current_user: await return_current_user(context),
+    }
 }
 export default withRedux(initStore)(Projects)

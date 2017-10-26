@@ -1,3 +1,4 @@
+/* eslint no-empty: 0 */
 import Head from 'next/head'
 import Navbar from './Navbar.js'
 import injectTapEventPlugin from 'react-tap-event-plugin'

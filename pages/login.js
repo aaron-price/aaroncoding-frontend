@@ -51,28 +51,28 @@ class LoginPage extends React.Component {
                 password: this.state.form.password,
             })
         })
-        .then(blob => blob.json())
-        .then(data => {
-            if (data.status === 200) {
+            .then(blob => blob.json())
+            .then(data => {
+                if (data.status === 200) {
                 // If login successful, redirect to user_auth demo page
-                Router.push('/30days/user_auth','/30days/user_auth')
-            }
-            else if (data.status === 422) {
-              // Otherwise, send the errors to the necessary fields.
-              let errors = Object.assign({}, this.state.errors)
-              Object.keys(data.data).forEach(field => {
-                  errors[field] = data.data[field].join('. ')
-              })
-              this.setState({ errors })
-            }
-        })
-        .catch(e => {
-            console.error(e)
-            let errors = Object.assign({}, this.state.errors, {
-                message: 'Sorry, we had trouble communicating with the database.'
+                    Router.push('/30days/user_auth','/30days/user_auth')
+                }
+                else if (data.status === 422) {
+                    // Otherwise, send the errors to the necessary fields.
+                    let errors = Object.assign({}, this.state.errors)
+                    Object.keys(data.data).forEach(field => {
+                        errors[field] = data.data[field].join('. ')
+                    })
+                    this.setState({ errors })
+                }
             })
-            this.setState({ errors })
-        })
+            .catch(e => {
+                console.error(e)
+                let errors = Object.assign({}, this.state.errors, {
+                    message: 'Sorry, we had trouble communicating with the database.'
+                })
+                this.setState({ errors })
+            })
     }
 
     render() {

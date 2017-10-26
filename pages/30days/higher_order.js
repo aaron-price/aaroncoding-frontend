@@ -11,7 +11,7 @@ import { initStore } from '../../redux/store'
 import withRedux from 'next-redux-wrapper'
 import { return_current_user } from '../../services/current_user.js'
 
-const colors = ["B2DFDB", "80CBC4", "4DB6AC", "26A69A","009688","00897B","00796B","00695C","004D40"]
+const colors = ['B2DFDB', '80CBC4', '4DB6AC', '26A69A','009688','00897B','00796B','00695C','004D40']
 
 class PaperDemo extends React.Component {
     constructor(props) {
@@ -24,10 +24,10 @@ class PaperDemo extends React.Component {
         this.unhoverHandler = this.unhoverHandler.bind(this)
     }
     hoverHandler(i) {
-        this.setState({["paper" + i]: 5})
+        this.setState({['paper' + i]: 5})
     }
     unhoverHandler(i) {
-        this.setState({["paper" + i]: 1})
+        this.setState({['paper' + i]: 1})
     }
 
     render() {
@@ -37,26 +37,26 @@ class PaperDemo extends React.Component {
                 <p className="about_text">Late day at work, not much time until bed,
 									so I'm keeping today super simple.
 
-									<br/>Here I made a couple Higher-Order Components out of the
+                    <br/>Here I made a couple Higher-Order Components out of the
                                     Paper component from the material-ui package
                                     
-                                    <br/>One of the big advantages to using a framework like React, is the way it uses components. Write code once, use
+                    <br/>One of the big advantages to using a framework like React, is the way it uses components. Write code once, use
                                     it in many places later.
-                                    <br/>The Material-UI 'Paper' component, for example, can be found all over this website. It makes up the nav bar, and the main content areas.
-                                    <br/>
-                                    <br/>So what is a 'Higher-Order' Component? According to the React Docs:</p>
-                                    <p className='quote_text'>A higher-order component is a function that takes a component and returns a new component.</p>
-                                    <p>
-                                    <br/>Below I show a regular Paper component, then HOC's I made; one with padding around it, One with hover functionality, and one with hover and click functionality.
+                    <br/>The Material-UI 'Paper' component, for example, can be found all over this website. It makes up the nav bar, and the main content areas.
+                    <br/>
+                    <br/>So what is a 'Higher-Order' Component? According to the React Docs:</p>
+                <p className='quote_text'>A higher-order component is a function that takes a component and returns a new component.</p>
+                <p>
+                    <br/>Below I show a regular Paper component, then HOC's I made; one with padding around it, One with hover functionality, and one with hover and click functionality.
 
-                                    </p>
-								<br/><br/><br/>
-								<div className="paperdemo_wrapper">
-										<Paper className="paperdemo">Regular Paper</Paper><br/>
-										<PaddedPaper classes="paperdemo">Padded Paper</PaddedPaper><br />
-										<HoverPaper classes="paperdemo">Hover Paper</HoverPaper><br/>
-										<HoverPaper href="#" classes="paperdemo"><div className="paperdemo_button">Button Paper</div></HoverPaper><br/>
-								</div>
+                </p>
+                <br/><br/><br/>
+                <div className="paperdemo_wrapper">
+                    <Paper className="paperdemo">Regular Paper</Paper><br/>
+                    <PaddedPaper classes="paperdemo">Padded Paper</PaddedPaper><br />
+                    <HoverPaper classes="paperdemo">Hover Paper</HoverPaper><br/>
+                    <HoverPaper href="#" classes="paperdemo"><div className="paperdemo_button">Button Paper</div></HoverPaper><br/>
+                </div>
                 
             </Head>
         )
@@ -64,8 +64,8 @@ class PaperDemo extends React.Component {
 }
 
 PaperDemo.getInitialProps = async function(context) {
-		return {
-				current_user: await return_current_user(context),
-		}
+    return {
+        current_user: await return_current_user(context),
+    }
 }
 export default withRedux(initStore, null)(PaperDemo)

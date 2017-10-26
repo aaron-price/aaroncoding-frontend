@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 /* Usage
  import Alert from "../../helpers/Alert"
@@ -28,25 +28,25 @@ class Alert extends React.Component {
     render() {
         let col
         if (this.props.status.match(/error/i)) {
-            col = "#F44336"
+            col = '#F44336'
         }
         else if (this.props.status.match(/warning/i)) {
-            col = "#FFEB3B"
+            col = '#FFEB3B'
         }
         else if (this.props.status.match(/success/i)) {
-            col = "#4CAF50"
+            col = '#4CAF50'
         }
 
         let containerStyle = {
             backgroundColor: col,
-            alignItems: "center",
-            minHeight: "2em",
-            display: "flex",
-            justifyContent: "center",
+            alignItems: 'center',
+            minHeight: '2em',
+            display: 'flex',
+            justifyContent: 'center',
         }
         const childStyle = {
-            minHeight: "1em",
-            color: "#212121",
+            minHeight: '1em',
+            color: '#212121',
         }
         if (this.state.visible) {
             return (

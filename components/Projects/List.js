@@ -29,43 +29,43 @@ const Filter = (props) => (
 const Filters = (props) => {
     return <div>{Object.keys(props.tags).map((tag, key) => {
         return <Filter
-                   key={key}
-                   tag={props.tags[tag]}
-                   keyname={tag}
-                   handle_input={props.handle_input} />
+            key={key}
+            tag={props.tags[tag]}
+            keyname={tag}
+            handle_input={props.handle_input} />
     })}</div>
 }
 const Item = (props) => {
     if(props.project.href.charAt(0) === '#') {
         return (
-          <HoverPaper
-              max={3}
-              classes="projects_item">
-              <div onClick={() => {
-                  scroll.scrollToTop({duration: 500})
-                  setTimeout(()=> props.toggle_filters(), 700)
-              }
-              } style={{cursor: 'pointer'}}>
-                  <h4 className='about_text'>{props.project.title}</h4>
-                  <p className='about_text'>{props.project.description}</p>
-                  <p className='about_text'><strong>Tags: </strong>
-                      {props.project.tags.map(tag => tag.title).join(', ')}
-                  </p>
-              </div>
-          </HoverPaper>
+            <HoverPaper
+                max={3}
+                classes="projects_item">
+                <div onClick={() => {
+                    scroll.scrollToTop({duration: 500})
+                    setTimeout(()=> props.toggle_filters(), 700)
+                }
+                } style={{cursor: 'pointer'}}>
+                    <h4 className='about_text'>{props.project.title}</h4>
+                    <p className='about_text'>{props.project.description}</p>
+                    <p className='about_text'><strong>Tags: </strong>
+                        {props.project.tags.map(tag => tag.title).join(', ')}
+                    </p>
+                </div>
+            </HoverPaper>
         )
     } else {
         return (
-          <HoverPaper
-              max={3}
-              href={props.project.href}
-              classes="projects_item">
-              <h4 className='about_text'>{props.project.title}</h4>
-              <p className='about_text'>{props.project.description}</p>
-              <p className='about_text'><strong>Tags: </strong>
-                  {props.project.tags.map(tag => tag.title).join(', ')}
-              </p>
-          </HoverPaper>
+            <HoverPaper
+                max={3}
+                href={props.project.href}
+                classes="projects_item">
+                <h4 className='about_text'>{props.project.title}</h4>
+                <p className='about_text'>{props.project.description}</p>
+                <p className='about_text'><strong>Tags: </strong>
+                    {props.project.tags.map(tag => tag.title).join(', ')}
+                </p>
+            </HoverPaper>
         )
     }
 
@@ -90,27 +90,27 @@ export default (props) => (
             secondary={props.show_filters}
             onClick={() => props.toggle_filters()}/><br /><hr />
         {props.show_filters && (
-          <div>
+            <div>
               All Tags: <br />
-              <FlatButton
-                  label='show all'
-                  onClick={() => props.update_all('show')}
-                  primary={true} /> |
-              <FlatButton
-                  label='hide all'
-                  onClick={() => props.update_all('hide')}
-                  primary={true} /> |
-              <FlatButton
-                  label='require all'
-                  onClick={() => props.update_all('required')}
-                  primary={true} />
-              <hr />
+                <FlatButton
+                    label='show all'
+                    onClick={() => props.update_all('show')}
+                    primary={true} /> |
+                <FlatButton
+                    label='hide all'
+                    onClick={() => props.update_all('hide')}
+                    primary={true} /> |
+                <FlatButton
+                    label='require all'
+                    onClick={() => props.update_all('required')}
+                    primary={true} />
+                <hr />
 
 
-              <Filters
-                  tags={props.tags}
-                  handle_input={props.handle_input} />
-          </div>
+                <Filters
+                    tags={props.tags}
+                    handle_input={props.handle_input} />
+            </div>
         )}
         <br />
         {props.big_projects.length > 0 && (

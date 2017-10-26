@@ -16,22 +16,22 @@ const create_content_service = (req, res, next, app) => {
         headers: get_headers({ res }),
         body: JSON.stringify(fields)
     })
-    .then(blob => blob.json())
-    .then(data => {
-        if (!!data.id || !!data.pk) {
-            res.json({ status: 200, data })
+        .then(blob => blob.json())
+        .then(data => {
+            if (!!data.id || !!data.pk) {
+                res.json({ status: 200, data })
+                res.end()
+            } else {
+                res.json({ status: 422, data })
+                res.end()
+            }
+        })
+        .catch(err => {
+            console.error(err)
+            let data = { message: err }
+            res.json({ status: 500, data })
             res.end()
-        } else {
-            res.json({ status: 422, data })
-            res.end()
-        }
-    })
-    .catch(err => {
-        console.error(err)
-        let data = { message: err }
-        res.json({ status: 500, data })
-        res.end()
-    })
+        })
 }
 
 module.exports = { create_content_service }

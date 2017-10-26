@@ -2,8 +2,8 @@ import fetch from 'isomorphic-unfetch'
 import React from 'react'
 import Router from 'next/router'
 
-import Divider from "material-ui/Divider"
-import TextField from "material-ui/TextField"
+import Divider from 'material-ui/Divider'
+import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import { initStore } from '../redux/store'
 import withRedux from 'next-redux-wrapper'
@@ -56,27 +56,27 @@ class SignupPage extends React.Component {
             },
             body: JSON.stringify(body_fields)
         })
-        .then(blob => blob.json())
-        .then(res => {
-            if (res.status === 200) {
+            .then(blob => blob.json())
+            .then(res => {
+                if (res.status === 200) {
                 // If signup successful, redirect to index
-                Router.push({pathname: '/', as: '/'})
-            } else {
+                    Router.push({pathname: '/', as: '/'})
+                } else {
                 // Otherwise, send the errors to the necessary fields.
-                let errors = Object.assign({}, this.state.errors)
-                Object.keys(res.data).forEach(field => {
-                    errors[field] = res.data[field].join('. ')
+                    let errors = Object.assign({}, this.state.errors)
+                    Object.keys(res.data).forEach(field => {
+                        errors[field] = res.data[field].join('. ')
+                    })
+                    this.setState({ errors })
+                }
+            })
+            .catch(e => {
+                console.error(e)
+                let errors = Object.assign({}, this.state.errors, {
+                    message: 'Sorry, there was an unexpected error.'
                 })
                 this.setState({ errors })
-            }
-        })
-        .catch(e => {
-            console.error(e)
-            let errors = Object.assign({}, this.state.errors, {
-                message: 'Sorry, there was an unexpected error.'
             })
-            this.setState({ errors })
-        })
     }
     render() {
         return (
@@ -93,9 +93,9 @@ class SignupPage extends React.Component {
 }
 
 SignupPage.getInitialProps = async function(context) {
-		return {
-				current_user: await return_current_user(context),
-		}
+    return {
+        current_user: await return_current_user(context),
+    }
 }
 
 export default withRedux(initStore, null)(SignupPage)
