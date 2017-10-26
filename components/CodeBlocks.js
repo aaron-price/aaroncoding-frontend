@@ -1,3 +1,5 @@
+import React from 'react'
+
 exports.WhiteText = (props) => {
     return <span>{props.children}</span>
 }

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import 'isomorphic-fetch'
-// const prod = "https://aaroncoding-backend.herokuapp.com/mail"
-// const local = "http://localhost:3001/mail"
 const uri = '/email'
 import Alert from './Alert'
 
