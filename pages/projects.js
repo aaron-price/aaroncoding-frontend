@@ -126,7 +126,7 @@ class Projects extends Component {
                     force_open={this.state.force_open}
                     unforce={this.unforce_filters}
                     title='Filters'
-                    slug={`Showing ${project_count} out of ${current_count} projects`}>
+                    slug={`Showing ${current_count} out of ${project_count} projects`}>
                     <Filters
                         tags={this.state.tags}
                         handle_input={this.handle_input} />
