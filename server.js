@@ -80,6 +80,11 @@ app.prepare().then(() => {
         app.render(req, res, actualPage)
     })
 
+    server.get('/mockups', (req, res) => {
+        const actualPage = '/projects'
+        app.render(req, res, actualPage)
+    })
+
     server.post('/email', (req, res) => {
         send_email(req, res)
     })

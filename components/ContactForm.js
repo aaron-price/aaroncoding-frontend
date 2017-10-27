@@ -75,8 +75,6 @@ class ContactForm extends Component {
     }
 
     clickHandler() {
-        console.log(this.validateEmail(this.state.fields.from))
-        console.log(this.validateText(this.state.fields.body))
         let validates = (
             this.validateEmail(this.state.fields.from) &&
             this.validateText(this.state.fields.body)
@@ -155,9 +153,8 @@ class ContactForm extends Component {
                             hintText="Google"
                             floatingLabelText="company"
                             floatingLabelFixed={true}
-                            style={{display: 'none'}}
+                            style={{visibility: 'hidden', height: 0, display: 'inherit'}}
                             onChange={e => this.changeHandler(e, 'company')}/>
-                        <Divider />
 
                         <TextField
                             hintText="aaronfan84@gmail.com"
