@@ -28,6 +28,10 @@ p, li, h1, h2, h3, h4 {
 .center_text {
   text-align: center;
 }
+.center_div {
+  display: flex;
+  justify-content: center;
+}
 .invisible {
   // visibility: hidden;
   position: absolute;
