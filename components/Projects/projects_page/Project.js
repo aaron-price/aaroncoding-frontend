@@ -38,7 +38,7 @@ const CallbackItem = (props) => {
     )
 }
 export default (props) => {
-    if(props.project.href.charAt(0) === '#') {
+    if(props.project.href === '#filters') {
         return <CallbackItem project={props.project} force_open_filters={props.force_open_filters}/>
     } else {
         return <Item project={props.project} />

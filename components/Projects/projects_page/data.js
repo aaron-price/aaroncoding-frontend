@@ -145,7 +145,7 @@ const micro_projects = [
         description: 'Uh... I don\'t remember what I was going to put here.',
         href: '/30days/memory',
         tags: [
-            tags.animation, tags.day, tags.front, tags.js, tags.react
+            tags.day, tags.front, tags.js, tags.react
         ],
     },
     {
