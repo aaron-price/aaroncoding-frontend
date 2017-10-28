@@ -12,7 +12,7 @@ The frontend is mostly divided into stateful containers (found in /pages) and st
 
 Thanks to Next.js, most of the routes are pretty intuitively found. For example aaroncoding.com/about starts at /pages/about.js and then pulls in components from /components.
 
-Styles follow SMACSS and can be found in /styles
+Sass styles follow SMACSS and can be found in /styles
 
 Miscellaneous functions are found in /services
 
