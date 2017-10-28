@@ -128,14 +128,6 @@ class Projects extends Component {
             + this.state.micro_projects.length)
         return (
             <Head current_user={this.props.current_user}>
-                {/*
-                <div className='center_text about_main_title--desktop'>
-                    <Logo width={50} />
-                </div>
-                <div className='center_text about_main_title--mobile'>
-                    <Logo width={100} />
-                </div><br/>
-                */}
                 <AccordionPaper
                     padding={true}
                     force_open={this.state.force_open}

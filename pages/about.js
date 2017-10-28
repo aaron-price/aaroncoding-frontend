@@ -12,22 +12,17 @@ import Logo from '../components/Logo'
 import Head from '../components/Head.js'
 import ContactForm from '../components/ContactForm.js'
 import Education from '../components/images/Education.js'
+import Skill from '../components/Skill.js'
 import Octocat from '../components/images/Octocat.js'
 import Bug from '../components/images/Bug.js'
 import Js from '../components/images/JS.js'
+
 
 import { return_current_user } from '../services/current_user.js'
 let smile = 'https://s3-us-west-2.amazonaws.com/aaroncoding/images/me_square.jpg'
 
 const Text = (props) => (
     <div>
-        {/*<div className='center_text about_main_title--desktop'>
-            <Logo width={50} />
-        </div>
-        <div className='center_text about_main_title--mobile'>
-            <Logo width={100} />
-        </div>*/}
-
         <div>
             <Paper className='about_row'>
                 <div className='about_img'>
@@ -97,35 +92,24 @@ const Text = (props) => (
                 </div>
                 <div className='about_textdiv'>
                     <h4>Technologies</h4>
-                    <p>My <strong>primary</strong> language is Javascript.<br/>
-										My <strong>secondary</strong> language is Python.<br/>
-                    </p>
-                    <p>This portfolio site uses the following microservice architecture:</p>
-                    <ul className='unstyled_list'>
-                        <li><strong>Frontend App</strong></li>
-                        <li>Javascript</li>
-                        <li>ReactJS</li>
-                        <li>NodeJS</li>
-                        <li>NextJS</li>
-                        <li>Redux</li>
-                        <li>SCSS, CSS, and postCSS</li>
-                        <li>SVG</li>
-                        <li>Material-UI</li>
-                        <li><br/></li>
+                    <p>Languages:</p>
+                    <Skill value={8.5}>Javascript</Skill>
+                    <Skill value={8}>HTML</Skill>
+                    <Skill value={7.5}>CSS / SCSS / postCSS</Skill>
+                    <Skill value={6.5}>Python</Skill>
+                    <br />
 
-                        <li><strong>Backend App</strong></li>
-                        <li>Python</li>
-                        <li>Django</li>
-                        <li>Django REST Framework</li>
-                        <li>Postgresql</li>
-                        <li><br/></li>
+                    <p>Frameworks:</p>
+                    <Skill value={9}>React</Skill>
+                    <Skill value={7}>Node</Skill>
+                    <Skill value={6}>Django</Skill>
+                    <br />
 
-                        <li><strong>Misc</strong></li>
-                        <li>Amazon S2 file storage and CDN</li>
-                        <li>Sendgrid SMTP Email server</li>
-                        <li>Heroku for hosting and infrastructure</li>
-                        <li>Browserstack for cross-platform testing</li>
-                    </ul>
+                    <p>Other</p>
+                    <Skill value={8.5}>Problem Solving</Skill>
+                    <Skill value={7.5}>UI / UX</Skill>
+                    <Skill value={7}>Microservices / APIs / AJAX</Skill>
+                    <Skill value={7}>Design</Skill>
                 </div>
             </Paper><br/>
         </div>
