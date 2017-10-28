@@ -253,21 +253,33 @@ class NavContainer extends React.Component {
         let authenticated = !!this.state.id && !!this.state.name
 
         return (
-            <Paper style={{
-                backgroundColor: this.props.menu_color,
-                minHeight: '3.5em' }}
-            className='menubar__wrapper'>
-                <MobileMenubar
-                    current_user={this.props.current_user}
-                    toggle={this.toggle}
-                    isOpen={this.state.isOpen}
-                    logout={this.logout}
-                    authenticated={authenticated} />
-                <DesktopMenubar
-                    current_user={this.props.current_user}
-                    authenticated={authenticated}
-                    logout={this.logout} />
-            </Paper>
+            <div>
+                <Paper style={{
+                    backgroundColor: this.props.menu_color,
+                    minHeight: '3.5em' }}
+                className='menubar__wrapper'>
+                    <MobileMenubar
+                        current_user={this.props.current_user}
+                        toggle={this.toggle}
+                        isOpen={this.state.isOpen}
+                        logout={this.logout}
+                        authenticated={authenticated} />
+                    <DesktopMenubar
+                        current_user={this.props.current_user}
+                        authenticated={authenticated}
+                        logout={this.logout} />
+                </Paper>
+                <Paper style={{
+                    minHeight: '3.5em'
+                }}>
+                <div className='center_text about_main_title--desktop'>
+                    <Logo width={50} />
+                </div>
+                <div className='center_text about_main_title--mobile'>
+                    <Logo width={100} />
+                </div>
+                </Paper>
+            </div>
         )
     }
 }

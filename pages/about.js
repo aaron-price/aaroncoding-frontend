@@ -21,14 +21,13 @@ let smile = 'https://s3-us-west-2.amazonaws.com/aaroncoding/images/me_square.jpg
 
 const Text = (props) => (
     <div>
-        <div className='center_text about_main_title--desktop'>
+        {/*<div className='center_text about_main_title--desktop'>
             <Logo width={50} />
         </div>
         <div className='center_text about_main_title--mobile'>
             <Logo width={100} />
-        </div>
+        </div>*/}
 
-        <hr />
         <div>
             <Paper className='about_row'>
                 <div className='about_img'>
