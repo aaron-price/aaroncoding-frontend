@@ -27,7 +27,7 @@ const Text = (props) => (
         <div className='center_text about_main_title--mobile'>
             <Logo width={100} />
         </div>
-				
+
         <hr />
         <div>
             <HoverPaper classes='about_row'>
