@@ -16,8 +16,16 @@ export default (props) => (
             <Head>
                 <title>Aaron Price, Web Developer</title>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossOrigin="anonymous"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="viewport" content='width=device-width, initial-scale=1' />
+                <meta httpEquiv="Content-Type" content='text/html; charset=utf-8' />
+                <meta name="description" content={ props.description || 'Portfolio website of a front-leaning web developer. Javascript and React abound'} />
+                <script dangerouslySetInnerHTML={{__html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-K9SDT53');`}} />
             </Head>
+            <noscript dangerouslySetInnerHTML={{__html: '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9SDT53" height="0" width="0" style="display:none;visibility:hidden;"></iframe>'}} />
             <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
 
             <div className='body'>
