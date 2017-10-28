@@ -105,7 +105,7 @@ const Text = (props) => (
                     <Skill value={6}>Django</Skill>
                     <br />
 
-                    <p>Other</p>
+                    <p>Other:</p>
                     <Skill value={8.5}>Problem Solving</Skill>
                     <Skill value={7.5}>UI / UX</Skill>
                     <Skill value={7}>Microservices / APIs / AJAX</Skill>
