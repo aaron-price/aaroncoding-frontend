@@ -30,7 +30,7 @@ const Text = (props) => (
 
         <hr />
         <div>
-            <HoverPaper classes='about_row'>
+            <Paper className='about_row'>
                 <div className='about_img'>
                     <img src={smile} className='about_img__me' />
                 </div>
@@ -41,12 +41,12 @@ const Text = (props) => (
                     <p>Or fill out this form</p>
                     <ContactForm className='about_contactform'/>
                 </div>
-            </HoverPaper>
+            </Paper>
         </div><br/>
 
 
         <div>
-            <HoverPaper classes='about_row'>
+            <Paper className='about_row'>
                 <div className='about_img'>
                     <Education />
                 </div>
@@ -55,11 +55,11 @@ const Text = (props) => (
                     <p>2010 - Certificate in web design and animation from <a href='https://www.ufv.ca/'>UFV</a>.</p>
                     <p>But most of my programming skills are self-taught.</p>
                 </div>
-            </HoverPaper><br/>
+            </Paper><br/>
         </div>
 
         <div>
-            <HoverPaper classes='about_row'>
+            <Paper className='about_row'>
                 <div className='about_img'>
                     <Octocat />
                 </div>
@@ -72,11 +72,11 @@ const Text = (props) => (
                         <li>[<a href='https://www.npmjs.com/package/sweet-render'>NPM</a> | <a href="https://github.com/aaron-price/sweet-render">GitHub</a>] <strong>Sweet-Render</strong>: A templating engine which can replace React's 'JSX' syntax.</li>
                     </ul>
                 </div>
-            </HoverPaper><br/>
+            </Paper><br/>
         </div>
 
         <div>
-            <HoverPaper classes='about_row'>
+            <Paper className='about_row'>
                 <div className='about_img'>
                     <Bug />
                 </div>
@@ -88,11 +88,11 @@ const Text = (props) => (
                     <p>Although I am no longer interested in support roles, the skills I gained have been transferrable, 
 											and invaluable when it comes to troubleshooting and fixing bugs.</p>
                 </div>
-            </HoverPaper><br/>
+            </Paper><br/>
         </div>
 
         <div>
-            <HoverPaper classes='about_row'>
+            <Paper className='about_row'>
                 <div className='about_img'>
                     <Js />
                 </div>
@@ -128,7 +128,7 @@ const Text = (props) => (
                         <li>Browserstack for cross-platform testing</li>
                     </ul>
                 </div>
-            </HoverPaper><br/>
+            </Paper><br/>
         </div>
 
 
