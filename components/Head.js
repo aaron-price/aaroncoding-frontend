@@ -28,6 +28,8 @@ export default (props) => (
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossOrigin="anonymous"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel='shortcut icon' type='image/x-icon' href='/favicon/favicon.ico' />
+                <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta name="description" content={ props.description || 'Portfolio website of a front-leaning web developer. Javascript and React abound'} />
                 <script dangerouslySetInnerHTML={{__html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
