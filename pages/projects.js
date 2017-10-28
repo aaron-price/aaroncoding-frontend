@@ -3,17 +3,20 @@ import 'isomorphic-fetch'
 import React, { Component } from 'react'
 
 import Paper from 'material-ui/Paper'
-import { initStore } from '../redux/store'
 import withRedux from 'next-redux-wrapper'
+import { initStore } from '../redux/store'
+
 import AccordionPaper from '../components/AccordionPaper'
 import { CodeBlock, GreenText as Grn} from '../components/CodeBlocks'
 import Calendar from '../components/images/Calendar.js'
+import Filters from '../components/Projects/projects_page/Filters.js'
+import FilterImage from '../components/images/Filter.js'
 import Header from '../components/Head'
 import Head from '../components/Head.js'
-import Filters from '../components/Projects/projects_page/Filters.js'
+import Logo from '../components/Logo'
 import Octocat from '../components/images/Octocat.js'
-import FilterImage from '../components/images/Filter.js'
 import Project from '../components/Projects/projects_page/Project.js'
+
 
 import {
     tags,
@@ -125,6 +128,12 @@ class Projects extends Component {
             + this.state.micro_projects.length)
         return (
             <Head current_user={this.props.current_user}>
+                <div className='center_text about_main_title--desktop'>
+                    <Logo width={50} />
+                </div>
+                <div className='center_text about_main_title--mobile'>
+                    <Logo width={100} />
+                </div><br/>
                 <AccordionPaper
                     padding={true}
                     force_open={this.state.force_open}
