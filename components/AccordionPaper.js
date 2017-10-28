@@ -21,6 +21,7 @@ You can force it to open on command by passing two more props:
     unforce={this.unforce}
 this.unforce can be a callback which changes the force_open value to false.
 */
+
 class AccordionPaper extends React.Component {
     constructor(props) {
         super(props)
@@ -47,6 +48,7 @@ class AccordionPaper extends React.Component {
         this.props.unforce()
     }
     render() {
+        let Image = this.props.image
         if (this.props.force_open) { this.force_open() }
         const hide_button = this.props.hide_button || 'Hide'
         const show_button = this.props.show_button || 'Show'
@@ -65,10 +67,17 @@ class AccordionPaper extends React.Component {
                         onMouseOver={() => this.handle_hover()}
                         onMouseOut={() => this.handle_unhover()}
                         onClick={() => this.toggle()}>
-                        <div className='center_text'><h3>{this.props.title}</h3></div>
-                        <div className='center_text'>{this.props.slug}</div>
-                        <div className='center_div'>
-                            <p className='accordion_paper__hide'>{hide_button}</p>
+                        {this.props.image && (
+                            <div className='accordion_paper__img'>
+                                <Image />
+                            </div>
+                        )}
+                        <div className='accordion_paper__textdiv'>
+                            <div><h3>{this.props.title}</h3></div>
+                            <div>{this.props.slug}</div>
+                            <div>
+                                <p className='accordion_paper__hide'>{hide_button}</p>
+                            </div>
                         </div>
                     </div>
                     <div style={children_style}>
@@ -79,15 +88,21 @@ class AccordionPaper extends React.Component {
         } else {
             return (
                 <Paper
+                    className='accordion_paper__wrapper'
                     style={header_style}
                     zDepth={this.state.hover ? 2 : 1}
                     onMouseOver={() => this.handle_hover()}
                     onMouseOut={() => this.handle_unhover()}
                     onClick={() => this.toggle()}>
-                    <div>
-                        <div className='center_text'><h3>{this.props.title}</h3></div>
-                        <div className='center_text'>{this.props.slug}</div>
-                        <div className='center_div'>
+                    {this.props.image && (
+                        <div className='accordion_paper__img'>
+                            <Image />
+                        </div>
+                    )}
+                    <div className='accordion_paper__textdiv'>
+                        <div><h3>{this.props.title}</h3></div>
+                        <div>{this.props.slug}</div>
+                        <div>
                             <p className='accordion_paper__show'>{show_button}</p>
                         </div>
                     </div>

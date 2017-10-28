@@ -1,0 +1,39 @@
+.accordion_paper__show {
+    color: #26C6DA;
+}
+.accordion_paper__hide {
+    color: #E91E63;
+}
+
+
+// Mobile
+@media (max-width: $breakpoint - 1px) {
+    .accordion_paper__img {
+        width: 50vw;
+        margin: auto;
+    }
+    .accordion_paper__wrapper {
+        display: block;
+        // justify-content: center;
+    }
+    .accordion_paper__textdiv {
+        width: 80vw;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+// Desktop
+@media (min-width: $breakpoint) {
+    .accordion_paper__img {
+        width: 10vw;
+    }
+    .accordion_paper__wrapper {
+        display: flex;
+        // justify-content: center;
+    }
+    .accordion_paper__textdiv {
+        width: 80vw;
+        margin-left: 2em;
+    }
+}

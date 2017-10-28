@@ -7,10 +7,14 @@ import { initStore } from '../redux/store'
 import withRedux from 'next-redux-wrapper'
 import AccordionPaper from '../components/AccordionPaper'
 import { CodeBlock, GreenText as Grn} from '../components/CodeBlocks'
+import Calendar from '../components/images/Calendar.js'
 import Header from '../components/Head'
 import Head from '../components/Head.js'
 import Filters from '../components/Projects/projects_page/Filters.js'
+import Octocat from '../components/images/Octocat.js'
+import FilterImage from '../components/images/Filter.js'
 import Project from '../components/Projects/projects_page/Project.js'
+
 import {
     tags,
     micro_projects,
@@ -126,6 +130,7 @@ class Projects extends Component {
                     force_open={this.state.force_open}
                     unforce={this.unforce_filters}
                     title='Filters'
+                    image={FilterImage}
                     slug={`Showing ${current_count} out of ${project_count} projects`}>
                     <Filters
                         tags={this.state.tags}
@@ -136,6 +141,7 @@ class Projects extends Component {
                 <AccordionPaper
                     padding={true}
                     title={`Open Source (${this.state.oss_projects.length})`}
+                    image={Octocat}
                     slug={'Cool stuff I made that other devs can use.'}>
                     {this.state.oss_projects.map((project, key) => {
                         return (
@@ -150,6 +156,7 @@ class Projects extends Component {
                 <AccordionPaper
                     padding={true}
                     title={`Thing A Day (${this.state.micro_projects.length})`}
+                    image={Calendar}
                     slug={'I did 1 small project every day, after work, for a month.'}>
                     {this.state.micro_projects.map((project, key) => {
                         return (
