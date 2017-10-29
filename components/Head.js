@@ -29,6 +29,7 @@ export default (props) => (
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel='shortcut icon' type='image/x-icon' href='/favicon/favicon.ico' />
                 <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta name="google-site-verification" content="Z3EvB2HyL8WXW9eD9wlCv729jr1sqka-i0sCjBT1gkI" />
                 <meta name="description" content={ props.description || 'Portfolio website of a front-leaning web developer. Javascript and React abound'} />
                 <script dangerouslySetInnerHTML={{__html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
