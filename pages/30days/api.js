@@ -58,7 +58,9 @@ class API extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A microservice API demo of CORS and AJAX'
+                current_user={this.props.current_user}>
                 <div>
                     <h4 className="about_text">Cross origin API and Ajax</h4>
                     <p className="about_text">Today I deployed 2 apps to Heroku. You are looking at one

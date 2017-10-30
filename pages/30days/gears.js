@@ -37,8 +37,11 @@ class Gears extends Component {
 
     render() {
         return (
-            <Head current_user={this.props.current_user}>
-                <div className="minesweeper">
+            <Head
+                description='React animation using SVG'
+                current_user={this.props.current_user}>
+
+                <div className="gears">
                     <h1>Gears</h1>
                     <p>Some more SVG animation.</p>
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100%" height="100%" viewBox="-100 -100 600 600" style={{enableBackground: 'new -75 -106.223 520.977 316.32'}}>

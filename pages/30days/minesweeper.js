@@ -96,7 +96,10 @@ class Minesweeper extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A minesweeper react game'
+                current_user={this.props.current_user}>
+
                 <div className="minesweeper">
                     <h1>Minesweeper</h1>
                     <p>Points:

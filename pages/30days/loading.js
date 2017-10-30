@@ -38,7 +38,10 @@ class About extends Component {
             width: this.state.progress + '%'
         }
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A react loading animation'
+                current_user={this.props.current_user}>
+
                 <h1>Loading Bar</h1>
                 <p></p>
                 <div>

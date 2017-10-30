@@ -30,7 +30,9 @@ class Accordion extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A demo of a react accordion'
+                current_user={this.props.current_user}>
                 <div>
                     <h1 className="about_text">Accordion</h1>
                     <p className="about_text">This is where it all begins...</p>

@@ -10,16 +10,6 @@ import stylesheet from 'styles/index.scss'
 try { injectTapEventPlugin() } catch(e) {}
 const muiTheme = getMuiTheme({ userAgent: false })
 
-// function google_analytics() {
-//     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-//             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-//         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-//     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-//     ga('create', 'UA-99298519-1', 'auto');
-//     ga('send', 'pageview');
-// }
-
 export default (props) => (
     <MuiThemeProvider muiTheme={muiTheme}>
         <div>
@@ -44,9 +34,8 @@ export default (props) => (
             <div className='body'>
                 <Navbar
                     className='body_top'
-                    current_user={props.current_user}
-                    csrftoken={props.csrftoken} />
-                <Paper className='body_middle'>
+                    current_user={props.current_user} />
+                <Paper className='body_middle' style={props.body_middle_style || {}}>
                     {props.children}
                 </Paper>
                 <Footer />

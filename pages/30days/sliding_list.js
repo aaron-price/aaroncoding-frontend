@@ -31,7 +31,10 @@ class SlidingList extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='Animated react list'
+                current_user={this.props.current_user}>
+
                 <h1>Sliding List</h1>
                 <p className='about_text center_text'>Magic!</p>
                 <div className="slidelist__wrapper">

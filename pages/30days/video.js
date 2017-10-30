@@ -60,7 +60,10 @@ class About extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A demo of react video player'
+                current_user={this.props.current_user}>
+
                 <div>
                     <h1>Video Player</h1>
                     <p>Just playing with the HTML video API, and the existing

@@ -18,7 +18,10 @@ class About extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A demo of microservice user authentication'
+                current_user={this.props.current_user}>
+
                 <h1>User Authentication</h1>
                 <p className="about_text">At first, my thing-a-day project was an extremely
 										minimalistic user auth system, which barely worked, and didn't maintain sessions.

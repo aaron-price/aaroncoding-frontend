@@ -15,7 +15,7 @@ import {
 import { return_current_user } from '../services/current_user.js'
 
 const Users = (props) => (
-    <Header current_user={props.current_user}>
+    <Header current_user={props.current_user} description='List of all users'>
         <h1>Users</h1>
         <List
             current_user={props.current_user}

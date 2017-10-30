@@ -12,10 +12,10 @@ import withRedux from 'next-redux-wrapper'
 import { return_current_user } from '../../services/current_user.js'
 
 const DroppableContainer = (props) => (
-    <Paper 
-        style={{backgroundColor: '#F0F4C3'}} 
-        className='dd_container1' 
-        onDrop={(event) => props.drop(event)} 
+    <Paper
+        style={{backgroundColor: '#F0F4C3'}}
+        className='dd_container1'
+        onDrop={(event) => props.drop(event)}
         onDragOver={(event) => props.allowDrop(event)}>
     </Paper>
 )
@@ -43,11 +43,9 @@ class CreateElement extends Component {
     unhover(e) {
         this.setState({[e]: false})
     }
-		
     drag(ev) {
         ev.dataTransfer.setData('text', ev.target.id)
     }
-		
     drop(ev) {
         ev.preventDefault()
         let data = ev.dataTransfer.getData('text')
@@ -59,21 +57,23 @@ class CreateElement extends Component {
             ids.push(i)
         }
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A react drag and drop demo.'
+                current_user={this.props.current_user}>
                 <h1>Drag and Drop</h1>
                 <p>Go ahead and move that green tile around</p>
                 <p>Unfortunately this one won't work on most mobile devices</p>
                 <div className='dd_root'>
-                    <Paper 
+                    <Paper
                         style={{backgroundColor: '#F0F4C3'}}
                         className='dd_container1'
                         onDrop={(event)=>this.drop(event)}
                         onDragOver={(event)=>this.allowDrop(event)}>
 
-                        <Paper 
-                            style={{backgroundColor: '#7CB342'}} 
-                            className='dd_obj' 
-                            draggable='true' 
+                        <Paper
+                            style={{backgroundColor: '#7CB342'}}
+                            className='dd_obj'
+                            draggable='true'
                             id="drag1"
                             zDepth={this.state.obj_hover ? 3 : 1}
                             onMouseOver={() => this.hover('obj_hover')}

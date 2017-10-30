@@ -58,7 +58,10 @@ class About extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A react search bar which updates as you type'
+                current_user={this.props.current_user}>
+
                 <div>
                     <h1>Dynamic Search</h1>
                     <SearchBar typeHandler={this.typeHandler} />

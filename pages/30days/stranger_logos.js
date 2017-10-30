@@ -32,10 +32,12 @@ textStyle.fontSize = wid
 class About extends Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = { loaded: false }
     }
     componentDidMount() {
+        this.setState({ loaded: true })
         this.animate()
+
     }
     animate() {
         const tl = TweenMax
@@ -46,10 +48,14 @@ class About extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='An animated text logo'
+                current_user={this.props.current_user}>
+
                 <div>
                     <h1>Stranger Logos</h1>
                     <p>Big thanks to the 80's for giving us ET, the goonies, my own birth, and for inspiring Stranger Things.</p>
+
                     <Paper className="stranger__container" style={{backgroundColor: '#000'}}>
                         {text.map((t, key) => <span
                             key={key}

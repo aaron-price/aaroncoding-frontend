@@ -16,7 +16,10 @@ class About extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='Some SCSS hover animations'
+                current_user={this.props.current_user}>
+
                 <div>
                     <h1>Hovers</h1>
                     <p> Hover over buttons to see cool CSS effects (ok, actually it was SCSS...)
