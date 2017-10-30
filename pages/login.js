@@ -77,7 +77,9 @@ class LoginPage extends React.Component {
 
     render() {
         return (
-            <Header current_user={this.state.current_user}>
+            <Header
+                description='Login page for aaroncoding'
+                current_user={this.state.current_user}>
                 <div style={{color: '#F44336'}}>{this.state.errors.message}</div>
                 <Login
                     update_form={this.update_form}

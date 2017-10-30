@@ -132,7 +132,9 @@ class About extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='Learn about, and hire, Aaron Price.'
+                current_user={this.props.current_user}>
                 <div>
                     <Text />
                 </div>

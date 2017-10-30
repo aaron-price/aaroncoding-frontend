@@ -127,7 +127,9 @@ class Projects extends Component {
             + this.state.mockup_projects.length
             + this.state.micro_projects.length)
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A portfolio of demo projects by Aaron Price'
+                current_user={this.props.current_user}>
                 <AccordionPaper
                     padding={true}
                     force_open={this.state.force_open}

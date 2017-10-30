@@ -46,7 +46,10 @@ class About extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A demo of animated text'
+                current_user={this.props.current_user}>
+
                 <div>
                     <h1>Stranger Logos</h1>
                     <p>Big thanks to the 80's for giving us ET, the goonies, my own birth, and for inspiring Stranger Things.</p>

@@ -79,7 +79,10 @@ class About extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A react animation engine for SVG polylines'
+                current_user={this.props.current_user}>
+
                 <div>
                     <h1>Animation Engine</h1>
                     <p>This was a disaster, with a happy ending. I learned two things: <br />1. SVG polyline points are read-only. <br />2. Gsap's drawSVG is pay only.</p>

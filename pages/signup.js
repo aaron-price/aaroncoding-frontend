@@ -80,7 +80,9 @@ class SignupPage extends React.Component {
     }
     render() {
         return (
-            <Header current_user={this.props.current_user}>
+            <Header
+                current_user={this.props.current_user}
+                description='The signup page for aaroncoding'>
                 <div style={{color: '#F44336'}}>{this.state.errors.message}</div>
                 <Signup
                     update_form={this.update_form}

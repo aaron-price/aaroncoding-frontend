@@ -120,7 +120,9 @@ class Collision extends Component {
     render() {
         let spacer = 200
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A react animation with collision detection'
+                current_user={this.props.current_user}>
                 <h1>Collision</h1>
                 <p>"Boing!"</p>
                 <div style={{width: '1vmin', height: spacer * 5}} ref={(el) => this.update_unit(el)}></div>

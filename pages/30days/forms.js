@@ -64,13 +64,14 @@ class FormContainer extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='React forms with a preview panel that updates as you work'
+                current_user={this.props.current_user}>
+
                 <div>
-										
                     <Preview fields={this.state.fields} />
                     <br /><hr /><br />
                     <Form changeHandler={this.changeHandler} fields={this.state.fields} />
-										
                 </div>
             </Head>
         )

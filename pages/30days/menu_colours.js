@@ -14,7 +14,10 @@ import { return_current_user } from '../../services/current_user.js'
 class MenuColours extends React.Component {
     render () {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A simple demo of react redux'
+                current_user={this.props.current_user}>
+
                 <div style={{ padded: '1em' }}>
                     <p>{this.props.menu_color}</p>
                     <h1>Redux Menu Colour</h1>

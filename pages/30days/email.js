@@ -10,14 +10,16 @@ import { initStore } from '../../redux/store'
 import withRedux from 'next-redux-wrapper'
 import { return_current_user } from '../../services/current_user.js'
 
-class About extends Component {
+class Email extends Component {
     constructor(props) {
         super(props)
         this.state = {}
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A demo of the sendgrid SMTP api'
+                current_user={this.props.current_user}>
                 <div>
                     <h1>Email me</h1>
                     <p> After you fill out the form, your browser makes an ajax request to my
@@ -30,9 +32,9 @@ class About extends Component {
         )
     }
 }
-About.getInitialProps = async function(context) {
+Email.getInitialProps = async function(context) {
     return {
         current_user: await return_current_user(context),
     }
 }
-export default withRedux(initStore, null)(About)
+export default withRedux(initStore, null)(Email)

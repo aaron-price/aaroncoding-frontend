@@ -273,10 +273,10 @@ class NavContainer extends React.Component {
                     minHeight: '3.5em'
                 }}>
                     <div className='center_text about_main_title--desktop'>
-                        <Logo width={50} />
+                        <a href='/'><Logo width={50} /></a>
                     </div>
                     <div className='center_text about_main_title--mobile'>
-                        <Logo width={100} />
+                    <a href='/'><Logo width={100} /></a>
                     </div>
                 </Paper>
             </div>

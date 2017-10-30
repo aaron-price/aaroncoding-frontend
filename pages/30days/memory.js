@@ -112,7 +112,10 @@ class Memory extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A React memory game'
+                current_user={this.props.current_user}>
+
                 <div>
                     <h1>Memory Game</h1>
                     <p>Memorize all the cards. Click on pairs.</p>

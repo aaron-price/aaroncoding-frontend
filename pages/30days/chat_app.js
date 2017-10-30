@@ -54,7 +54,9 @@ class Chat extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A mockup of a react chat app'
+                current_user={this.props.current_user}>
                 <div>
                     <h1>Chat App Mockup</h1>
                     <p>This is a mockup design, you're not actually chatting with anyone.</p>

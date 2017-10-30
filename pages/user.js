@@ -119,7 +119,9 @@ class User extends React.Component {
         let form_fields = {}
         fields.forEach(f => form_fields[f] = this.state.form[f])
         return (
-            <Header current_user={this.props.current_user}>
+            <Header
+                description='Profile page'
+                current_user={this.props.current_user}>
 
                 <span>{
                     this.props.permission.details && (

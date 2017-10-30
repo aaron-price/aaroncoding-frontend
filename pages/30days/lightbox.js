@@ -71,7 +71,10 @@ class LightboxContainer extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A React lightbox'
+                current_user={this.props.current_user}>
+
                 <div className="lightbox__container">
                     <h1>Lightbox</h1>
                     <p>My first crack at building a lightbox. You know the drill, click things, and magic happens.</p>

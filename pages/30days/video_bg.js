@@ -16,28 +16,29 @@ class About extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
-                <div>
+            <Head
+                description='A demo of a video background.'
+                body_middle_style={{backgroundColor: 'rgba(255,255,255, 0)'}}
+                current_user={this.props.current_user}>
+
+                <div className='VidBG__outer_div'>
                     <Paper className="VidBG__text">
                         <h1>Video Background</h1>
-                        <p>This seems like a fitting background, no?</p><br/>
-                        <p>The video quality is very poor because I had to shrink it signnificantly. Nobody wants to wait 5 minutes for a background to download.</p><br/>
-                        <p>I'll keep an eye out for something a bit better</p>
+                        <p>Stored on amazon s3, delivered by their CDN</p><br/>
                     </Paper>
                     <div className="VidBG__overlay"></div>
-                    <video
-                        ref="player"
-                        className="VidBG__video"
-                        autoPlay={true}
-                        muted={true}
-                        loop={true}
-                    >
-                        <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.3gp"/>
-                        <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.mp4" type="video/mp4"/>
-                        <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.ogv" type="video/ogg"/>
-                        <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.webm" type="video/webm"/>
-                    </video>
                 </div>
+                <video
+                    ref="player"
+                    className="VidBG__video"
+                    autoPlay={true}
+                    muted={true}
+                    loop={true} >
+                    <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.3gp"/>
+                    <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.mp4" type="video/mp4"/>
+                    <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.ogv" type="video/ogg"/>
+                    <source src="https://s3-us-west-2.amazonaws.com/aaroncoding/videos/bigCalendar.webm" type="video/webm"/>
+                </video>
             </Head>
         )
     }

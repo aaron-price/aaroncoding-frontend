@@ -49,10 +49,14 @@ class Walkthrough extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='Bubbles that disappear when you click them'
+                current_user={this.props.current_user}>
+
                 <h1>Bubble Popping</h1>
                 <p className='about_text'>Click on something, and watch it vanish. Just like me! That's all folks,
-										I hope you enjoyed my daily project.</p>
+                                        I hope you enjoyed my daily project.</p>
+
                 {this.state.items.map((option, key) => {
                     let size = this.state.active_key === key
                         ? this.state.active_size

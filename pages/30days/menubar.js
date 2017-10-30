@@ -16,7 +16,10 @@ class MenuBar extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A responsive react navbar with material-ui'
+                current_user={this.props.current_user}>
+
                 <div>
                     <h1>Menu Bar</h1>
 										You've been looking at it this whole time. It's up there ^

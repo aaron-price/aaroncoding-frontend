@@ -68,7 +68,10 @@ class Zipper extends Component {
 
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='A whimsical react animation using svg and gsap'
+                current_user={this.props.current_user}>
+
                 <h1>Zipper</h1>
                 <p>This was going to be a barcode, but random colours were too much fun.</p>
                 <div style={!this.state.display ? {display: 'none'} : {}}>

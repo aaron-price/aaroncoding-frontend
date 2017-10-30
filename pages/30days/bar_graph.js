@@ -51,7 +51,9 @@ class Stats extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='An SVG / React animation of a bar graph'
+                current_user={this.props.current_user}>
                 <div>
                     <h1>Bar Graph</h1>
                     <p>An animated bar graph. I call this work: "Oh beloved sleep, how shall I enumerate the ways I miss thee".</p>

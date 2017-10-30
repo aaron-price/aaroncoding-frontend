@@ -23,7 +23,10 @@ class About extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='An SVG / React animation to celebrate some security improvements'
+                current_user={this.props.current_user}>
+
                 <div>
                     <h1>HTTPS And Custom Domain</h1>
                     <p>What I did today:</p>

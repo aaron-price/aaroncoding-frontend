@@ -58,7 +58,10 @@ class Parallax extends Component {
     }
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='An SVG / React parallax animation'
+                current_user={this.props.current_user}>
+
                 <div>
                     <h1>Parallax</h1>
                     <p>My bubbles</p>

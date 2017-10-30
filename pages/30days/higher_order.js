@@ -32,14 +32,17 @@ class PaperDemo extends React.Component {
 
     render() {
         return (
-            <Head current_user={this.props.current_user}>
+            <Head
+                description='React higher order components (HOC) demonstrated with material-ui'
+                current_user={this.props.current_user}>
+
                 <h1>Higher-Order Components</h1>
                 <p className="about_text">Late day at work, not much time until bed,
 									so I'm keeping today super simple.
 
                     <br/>Here I made a couple Higher-Order Components out of the
                                     Paper component from the material-ui package
-                                    
+
                     <br/>One of the big advantages to using a framework like React, is the way it uses components. Write code once, use
                                     it in many places later.
                     <br/>The Material-UI 'Paper' component, for example, can be found all over this website. It makes up the nav bar, and the main content areas.
@@ -57,7 +60,6 @@ class PaperDemo extends React.Component {
                     <HoverPaper classes="paperdemo">Hover Paper</HoverPaper><br/>
                     <HoverPaper href="#" classes="paperdemo"><div className="paperdemo_button">Button Paper</div></HoverPaper><br/>
                 </div>
-                
             </Head>
         )
     }
