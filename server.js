@@ -89,7 +89,10 @@ app.prepare().then(() => {
         send_email(req, res)
     })
 
-    server.get('/sitemap.txt', (req, res) => {
+    server.get('/sitemap', (req, res) => {
+        return res.sendFile(__dirname + '/static/' + 'sitemap.xml')
+    })
+    server.get('/sitemap.xml', (req, res) => {
         return res.sendFile(__dirname + '/static/' + 'sitemap.xml')
     })
 
