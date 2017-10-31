@@ -8,12 +8,13 @@ import withRedux from 'next-redux-wrapper'
 import { CodeBlock, GreenText as Grn} from '../components/CodeBlocks'
 import Header from '../components/Head'
 import HoverPaper from '../components/HoverPaper'
-import Logo from '../components/Logo'
 import Head from '../components/Head.js'
+import Logo from '../components/Logo'
 import ContactForm from '../components/ContactForm.js'
 import Education from '../components/images/Education.js'
 import Skill from '../components/Skill.js'
 import Octocat from '../components/images/Octocat.js'
+import Handshake from '../components/images/Handshake.js'
 import Bug from '../components/images/Bug.js'
 import Js from '../components/images/JS.js'
 
@@ -26,18 +27,17 @@ const Text = (props) => (
         <div>
             <Paper className='about_row'>
                 <div className='about_img'>
-                    <img src={smile} className='about_img__me' />
+                    <Handshake />
                 </div>
                 <div className='about_textdiv'>
                     <h4>Hire Me</h4>
                     <p>Email: coding.aaronp@gmail.com <br/>
-									Phone: 604-996-8835</p>
+                                    Phone: 604-996-8835</p>
                     <p>Or fill out this form</p>
                     <ContactForm className='about_contactform'/>
                 </div>
-            </Paper>
-        </div><br/>
-
+            </Paper><br/>
+        </div>
 
         <div>
             <Paper className='about_row'>
@@ -47,7 +47,6 @@ const Text = (props) => (
                 <div className='about_textdiv'>
                     <h4>Education</h4>
                     <p>2010 - Certificate in web design and animation from <a href='https://www.ufv.ca/'>UFV</a>.</p>
-                    <p>But most of my programming skills are self-taught.</p>
                 </div>
             </Paper><br/>
         </div>
@@ -113,6 +112,49 @@ const Text = (props) => (
                 </div>
             </Paper><br/>
         </div>
+        <div>
+            <Paper className='about_row'>
+                <div className='about_img'>
+                    <img src={smile} className='about_img__me' />
+                </div>
+                <div className='about_textdiv'>
+                    <h4>My Backstory</h4>
+                    <p><strong>Nerdy before it was cool.</strong></p>
+                    <p> I remember fiddling with hex codes
+                        in my gameboy gameshark as a child, to hack pokemon (the original one).
+                        And yes, I <i>did</i> catch them all.<br/><br/>
+                        Then there was lego mindstorms which lets you build and program robots.
+                        I did farm labour all summer to save up for it when I was 9 or 10. Totally worth it.</p>
+
+                    <p><strong>University.</strong></p>
+                    <ol>
+                        <li>I skipped a grade and went to university at age 17</li>
+                        <li>The great recession decimated the job market</li>
+                        <li>I graduated and couldn't get into the industry</li>
+                        <li>I did manual labour and tech support for the next several years</li>
+                    </ol>
+
+                    <p><strong>Becoming a web developer.</strong></p>
+                    <p>August 2016 - I decided to become a web developer, at all costs.
+                        So I started teaching myself after work, and have learned or built something
+                        pretty much every day, ever since.
+                        <br/><br/>
+                        At first, I mostly stuck to a Javascript stack (VanillaJS, NodeJS, React, Redux).
+                        During that time I released my first open source npm library and built a portfolio site.
+                    </p>
+                    <p>
+                        After about 10 months, I decided to branch out and try Django (Python's web framework)
+                        but I didn't even know Python. Instead of following courses or books, I decided to just wing it
+                        and build something.<br/><br/>
+                        So my first project in Python was a simple command line tool to make Django sites with a ReactJS frontend.<br/>
+                        This grew into the massive project it is today which generates
+                        a site with a Django backend app and a Node frontend app, rendering React,
+                        with user authentication, permissions, and feature rich scaffolding.
+                    </p>
+                    <p>October 2017 - I rebuilt my portfolio site using my scaffolding engine and started job hunting.</p>
+                </div>
+            </Paper>
+        </div><br/>
 
 
     </div>
