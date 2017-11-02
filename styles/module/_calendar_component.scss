@@ -1,0 +1,146 @@
+// TopBar
+.calendar__topbar {
+    display: flex;
+    height: 3em;
+    background-color: #F8F8F8;
+    align-items: center;
+    justify-content: space-between;
+}
+.calendar__topbar_today {
+    cursor: pointer;
+    margin: 1em;
+    font-size: 14px;
+}
+.calendar__topbar_toggler {
+    cursor: pointer;
+    margin: 1em;
+    color: #2196F3;
+    font-size: 14px;
+}
+
+// YearView
+.calendar__yearview_outer {
+    width: 16em;
+    height: 22em;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+}
+// flex parent of: .calendar_yearview_years and .calendar__yearview_months
+.calendar__yearview_inner {
+    display: flex;
+    justify-content: center;
+}
+.calendar_yearview_years {
+    flex: 1;
+    min-width: 4em;
+    max-height: 19em;
+    overflow-y: scroll;
+    text-align: center;
+    border-right-style: solid;
+    border-right-width: 0.5px;
+    border-right-color: #EEEEEE;
+}
+.calendar__yearlist_item {
+    margin-bottom: 3em;
+    padding: 0.5em 0;
+    cursor: pointer;
+}
+.calendar__yearlist_item:hover {
+    background-color: #B3E5FC;
+    color: #2962FF;
+}
+.calendar__yearlist_item--selected {
+    background-color: #B3E5FC;
+    color: #2962FF;
+}
+.calendar__yearlist_scrollbox {
+    position: relative;
+}
+.calendar__yearview_months {
+    flex: 6;
+}
+
+// Grid on yearview made up of 12 .calendar__yearview_month elements
+.calendar__yearview_grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5em 0 0 1.5em
+}
+.calendar__yearview_month {
+    cursor: pointer;
+    width: 3em;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+.calendar__yearview_month:hover {
+    background-color: #B3E5FC;
+    color: #2962FF;
+}
+.calendar__yearview_month--selected {
+    background-color: #B3E5FC;
+    color: #2962FF;
+}
+// MonthView
+.calendar__monthview_outer {
+    width: 16em;
+    position: relative;
+    height: 22em;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+}
+.calendar__monthview_inner {
+    display: flex;
+    justify-content: center;
+}
+.calendar__dayletters {
+    height: 2em;
+    padding-left: 1em;
+    display: flex;
+    color: #ACACAC;
+}
+.calendar__weekday {
+    width: 2em;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar__monthview_grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 1em;
+}
+.calendar__monthview_date {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+}
+.calendar__monthview_date:hover {
+    background-color: #B3E5FC;
+    color: #2962FF;
+}
+.calendar__monthview_date--selected {
+    background-color: #B3E5FC;
+    color: #2962FF;
+}
+.calendar__monthview_toplabel {
+    margin: 0.5em 1em;
+}
+.calendar__monthview_bottomlabel {
+    // margin: 0.5em 1em;
+    color: #ACACAC;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    left: 1em;
+}
