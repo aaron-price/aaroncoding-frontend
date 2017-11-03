@@ -144,6 +144,7 @@
 }
 .calendar__monthview_date.placeholder {
     color: #ACACAC;
+    cursor: inherit;
 }
 .calendar__monthview_date:hover {
     background-color: #B3E5FC;

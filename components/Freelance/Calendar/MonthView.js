@@ -29,7 +29,23 @@ const MonthGrid = (props) => (
             return <div key={key} className='calendar__monthview_date placeholder'>{date}</div>
         })}
         {props.dates.map((date, key) => {
-            return <div key={key} className='calendar__monthview_date'>{date}</div>
+
+            if (props.selection.day === date
+                && props.selection.month === props.month) {
+                return (
+                    <div
+                        key={key}
+                        onClick={() => props.make_selection(date, 'month')}
+                        className='calendar__monthview_date calendar__monthview_date--selected'>{date}</div>
+                )
+            } else {
+                return (
+                    <div
+                        key={key}
+                        onClick={() => props.make_selection(date, 'day')}
+                        className='calendar__monthview_date'>{date}</div>
+                )
+            }
         })}
         {props.next_dates.map((date, key) => {
             return <div key={key} className='calendar__monthview_date placeholder'>{date}</div>
@@ -43,10 +59,6 @@ const MonthPane = (props) => {
     // Calculate the month
     let month = props.date.month
     let year = props.date.year
-    // if (month > 11) {
-    //     month = 0
-    //     year += 1
-    // }
 
     // Finds the day of the week for the 1st of the month. Sunday = 0
     const first_day = new Date(year, month, 1).getDay()
@@ -81,8 +93,11 @@ const MonthPane = (props) => {
             <YearLabel month={month} year={year} change_view={props.change_view}/>
             <DaysOfWeek />
             <MonthGrid
+                selection={props.selection}
+                month={month}
                 prev_dates={prev_dates}
                 next_dates={next_dates}
+                make_selection={props.make_selection}
                 dates={dates} />
         </div>
     )
@@ -191,7 +206,7 @@ class MonthView extends React.Component {
         })
     }
     render() {
-        // We start with 4 months, and add more to the top or bottom
+        // We start with a few months, and add more to the top or bottom
         // if the user hits the edges.
         if (!this.state.mounted) {return <span></span>}
         return (
@@ -237,6 +252,8 @@ class MonthView extends React.Component {
                                     </div>
                                     <MonthPane
                                         change_view={this.props.change_view}
+                                        selection={this.props.selection}
+                                        make_selection={this.props.make_selection}
                                         date={{
                                             year: m.year,
                                             month: m.month
@@ -260,18 +277,22 @@ class MonthView extends React.Component {
                                         type='text' />
                                     <MonthPane
                                         change_view={this.props.change_view}
+                                        selection={this.props.selection}
+                                        make_selection={this.props.make_selection}
                                         date={{
                                             year: m.year,
                                             month: m.month
                                         }}/>
                                 </div>
                             )
-                            // Regular month
+                        // Regular month
                         } else {
                             return (
                                 <div className={className} key={key}>
                                     <MonthPane
                                         change_view={this.props.change_view}
+                                        selection={this.props.selection}
+                                        make_selection={this.props.make_selection}
                                         date={{
                                             year: m.year,
                                             month: m.month
