@@ -57,7 +57,7 @@ class CalendarWrapper extends React.Component {
                 month: date.month,
                 year: date.year,
             },
-            view: 'month', // 'month' or 'year'
+            view: 'year', // 'month' or 'year'
         }
         this.change_view = this.change_view.bind(this)
         this.make_selection = this.make_selection.bind(this)
