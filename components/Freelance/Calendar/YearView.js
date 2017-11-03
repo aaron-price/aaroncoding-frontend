@@ -45,8 +45,6 @@ class YearList extends React.Component {
         this.setState({ mounted: true, is_safari })
     }
     autofocus(el) {
-        console.log(navigator.userAgent)
-
         if (
             navigator.userAgent.indexOf('Safari') != -1
             && navigator.userAgent.indexOf('Chrome') == -1) {

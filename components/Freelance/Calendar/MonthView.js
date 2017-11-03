@@ -43,10 +43,10 @@ const MonthPane = (props) => {
     // Calculate the month
     let month = props.date.month
     let year = props.date.year
-    if (month > 11) {
-        month = 0
-        year += 1
-    }
+    // if (month > 11) {
+    //     month = 0
+    //     year += 1
+    // }
 
     // Finds the day of the week for the 1st of the month. Sunday = 0
     const first_day = new Date(year, month, 1).getDay()
@@ -77,7 +77,7 @@ const MonthPane = (props) => {
         counter += 1
     }
     return (
-        <div className='calendar__monthpane'>
+        <div className={`calendar__monthpane year_${year}_month_${month}`}>
             <YearLabel month={month} year={year} change_view={props.change_view}/>
             <DaysOfWeek />
             <MonthGrid
@@ -108,64 +108,92 @@ class MonthView extends React.Component {
         // middle object is the current selection
         // Then finally put the array in the state
         let available_months = []
-        for (let i = -20; i < 20; i++) {
+        let half_range = 2
+        for (let i = -1 * half_range; i < half_range; i++) {
             const {y, m} = validate_date(
                 this.props.selection.year,
-                this.props.selection.month
+                this.props.selection.month + i
             )
-            const mo = new Date(this.props.selection.year, this.props.selection.month + i)
             available_months.push({
-                year: mo.getFullYear(),
-                month: mo.getMonth()
+                year: y,
+                month: m
             })
         }
         this.state = {
             default_month: this.props.selection.month,
             default_year: this.props.selection.year,
+            half_range,
+            scroll_target: (half_range - 1) * 294,
+            scroll_month: {
+                year: this.props.selection.year,
+                month: this.props.selection.month
+            },
+            pos: 0,
             available_months
         }
         this.handle_scroll = this.handle_scroll.bind(this)
+        this.autofocus = this.autofocus.bind(this)
     }
-    force_scroll() {
-
+    autofocus(el) {
+        if (this.state.is_safari) {
+            el.scrollIntoView(false)
+        }
     }
     handle_scroll() {
-        const top = this.spacer_top.getBoundingClientRect().bottom
-        const bottom = this.spacer_bottom.getBoundingClientRect().top
-        if (top >= this.state.min_height) {
-            // The user is scrolling near the top, add a month
+        let box = document
+            .getElementsByClassName('calendar__monthview_outer')[0]
+            .getBoundingClientRect()
+
+        let top = document
+            .getElementsByClassName('calendar__monthview_top')[0]
+            .getBoundingClientRect().top
+
+        let bottom = document
+            .getElementsByClassName('calendar__monthview_bottom')[0]
+            .getBoundingClientRect().bottom
+
+        // User hit the top, add a month
+        if (top >= box.top) {
             this.setState((prevState) => {
-                const available_months = prevState.available_months
-                const top_date = available_months[0]
-                // Find the year and month above the top available month
-                const {y, m} = validate_date(top_date.year, top_date.month - 1)
-                // Add it to the state
-                available_months.unshift({year: y, month: m})
+                let available_months = prevState.available_months
+                let m1 = available_months[0]
+                let new_month = validate_date(m1.year, m1.month - 1)
+                available_months.unshift({ month: new_month.m, year: new_month.y })
                 return { available_months }
+            }, () => {
+                this.setState((prevState) => {
+                    return { scroll_month: prevState.available_months[1] }
+                })
             })
-        } else if (bottom <= this.state.max_height) {
-            // The user is scrolling near the bottom, add a month
+        }
+
+        // User hit the bottom, add a month
+        if (bottom <= box.bottom) {
             this.setState((prevState) => {
-                const available_months = prevState.available_months
-                const bottom_date = available_months.slice(-1)[0]
-                // Find the year and month below the bottom available month
-                const {y, m} = validate_date(bottom_date.year, bottom_date.month + 1)
-                // Add it to the state
-                available_months.unshift({year: y, month: m})
+                let available_months = prevState.available_months
+                let last_m = available_months.slice(-1)[0]
+                let new_month = validate_date(last_m.year, last_m.month + 1)
+                available_months.push({ year: new_month.y, month: new_month.m })
                 return { available_months }
             })
         }
     }
+
     componentDidMount() {
         document.addEventListener('scroll', this.handle_scroll, true)
+        const is_safari = (
+            navigator.userAgent.indexOf('Safari') != -1
+            && navigator.userAgent.indexOf('Chrome') == -1
+        )
         this.setState({
-            min_height: this.spacer_top.getBoundingClientRect().top,
-            max_height: this.spacer_bottom.getBoundingClientRect().bottom
+            is_safari,
+            mounted: true
         })
     }
     render() {
         // We start with 4 months, and add more to the top or bottom
         // if the user hits the edges.
+        if (!this.state.mounted) {return <span></span>}
         return (
             <div className='calendar__monthview_outer'>
                 <div className='calendar__monthview_topbar'>
@@ -176,42 +204,87 @@ class MonthView extends React.Component {
                 </div>
 
                 <div ref={el => this.spacer_top = el}></div>
-                {/* Displays the days of the month */}
-                <div className='calendar__monthview_scrollbox'>
+                <div
+                    ref={el => this.scrollbox = el}
+                    className='calendar__monthview_scrollbox'>
+
+                    {/* Displays the days of the month */}
                     {this.state.available_months.map((m, key) => {
-                        return (
-                            <MonthPane
-                                key={key}
-                                change_view={this.props.change_view}
-                                date={{
-                                    year: m.year,
-                                    month: m.month
-                                }}/>
+                        let className = ''
+                        if (this.state.available_months.length - 1 <= key) {
+                            className += 'calendar__monthview_bottom'
+                        }
+                        if (key === 0) {
+                            className += 'calendar__monthview_top'
+                        }
+                        // Check whether it matches the centered month
+                        const match = (
+                            m.month === this.state.scroll_month.month &&
+                            m.year === this.state.scroll_month.year
                         )
+                        const safari = this.state.is_safari
+                        // Centered month, in safari
+                        if (match && safari) {
+                            return (
+                                <div key={key} className={className}>
+                                    <div
+                                        ref={el => this.autofocus(el)}
+                                        className='calendar__monthview_autofocus'
+                                        style={{
+                                            zIndex: -100,
+                                            transform: 'translateY(350px)',
+                                        }}>
+                                    </div>
+                                    <MonthPane
+                                        change_view={this.props.change_view}
+                                        date={{
+                                            year: m.year,
+                                            month: m.month
+                                        }}/>
+                                </div>
+                            )
+                        // Centered month, not safari
+                        } else if (match && !safari) {
+                            return (
+                                <div
+                                    className={className}
+                                    key={key} ref={el => this.autofocus(el)}>
+                                    <input
+                                        style={{
+                                            zIndex: -100,
+                                            position: 'absolute',
+                                            transform: 'translateY(150px)',
+                                        }}
+                                        className='calendar__monthview_autofocus'
+                                        autoFocus={true}
+                                        type='text' />
+                                    <MonthPane
+                                        change_view={this.props.change_view}
+                                        date={{
+                                            year: m.year,
+                                            month: m.month
+                                        }}/>
+                                </div>
+                            )
+                            // Regular month
+                        } else {
+                            return (
+                                <div className={className} key={key}>
+                                    <MonthPane
+                                        change_view={this.props.change_view}
+                                        date={{
+                                            year: m.year,
+                                            month: m.month
+                                        }}/>
+                                </div>
+                            )
+                        }
                     })}
                 </div>
                 <div ref={el => this.spacer_bottom = el}></div>
-                {/*
-                <div className='calendar__monthview_grid'>
-                    {dates.map((date, key) => {
-                        // Gives this date an extra class if it's selected
-                        let className = props.selection.day === date
-                            ? 'calendar__monthview_date calendar__monthview_date--selected'
-                            : 'calendar__monthview_date'
-                        return (
-                            <div
-                                key={key}
-                                onClick={() => props.make_selection(date, 'day')}
-                                className={className}>{date}
-                            </div>
-                        )
-                    })}
-                </div>
-                */}
-
-
             </div>
         )
     }
 }
+
 export default MonthView
