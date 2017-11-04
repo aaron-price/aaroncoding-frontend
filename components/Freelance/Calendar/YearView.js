@@ -47,8 +47,9 @@ class YearList extends React.Component {
     autofocus(el) {
         if (
             navigator.userAgent.indexOf('Safari') != -1
-            && navigator.userAgent.indexOf('Chrome') == -1) {
-            el.scrollIntoView()
+            && navigator.userAgent.indexOf('Chrome') == -1
+            && !!el) {
+            el.scrollIntoView(true)
         }
     }
     render() {
@@ -79,6 +80,7 @@ class YearList extends React.Component {
                                     return (
                                         <div
                                             ref={el => this.autofocus(el)}
+                                            key={key}
                                             className={className}>{year}</div>
                                     )
                                 } else {

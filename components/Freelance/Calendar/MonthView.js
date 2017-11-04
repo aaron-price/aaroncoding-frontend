@@ -29,7 +29,6 @@ const MonthGrid = (props) => (
             return <div key={key} className='calendar__monthview_date placeholder'>{date}</div>
         })}
         {props.dates.map((date, key) => {
-
             if (props.selection.day === date
                 && props.selection.month === props.month) {
                 return (
