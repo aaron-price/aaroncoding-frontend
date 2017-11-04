@@ -135,7 +135,7 @@ const Text = (props) => (
                     </ol>
 
                     <p><strong>Becoming a web developer.</strong></p>
-                    <p>August 2016 - I decided to become a web developer, at all costs.
+                    <p>August 2016 - I decided (again) to become a web developer, at all costs.
                         So I started teaching myself after work, and have learned or built something
                         pretty much every day, ever since.
                         <br/><br/>
@@ -151,7 +151,7 @@ const Text = (props) => (
                         a site with a Django backend app and a Node frontend app, rendering React,
                         with user authentication, permissions, and feature rich scaffolding.
                     </p>
-                    <p>October 2017 - I rebuilt my portfolio site using my scaffolding engine and started job hunting.</p>
+                    <p>October 2017 - I rebuilt my portfolio site using my scaffolding engine and I've been freelancing ever since.</p>
                 </div>
             </Paper>
         </div><br/>
