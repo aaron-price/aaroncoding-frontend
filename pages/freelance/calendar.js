@@ -1,5 +1,5 @@
 import Calendar from '../../components/Freelance/Calendar/Calendar.js'
 import FocusedHead from '../../components/FocusedHead.js'
 export default (props) => {
-    return <FocusedHead><Calendar /></FocusedHead>
+    return <FocusedHead><div style={{padding: '2em'}}><Calendar /></div></FocusedHead>
 }

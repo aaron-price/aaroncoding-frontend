@@ -101,21 +101,31 @@ class CalendarWrapper extends React.Component {
         update_detected(selection, 'today')
     }
     render() {
-        if (this.state.view === 'month') {
-            // Render the MonthView component
-            return <MonthView
-                change_view={this.change_view}
-                select_today={this.select_today}
-                make_selection={this.make_selection}
-                selection={this.state.selection} />
-        } else {
-            // Render the YearView component
-            return <YearView
-                change_view={this.change_view}
-                select_today={this.select_today}
-                make_selection={this.make_selection}
-                selection={this.state.selection} />
-        }
+        const revealed = { marginLeft: '-16em' }
+        const hidden = { marginLeft: '0em' }
+
+        return (
+            <div className='calendar__root'>
+                <div className='calendar__root_outer'>
+                    <div
+                        style={this.state.view === 'month' ? revealed : hidden}
+                        className='calendar__root_month calendar__root_inner'>
+                        <YearView
+                            change_view={this.change_view}
+                            select_today={this.select_today}
+                            make_selection={this.make_selection}
+                            selection={this.state.selection} />
+                    </div>
+                    <div className='calendar__root_year calendar__root_inner'>
+                        <MonthView
+                            change_view={this.change_view}
+                            select_today={this.select_today}
+                            make_selection={this.make_selection}
+                            selection={this.state.selection} />
+                    </div>
+                </div>
+            </div>
+        )
     }
 }
 

@@ -1,4 +1,3 @@
-// TopBar
 .calendar__topbar {
     display: flex;
     height: 3em;
@@ -18,29 +17,6 @@
     font-size: 14px;
 }
 
-.calendar__root {
-    width: 16em;
-    overflow: hidden;
-    height: 22em;
-    transform: scaleX(-1);
-    white-space: nowrap;
-}
-.calendar__root_outer {
-    width: 32em;
-    overflow: hidden;
-}
-.calendar__root_inner {
-    display: inline-block;
-    transform: scaleX(-1)
-}
-.calendar__root_month {
-    float: left;
-    width: 16em;
-    transition: margin-left 0.5s;
-}
-.calendar__root_year {}
-
-// YearView
 .calendar__yearview_outer {
     width: 16em;
     height: 22em;
@@ -48,7 +24,7 @@
     background-color: #FFFFFF;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
 }
-// flex parent of: .calendar_yearview_years and .calendar__yearview_months
+
 .calendar__yearview_inner {
     display: flex;
     justify-content: center;
@@ -83,7 +59,7 @@
     flex: 6;
 }
 
-// Grid on yearview made up of 12 .calendar__yearview_month elements
+
 .calendar__yearview_grid {
     display: flex;
     flex-wrap: wrap;
@@ -106,7 +82,7 @@
     background-color: #B3E5FC;
     color: #2962FF;
 }
-// MonthView
+
 .calendar__monthview_outer {
     width: 16em;
     position: relative;
@@ -189,7 +165,6 @@
     cursor: pointer;
 }
 .calendar__monthview_bottomlabel {
-    // margin: 0.5em 1em;
     color: #ACACAC;
     cursor: pointer;
     font-size: 14px;

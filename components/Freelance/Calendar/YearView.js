@@ -9,7 +9,7 @@ export default (props) => {
     return (
         <div className='calendar__yearview_outer'>
             <TopBar
-                toggle_text='Month'
+                view='year'
                 select_today={props.select_today}
                 change_view={props.change_view} />
             <div className='calendar__yearview_inner'>
