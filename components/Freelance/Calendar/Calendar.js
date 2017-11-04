@@ -101,7 +101,7 @@ class CalendarWrapper extends React.Component {
         update_detected(selection, 'today')
     }
     render() {
-        const revealed = { marginLeft: '-16em' }
+        const revealed = { marginLeft: '-17em' }
         const hidden = { marginLeft: '0em' }
 
         return (
