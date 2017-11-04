@@ -4,13 +4,16 @@
     font-family: fantasy;
 }
 .about_header {
-  color: $blueGrey800;
+    color: $cyan700;
 }
 .about_text {
-  color: $grey700;
+    color: $grey700;
+}
+.about_strong {
+    color: $pink500;
 }
 .about_contactform {
-  width: 100%;
+    width: 100%;
 }
 
 // Mobile
