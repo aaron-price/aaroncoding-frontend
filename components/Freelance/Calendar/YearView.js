@@ -48,12 +48,6 @@ class YearList extends React.Component {
         if (el) {
             el.scrollIntoView(true)
         }
-        // if (
-        //     navigator.userAgent.indexOf('Safari') != -1
-        //     && navigator.userAgent.indexOf('Chrome') == -1
-        //     && !!el) {
-        //     el.scrollIntoView(true)
-        // }
     }
     updating() {
         this.setState({ mounted: false })
@@ -80,13 +74,11 @@ class YearList extends React.Component {
                     <div className='calendar_yearlist_innerscrollbox'>
                         {/* Iterate over all the years */}
                         {years.map((year, key) => {
-                            // Because safari doesn't play nice, we need totally different
-                            // elements for it.
                             // Give an extra className if this year is selected
                             let className = `calendar__yearlist_item calendar_yearitem_${year}`
                             if (this.props.selection.year === year) {
                                 className += ' calendar__yearlist_item--selected'
-                                // Render the selected year in safari
+                                // Render the selected year
                                 return (
                                     <div
                                         ref={el => this.autofocus(el)}
@@ -94,7 +86,7 @@ class YearList extends React.Component {
                                         className={className}>{year}</div>
                                 )
                             } else {
-                                // Render a non-selected year in safari
+                                // Render a non-selected year
                                 return (
                                     <div
                                         className={className}

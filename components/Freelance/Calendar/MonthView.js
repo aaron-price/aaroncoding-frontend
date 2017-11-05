@@ -65,7 +65,6 @@ const MonthGrid = (props) => (
 // Includes the label, the <DaysOfWeek />, and <MonthGrid />
 // But not the topbar
 const MonthPane = (props) => {
-    // Calculate the month
     let month = props.date.month
     let year = props.date.year
 
