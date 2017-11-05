@@ -30,6 +30,7 @@ const default_date = () => {
 }
 
 const update_detected = (selection, type) => {
+    console.log('sel', selection, 'dat', type)
     // This callback is executed as soon as the user selects something
     // If Nov 2, 2017 then selection = { day: 2, month: 10, year: 2017 }
     if (type === 'day') {
@@ -45,6 +46,18 @@ const update_detected = (selection, type) => {
         // view it with selection.year
     }
 }
+// so we don't end up with the 14th month etc.
+// New Date() handles that slightly, but gets very buggy when you go too far.
+// Recursively 'correct' the y and m until they work.
+function validate_date(y, m) {
+    if (m >= 12) {
+        return validate_date(y + 1, m - 12)
+    } else if (m < 0) {
+        return validate_date(y - 1, m + 12)
+    } else {
+        return { y, m }
+    }
+}
 
 // Contains all state and logic, and renders the top level view components.
 class CalendarWrapper extends React.Component {
@@ -58,17 +71,35 @@ class CalendarWrapper extends React.Component {
                 year: date.year,
             },
             view: 'month', // 'month' or 'year'
+            updating: false,
         }
         this.change_view = this.change_view.bind(this)
         this.make_selection = this.make_selection.bind(this)
         this.select_today = this.select_today.bind(this)
+        this.arrow = this.arrow.bind(this)
+        this.finish_updating = this.finish_updating.bind(this)
+    }
+    finish_updating() {
+        this.setState({ updating: false })
+    }
+    arrow(dir) {
+        if (dir === 'up') {
+            let { m } = validate_date(this.state.selection.year, this.state.selection.month - 1)
+            this.make_selection(m, 'month')
+            if (m === 11) { this.make_selection(this.state.selection.year - 1, 'year')}
+        }
+        if (dir === 'down') {
+            let { m } = validate_date(this.state.selection.year, this.state.selection.month + 1)
+            this.make_selection(m, 'month')
+            if (m === 0) { this.make_selection(this.state.selection.year + 1, 'year')}
+        }
     }
     // From 'month' to 'year' and vice versa
     change_view(target = null) {
         this.setState((prevState) => {
             if (target === null) {
                 // Just toggle it automatically
-                return { view: prevState === 'month' ? 'year' : 'month'}
+                return { view: prevState === 'month' ? 'year' : 'month' }
             } else {
                 // Change to a *specific* view
                 return { view: target }
@@ -84,11 +115,8 @@ class CalendarWrapper extends React.Component {
             update_detected(selection, type)
 
             // Update the state
-            return { selection }
+            return { selection, updating: true }
         })
-        if (type === 'month') {
-            this.change_view('month')
-        }
     }
     select_today() {
         const date = new Date()
@@ -114,11 +142,14 @@ class CalendarWrapper extends React.Component {
                             change_view={this.change_view}
                             select_today={this.select_today}
                             make_selection={this.make_selection}
+                            updating={this.state.updating}
+                            finish_updating={this.finish_updating}
                             selection={this.state.selection} />
                     </div>
                     <div className='calendar__root_year calendar__root_inner'>
                         <MonthView
                             change_view={this.change_view}
+                            arrow={this.arrow}
                             select_today={this.select_today}
                             make_selection={this.make_selection}
                             selection={this.state.selection} />

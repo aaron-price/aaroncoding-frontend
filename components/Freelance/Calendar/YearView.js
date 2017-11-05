@@ -45,13 +45,21 @@ class YearList extends React.Component {
         this.setState({ mounted: true, is_safari })
     }
     autofocus(el) {
-        if (
-            navigator.userAgent.indexOf('Safari') != -1
-            && navigator.userAgent.indexOf('Chrome') == -1
-            && !!el) {
+        if (el) {
             el.scrollIntoView(true)
         }
+        // if (
+        //     navigator.userAgent.indexOf('Safari') != -1
+        //     && navigator.userAgent.indexOf('Chrome') == -1
+        //     && !!el) {
+        //     el.scrollIntoView(true)
+        // }
     }
+    updating() {
+        this.setState({ mounted: false })
+        this.props.finish_updating()
+    }
+
     render() {
         // Creates array of years from 2017 to 2100
         // Adjust the const's below to change that
@@ -62,69 +70,37 @@ class YearList extends React.Component {
         for (let i = 0; i <= years_length; i++) {
             years.push(min_year + i)
         }
+        if (this.props.updating) {
+            this.updating()
+        }
         return (
-            <div
-                className='calendar_yearlist_outerscrollbox'>
+            <div className='calendar_yearlist_outerscrollbox'>
                 <div
                     className='calendar__yearlist_scrollbox'>
                     <div className='calendar_yearlist_innerscrollbox'>
                         {/* Iterate over all the years */}
                         {years.map((year, key) => {
-                            // Because safari doesn't play nice.
-                            if (this.state.is_safari) {
-                                // Give an extra className if this year is selected
-                                let className = `calendar__yearlist_item calendar_yearitem_${year}`
-                                if (this.props.selection.year === year) {
-                                    className += ' calendar__yearlist_item--selected'
-                                    // Render the selected year in safari
-                                    return (
-                                        <div
-                                            ref={el => this.autofocus(el)}
-                                            key={key}
-                                            className={className}>{year}</div>
-                                    )
-                                } else {
-                                    // Render a non-selected year in safari
-                                    return (
-                                        <div
-                                            className={className}
-                                            onClick={() => this.props.make_selection(year, 'year')}
-                                            key={key}>{year}</div>
-                                    )
-                                }
-
+                            // Because safari doesn't play nice, we need totally different
+                            // elements for it.
+                            // Give an extra className if this year is selected
+                            let className = `calendar__yearlist_item calendar_yearitem_${year}`
+                            if (this.props.selection.year === year) {
+                                className += ' calendar__yearlist_item--selected'
+                                // Render the selected year in safari
+                                return (
+                                    <div
+                                        ref={el => this.autofocus(el)}
+                                        key={key}
+                                        className={className}>{year}</div>
+                                )
                             } else {
-                                // Give an extra className if this year is selected
-                                let className = `calendar__yearlist_item calendar_yearitem_${year}`
-                                if (this.props.selection.year === year) {
-                                    className += ' calendar__yearlist_item--selected'
-                                    // We center the years on the selected one by utilizing
-                                    // the input autofocus property.
-                                    // Unfortunately, that means we have a input we don't want
-                                    // This hides it after the component mounts
-                                    let input_style = {width: 0, height: 0}
-                                    if (this.state.mounted) { input_style.display = 'none' }
-                                    // Render selected year in non-safari browser
-                                    return (
-                                        <div key={key}>
-                                            <div className={className}>{year}</div>
-                                            <input
-                                                style={input_style}
-                                                autoFocus={true}
-                                                type='text'
-                                                onClick={() => this.props.make_selection(year, 'year')}
-                                                key={key} />
-                                        </div>
-                                    )
-                                } else {
-                                    // Render non-selected year in non-safari browser
-                                    return (
-                                        <div
-                                            className={className}
-                                            onClick={() => this.props.make_selection(year, 'year')}
-                                            key={key}>{year}</div>
-                                    )
-                                }
+                                // Render a non-selected year in safari
+                                return (
+                                    <div
+                                        className={className}
+                                        onClick={() => this.props.make_selection(year, 'year')}
+                                        key={key}>{year}</div>
+                                )
                             }
                         })}
                     </div>
