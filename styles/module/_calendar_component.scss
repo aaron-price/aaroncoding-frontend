@@ -1,10 +1,16 @@
-// TopBar
+/* TopBar */
 .calendar__topbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 3em;
     background-color: #F8F8F8;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 .calendar__topbar_today {
     cursor: pointer;
@@ -22,7 +28,9 @@
     width: 16em;
     overflow: hidden;
     height: 22em;
-    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+        -ms-transform: scaleX(-1);
+            transform: scaleX(-1);
     white-space: nowrap;
 }
 .calendar__root_outer {
@@ -31,33 +39,46 @@
 }
 .calendar__root_inner {
     display: inline-block;
-    transform: scaleX(-1)
+    -webkit-transform: scaleX(-1);
+        -ms-transform: scaleX(-1);
+            transform: scaleX(-1)
 }
 .calendar__root_month {
     float: left;
     width: 16em;
+    -webkit-transition: margin-left 0.5s;
+    -o-transition: margin-left 0.5s;
     transition: margin-left 0.5s;
-    transition-timing-function: ease;
+    -webkit-transition-timing-function: ease;
+         -o-transition-timing-function: ease;
+            transition-timing-function: ease;
 }
 .calendar__root_year {
     width: 16em;
 }
 
-// YearView
+/* YearView */
 .calendar__yearview_outer {
     width: 16em;
     height: 22em;
     margin: auto;
     background-color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
 }
-// flex parent of: .calendar_yearview_years and .calendar__yearview_months
+/* flex parent of: .calendar_yearview_years and .calendar__yearview_months */
 .calendar__yearview_inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 .calendar_yearview_years {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     min-width: 4em;
     max-height: 19em;
     overflow-y: scroll;
@@ -83,22 +104,33 @@
     position: relative;
 }
 .calendar__yearview_months {
-    flex: 6;
+    -webkit-box-flex: 6;
+        -ms-flex: 6;
+            flex: 6;
 }
 
-// Grid on yearview made up of 12 .calendar__yearview_month elements
+/* Grid on yearview made up of 12 .calendar__yearview_month elements */
 .calendar__yearview_grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     padding: 0.5em 0 0 1.5em
 }
 .calendar__yearview_month {
     cursor: pointer;
     width: 3em;
     height: 3em;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     border-radius: 100%;
 }
 .calendar__yearview_month:hover {
@@ -109,20 +141,24 @@
     background-color: #B3E5FC;
     color: #2962FF;
 }
-// MonthView
+/* MonthView */
 .calendar__monthview_outer {
     width: 16em;
     position: relative;
-    // background-color: #FFFFFF;
     overflow-x: hidden;
     overflow: auto;
     height: 22em;
     margin: auto;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
 }
 .calendar__monthview_inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 .calendar__monthview_scrollbox {
     overflow-y: scroll;
@@ -138,6 +174,8 @@
 .calendar__dayletters {
     height: 2em;
     padding-left: 1em;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     color: #ACACAC;
 }
@@ -149,37 +187,60 @@
 .calendar__weekday {
     width: 2em;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .calendar__monthpane {
     overflow-y: hidden;
     min-height: 19em;
-    transform: translateY(3em);
+    -webkit-transform: translateY(3em);
+        -ms-transform: translateY(3em);
+            transform: translateY(3em);
     background-color: #FFFFFF;
 }
 
 .calendar__monthview_grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     width: 100%;
     padding: 0 1em;
 }
 .calendar__monthview_date {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     cursor: pointer;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 2em;
     height: 2em;
     border-radius: 100%;
 }
 .calendar__monthview_date_placeholder {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 2em;
     height: 2em;
     border-radius: 100%;
@@ -195,8 +256,12 @@
 }
 .calendar__monthview_topbuttons {
     margin: 0 1em;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 .calendar__monthview_toplabel {
     cursor: pointer;

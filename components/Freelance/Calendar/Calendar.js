@@ -30,7 +30,6 @@ const default_date = () => {
 }
 
 const update_detected = (selection, type) => {
-    console.log('sel', selection, 'dat', type)
     // This callback is executed as soon as the user selects something
     // If Nov 2, 2017 then selection = { day: 2, month: 10, year: 2017 }
     if (type === 'day') {
@@ -57,6 +56,11 @@ function validate_date(y, m) {
     } else {
         return { y, m }
     }
+}
+
+function impossible_day(selection, day) {
+    const last_day = new Date(selection.year, selection.month + 1, 0).getDate()
+    return day > last_day
 }
 
 // Contains all state and logic, and renders the top level view components.
@@ -116,6 +120,12 @@ class CalendarWrapper extends React.Component {
 
             // Update the state
             return { selection, updating: true }
+        }, () => {
+            let selection = this.state.selection
+            const last_day = new Date(selection.year, selection.month + 1, 0).getDate()
+            if (impossible_day(selection, selection.day)) {
+                this.make_selection(last_day, 'day')
+            }
         })
     }
     select_today() {
