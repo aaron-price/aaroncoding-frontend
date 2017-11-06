@@ -145,8 +145,7 @@
 .calendar__monthview_outer {
     width: 16em;
     position: relative;
-    overflow-x: hidden;
-    overflow: auto;
+    overflow: hidden;
     height: 22em;
     margin: auto;
     -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
@@ -206,7 +205,14 @@
             transform: translateY(3em);
     background-color: #FFFFFF;
 }
-
+.calendar__monthswrapper_outer {
+    height: 15.5em;
+    overflow: hidden;
+    background-color: white;
+}
+.calendar__monthswrapper_margin {
+    // transition: margin-top 2s;
+}
 .calendar__monthview_grid {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -215,6 +221,10 @@
         flex-wrap: wrap;
     width: 100%;
     padding: 0 1em;
+    // margin-bottom: 10em;
+}
+.calendar__monthgrid_spacer {
+    height: 20em;
 }
 .calendar__monthview_date {
     display: -webkit-box;

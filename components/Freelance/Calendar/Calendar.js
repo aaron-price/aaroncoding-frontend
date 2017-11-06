@@ -74,25 +74,51 @@ class CalendarWrapper extends React.Component {
                 month: date.month,
                 year: date.year,
             },
+            visible_month: 'middle',
             view: 'month', // 'month' or 'year'
             updating: false,
+            animation_speed: 0.5,
+            month_label: {year: date.year, month: date.month},
+            label_opacity: 1
         }
         this.change_view = this.change_view.bind(this)
         this.make_selection = this.make_selection.bind(this)
         this.select_today = this.select_today.bind(this)
         this.arrow = this.arrow.bind(this)
         this.finish_updating = this.finish_updating.bind(this)
+        this.update_month_label = this.update_month_label.bind(this)
+        this.half_updated = this.half_updated.bind(this)
     }
+    // When a sliding action finishes
     finish_updating() {
-        this.setState({ updating: false })
+        this.setState({ updating: false, visible_month: 'middle' })
+    }
+    // When a month slide is half over
+    half_updated() {
+        this.setState({
+            opacity: 1,
+            month_label: {
+                year: this.state.selection.year,
+                month: this.state.selection.month
+            }
+        })
+    }
+
+    update_month_label(label) {
+        this.setState({ month_label: {
+            year: this.state.selection.year, month: this.state.selection.month
+        }})
     }
     arrow(dir) {
+        let speed = this.state.animation_speed
         if (dir === 'up') {
+            this.setState({ visible_month: 'down', opacity: 0 })
             let { m } = validate_date(this.state.selection.year, this.state.selection.month - 1)
             this.make_selection(m, 'month')
             if (m === 11) { this.make_selection(this.state.selection.year - 1, 'year')}
         }
         if (dir === 'down') {
+            this.setState({ visible_month: 'up', opacity: 0 })
             let { m } = validate_date(this.state.selection.year, this.state.selection.month + 1)
             this.make_selection(m, 'month')
             if (m === 0) { this.make_selection(this.state.selection.year + 1, 'year')}
@@ -119,8 +145,12 @@ class CalendarWrapper extends React.Component {
             update_detected(selection, type)
 
             // Update the state
-            return { selection, updating: true }
+            return type === 'day'
+                ? { selection}
+                : { selection, updating: true }
         }, () => {
+            // If the selected day is 31, and the new month only has 28 days
+            // Then auto-select day 28
             let selection = this.state.selection
             const last_day = new Date(selection.year, selection.month + 1, 0).getDate()
             if (impossible_day(selection, selection.day)) {
@@ -129,8 +159,6 @@ class CalendarWrapper extends React.Component {
         })
     }
     select_today() {
-        const date = new Date()
-
         const selection = todays_date()
         // Change the state
         this.setState({ selection, view: 'month' })
@@ -160,6 +188,14 @@ class CalendarWrapper extends React.Component {
                         <MonthView
                             change_view={this.change_view}
                             arrow={this.arrow}
+                            updating={this.state.updating}
+                            month_label={this.state.month_label}
+                            half_updated={this.half_updated}
+                            opacity={this.state.opacity}
+                            update_month_label={this.update_month_label}
+                            finish_updating={this.finish_updating}
+                            visible_month={this.state.visible_month}
+                            animation_speed={this.state.animation_speed}
                             select_today={this.select_today}
                             make_selection={this.make_selection}
                             selection={this.state.selection} />

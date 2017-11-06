@@ -16,6 +16,7 @@ export default (props) => {
 
                 <div className='calendar_yearview_years'>
                     <YearList
+                        updating={props.updating}
                         make_selection={props.make_selection}
                         selection={props.selection} />
                 </div>
@@ -65,8 +66,9 @@ class YearList extends React.Component {
             years.push(min_year + i)
         }
         if (this.props.updating) {
-            this.updating()
+            // this.updating()
         }
+        console.log('stat', this.props.updating)
         return (
             <div className='calendar_yearlist_outerscrollbox'>
                 <div
