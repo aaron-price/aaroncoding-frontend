@@ -170,6 +170,9 @@ const MonthPane = (props) => {
         middle: '-20em',
         up: '-40em'
     }
+    console.log('prev_mo', prev_mo)
+    console.log('curr_mo', curr_mo)
+    console.log('prev_mo', next_mo)
     return (
         <div className={`calendar__monthpane year_${curr_mo.year}_month_${curr_mo.month}`}>
             <YearLabel
@@ -236,6 +239,7 @@ const MonthView = (props) => {
         !props.updating
         && props.visible_month === 'middle'
     )
+    console.log('allow_updates',allow_updates)
     return (
         <div className='calendar__monthview_outer'>
             <div className='calendar__monthview_topbar'>
