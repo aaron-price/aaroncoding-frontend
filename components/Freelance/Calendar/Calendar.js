@@ -77,8 +77,8 @@ class CalendarWrapper extends React.Component {
             visible_month: 'middle',
             view: 'month', // 'month' or 'year'
             updating: false,
-            animation_speed: 2,
-            month_label: {year: date.year, month: date.month},
+            animation_speed: 0.5,
+            month_label: { year: date.year, month: date.month },
             label_opacity: 1
         }
         this.change_view = this.change_view.bind(this)
@@ -114,7 +114,8 @@ class CalendarWrapper extends React.Component {
 
     // When an arrow button has been used
     arrow(dir) {
-        console.log('arrow', this.state.month_label.month)
+        console.log('arrow', this.state.month_label.month,
+            this.state.updating)
         let speed = this.state.animation_speed
         if (dir === 'up') {
             this.setState({ visible_month: 'down', opacity: 0, updating: true })
