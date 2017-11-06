@@ -68,7 +68,6 @@ class YearList extends React.Component {
         if (this.props.updating) {
             // this.updating()
         }
-        console.log('stat', this.props.updating)
         return (
             <div className='calendar_yearlist_outerscrollbox'>
                 <div

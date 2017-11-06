@@ -63,7 +63,7 @@ function impossible_day(selection, day) {
     return day > last_day
 }
 
-// Contains all state and logic, and renders the top level view components.
+// Contains top-level state and logic, and renders the top level view components.
 class CalendarWrapper extends React.Component {
     constructor(props) {
         super(props)
@@ -89,10 +89,12 @@ class CalendarWrapper extends React.Component {
         this.update_month_label = this.update_month_label.bind(this)
         this.half_updated = this.half_updated.bind(this)
     }
+
     // When a sliding action finishes
     finish_updating() {
         this.setState({ updating: false, visible_month: 'middle' })
     }
+
     // When a month slide is half over
     half_updated() {
         this.setState({
@@ -109,6 +111,8 @@ class CalendarWrapper extends React.Component {
             year: this.state.selection.year, month: this.state.selection.month
         }})
     }
+
+    // When an arrow button has been used
     arrow(dir) {
         let speed = this.state.animation_speed
         if (dir === 'up') {
@@ -138,16 +142,24 @@ class CalendarWrapper extends React.Component {
     }
     make_selection(data, type) {
         this.setState((prevState) => {
+            // Build the selection object
             let selection = Object.assign({}, prevState.selection)
             selection[type] = data
+
+            // Build the month_label
+            let month_label = Object.assign(
+                {},
+                this.state.selection,
+                selection
+            )
 
             // Execute the callback
             update_detected(selection, type)
 
             // Update the state
             return type === 'day'
-                ? { selection}
-                : { selection, updating: true }
+                ? { selection }
+                : { selection, updating: true, month_label }
         }, () => {
             // If the selected day is 31, and the new month only has 28 days
             // Then auto-select day 28
@@ -155,13 +167,15 @@ class CalendarWrapper extends React.Component {
             const last_day = new Date(selection.year, selection.month + 1, 0).getDate()
             if (impossible_day(selection, selection.day)) {
                 this.make_selection(last_day, 'day')
+            } else {
+                this.setState({ updating: false })
             }
         })
     }
     select_today() {
         const selection = todays_date()
         // Change the state
-        this.setState({ selection, view: 'month' })
+        this.setState({ selection, view: 'month', month_label: selection })
 
         // Execute the callback
         update_detected(selection, 'today')
