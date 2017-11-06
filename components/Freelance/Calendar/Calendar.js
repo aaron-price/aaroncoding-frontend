@@ -77,7 +77,7 @@ class CalendarWrapper extends React.Component {
             visible_month: 'middle',
             view: 'month', // 'month' or 'year'
             updating: false,
-            animation_speed: 0.5,
+            animation_speed: 2,
             month_label: {year: date.year, month: date.month},
             label_opacity: 1
         }
@@ -114,19 +114,21 @@ class CalendarWrapper extends React.Component {
 
     // When an arrow button has been used
     arrow(dir) {
+        console.log('arrow', this.state.month_label.month)
         let speed = this.state.animation_speed
         if (dir === 'up') {
-            this.setState({ visible_month: 'down', opacity: 0 })
+            this.setState({ visible_month: 'down', opacity: 0, updating: true })
             let { m } = validate_date(this.state.selection.year, this.state.selection.month - 1)
             this.make_selection(m, 'month')
             if (m === 11) { this.make_selection(this.state.selection.year - 1, 'year')}
         }
         if (dir === 'down') {
-            this.setState({ visible_month: 'up', opacity: 0 })
+            this.setState({ visible_month: 'up', opacity: 0, updating: true })
             let { m } = validate_date(this.state.selection.year, this.state.selection.month + 1)
             this.make_selection(m, 'month')
             if (m === 0) { this.make_selection(this.state.selection.year + 1, 'year')}
         }
+
     }
     // From 'month' to 'year' and vice versa
     change_view(target = null) {
@@ -146,20 +148,13 @@ class CalendarWrapper extends React.Component {
             let selection = Object.assign({}, prevState.selection)
             selection[type] = data
 
-            // Build the month_label
-            let month_label = Object.assign(
-                {},
-                this.state.selection,
-                selection
-            )
-
             // Execute the callback
             update_detected(selection, type)
 
             // Update the state
             return type === 'day'
                 ? { selection }
-                : { selection, updating: true, month_label }
+                : { selection, updating: true, month_label: selection }
         }, () => {
             // If the selected day is 31, and the new month only has 28 days
             // Then auto-select day 28
@@ -168,7 +163,9 @@ class CalendarWrapper extends React.Component {
             if (impossible_day(selection, selection.day)) {
                 this.make_selection(last_day, 'day')
             } else {
-                this.setState({ updating: false })
+                setTimeout(() => {
+                    this.setState({ updating: false })
+                }, this.state.animation_speed * 1000)
             }
         })
     }
