@@ -10,6 +10,7 @@ import { Navbar, Nav, NavItem } from 'reactstrap'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import Logo from './Logo.js'
+import SocialButtons from './SocialButtons.js'
 
 import {
     create_user_permission,
@@ -273,10 +274,10 @@ class NavContainer extends React.Component {
                     minHeight: '3.5em'
                 }}>
                     <div className='center_text about_main_title--desktop'>
-                        <a href='/'><Logo width={50} /></a>
+                        <a href='/'><Logo width={50} /></a><br />
                     </div>
                     <div className='center_text about_main_title--mobile'>
-                    <a href='/'><Logo width={100} /></a>
+                        <a href='/'><Logo width={100} /></a><br />
                     </div>
                 </Paper>
             </div>
