@@ -31,8 +31,11 @@ const Text = (props) => (
                 </div>
                 <div className='about_textdiv'>
                     <h4 className='about_header'>Hire Me</h4>
-                    <p>Email: coding.aaronp@gmail.com <br/>
-                                    Phone: 604-996-8835</p>
+                    <p>
+                        Email: coding.aaronp@gmail.com <br/>
+                        Phone: 604-996-8835<br/>
+                        LinkedIn: <a href='https://www.linkedin.com/in/aaron-j-price-152835124/'>Aaron J. Price</a><br/>
+                        Github: <a href='https://github.com/aaron-price'>aaron-price</a></p>
                     <p>Or fill out this form</p>
                     <ContactForm className='about_contactform'/>
                 </div>
@@ -59,10 +62,22 @@ const Text = (props) => (
                 <div className='about_textdiv'>
                     <h4 className='about_header'>Open Source</h4>
                     <p>According to GitHub, I made <a href='https://github.com/aaron-price/'><strong>over 2,000</strong> contributions</a> in the last year.</p>
-                    <p>My main projects:</p>
+                    <p>A couple projects I created:</p>
                     <ul className='unstyled_list'>
-                        <li>[<a href='https://pypi.org/project/reactjo/'>PIP</a> | <a href="https://github.com/aaron-price/reactjo">GitHub</a>] <strong className='about_strong'>ReactJo</strong>: Imagine if React had ruby on rails' scaffolding, but more interactive, and with two apps (Javascript/Node + Python/Django) working over an API, to give user authentication, permissions, etc.</li>
-                        <li>[<a href='https://www.npmjs.com/package/sweet-render'>NPM</a> | <a href="https://github.com/aaron-price/sweet-render">GitHub</a>] <strong className='about_strong'>Sweet-Render</strong>: A templating engine which can replace React's 'JSX' syntax.</li>
+                        <li>
+                            <strong className='about_strong'>ReactJo</strong><br/>
+                            Links: <a href='https://pypi.org/project/reactjo/'>PIP</a> | <a href="https://github.com/aaron-price/reactjo">GitHub</a><br/><br/>
+                            A tool for generating applications. It asks you what you want, and walks you through everything you'll need to think about; then builds it for you. You could use it to make and launch a social network in an hour. Or a SaaS, e-commerce, forum, etc.<br/><br/>
+
+                            On a technical level, it makes a Django/Python backend server, with a NodeJS/Javascript frontend server, Rendering some beautiful ReactJS on the browser. The two servers communicate through an API so you could add more frontends in the future (like a mobile app) which would seamlessly integrate with the same database. It comes with user authentication, and interactive model and permissions scaffolding.
+                        </li>
+                        <li><hr/>
+                            <br/>
+                            <strong className='about_strong'>Sweet-Render</strong><br/>
+                            Links: <a href='https://www.npmjs.com/package/sweet-render'>NPM</a> | <a href="https://github.com/aaron-price/sweet-render">GitHub</a><br/><br/>
+                            A tool which lets you design your own templating language, and render it as HTML or React.<br />
+                            You can even replace React's 'JSX' syntax with your own.
+                        </li>
                     </ul>
                 </div>
             </Paper><br/>
