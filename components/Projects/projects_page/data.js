@@ -34,6 +34,14 @@ const oss_projects = [
             tags.front, tags.html, tags.js, tags.oss, tags.react
         ],
     },
+    {
+        title: 'console.dog',
+        description: 'A lame joke, but it really does work.',
+        href: 'https://www.npmjs.com/package/console-dog',
+        tags: [
+            tags.js, tags.oss
+        ],
+    },
 ]
 const mockup_projects = [
     /*

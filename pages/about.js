@@ -34,7 +34,7 @@ const Text = (props) => (
                     <p>
                         Email: coding.aaronp@gmail.com <br/>
                         Phone: 604-996-8835<br/>
-                        LinkedIn: <a href='https://www.linkedin.com/in/aaron-j-price-152835124/'>Aaron J. Price</a><br/>
+                        LinkedIn: <a href='https://www.linkedin.com/in/aaronjprice/'>Aaron J. Price</a><br/>
                         Github: <a href='https://github.com/aaron-price'>aaron-price</a></p>
                     <p>Or fill out this form</p>
                     <ContactForm className='about_contactform'/>
