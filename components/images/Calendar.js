@@ -6,12 +6,12 @@ export default (props) => {
                     <circle cx='390.5' cy='386.5' r='380.5' fill='none' />
                 </clippath>
             </defs>
-            <g clipPath='url(#clip-path)' id='Layer_8' dataName='Layer 8'>
+            <g clipPath='url(#clip-path)' id='Layer_8'>
                 <circle cx='390.5' cy='386.5' r='380.5' fill='#69e8b1' />
                 <path d='M760.19,296.06C824.3,579.23,579.41,805.84,330.05,762.22h0L147.14,614.67,643.07,179.21,760.19,296.06'
                     fill='#60cc9b' />
             </g>
-            <g id='Layer_3' dataName='Layer 3'>
+            <g id='Layer_3'>
                 <rect x='134.08' y='182.26' width='524.42' height='455.15' rx='60' ry='60'
                     fill='#bdc3c7' />
                 <rect x='134.08' y='173.02' width='524.42' height='464.39' rx='60' ry='60'
@@ -22,8 +22,8 @@ export default (props) => {
                 />
             </g>
             <path d='M658.49,219.53l.46,67.7H132.86l.3-67.7S135.42,162.4,189,162.4H588.81C599.48,161.53,659,162.4,658.49,219.53Z'
-                fill='#e74c3c' id='Layer_4' dataName='Layer 4' />
-            <g id='Layer_5' dataName='Layer 5'>
+                fill='#e74c3c' id='Layer_4'/>
+            <g id='Layer_5'>
                 <circle cx='221.17' cy='224.31' r='40.64' fill='#c04a3f' />
                 <circle cx='570.99' cy='225.71' r='40.64' fill='#c04a3f' />
                 <rect x='192.31' y='362.52' width='58.29' height='50.45' fill='#bdc3c7'
