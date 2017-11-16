@@ -17,8 +17,8 @@ export default (props) => {
             </defs>
             <path d='M8.91,386A377.66,377.66,0,0,1,42.09,231.12c85.54-191,309.75-276.57,500.79-191C683.55,103.08,767,241.25,767.09,386Z'
                 stroke='#000' strokeMiterlimit='10' opacity='.48' fill='url(#linear-gradient)'
-                id='Layer_2' dataName='Layer 2' />
-            <g id='Layer_3' dataName='Layer 3'>
+                id='Layer_2' />
+            <g id='Layer_3'>
                 <path d='M160,357h21s15-170,173-170S523,357,523,357h89s10-230-226-230S160,357,160,357Z'
                     fill='url(#linear-gradient-2)' />
                 <rect x='69' y='343' width='65' height='23' rx='11.5' ry='11.5' fill='#093'
@@ -52,8 +52,7 @@ export default (props) => {
                 stroke='#592a0b' strokeMiterlimit='10' id='dial'
                 transformOrigin='bottom'
                 transform='rotate(100 deg)'/>
-            <path d='M309.73,386h154s8.7-93-75-93S309.73,386,309.73,386Z' id='Layer_4'
-                dataName='Layer 4' />
+            <path d='M309.73,386h154s8.7-93-75-93S309.73,386,309.73,386Z' id='Layer_4'/>
         </svg>
     )
 }

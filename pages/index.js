@@ -43,47 +43,51 @@ class index extends Component {
         tl.staggerFrom(about, 1.8, {opacity: 0, ease: Sine.easeOut}, 0)
     }
     render() {
-        return (
-            <FocusedHead current_user={this.props.current_user}>
-                <div className="full_screen light_cyan">
-                    <div className="full_screen__inner_wrapper">
-                        <Paper className="full_screen__header">
-                            <Logo unit='vmin'/>
-                        </Paper>
-                        <div className="choice_box" style={this.state.visible ? {} : {display: 'none'}}>
-                            <Motion defaultStyle={{margin: 100}} style={{margin: spring(0, {stiffness:100, damping: 50})}}>
-                                {value => (
-                                    <HoverPaper style={{marginLeft: `-${value.margin}vw`}} ref='about' classes="choice_box__item" href="/about">
-                                        <div
-                                            onMouseOver={() => this.update_state('hover_me', true)}
-                                            onMouseOut={() => this.update_state('hover_me', false)}>
-                                            <h1 className="center_text choice_box__text">Learn About Me</h1>
-                                            <ImageComponent visible={!this.state.hover_me && 'invisible'} src={surprise} classes="choice_box__img smile"/>
-                                            <ImageComponent visible={this.state.hover_me && 'invisible'} src={smile} classes="choice_box__img smile"/>
-                                        </div>
-                                    </HoverPaper>
-                                )}
-                            </Motion>
+        if (!this.state.visible) {
+            return <div></div>
+        } else {
+            return (
+                <FocusedHead current_user={this.props.current_user}>
+                    <div className="full_screen light_cyan">
+                        <div className="full_screen__inner_wrapper">
+                            <Paper className="full_screen__header">
+                                <Logo unit='vmin'/>
+                            </Paper>
+                            <div className="choice_box" style={this.state.visible ? {} : {display: 'none'}}>
+                                <Motion defaultStyle={{margin: 100}} style={{margin: spring(0, {stiffness:100, damping: 50})}}>
+                                    {value => (
+                                        <HoverPaper style={{marginLeft: `-${value.margin}vw`}} ref='about' classes="choice_box__item" href="/about">
+                                            <div
+                                                onMouseOver={() => this.update_state('hover_me', true)}
+                                                onMouseOut={() => this.update_state('hover_me', false)}>
+                                                <h1 className="center_text choice_box__text">Learn About Me</h1>
+                                                <ImageComponent visible={!this.state.hover_me && 'invisible'} src={surprise} classes="choice_box__img smile"/>
+                                                <ImageComponent visible={this.state.hover_me && 'invisible'} src={smile} classes="choice_box__img smile"/>
+                                            </div>
+                                        </HoverPaper>
+                                    )}
+                                </Motion>
 
-                            <Motion defaultStyle={{margin: 100}} style={{margin: spring(0, {stiffness:100, damping: 50})}}>
-                                {value => (
-                                    <HoverPaper style={{marginRight: `-${value.margin}vw`}} classes="choice_box__item" href="/projects">
-                                        <div
-                                            onMouseOver={() => this.update_state('hover_prj', true)}
-                                            onMouseOut={() => this.update_state('hover_prj', false)}>
-                                            <h1 className="center_text choice_box__text">Explore My Projects</h1>
-                                            <ImageComponent visible={!this.state.hover_prj && 'invisible'} src={reactjo1} classes="choice_box__img smile"/>
-                                            <ImageComponent visible={this.state.hover_prj && 'invisible'} src={reactjo2} classes="choice_box__img smile"/>
-                                        </div>
+                                <Motion defaultStyle={{margin: 100}} style={{margin: spring(0, {stiffness:100, damping: 50})}}>
+                                    {value => (
+                                        <HoverPaper style={{marginRight: `-${value.margin}vw`}} classes="choice_box__item" href="/projects">
+                                            <div
+                                                onMouseOver={() => this.update_state('hover_prj', true)}
+                                                onMouseOut={() => this.update_state('hover_prj', false)}>
+                                                <h1 className="center_text choice_box__text">Explore My Projects</h1>
+                                                <ImageComponent visible={!this.state.hover_prj && 'invisible'} src={reactjo1} classes="choice_box__img smile"/>
+                                                <ImageComponent visible={this.state.hover_prj && 'invisible'} src={reactjo2} classes="choice_box__img smile"/>
+                                            </div>
 
-                                    </HoverPaper>
-                                )}
-                            </Motion>
+                                        </HoverPaper>
+                                    )}
+                                </Motion>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </FocusedHead>
-        )
+                </FocusedHead>
+            )
+        }
     }
 }
 index.getInitialProps = async function(context) {
