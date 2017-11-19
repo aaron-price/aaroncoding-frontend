@@ -74,9 +74,7 @@ class Signup extends Component {
                 <Head current_user={this.props.current_user}>
                     <div className='dailyui_reset'>
                         <div className='flex_container'>
-                            <div
-                                className='dailyui_signup_body'
-                                style={{backgroundImage: "url('/static/forest.png')"}}>
+                            <div className='dailyui_signup_body'>
                                 <Nav></Nav>
                                 <Challenge></Challenge>
                             </div>

@@ -137,10 +137,16 @@ $daily_signup_input_bg: #292929;
         width: 100vw;
         border-radius: 2px;
     }
+    .dailyui_signup_body {
+        background-image: url(https://s3-us-west-2.amazonaws.com/aaroncoding/images/backgrounds/forest_min.png)
+    }
 }
 @media (min-width: $breakpoint) {
     .dailyui_signup_box {
         width: 50vw;
         border-radius: 4px;
+    }
+    .dailyui_signup_body{
+        background-image: url(https://s3-us-west-2.amazonaws.com/aaroncoding/images/backgrounds/forest.png)
     }
 }
