@@ -14,16 +14,13 @@ const Nav = (props) => {
 }
 
 const InputField = (props) => (
-    <input
-        className='daily_ui_signup_input'
-        type={props.placeholder || 'text'}
-        placeholder={props.placeholder} />
-)
-
-const TextAreaField = (props) => (
-    <textarea
-        className='daily_ui_signup_input textarea'
-        placeholder={props.placeholder} />
+    <div className='dailyui_signup_input_container'>
+        <div className='dailyui_signup_input_label'>{props.label}</div>
+        <input
+            className='daily_ui_signup_input'
+            type={props.type || 'text'}
+            placeholder={props.placeholder} />
+    </div>
 )
 const SubmitField = (props) => (
     <input
@@ -38,14 +35,13 @@ const Challenge = (props) => {
 
                 <div className='dailyui_signup_box_head'>
                     <h1 style={{color: '#DADADA'}}>Your adventure awaits!</h1>
-                    <p>Sign up now for free access</p>
+                    <p style={{color: '#AAAAAA'}}>Sign up now for free access</p>
                 </div>
                 <div className='dailyui_signup_box_formdiv'>
                     <form className='dailyui_signup_box_form'>
-                        <InputField placeholder='Name' />
-                        <InputField placeholder='Email' />
-                        <TextAreaField placeholder='Bio' />
-                        <InputField placeholder='Password' type='password' />
+                        <InputField placeholder='Aaron Price' label='Name'/>
+                        <InputField placeholder='coding.aaronp@gmail.com' label='Email'/>
+                        <InputField label='Password' type='password' placeholder=''/>
                         <SubmitField placeholder='Join'/>
                     </form>
                 </div>

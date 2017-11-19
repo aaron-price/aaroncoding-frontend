@@ -2,7 +2,7 @@ $daily_signup_box_bg: #424242;
 $daily_signup_input_bg: #292929;
 
 @mixin placeholder_style() {
-    color: #DADADA;
+    color: #AAAAAA;
     font-size: 1em;
     text-align: center;
 }
@@ -74,76 +74,73 @@ $daily_signup_input_bg: #292929;
         background-color: $deepOrange900;
     }
 }
+.dailyui_signup_box_form {
+    width: 100%;
+}
+.dailyui_signup_input_container {
+    display: flex;
+    align-items: center;
+    background-color: #292929;
+    height: 4em;
+    border-radius: 6px;
+    margin: 1em 0;
+}
+.dailyui_signup_input_label {
+    background-color: #191919;
+    color: #FFFFFF;
+    height: 100%;
+    width: 20%;
+    min-width: 8em;
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+    border-radius: 6px 0 0 6px;
+}
+.dailyui_signup_box {
+    min-height: 31em;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+    border-radius: 2px;
+    border-color: #313131;
+    border-style: solid;
+    border-width: 1px;
+    background-color: $daily_signup_box_bg;
+}
+.dailyui_signup_box_formdiv {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
 
+.daily_ui_signup_input {
+    width: 100%;
+    background-color: $daily_signup_input_bg;
+    border-radius: 0 6px 6px 0;
+    height: 100%;
+    border-width: 0;
+    color: #FFFFFF;
+    text-align: center;
+    &.textarea {
+        min-height: 4em;
+    }
+    &:hover {
+        border-color: $deepOrange900;
+        border-width: 2px;
+        border-style: solid;
+    }
+}
+
+.dailyui_signup_input_outer {
+
+}
 @media (max-width: $breakpoint - 1px) {
     .dailyui_signup_box {
         width: 100vw;
-        min-height: 31em;
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
         border-radius: 2px;
-        border-color: #313131;
-        border-style: solid;
-        border-width: 1px;
-        background-color: $daily_signup_box_bg;
-    }
-    .dailyui_signup_box_formdiv {
-        display: flex;
-        justify-content: center;
-        padding: 1em;
-    }
-
-    .daily_ui_signup_input {
-        width: 100%;
-        border-color: $daily_signup_input_bg;
-        border-width: 0px;
-        background-color: $daily_signup_input_bg;
-        border-radius: 5px;
-        height: 3em;
-        margin-top: 1em;
-        padding: 1em;
-        &.textarea {
-            min-height: 4em;
-        }
     }
 }
 @media (min-width: $breakpoint) {
     .dailyui_signup_box {
         width: 50vw;
-        min-height: 31em;
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
         border-radius: 4px;
-        border-color: #313131;
-        border-style: solid;
-        border-width: 1px;
-        background-color: $daily_signup_box_bg;
     }
-    .dailyui_signup_box_formdiv {
-        display: flex;
-        justify-content: center;
-        padding: 1em;
-    }
-
-    .daily_ui_signup_input {
-        width: 100%;
-        border-color: $daily_signup_input_bg;
-        border-width: 0px;
-        background-color: $daily_signup_input_bg;
-        color: #FFFFFF;
-        border-radius: 5px;
-        height: 3em;
-        padding: 1em;
-        margin-top: 1em;
-        &.textarea {
-            min-height: 4em;
-        }
-        &:hover {
-            border-color: $deepOrange900;
-            border-width: 2px;
-            border-style: solid;
-        }
-    }
-}
-
-.dailyui_signup_box_form {
-    width: 100%;
 }
