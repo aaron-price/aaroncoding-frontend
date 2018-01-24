@@ -11,20 +11,6 @@ import stylesheet from 'styles/index.scss'
 try { injectTapEventPlugin() } catch(e) {}
 const muiTheme = getMuiTheme({ userAgent: false })
 
-const NavLogo = (props) => (
-    <Paper style={{ minHeight: '3.5em' }}>
-        <div>
-            <div className='center_text about_main_title--desktop'>
-                <a href='/'><Logo width={50} /></a><br />
-            </div>
-            <div className='center_text about_main_title--mobile'>
-                <a href='/'><Logo width={100} /></a><br />
-            </div>
-        </div>
-    </Paper>
-
-)
-
 export default (props) => (
     <MuiThemeProvider muiTheme={muiTheme}>
         <div>
@@ -41,21 +27,24 @@ export default (props) => (
                     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
                     })(window,document,'script','dataLayer','GTM-K9SDT53');`}} />
+                <style dangerouslySetInnerHTML={{__html: `
+                    body {
+                        background-color: white !important;
+                    }
+                `}} />
 
             </Head>
             <noscript dangerouslySetInnerHTML={{__html: '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9SDT53" height="0" width="0" style="display:none;visibility:hidden;"></iframe>'}} />
             <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
 
-            <div className='body'>
-                <Navbar
-                    className='body_top'
-                    logo={NavLogo}
-                    current_user={props.current_user} />
-                <Paper className='body_middle' style={props.body_middle_style || {}}>
-                    {props.children}
-                </Paper>
-                <Footer />
+
+            <Navbar
+                current_user={props.current_user} />
+            <div className='minimal_body'>
+                {props.children}
             </div>
+            <Footer />
+
         </div>
     </MuiThemeProvider>
 )

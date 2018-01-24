@@ -48,6 +48,7 @@ class index extends Component {
         } else {
             return (
                 <FocusedHead current_user={this.props.current_user}>
+					{/*<img src="http://localhost:4000/api/aaron/125/image.png" />*/}
                     <div className="full_screen light_cyan">
                         <div className="full_screen__inner_wrapper">
                             <Paper className="full_screen__header">

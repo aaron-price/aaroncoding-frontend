@@ -1,0 +1,73 @@
+$min_width: 16rem;
+
+.ccform__wrapper {
+    min-height: 30em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+@mixin ccform_panel() {
+    width: 100%;
+    min-width: $min_width;
+    color: #FFFFFF;
+    flex: 1;
+}
+.ccform__cta {
+    @include ccform_panel();
+    background-color: #FF7043;
+    text-align: center;
+    padding: 1em;
+}
+
+.ccform__form {
+    @include ccform_panel();
+    background-color: #2196F3;
+    margin-top: -16px;
+    flex: 5;
+}
+
+.ccform__security {
+    @include ccform_panel();
+    background-color: #00C853;
+}
+
+.ccform__field {
+    display: flex;
+    flex-direction: column;
+}
+.ccform__exp {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: $breakpoint - 1px) {
+    .ccform__form {
+        > form {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+        }
+    }
+    .ccform__fields {
+        width: 80%;
+        min-width: $min_width;
+    }
+}
+@media (min-width: $breakpoint) {
+    .ccform__form {
+        > form {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+        }
+    }
+    .ccform__fields {
+        min-width: $min_width;
+    }
+}
