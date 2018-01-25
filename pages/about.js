@@ -66,6 +66,17 @@ const OSS = props => (
                 <p>According to GitHub, I made <a href='https://github.com/aaron-price/'><strong>over 2,500</strong> contributions</a> in the last year.</p>
                 <p>A couple projects I created:</p>
                 <ul className='unstyled_list'>
+                    <li><hr/>
+                        <br/>
+                        <strong className='about_strong'>Thing a day</strong><br/>
+                        <a href='https://aaroncoding.com/30days'>Check out this month of madness</a><br/><br/>
+                        I challenged myself to start and finish one small project every day for a month.<br/><br/>
+                        Some of my personal favourites from this series:<br/>
+                        <a href='https://aaroncoding.com/30days/minesweeper'>Day 4: Minesweeper</a><br/>
+                        <a href='https://aaroncoding.com/30days/story'>Day 17: Random Story Generator</a><br/>
+                        <a href='https://aaroncoding.com/30days/line_graph'>Day 22: Handmade Animation Engine</a>
+                        <br/><br/>
+                    </li>
                     <li>
                         <strong className='about_strong'>ReactJo</strong><br/>
                         Links: <a href='https://pypi.org/project/reactjo/'>PIP</a> | <a href="https://github.com/aaron-price/reactjo">GitHub</a><br/><br/>
