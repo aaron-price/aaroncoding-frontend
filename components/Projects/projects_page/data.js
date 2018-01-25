@@ -1,21 +1,27 @@
-const tags = {
-    'animation': { title: 'Animation', visibility: 'show' },
-    'api': { title: 'API', visibility: 'show' },
-    'back': { title: 'Backend', visibility: 'show' },
-    'day': { title: 'Built in 1 day', visibility: 'show' },
-    'django': { title: 'Django', visibility: 'show' },
-    'front': { title: 'Frontend', visibility: 'show' },
-    'game': { title: 'Game', visibility: 'show' },
-    'html': { title: 'HTML', visibility: 'show' },
-    'js': { title: 'Javascript', visibility: 'show' },
-    'mockup': { title: 'Mockup', visibility: 'show' },
-    'node': { title: 'NodeJS', visibility: 'show' },
-    'oss': { title: 'Open Source', visibility: 'show' },
-    'python': { title: 'Python', visibility: 'show' },
-    'react': { title: 'ReactJS', visibility: 'show' },
-    'sass': { title: 'CSS, SASS, and postCSS', visibility: 'show' },
-    'svg': { title: 'SVG', visibility: 'show' },
+let tags = {
+    'animation': { title: 'Animation' },
+    'api': { title: 'API' },
+    'back': { title: 'Backend' },
+    'bootstrap': { title: 'Bootstrap' },
+    'day': { title: 'Built in 1 day' },
+    'django': { title: 'Django' },
+    'design': { title: 'Design' },
+    'front': { title: 'Frontend' },
+    'game': { title: 'Game' },
+    'html': { title: 'HTML' },
+    'js': { title: 'Javascript' },
+    'mockup': { title: 'Mockup' },
+    'node': { title: 'NodeJS' },
+    'oss': { title: 'Open Source' },
+    'python': { title: 'Python' },
+    'photoshop': { title: 'Photoshop' },
+    'react': { title: 'ReactJS' },
+    'sass': { title: 'CSS, SASS, and postCSS' },
+    'svg': { title: 'SVG' },
 }
+// Add visibility: 'show' to every tag`
+Object.keys(tags).forEach(tag => tags[tag].visibility = 'show' )
+
 const oss_projects = [
     {
         title: 'ReactJo Scaffolding Engine',
@@ -292,7 +298,23 @@ const micro_projects = [
             tags.day, tags.front, tags.js, tags.react
         ],
     },
-]
+    {
+        title: 'Day 31: Signup form mockup',
+        description: 'Broadening my horizons. Signup form without material-ui',
+        href: '/dailyui/signup',
+        tags: [
+            tags.day, tags.front, tags.js, tags.photoshop, tags.react
+        ],
+    },
+    {
+        title: 'Day 32: Credit card form mockup',
+        description: 'A bootstrappy one',
+        href: '/dailyui/ccform',
+        tags: [
+            tags.bootstrap, tags.day, tags.front, tags.js, tags.react
+        ],
+    },
+].reverse()
 
 module.exports = {
     tags,

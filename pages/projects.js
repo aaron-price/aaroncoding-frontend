@@ -162,7 +162,7 @@ class Projects extends Component {
                     padding={true}
                     title={`Thing A Day (${this.state.micro_projects.length})`}
                     image={Calendar}
-                    slug={'I did 1 small project every day, after work, for a month.'}>
+                    slug={'Small projects that took 1 day or less to make.'}>
                     {this.state.micro_projects.map((project, key) => {
                         return (
                             <Project

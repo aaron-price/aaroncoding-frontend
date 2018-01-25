@@ -9,7 +9,6 @@ import MenuItem from 'material-ui/MenuItem'
 import { Navbar, Nav, NavItem } from 'reactstrap'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
-import Logo from './Logo.js'
 import SocialButtons from './SocialButtons.js'
 
 import {
@@ -18,6 +17,8 @@ import {
     details_user_permission,
     update_user_permission,
     delete_user_permission } from '../services/permissions.js'
+
+const Empty = (props) => <span></span>
 
 // Home
 const HomeLinkMobile = (props) => {
@@ -252,7 +253,7 @@ class NavContainer extends React.Component {
     }
     render() {
         let authenticated = !!this.state.id && !!this.state.name
-
+        let Logo = this.props.logo || Empty
         return (
             <div>
                 <Paper style={{
@@ -270,16 +271,7 @@ class NavContainer extends React.Component {
                         authenticated={authenticated}
                         logout={this.logout} />
                 </Paper>
-                <Paper style={{
-                    minHeight: '3.5em'
-                }}>
-                    <div className='center_text about_main_title--desktop'>
-                        <a href='/'><Logo width={50} /></a><br />
-                    </div>
-                    <div className='center_text about_main_title--mobile'>
-                        <a href='/'><Logo width={100} /></a><br />
-                    </div>
-                </Paper>
+                <Logo />
             </div>
         )
     }
