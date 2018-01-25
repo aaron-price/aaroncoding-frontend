@@ -298,22 +298,22 @@ const micro_projects = [
             tags.day, tags.front, tags.js, tags.react
         ],
     },
-    {
-        title: 'Day 31: Signup form mockup',
-        description: 'Broadening my horizons. Signup form without material-ui',
-        href: '/dailyui/signup',
-        tags: [
-            tags.day, tags.front, tags.js, tags.photoshop, tags.react
-        ],
-    },
-    {
-        title: 'Day 32: Credit card form mockup',
-        description: 'A bootstrappy one',
-        href: '/dailyui/ccform',
-        tags: [
-            tags.bootstrap, tags.day, tags.front, tags.js, tags.react
-        ],
-    },
+    // {
+    //     title: 'Day 31: Signup form mockup',
+    //     description: 'Broadening my horizons. Signup form without material-ui',
+    //     href: '/dailyui/signup',
+    //     tags: [
+    //         tags.day, tags.front, tags.js, tags.photoshop, tags.react
+    //     ],
+    // },
+    // {
+    //     title: 'Day 32: Credit card form mockup',
+    //     description: 'A bootstrappy one',
+    //     href: '/dailyui/ccform',
+    //     tags: [
+    //         tags.bootstrap, tags.day, tags.front, tags.js, tags.react
+    //     ],
+    // },
 ].reverse()
 
 module.exports = {
