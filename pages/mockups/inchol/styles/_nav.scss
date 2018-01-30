@@ -19,19 +19,11 @@
         justify-content: space-around;
         align-items: center;
     }
-    .testimonial { width: 50%; }
-    .testimonials-outer-wrapper {
-        min-height: 50vh;
-    }
 }
 @media (max-width: 768px) {
     // Small screens
     .nav-item {
         text-align: center;
-    }
-    .testimonial { width: 100%; }
-    .testimonials-outer-wrapper {
-        min-height: 100vmax;
     }
 }
 a.nav-link {
