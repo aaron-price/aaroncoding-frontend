@@ -4,7 +4,6 @@ import { initStore } from '../../redux/store'
 import withRedux from 'next-redux-wrapper'
 import { return_current_user } from '../../services/current_user.js'
 
-
 class NetworkMonitor extends Component {
     constructor(props) {
         super(props)
@@ -17,9 +16,11 @@ class NetworkMonitor extends Component {
         )
     }
 }
+
 NetworkMonitor.getInitialProps = async function(context) {
     return {
         current_user: await return_current_user(context),
     }
 }
+
 export default withRedux(initStore, null)(NetworkMonitor)

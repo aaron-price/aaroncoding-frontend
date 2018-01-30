@@ -1,0 +1,49 @@
+.testimonials-outer-wrapper {
+    overflow-x: hidden;
+    position: relative;
+    background-image: url("https://s3-us-west-2.amazonaws.com/aaroncoding/images/mockups/inchol/people.jpg");
+    background-color: $greenA100;
+}
+
+.testimonials-header {
+    font-size: 4vw;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    color: $white;
+    top: 0.5rem;
+}
+
+.testimonials-overlay {
+    background-color: rgba($pink500, 0.9);
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.testimonials-inner-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 300vw;
+    position: relative;
+    top: 1rem;
+}
+
+.testimonial-element {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: ease-out;
+}
+
+.testimonial {
+    background-color: #FFF;
+    padding: 1rem;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+}

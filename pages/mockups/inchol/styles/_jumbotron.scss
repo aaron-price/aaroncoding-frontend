@@ -1,0 +1,39 @@
+.jumbotron-wrapper {
+    width: 100vw;
+    height: 80vmax;
+    background-image: url("https://s3-us-west-2.amazonaws.com/aaroncoding/images/mockups/inchol/dcg1_Banner1.png");
+    background-color: $blueGrey500;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+$devices-width: 371px;
+$devices-height: 359px;
+
+.jumbotron-devices {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+.jumbotron-devices-img {
+    width: 50%;
+    height: 50%;
+    max-width: $devices-width * 2;
+    max-height: $devices-height * 2;
+}
+
+.jumbotron-text {
+    color: $white;
+}
+.jt-header {
+    font-size: 4vw;
+}
+.jt-p {
+    font-size: 2.5vw;
+    color: $orange500;
+}
+.jt-btn {
+    background-color: $blue600;
+}

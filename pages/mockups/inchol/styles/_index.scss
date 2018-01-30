@@ -1,0 +1,16 @@
+@import '../../../../styles/base/base.scss';
+@import '../../../../styles/base/variables.scss';
+@import '../../../../styles/base/functions.scss';
+@import '../../../../styles/base/mixins.scss';
+@import 'jumbotron.scss';
+@import 'testimonials.scss';
+@import 'nav.scss';
+@import 'support.scss';
+@import 'growth.scss';
+
+body {
+    background-color: #FFF;
+}
+.full { width: 100%; }
+.flex-parent { display: flex; }
+.space-around { justify-content: space-around; }
