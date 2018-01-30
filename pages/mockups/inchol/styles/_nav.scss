@@ -1,0 +1,90 @@
+.bg-light {
+    background-color: #FFF !important;
+}
+
+.logo-btn-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 769px) {
+    // Large screens
+    div#collapsibleNavbar {
+        width: 100%;
+    }
+    .navbar-nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .testimonial { width: 50%; }
+    .testimonials-outer-wrapper {
+        min-height: 50vh;
+    }
+}
+@media (max-width: 768px) {
+    // Small screens
+    .nav-item {
+        text-align: center;
+    }
+    .testimonial { width: 100%; }
+    .testimonials-outer-wrapper {
+        min-height: 100vmax;
+    }
+}
+a.nav-link {
+    color: $grey800 !important;
+    &:hover {
+        color: $cyan400 !important;
+    }
+}
+
+@mixin hovers() {
+    cursor: pointer;
+    // margin: 1em;
+    background-color: #FFF;
+    color: #000;
+    // padding: 1em;
+    border-radius: 0.5em;
+    -webkit-border-radius:0.5em;
+    -moz-border-radius:0.5em;
+    border-radius:0.5em;
+    border-color: $cyan400;
+}
+@mixin slide($originX, $originY, $scaleType, $scaleSize, $underline: false) {
+  @include hovers;
+  position: relative;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border-style: none;
+  z-index: 1;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @if($underline == false) {top: 0;}
+    @if($underline == true) {height: 4px;}
+    background: $cyan400;
+    transform: if($scaleType == "X", scaleX(0), scaleY(0));
+    transform-origin: $originX $originY;
+    transition-property: transform;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
+  }
+  &:hover {
+    &::before {
+      transform: if($scaleType == "X", scaleX($scaleSize), scaleY($scaleSize));
+      transform-origin: $originX $originY;
+      transition-property: transform;
+      transition-duration: .2s;
+      transition-timing-function: ease-out;
+    }
+  }
+}
+.nav-item { @include slide(50%, 50%, "X", 1, true); }

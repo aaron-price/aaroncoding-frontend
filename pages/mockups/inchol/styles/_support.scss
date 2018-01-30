@@ -1,0 +1,36 @@
+.support-header {
+    font-size: 3vmax;
+    width: 100%;
+    text-align: center;
+    color: $cyan500;
+    margin-top: 1rem;
+}
+
+.support-flex-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.support-cell-text {
+    margin: 1rem;
+    padding: 1rem;
+}
+.support-cell-image {
+    border-radius: 100%;
+    padding: 3rem;
+}
+
+@media (min-width: 769px) {
+    // Large
+    .support-cell-text {
+        // max-width: 50vw;
+    }
+}
+@media (max-width: 768px) {
+    // Small
+    .support-flex-container {
+        flex-direction: column;
+    }
+}

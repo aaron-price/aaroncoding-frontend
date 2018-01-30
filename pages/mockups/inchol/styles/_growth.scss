@@ -1,0 +1,47 @@
+.growth-body {
+    background-image: url("https://s3-us-west-2.amazonaws.com/aaroncoding/images/mockups/inchol/dcg1_Banner003.png");
+    background-size: 100% 100%;
+    min-height: 411px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.growth-text {
+    color: #FFF;
+    font-size: 2vw;
+}
+.growth-header {
+    font-size: 3vw;
+    color: $orangeA100;
+}
+.growth-image {
+    width: 100%;
+}
+.growth-cell {
+    width: 45vw;
+    padding: 1rem;
+    margin: 1rem;
+}
+@media (min-width: 769px) {
+    // Large
+    .support-cell-text {
+        // max-width: 50vw;
+    }
+}
+@media (max-width: 768px) {
+    // Small
+    .growth-body {
+        flex-direction: column;
+        align-items: center;
+    }
+    .growth-cell-text {
+        order: 1;
+        text-align: center;
+    }
+    .growth-cell-image {
+        order: 2;
+    }
+    .growth-cell {
+        width: 90vw
+    }
+}
