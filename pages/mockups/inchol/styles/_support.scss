@@ -1,9 +1,20 @@
-.support-header {
-    font-size: 3vmax;
+.support-header-container {
     width: 100%;
+    // text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.support-header {
+    font-size: 2.5rem;
+    width: 90vw;
     text-align: center;
-    color: $cyan500;
-    margin-top: 1rem;
+    // margin: auto;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    border-radius: 2px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.12);
+    background-color: $cyan500;
+    color: $white;
 }
 
 .support-flex-container {
@@ -16,6 +27,9 @@
 .support-cell-text {
     margin: 1rem;
     padding: 1rem;
+    &> p {
+        color: $cyan800;
+    }
 }
 .support-cell-image {
     border-radius: 100%;

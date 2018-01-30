@@ -42,7 +42,9 @@ class Testimonials extends Component {
         return (
             <div className="testimonials-outer-wrapper">
                 <div className="testimonials-overlay"></div>
-                <div className="testimonials-header">See what our clients are saying</div>
+                <div className="testimonials-header-wrapper">
+                    <div className="testimonials-header">See what our clients are saying</div>
+                </div>
                 <div className="testimonials-inner-wrapper">
                     <Testimonial
                         space={0 + (this.state.current * -200)}

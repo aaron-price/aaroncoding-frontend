@@ -1,6 +1,6 @@
 .jumbotron-wrapper {
     width: 100vw;
-    height: 80vmax;
+    height: 90vmax;
     background-image: url("https://s3-us-west-2.amazonaws.com/aaroncoding/images/mockups/inchol/dcg1_Banner1.png");
     background-color: $blueGrey500;
     display: flex;
@@ -22,6 +22,15 @@ $devices-height: 359px;
     height: 50%;
     max-width: $devices-width * 2;
     max-height: $devices-height * 2;
+}
+
+.jumbotron-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.jumbotron-button {
+    margin: 1rem;
 }
 
 .jumbotron-text {
