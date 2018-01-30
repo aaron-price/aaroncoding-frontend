@@ -5,13 +5,24 @@
     background-color: $greenA100;
 }
 
+.testimonials-header-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .testimonials-header {
     font-size: 4vw;
-    width: 100%;
+    width: 80vw;
+    text-align: center;
+    padding: 0.5rem;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
     text-align: center;
     z-index: 10;
     position: relative;
-    color: $white;
+    background-color: $white;
+    color: $pink500;
     top: 0.5rem;
 }
 
@@ -43,6 +54,7 @@
 
 .testimonial {
     background-color: #FFF;
+    color: $pink500;
     padding: 1rem;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.12);
     border-radius: 2px;

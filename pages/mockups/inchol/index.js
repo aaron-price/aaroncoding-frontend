@@ -9,6 +9,7 @@ import Jumbotron from './components/Jumbotron.js'
 import Testimonials from './components/Testimonials.js'
 import Support from './components/Support.js'
 import Growth from './components/Growth.js'
+import App from './components/App.js'
 
 const CustomHeaders = props => (
     <span>
@@ -38,9 +39,10 @@ class Inchol extends Component {
                     current_user={this.props.current_user}>
                     <Menu />
                     <Jumbotron />
-                    <Testimonials />
-                    <Support />
+                    <App />
                     <Growth />
+                    <Support />
+                    <Testimonials />
                 </Head>
             </div>
         )
