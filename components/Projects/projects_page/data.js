@@ -6,6 +6,7 @@ let tags = {
     'day': { title: 'Built in 1 day' },
     'django': { title: 'Django' },
     'design': { title: 'Design' },
+    'elixir': { title: 'Elixir' },
     'front': { title: 'Frontend' },
     'game': { title: 'Game' },
     'html': { title: 'HTML' },
@@ -23,6 +24,12 @@ let tags = {
 Object.keys(tags).forEach(tag => tags[tag].visibility = 'show' )
 
 const oss_projects = [
+    {
+        title: 'Weighted Random',
+        description: 'Helper functions for dealing with weighted random in elixir',
+        href: 'https://hex.pm/packages/weighted_random',
+        tags: [ tags.elixir ],
+    },
     {
         title: 'ReactJo Scaffolding Engine',
         description: 'Spin up microservice react apps in minutes',

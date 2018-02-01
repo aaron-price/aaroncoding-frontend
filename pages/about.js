@@ -93,6 +93,12 @@ const OSS = props => (
                     </li>
                     <li><hr/>
                         <br/>
+                        <strong className='about_strong'>Weighted Random</strong><br/>
+                        Links: <a href="https://hexdocs.pm/weighted_random/WeightedRandom.html">Hex Docs</a> | <a href="https://github.com/aaron-price/weighted_random">GitHub</a><br/><br/>
+                        Functions for working with weighted random values in elixir.
+                    </li>
+                    <li><hr/>
+                        <br/>
                         <strong className='about_strong'>Sweet-Render</strong><br/>
                         Links: <a href='https://www.npmjs.com/package/sweet-render'>NPM</a> | <a href="https://github.com/aaron-price/sweet-render">GitHub</a><br/><br/>
                         A tool which lets you design your own templating language, and render it as HTML or React.<br />
